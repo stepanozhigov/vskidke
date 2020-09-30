@@ -1,0 +1,167 @@
+@layer base {
+    .app-template {
+        @apply h-screen;
+    }
+    .app-header {
+        @apply h-16;
+        @apply px-4;
+
+        background-color: theme("colors.bg");
+        box-shadow: inset 0 -1px 0 theme("colors.shadow");
+
+        .app-header-logo {
+            height: 3rem;
+        }
+
+        .app-call {
+            .app-call-number {
+                @apply font-suisseIntl;
+                @apply font-normal;
+                color: theme("colors.cblack");
+                font-size: 0.75rem;
+                letter-spacing: -0.25px;
+                line-height: 1rem;
+            }
+            .app-call-book {
+                @apply font-suisseIntl;
+                @apply font-medium;
+                @apply cursor-pointer;
+                @apply border-dotted border-b-2;
+                color: theme("colors.cbrown");
+                font-size: 0.75rem;
+                line-height: 1rem;
+            }
+        }
+    }
+
+    .home-view {
+        background-image: url("../images/bg-image-sm.jpg");
+        @apply bg-center;
+        @apply bg-no-repeat;
+        @apply bg-cover;
+
+        @apply px-4;
+
+        .home-view-content {
+            h1 {
+                @apply font-suisseIntl;
+                @apply font-bold;
+                color: theme("colors.cwhite");
+                font-size: 2rem;
+                letter-spacing: -0.3px;
+                line-height: 2.5rem;
+
+                @apply mt-8;
+            }
+
+            h3 {
+                @apply font-suisseIntl;
+                @apply font-bold;
+                color: theme("colors.cwhite");
+                font-size: 1.125rem;
+                line-height: 1.375rem;
+
+                @apply mt-4;
+            }
+
+            h5 {
+                @apply font-suisseIntl;
+                @apply font-light;
+                color: theme("colors.cwhite");
+                font-size: 0.875rem;
+                line-height: 1.25rem;
+
+                @apply mt-4;
+            }
+
+            a {
+                @apply block;
+                @apply font-manrope;
+                @apply font-normal underline;
+                color: theme("colors.cwhite1");
+                font-size: 1rem;
+                line-height: 1.5rem;
+                letter-spacing: -0.3px;
+                @apply mt-6;
+            }
+        }
+    }
+
+    p {
+        //             width: 328px
+        // height: 10px
+        // color: #66615a
+        // font-family: "Suisse Intl"
+        // font-size: 8px
+        // font-weight: 400
+        // letter-spacing: -0.3px
+        // line-height: 10px
+        // // Text style for "соглашаете"
+        // text-decoration: underline
+        @apply font-suisseIntl;
+        @apply font-normal;
+        color: theme("colors.cdark");
+        font-size: 0.5rem;
+        letter-spacing: -0.3px;
+        line-height: 0.625rem;
+
+        @apply mb-4;
+
+        span {
+            @apply underline;
+        }
+    }
+
+    .form-template {
+        margin-top: 1.625rem;
+
+        //         width: 312px
+        // height: 24px
+        // color: #b3adae
+        // font-family: "Suisse Intl"
+        // font-size: 18px
+        // font-weight: 400
+        // line-height: 24px
+        input {
+            @apply font-suisseIntl;
+            @apply font-normal;
+            color: theme("colors.cgray");
+            font-size: 1.125rem;
+            @apply w-full;
+            height: 3.5rem;
+            @apply bg-transparent border-none outline-none;
+            box-shadow: inset 0 -1px 0 #dbdad7;
+        }
+        ::placeholder {
+            color: theme("colors.cgray");
+        }
+
+        //button
+        button {
+            @apply mt-4;
+            @apply w-full;
+            height: 3.5rem;
+            box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16);
+            border-radius: 1px;
+            background-color: theme("colors.cbrown");
+
+            span {
+                @apply font-suisseIntl;
+                @apply font-normal;
+                color: theme("colors.cbright");
+                font-size: 1.125rem;
+                letter-spacing: -0.4px;
+                line-height: 1.5rem;
+            }
+        }
+    }
+
+    @screen sm {
+    }
+
+    @screen md {
+    }
+
+    @screen lg {
+    }
+}
