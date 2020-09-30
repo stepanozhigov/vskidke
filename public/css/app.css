@@ -818,8 +818,8 @@ p span {
   }
 
   .home-view {
-    background-image: url("../images/bg-image-sm.jpg");
-    background-position: center;
+    background-image: url("../images/bg-image-md.jpg");
+    background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
     padding-left: 2.5rem;
@@ -862,7 +862,6 @@ p span {
   .success-view {
     margin-left: auto;
     margin-right: auto;
-    margin: 0 5.625rem 0;
   }
 
   .success-view h2 {
@@ -903,7 +902,7 @@ p span {
   }
 
   .home-view {
-    background-image: url("../images/bg-image-sm.jpg");
+    background-image: url("../images/bg-image-lg.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -955,10 +954,6 @@ p span {
     line-height: 1.5rem;
     letter-spacing: -0.3px;
     margin-top: 1.5rem;
-  }
-
-  .success-view {
-    margin: 0 20.5rem 0;
   }
 }
 
@@ -20313,6 +20308,52 @@ p span {
 
 .animate-bounce {
   animation: bounce 1s infinite;
+}
+
+.button-pulse {
+  transition: all ease-in 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.button-pulse:hover:after {
+  left: 120%;
+}
+
+.button-pulse:after {
+  background: #fff;
+  content: "";
+  height: 9.6875rem;
+  left: -4.6875rem;
+  opacity: 0.2;
+  position: absolute;
+  top: -50px;
+  transform: rotate(35deg);
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  width: 3.125rem;
+  z-index: 1;
+  animation-delay: 0.01s;
+  animation-timing-function: ease-in-out;
+  animation-name: radiance;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes radiance {
+  0% {
+    left: -30px;
+    margin-left: 0px;
+  }
+
+  30% {
+    left: 110%;
+    margin-left: 80px;
+  }
+
+  100% {
+    left: 110%;
+    margin-left: 80px;
+  }
 }
 
 @media (min-width: 640px) {

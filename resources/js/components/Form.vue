@@ -17,7 +17,7 @@
       @focus.native="(isValid = true), (onFocus = true)"
       @blur.native="onFocus = false"
     />
-    <button>
+    <button class="button-pulse">
       <span>Получить консультацию и рассчёт</span>
     </button>
   </form>

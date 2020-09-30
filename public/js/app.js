@@ -2174,8 +2174,7 @@ var phoneValidat = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["helper
   components: {
     MaskedInput: vue_masked_input__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  mounted: function mounted() {
-    console.log("Component mounted.");
+  mounted: function mounted() {//console.log("Component mounted.");
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapGetters"])(["isModal", "isSuccess"])),
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess"])), {}, {
@@ -3454,7 +3453,7 @@ var render = function() {
             _c(
               "a",
               {
-                staticClass: "flex justify-center items-center",
+                staticClass: "flex justify-center items-center button-pulse",
                 attrs: { href: "https://ifinance.kz/main" }
               },
               [_vm._v("Перейти на сайт")]
@@ -3553,7 +3552,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("button", [
+    return _c("button", { staticClass: "button-pulse" }, [
       _c("span", [_vm._v("Получить консультацию и рассчёт")])
     ])
   }

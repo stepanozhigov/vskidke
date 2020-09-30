@@ -204,8 +204,8 @@
             }
         }
         .home-view {
-            background-image: url("../images/bg-image-sm.jpg");
-            @apply bg-center;
+            background-image: url("../images/bg-image-md.jpg");
+            @apply bg-top;
             @apply bg-no-repeat;
             @apply bg-cover;
 
@@ -252,7 +252,6 @@
         // SUCCESS VIEW
         .success-view {
             @apply mx-auto;
-            margin: 0 5.625rem 0;
 
             h2 {
                 @apply font-light;
@@ -298,7 +297,7 @@
             }
         }
         .home-view {
-            background-image: url("../images/bg-image-sm.jpg");
+            background-image: url("../images/bg-image-lg.jpg");
             @apply bg-center;
             @apply bg-no-repeat;
             @apply bg-cover;
@@ -352,7 +351,6 @@
         }
 
         .success-view {
-            margin: 0 20.5rem 0;
         }
     }
 }

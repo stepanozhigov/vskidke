@@ -146,7 +146,7 @@
       <h4>Ваша заявка принята</h4>
       <a
         href="https://ifinance.kz/main"
-        class="flex justify-center items-center"
+        class="flex justify-center items-center button-pulse"
         >Перейти на сайт</a
       >
     </div>
