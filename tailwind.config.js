@@ -25,7 +25,8 @@ module.exports = {
                 cbright: "#ffffff",
                 cdark: "#66615a",
                 bg: "#ffffff",
-                shadow: "#dbdad7"
+                shadow: "#dbdad7",
+                clightgray: "#14120e"
             }
         }
     },

@@ -2052,6 +2052,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2068,13 +2088,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.setViewHeight();
     window.addEventListener("resize", function () {
       _this.setViewHeight();
-    });
+    }); // this.setSuccess();
+    // this.setModal();
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(["isModal", "isSuccess"])),
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess"])), {}, {
     setViewHeight: function setViewHeight() {
       var vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty("--vh", "".concat(vh, "px")); //console.log(vh);
+    },
+    toggleModal: function toggleModal() {
+      if (this.isModal) {
+        this.unsetModal();
+      } else {
+        this.setModal();
+      }
+
+      this.unsetSuccess();
     }
   })
 });
@@ -2096,6 +2126,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2141,7 +2177,8 @@ var phoneValidat = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["helper
   mounted: function mounted() {
     console.log("Component mounted.");
   },
-  methods: {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapGetters"])(["isModal", "isSuccess"])),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess"])), {}, {
     submitForm: function submitForm() {
       if (this.$v.phone.$invalid) {
         this.isValid = false;
@@ -2158,9 +2195,13 @@ var phoneValidat = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["helper
         //         this.setSuccess();
         //         this.setModal();
         //     });
+
+        this.phone = "";
+        this.setSuccess();
+        this.setModal();
       }
     }
-  },
+  }),
   validations: {
     phone: {
       required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"],
@@ -3344,7 +3385,7 @@ var render = function() {
               staticClass: "app-call-number",
               attrs: { href: "tel:8 910 235-89-36" }
             },
-            [_vm._v("\n                +7 967 069-04-29\n            ")]
+            [_vm._v("\n        +7 967 069-04-29\n      ")]
           ),
           _vm._v(" "),
           _c(
@@ -3353,44 +3394,74 @@ var render = function() {
               staticClass: "app-call-book",
               on: {
                 click: function($event) {
-                  return _vm.toggleModal("Заказать звонок", "Заказать звонок")
+                  return _vm.toggleModal()
                 }
               }
             },
-            [_vm._v("\n                Заказать звонок\n            ")]
+            [_vm._v("\n        Заказать звонок\n      ")]
           )
         ])
       ]
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "home-view flex-grow flex flex-col" }, [
-      _c(
-        "section",
-        { staticClass: "home-view-content flex-grow" },
-        [
-          _c("h1", [_vm._v("Открытие банковских счетов")]),
+    !_vm.isSuccess && !_vm.isModal
+      ? _c("div", { staticClass: "home-view flex-grow flex flex-col" }, [
+          _c(
+            "section",
+            {
+              staticClass:
+                "home-view-content flex-grow md:flex md:flex-col md:justify-center"
+            },
+            [
+              _c("h1", [_vm._v("Открытие банковских счетов")]),
+              _vm._v(" "),
+              _c("h3", [
+                _vm._v(
+                  "\n        за 10 дней для офшорных компаний в Казахстане\n        и Кыргызстане\n      "
+                )
+              ]),
+              _vm._v(" "),
+              _c("h5", [
+                _vm._v(
+                  "\n        Оставьте номер телефона и получите подробную консультацию в\n        течение 5 минут по телефону или WhatsApp\n      "
+                )
+              ]),
+              _vm._v(" "),
+              _c("Form"),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "https://ifinance.kz/main" } }, [
+                _vm._v("Перейти на сайт")
+              ])
+            ],
+            1
+          ),
           _vm._v(" "),
-          _c("h3", [
-            _vm._v(
-              "\n                за 10 дней для офшорных компаний в Казахстане и Кыргызстане\n            "
+          _vm._m(0)
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.isSuccess && _vm.isModal
+      ? _c(
+          "div",
+          {
+            staticClass: "success-view flex-grow flex flex-col justify-center"
+          },
+          [
+            _c("h2", [_vm._v("Спасибо!")]),
+            _vm._v(" "),
+            _c("h4", [_vm._v("Ваша заявка принята")]),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "flex justify-center items-center",
+                attrs: { href: "https://ifinance.kz/main" }
+              },
+              [_vm._v("Перейти на сайт")]
             )
-          ]),
-          _vm._v(" "),
-          _c("h5", [
-            _vm._v(
-              "\n                Оставьте номер телефона и получите подробную консультацию в\n                течение 5 минут по телефону или WhatsApp\n            "
-            )
-          ]),
-          _vm._v(" "),
-          _c("Form"),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Перейти на сайт")])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _vm._m(0)
-    ])
+          ]
+        )
+      : _vm._e()
   ])
 }
 var staticRenderFns = [
@@ -3399,9 +3470,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", [
-      _vm._v("\n            Оставляя контактную информацию, вы "),
+      _vm._v("\n      Оставляя контактную информацию, вы "),
       _c("span", [_vm._v("соглашаетесь")]),
-      _vm._v(" на\n            обработку персональных данных\n        ")
+      _vm._v(" на\n      обработку персональных данных\n    ")
     ])
   }
 ]
