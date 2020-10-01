@@ -34,6 +34,22 @@
         }
     }
 
+    //DROPDOWN
+    .dropdown {
+        z-index: 10;
+
+        .iti-flag {
+            margin-right: 0.35rem;
+        }
+        .dropdown-list {
+            @apply font-suisseIntl;
+            @apply font-normal;
+        }
+        .dropdown-arrow {
+            color: theme("colors.shadow");
+        }
+    }
+
     // HOME VIEW
     .home-view {
         background-image: url("../images/bg-image-sm.jpg");
