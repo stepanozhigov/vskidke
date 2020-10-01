@@ -129,11 +129,11 @@
         <Form />
         <a href="https://ifinance.kz/main">Перейти на сайт</a>
       </section>
+      <!-- /CONTENT -->
       <p>
         Оставляя контактную информацию, вы <span>соглашаетесь</span> на
         обработку персональных данных
       </p>
-      <!-- /CONTENT -->
     </div>
     <!-- /HOME VIEW -->
 
@@ -151,6 +151,42 @@
       >
     </div>
     <!-- /SUCCESS VIEW -->
+
+    <!-- MODAL VIEW -->
+    <div
+      v-if="!isSuccess && isModal"
+      class="modal-view mx-auto relative flex-grow flex flex-col justify-center"
+    >
+      <div @click="toggleModal" class="absolute top-1 right-1 cursor-pointer">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 18 18"
+        >
+          <path
+            fill="none"
+            stroke="#d9d7d7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-miterlimit="20"
+            stroke-width="1.5"
+            d="M1 1l16 16"
+          />
+          <path
+            fill="none"
+            stroke="#d9d7d7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-miterlimit="20"
+            stroke-width="1.5"
+            d="M17 1L1 17"
+          />
+        </svg>
+      </div>
+      <Form />
+    </div>
+    <!-- /MODAL VIEW -->
   </div>
 </template>
 

@@ -15,6 +15,9 @@ module.exports = {
             full: "100%",
             screen: "calc(var(--vh)*100)"
         }),
+        inset: {
+            1: "1rem"
+        },
         extend: {
             colors: {
                 cwhite: "#f8f7f6",
@@ -31,5 +34,8 @@ module.exports = {
         }
     },
     variants: {},
-    plugins: []
+    plugins: [],
+    corePlugins: {
+        inset: true
+    }
 };

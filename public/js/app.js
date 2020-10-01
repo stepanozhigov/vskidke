@@ -2072,6 +2072,42 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2179,25 +2215,26 @@ var phoneValidat = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["helper
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapGetters"])(["isModal", "isSuccess"])),
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess"])), {}, {
     submitForm: function submitForm() {
+      var _this = this;
+
       if (this.$v.phone.$invalid) {
         this.isValid = false;
       } else {
-        this.isValid = true;
-        console.log(this.phone); //fbq("track", "Lead");
-        // axios
-        //     .post("/lead", {
-        //         phone: this.phone,
-        //         tag: "Uppercase"
-        //     })
-        //     .then(response => {
-        //         this.phone = "";
-        //         this.setSuccess();
-        //         this.setModal();
-        //     });
+        this.isValid = true; //fbq("track", "Lead");
 
-        this.phone = "";
-        this.setSuccess();
-        this.setModal();
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("api/lead", {
+          phone: this.phone,
+          tag: "Uppercase"
+        }).then(function (response) {
+          console.log(response);
+          _this.phone = "";
+
+          _this.setSuccess();
+
+          _this.setModal();
+        }); // this.phone = "";
+        // this.setSuccess();
+        // this.setModal();
       }
     }
   }),
@@ -3459,6 +3496,66 @@ var render = function() {
               [_vm._v("Перейти на сайт")]
             )
           ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    !_vm.isSuccess && _vm.isModal
+      ? _c(
+          "div",
+          {
+            staticClass:
+              "modal-view mx-auto relative flex-grow flex flex-col justify-center"
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "absolute top-1 right-1 cursor-pointer",
+                on: { click: _vm.toggleModal }
+              },
+              [
+                _c(
+                  "svg",
+                  {
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      width: "16",
+                      height: "16",
+                      viewBox: "0 0 18 18"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#d9d7d7",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        "stroke-width": "1.5",
+                        d: "M1 1l16 16"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#d9d7d7",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        "stroke-width": "1.5",
+                        d: "M17 1L1 17"
+                      }
+                    })
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c("Form")
+          ],
+          1
         )
       : _vm._e()
   ])

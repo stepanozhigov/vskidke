@@ -55,21 +55,22 @@ export default {
         this.isValid = false;
       } else {
         this.isValid = true;
-        console.log(this.phone);
         //fbq("track", "Lead");
-        // axios
-        //     .post("/lead", {
-        //         phone: this.phone,
-        //         tag: "Uppercase"
-        //     })
-        //     .then(response => {
-        //         this.phone = "";
-        //         this.setSuccess();
-        //         this.setModal();
-        //     });
-        this.phone = "";
-        this.setSuccess();
-        this.setModal();
+        axios
+          .post("api/lead", {
+            phone: this.phone,
+            tag: "Uppercase",
+          })
+          .then((response) => {
+            console.log(response);
+
+            this.phone = "";
+            this.setSuccess();
+            this.setModal();
+          });
+        // this.phone = "";
+        // this.setSuccess();
+        // this.setModal();
       }
     },
   },
