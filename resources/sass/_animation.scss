@@ -44,3 +44,34 @@
         margin-left: 80px;
     }
 }
+
+//TEXT ANMATION
+.animated-numbers {
+    margin-left: 0.125rem;
+    margin-right: 0.125rem;
+    .animated-number {
+        animation: float 0.3s ease-in-out infinite;
+
+        &:nth-child(1) {
+            animation-delay: 0s;
+        }
+        &:nth-child(2) {
+            animation-delay: 0.05s;
+        }
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: none;
+    }
+    33% {
+        transform: translateY(-1px) rotate(-2deg);
+    }
+    66% {
+        transform: translateY(1px) rotate(2deg);
+    }
+    100% {
+        transform: none;
+    }
+}
