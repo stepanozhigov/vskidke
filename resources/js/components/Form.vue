@@ -43,6 +43,7 @@ const phoneValidat = helpers.regex(
 export default {
     data: () => ({
         phone: "",
+        url: "lmr.vskidke.ru",
         dialCode: "",
         isValid: true,
         onFocus: false
@@ -68,7 +69,7 @@ export default {
                 axios
                     .post("api/lead", {
                         phone: this.phoneNumber,
-                        tag: "Uppercase"
+                        url: this.url
                     })
                     .then(response => {
                         console.log(response);

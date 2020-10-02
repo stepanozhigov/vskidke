@@ -6,12 +6,12 @@ require("laravel-mix-purgecss");
 mix.js("resources/js/app.js", "public/js")
     .sass("resources/sass/app.scss", "public/css")
     .options({
-        autoprefixer: false,
+        //autoprefixer: false,
         processCssUrls: false,
-        postCss: [tailwindcss("./tailwind.config.js")]
-        // autoprefixer: {
-        //     browsers: ["last 9 versions"]
-        // }
+        postCss: [tailwindcss("./tailwind.config.js")],
+        autoprefixer: {
+            browsers: ["last 9 versions"]
+        }
     })
     //.purgeCss({
     //enabled: true

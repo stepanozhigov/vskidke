@@ -118,18 +118,7 @@
                 <div class="flex-grow md:flex md:flex-col md:justify-center">
                     <h1>Открытие банковских счетов</h1>
                     <h3>
-                        за
-                        <span class="animated-numbers">
-                            <i
-                                class="animated-number inline-block not-italic tracking-tighter"
-                                >1</i
-                            >
-                            <i
-                                class="animated-number inline-block not-italic tracking-tighter"
-                                >0</i
-                            >
-                        </span>
-                        дней для&nbsp;офшорных компаний в&nbsp;Казахстане
+                        за 10 дней для&nbsp;офшорных компаний в&nbsp;Казахстане
                         и&nbsp;Кыргызстане
                     </h3>
                     <h5>
