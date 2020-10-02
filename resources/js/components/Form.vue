@@ -88,10 +88,10 @@ export default {
           .then((response) => {
             console.log(response);
 
-            if (type == "form") {
+            if (this.type == "form") {
               ym(62231704, "reachGoal", "leadmagnit-form-open-account");
               ga("send", "event", "leadmagnit-forms-accoint-in-KZ", "send");
-            } else if (type == "callback") {
+            } else if (this.type == "callback") {
               ym(62231704, "reachGoal", "leadmagnit-callback-open-account");
               ga("send", "event", "leadmagnit-callback-accoint-in-KZ", "send");
             }
