@@ -3,7 +3,12 @@ module.exports = {
         // removeDeprecatedGapUtilities: true,
         // purgeLayersByDefault: true,
     },
-    purge: ["resources/js/*.vue", "resources/js/components/*.vue"],
+    purge: [
+        "resources/js/*.vue",
+        "resources/js/components/*.vue",
+        "resources/sass/*.scss",
+        "views/layouts/*"
+    ],
     theme: {
         fontFamily: {
             manrope: ["Manrope"],
