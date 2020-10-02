@@ -196,6 +196,15 @@
 
     // SCREEN SIZES
     @screen sm {
+        .app-call {
+            font-size: 0.75rem;
+            line-height: 1rem;
+
+            .app-call-number {
+            }
+            .app-call-book {
+            }
+        }
     }
 
     @screen md {
@@ -212,8 +221,6 @@
             .app-call-number {
                 font-size: 1rem;
                 line-height: 1.5rem;
-                // font-size: 1rem;
-                // line-height: 1.5rem;
             }
             .app-call-book {
                 font-size: 1rem;
