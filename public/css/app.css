@@ -723,7 +723,7 @@ video {
   margin-top: 1.5rem;
 }
 
-p {
+.home-view .home-view-content p {
   font-family: SuisseIntl;
   font-weight: 400;
   color: #66615a;
@@ -733,7 +733,7 @@ p {
   margin-bottom: 1rem;
 }
 
-p span {
+.home-view .home-view-content p span {
   text-decoration: underline;
 }
 
@@ -878,8 +878,8 @@ p span {
     max-width: 20.5rem;
   }
 
-  .home-view p {
-    text-align: center;
+  .home-view .home-view-content p {
+    text-align: left;
     font-size: 0.875rem;
     letter-spacing: -0.52px;
     line-height: 0.625rem;
@@ -919,6 +919,11 @@ p span {
     border-radius: 1px;
     background-color: #b39059;
     margin-top: 3rem;
+  }
+
+  .success-view p {
+    text-align: left;
+    margin-top: auto;
   }
 }
 

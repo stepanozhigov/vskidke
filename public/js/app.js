@@ -2123,6 +2123,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -5407,31 +5408,36 @@ var render = function() {
       ? _c("div", { staticClass: "home-view flex-grow flex flex-col" }, [
           _c(
             "section",
-            {
-              staticClass:
-                "home-view-content flex-grow md:flex md:flex-col md:justify-center"
-            },
+            { staticClass: "home-view-content flex flex-col flex-grow" },
             [
-              _c("h1", [_vm._v("Открытие банковских счетов")]),
+              _c(
+                "div",
+                {
+                  staticClass: "flex-grow md:flex md:flex-col md:justify-center"
+                },
+                [
+                  _c("h1", [_vm._v("Открытие банковских счетов")]),
+                  _vm._v(" "),
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c("h5", [
+                    _vm._v(
+                      "\n                    Оставьте номер телефона и получите подробную\n                    консультацию в течение 5 минут по телефону\n                    или WhatsApp\n                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("Form"),
+                  _vm._v(" "),
+                  _c("a", { attrs: { href: "https://ifinance.kz/main" } }, [
+                    _vm._v("Перейти на сайт")
+                  ])
+                ],
+                1
+              ),
               _vm._v(" "),
-              _vm._m(0),
-              _vm._v(" "),
-              _c("h5", [
-                _vm._v(
-                  "\n                Оставьте номер телефона и получите подробную\n                консультацию в течение 5 минут по телефону\n                или WhatsApp\n            "
-                )
-              ]),
-              _vm._v(" "),
-              _c("Form"),
-              _vm._v(" "),
-              _c("a", { attrs: { href: "https://ifinance.kz/main" } }, [
-                _vm._v("Перейти на сайт")
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _vm._m(1)
+              _vm._m(1)
+            ]
+          )
         ])
       : _vm._e(),
     _vm._v(" "),
@@ -5525,7 +5531,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("h3", [
-      _vm._v("\n                за\n                "),
+      _vm._v("\n                    за\n                    "),
       _c("span", { staticClass: "animated-numbers" }, [
         _c(
           "i",
@@ -5546,7 +5552,7 @@ var staticRenderFns = [
         )
       ]),
       _vm._v(
-        "\n                дней для офшорных компаний в Казахстане\n                и Кыргызстане\n            "
+        "\n                    дней для офшорных компаний в Казахстане\n                    и Кыргызстане\n                "
       )
     ])
   },
@@ -5555,9 +5561,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", [
-      _vm._v("\n            Оставляя контактную информацию, вы "),
+      _vm._v(
+        "\n                Оставляя контактную информацию, вы\n                "
+      ),
       _c("span", [_vm._v("соглашаетесь")]),
-      _vm._v(" на\n            обработку персональных данных\n        ")
+      _vm._v(" на обработку персональных данных\n            ")
     ])
   }
 ]

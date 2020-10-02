@@ -101,21 +101,21 @@
                 letter-spacing: -0.3px;
                 @apply mt-6;
             }
-        }
-    }
 
-    p {
-        @apply font-suisseIntl;
-        @apply font-normal;
-        color: theme("colors.cdark");
-        font-size: 0.5rem;
-        letter-spacing: -0.3px;
-        line-height: 0.625rem;
+            p {
+                @apply font-suisseIntl;
+                @apply font-normal;
+                color: theme("colors.cdark");
+                font-size: 0.5rem;
+                letter-spacing: -0.3px;
+                line-height: 0.625rem;
 
-        @apply mb-4;
+                @apply mb-4;
 
-        span {
-            @apply underline;
+                span {
+                    @apply underline;
+                }
+            }
         }
     }
 
@@ -261,12 +261,12 @@
                 .form-template {
                     max-width: 20.5rem;
                 }
-            }
-            p {
-                text-align: center;
-                font-size: 0.875rem;
-                letter-spacing: -0.52px;
-                line-height: 0.625rem;
+                p {
+                    text-align: left;
+                    font-size: 0.875rem;
+                    letter-spacing: -0.52px;
+                    line-height: 0.625rem;
+                }
             }
         }
         // SUCCESS VIEW
@@ -302,6 +302,10 @@
                 background-color: theme("colors.cbrown");
 
                 @apply mt-12;
+            }
+            p {
+                text-align: left;
+                margin-top: auto;
             }
         }
     }

@@ -114,38 +114,39 @@
             class="home-view flex-grow flex flex-col"
         >
             <!-- CONTENT -->
-            <section
-                class="home-view-content flex-grow md:flex md:flex-col md:justify-center"
-            >
-                <h1>Открытие банковских счетов</h1>
-                <h3>
-                    за
-                    <span class="animated-numbers">
-                        <i
-                            class="animated-number inline-block not-italic tracking-tighter"
-                            >1</i
-                        >
-                        <i
-                            class="animated-number inline-block not-italic tracking-tighter"
-                            >0</i
-                        >
-                    </span>
-                    дней для&nbsp;офшорных компаний в&nbsp;Казахстане
-                    и&nbsp;Кыргызстане
-                </h3>
-                <h5>
-                    Оставьте номер телефона и&nbsp;получите подробную
-                    консультацию в течение 5&nbsp;минут по&nbsp;телефону
-                    или&nbsp;WhatsApp
-                </h5>
-                <Form />
-                <a href="https://ifinance.kz/main">Перейти на сайт</a>
+            <section class="home-view-content flex flex-col flex-grow">
+                <div class="flex-grow md:flex md:flex-col md:justify-center">
+                    <h1>Открытие банковских счетов</h1>
+                    <h3>
+                        за
+                        <span class="animated-numbers">
+                            <i
+                                class="animated-number inline-block not-italic tracking-tighter"
+                                >1</i
+                            >
+                            <i
+                                class="animated-number inline-block not-italic tracking-tighter"
+                                >0</i
+                            >
+                        </span>
+                        дней для&nbsp;офшорных компаний в&nbsp;Казахстане
+                        и&nbsp;Кыргызстане
+                    </h3>
+                    <h5>
+                        Оставьте номер телефона и&nbsp;получите подробную
+                        консультацию в течение 5&nbsp;минут по&nbsp;телефону
+                        или&nbsp;WhatsApp
+                    </h5>
+                    <Form />
+                    <a href="https://ifinance.kz/main">Перейти на сайт</a>
+                </div>
+
+                <p>
+                    Оставляя контактную информацию, вы
+                    <span>соглашаетесь</span> на обработку персональных данных
+                </p>
             </section>
             <!-- /CONTENT -->
-            <p>
-                Оставляя контактную информацию, вы <span>соглашаетесь</span> на
-                обработку персональных данных
-            </p>
         </div>
         <!-- /HOME VIEW -->
 
