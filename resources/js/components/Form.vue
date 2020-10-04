@@ -31,7 +31,7 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   data: () => ({
     phone: "",
-    url: "lme.vskidke.ru",
+    url: "lmr.vskidke.ru",
     dialCode: "",
     isValid: false,
     onFocus: false,
