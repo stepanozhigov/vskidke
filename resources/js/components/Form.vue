@@ -38,7 +38,7 @@ export default {
     settings: {
       placeholder: "Ваш телефон *",
       disabledFormatting: false,
-      enabledCountryCode: false,
+      enabledCountryCode: true,
       mode: "international",
       preferredCountries: ["fr", "us", "gb"],
       validCharactersOnly: true,
