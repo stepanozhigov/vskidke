@@ -40,7 +40,7 @@ export default {
       disabledFormatting: false,
       enabledCountryCode: false,
       mode: "international",
-      preferredCountries: ["fr", "es", "gb"],
+      preferredCountries: ["fr", "us", "gb"],
       validCharactersOnly: true,
       dynamicPlaceholder: true,
       inputOptions: {
