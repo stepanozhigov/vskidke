@@ -75,6 +75,7 @@ export default {
             url: this.url,
           })
           .then((response) => {
+            fbq("track", "Lead");
             if (this.type == "form") {
               ym(62231704, "reachGoal", "leadmagnit-form-open-account");
               ga("send", "event", "leadmagnit-forms-accoint-in-KZ", "send");
