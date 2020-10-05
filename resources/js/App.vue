@@ -123,7 +123,8 @@
           </h3>
           <h5>
             Оставьте номер телефона и&nbsp;получите подробную консультацию в
-            течение<br />5&nbsp;минут по&nbsp;телефону или&nbsp;WhatsApp
+            течение<br />
+            5&nbsp;минут по&nbsp;телефону или&nbsp;WhatsApp
           </h5>
           <Form type="form" />
           <a href="http://uppercase.group/">Перейти на сайт</a>
