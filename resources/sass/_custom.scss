@@ -289,7 +289,8 @@
                 h1 {
                     @apply font-bold;
                     font-size: 4rem;
-                    letter-spacing: -0.0625rem;
+                    // letter-spacing: -0.0625rem;
+                    letter-spacing: 0;
                     line-height: 4.5rem;
 
                     @apply mt-0;
@@ -297,7 +298,7 @@
 
                 h3 {
                     font-size: 2rem;
-                    letter-spacing: -0.3px;
+                    letter-spacing: 0;
                     line-height: 2.5rem;
                     margin-top: 1.625rem;
                 }
@@ -306,6 +307,7 @@
                     font-size: 1rem;
                     line-height: 1.5rem;
                     margin-top: 1.625rem;
+                    letter-spacing: 0;
                     // width: 27rem;
                 }
 
