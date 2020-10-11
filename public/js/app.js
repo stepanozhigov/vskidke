@@ -2848,25 +2848,69 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
   data: function data() {
-    return {};
+    return {
+      latitude: null,
+      longitude: null,
+      gettingLocation: false,
+      geoErrorStr: null,
+      apiKey: "K3eIWWGihaEYjDgr7vi9"
+    };
   },
   components: {
     Form: _components_Form__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  mounted: function mounted() {
+  // CREATED
+  created: function created() {
     var _this = this;
+
+    if (!("geolocation" in navigator)) {
+      this.geoErrorStr = "Geolocation is not available.";
+      return;
+    }
+
+    this.gettingLocation = true; // get position
+
+    navigator.geolocation.getCurrentPosition(function (pos) {
+      _this.gettingLocation = false;
+      _this.latitude = pos.latitude;
+      _this.longitude = pos.longitude;
+    }, function (err) {
+      _this.gettingLocation = false;
+      _this.geoErrorStr = err.message;
+    });
+    var platform = new H.service.Platform({
+      apikey: this.apiKey
+    });
+    var geocoder = platform.getGeocodingService();
+    var reverseGeocodingParameters = {
+      prox: "Latiude,Longitude",
+      // not literaly that, but the real values
+      mode: "retrieveAddresses",
+      maxresults: 1
+    };
+    geocoder.reverseGeocode(reverseGeocodingParameters, function (res) {
+      console.log(res);
+    }, function (e) {
+      return reject(e);
+    });
+  },
+  mounted: function mounted() {
+    var _this2 = this;
 
     this.setViewHeight();
     window.addEventListener("resize", function () {
-      _this.setViewHeight();
+      _this2.setViewHeight();
     });
     window.addEventListener("orientationchange", function () {
-      return _this.setViewHeight();
+      return _this2.setViewHeight();
     });
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(["isModal", "isSuccess"])),
@@ -8474,7 +8518,7 @@ var render = function() {
               staticClass: "app-call-number",
               attrs: { href: "tel:8 910 235-89-36" }
             },
-            [_vm._v("\n        +7 967 069-04-29\n      ")]
+            [_vm._v("\n                +7 967 069-04-29\n            ")]
           ),
           _vm._v(" "),
           _c(
@@ -8487,7 +8531,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("\n        Заказать звонок\n      ")]
+            [_vm._v("\n                Заказать звонок\n            ")]
           )
         ])
       ]
@@ -8509,7 +8553,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("h3", [
                     _vm._v(
-                      "\n          за 10 дней для офшорных компаний в Казахстане\n          и Кыргызстане\n        "
+                      "\n                    за 10 дней для офшорных компаний в Казахстане\n                    и Кыргызстане\n                "
                     )
                   ]),
                   _vm._v(" "),
@@ -8621,10 +8665,12 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("h5", [
       _vm._v(
-        "\n          Оставьте номер телефона и получите подробную консультацию в\n          течение"
+        "\n                    Оставьте номер телефона и получите подробную\n                    консультацию в течение"
       ),
       _c("br"),
-      _vm._v("\n          5 минут по телефону или WhatsApp\n        ")
+      _vm._v(
+        "\n                    5 минут по телефону или WhatsApp\n                "
+      )
     ])
   },
   function() {
@@ -8632,9 +8678,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", [
-      _vm._v("\n        Оставляя контактную информацию, вы\n        "),
+      _vm._v(
+        "\n                Оставляя контактную информацию, вы\n                "
+      ),
       _c("span", [_vm._v("соглашаетесь")]),
-      _vm._v(" на обработку персональных данных\n      ")
+      _vm._v(" на обработку персональных данных\n            ")
     ])
   }
 ]
