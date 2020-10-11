@@ -196,6 +196,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import Form from "./components/Form";
 import { mapGetters, mapActions } from "vuex";
 export default {
@@ -205,47 +206,16 @@ export default {
         longitude: null,
         gettingLocation: false,
         geoErrorStr: null,
-        apiKey: "K3eIWWGihaEYjDgr7vi9"
+        apiKey: "wX06cxXBzf6GzYsHqV_liYXD9pcxnGHfA8JXa2Y_w14",
+        geoLocation: null,
+        ipLocation: null
     }),
     components: {
         Form
     },
     // CREATED
     created() {
-        if (!("geolocation" in navigator)) {
-            this.geoErrorStr = "Geolocation is not available.";
-            return;
-        }
-        this.gettingLocation = true;
-        // get position
-        navigator.geolocation.getCurrentPosition(
-            pos => {
-                this.gettingLocation = false;
-                this.latitude = pos.latitude;
-                this.longitude = pos.longitude;
-            },
-            err => {
-                this.gettingLocation = false;
-                this.geoErrorStr = err.message;
-            }
-        );
-
-        const platform = new H.service.Platform({
-            apikey: this.apiKey
-        });
-        const geocoder = platform.getGeocodingService();
-        let reverseGeocodingParameters = {
-            prox: "Latiude,Longitude", // not literaly that, but the real values
-            mode: "retrieveAddresses",
-            maxresults: 1
-        };
-        geocoder.reverseGeocode(
-            reverseGeocodingParameters,
-            res => {
-                console.log(res);
-            },
-            e => reject(e)
-        );
+        this.getAddress();
     },
     mounted: function() {
         this.setViewHeight();
@@ -257,7 +227,16 @@ export default {
         );
     },
     computed: {
-        ...mapGetters(["isModal", "isSuccess"])
+        ...mapGetters(["isModal", "isSuccess"]),
+        getAddressUrl() {
+            return `https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=${this.apiKey}&at=${this.latitude},${this.longitude}&lang=en-US`;
+        },
+        country() {
+            return this.geoLocation.address.countryName;
+        },
+        city() {
+            return this.geoLocation.address.city;
+        }
     },
     methods: {
         ...mapActions(["setModal", "unsetModal", "setSuccess", "unsetSuccess"]),
@@ -266,6 +245,7 @@ export default {
             document.documentElement.style.setProperty("--vh", `${vh}px`);
             //console.log(vh);
         },
+
         toggleModal() {
             if (this.isModal) {
                 this.unsetModal();
@@ -273,7 +253,46 @@ export default {
                 this.setModal();
             }
             this.unsetSuccess();
+        },
+
+        async getCoords() {
+            return new Promise((resolve, reject) => {
+                if (!("geolocation" in navigator)) {
+                    reject(new Error("Geolocation is not available."));
+                }
+
+                navigator.geolocation.getCurrentPosition(
+                    pos => {
+                        resolve(pos);
+                    },
+                    err => {
+                        reject(err);
+                    }
+                );
+            });
+        },
+
+        async getAddress() {
+            this.gettingLocation = true;
+            try {
+                this.gettingLocation = false;
+                const location = await this.getCoords();
+                this.latitude = location.coords.latitude;
+                this.longitude = location.coords.longitude;
+                const address_data = await axios(this.getAddressUrl);
+                //console.log(address_data.data.items[0]);
+                this.geoLocation = address_data.data.items[0];
+            } catch (e) {
+                this.gettingLocation = false;
+                this.errorStr = e.message;
+            }
         }
+
+        // async getAddress() {
+        //     axios.get(this.locationUrl).then(result => {
+        //         this.geoLocation = result;
+        //     });
+        // }
     }
 };
 </script>
