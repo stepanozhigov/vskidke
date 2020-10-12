@@ -4,7 +4,7 @@
         @submit.prevent="submitForm"
         :class="{ 'form-callback': type == 'callback' }"
     >
-        <label for="phone" class="relative block">
+        <label for="phone" class="relative block label-phone">
             <vue-tel-input
                 v-model="phone"
                 v-bind="settings"
@@ -33,7 +33,7 @@
             </span>
         </label>
 
-        <label for="email" class="relative block">
+        <label for="email" class="relative block label-email">
             <input
                 type="email"
                 name="email"
@@ -62,7 +62,7 @@
             </span>
         </label>
 
-        <label class="relative block">
+        <label class="relative block label-submit">
             <button
                 class="button-pulse block"
                 :class="{ disabled: !formValid }"
@@ -82,7 +82,10 @@
                     >Request a callback</span
                 >
             </button>
-            <span v-if="formValid" class="flex items-center absolute svg-valid">
+            <span
+                v-if="formValid"
+                class="flex items-center absolute svg-submit"
+            >
                 <svg
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
