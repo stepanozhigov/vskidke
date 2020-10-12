@@ -1,7 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('app');
-});
+Route::get('/', [AppController::class, 'index'])->middleware('locale');
