@@ -119,6 +119,7 @@
         }
     }
 
+    //FORM
     .form-template {
         margin-top: 1.625rem;
 
@@ -272,6 +273,17 @@
             background-color: theme("colors.cbrown");
 
             @apply mt-12;
+        }
+    }
+
+    //MODAL VIEW
+    .modal-view {
+        .form-template {
+            input.vti__input,
+            input.email,
+            span.svg-valid {
+                color: theme("colors.cdark");
+            }
         }
     }
 

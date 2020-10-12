@@ -14,7 +14,10 @@
                 :placeholder="phonePlaceholder"
                 autocomplete="off"
             ></vue-tel-input>
-            <span v-if="phoneIsValid" class="flex items-center absolute">
+            <span
+                v-if="phoneIsValid"
+                class="flex items-center absolute svg-valid"
+            >
                 <svg
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +43,10 @@
                 autocomplete="off"
                 required
             />
-            <span v-if="!$v.email.$invalid" class="flex items-center absolute">
+            <span
+                v-if="!$v.email.$invalid"
+                class="flex items-center absolute svg-valid"
+            >
                 <svg
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +82,7 @@
                     >Request a callback</span
                 >
             </button>
-            <span v-if="formValid" class="flex items-center absolute">
+            <span v-if="formValid" class="flex items-center absolute svg-valid">
                 <svg
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"

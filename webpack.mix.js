@@ -20,5 +20,5 @@ mix.js("resources/js/app.js", "public/js")
     // .copy("resources/images/*", "public/images")
     // .copy("resources/fonts/*", "public/fonts")
     .browserSync({
-        proxy: "uppercase.local"
+        proxy: "lmr.vskidke.local"
     });
