@@ -34,7 +34,8 @@ module.exports = {
                 cdark: "#66615a",
                 bg: "#ffffff",
                 shadow: "#dbdad7",
-                clightgray: "#14120e"
+                clightgray: "#14120e",
+                formborder: "#bbb"
             }
         }
     },
