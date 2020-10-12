@@ -19,4 +19,6 @@ mix.js("resources/js/app.js", "public/js")
     .version()
     // .copy("resources/images/*", "public/images")
     // .copy("resources/fonts/*", "public/fonts")
-    .browserSync({ proxy: "uppercase.local" });
+    .browserSync({
+        proxy: "uppercase.local"
+    });
