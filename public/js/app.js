@@ -3153,7 +3153,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.isValid = input.isValid;
     },
     onCountryChange: function onCountryChange(country) {
-      this.setIpLocation(country.name);
+      if (this.ipLocation == null) this.setIpLocation(country.name);
       console.log(country);
       this.phone = "";
     }

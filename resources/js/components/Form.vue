@@ -129,7 +129,7 @@ export default {
             this.isValid = input.isValid;
         },
         onCountryChange(country) {
-            this.setIpLocation(country.name);
+            if (this.ipLocation == null) this.setIpLocation(country.name);
             console.log(country);
             this.phone = "";
         }
