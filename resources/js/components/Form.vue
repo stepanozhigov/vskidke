@@ -59,7 +59,7 @@
         <button
             class="button-pulse"
             :class="{ disabled: !formValid }"
-            v-bind:disabled="!formValid"
+            :disabled="!formValid"
         >
             <span v-if="type == 'form' && locale == 'ru'"
                 >Получить консультацию и рассчёт</span
@@ -118,7 +118,7 @@ export default {
     computed: {
         ...mapGetters(["isModal", "isSuccess", "ipLocation", "locale"]),
         formValid: function() {
-            return this.phone.length > 0 && this.phoneIsValid;
+            return !this.$v.email.$invalid && this.phoneIsValid;
         },
         url() {
             switch (this.locale) {
@@ -164,7 +164,8 @@ export default {
                 axios
                     .post("api/lead", {
                         phone: this.phone,
-                        url: this.url
+                        url: this.url,
+                        email: this.email
                     })
                     .then(response => {
                         fbq("track", "Lead");

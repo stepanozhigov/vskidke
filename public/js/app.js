@@ -3206,7 +3206,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapGetters"])(["isModal", "isSuccess", "ipLocation", "locale"])), {}, {
     formValid: function formValid() {
-      return this.phone.length > 0 && this.phoneIsValid;
+      return !this.$v.email.$invalid && this.phoneIsValid;
     },
     url: function url() {
       switch (this.locale) {
@@ -3249,7 +3249,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (this.formValid) {
         axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("api/lead", {
           phone: this.phone,
-          url: this.url
+          url: this.url,
+          email: this.email
         }).then(function (response) {
           fbq("track", "Lead");
 
