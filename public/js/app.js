@@ -2883,10 +2883,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       latitude: null,
       longitude: null,
       gettingLocation: false,
+      geoError: false,
       geoErrorStr: null,
-      apiKey: "wX06cxXBzf6GzYsHqV_liYXD9pcxnGHfA8JXa2Y_w14",
-      geoLocation: null,
-      ipLocation: null
+      apiKey: "izLr3tzed9tqFm2ArDXT5J0FPBZHbfuztoWv7-WwU4Q"
     };
   },
   components: {
@@ -2894,6 +2893,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   // CREATED
   created: function created() {
+    this.getDomainLocale();
     this.getAddress();
   },
   mounted: function mounted() {
@@ -2907,8 +2907,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return _this.setViewHeight();
     });
   },
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapGetters"])(["isModal", "isSuccess"])), {}, {
-    getAddressUrl: function getAddressUrl() {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapGetters"])(["isModal", "isSuccess", "ipLocation", "geoLocation", "locale"])), {}, {
+    addressUrl: function addressUrl() {
       return "https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=".concat(this.apiKey, "&at=").concat(this.latitude, ",").concat(this.longitude, "&lang=en-US");
     },
     country: function country() {
@@ -2916,12 +2916,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     city: function city() {
       return this.geoLocation.address.city;
+    },
+    localeClass: function localeClass() {
+      return "locale-" + this.locale;
     }
   }),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess"])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess", "setIpLocation", "setGeoLocation", "setLocale"])), {}, {
     setViewHeight: function setViewHeight() {
       var vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty("--vh", "".concat(vh, "px")); //console.log(vh);
+    },
+    getDomainLocale: function getDomainLocale() {
+      if (location.hostname.includes("lmr")) {
+        this.setLocale("ru");
+      } else if (location.hostname.includes("lme")) {
+        this.setLocale("en");
+      } else {
+        this.setLocale("en");
+      }
     },
     toggleModal: function toggleModal() {
       if (this.isModal) {
@@ -2933,6 +2945,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.unsetSuccess();
     },
     getCoords: function getCoords() {
+      var _this2 = this;
+
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
@@ -2940,6 +2954,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               case 0:
                 return _context.abrupt("return", new Promise(function (resolve, reject) {
                   if (!("geolocation" in navigator)) {
+                    _this2.geoError = true;
                     reject(new Error("Geolocation is not available."));
                   }
 
@@ -2959,39 +2974,39 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }))();
     },
     getAddress: function getAddress() {
-      var _this2 = this;
+      var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var location, address_data;
+        var _location, address_data;
+
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _this2.gettingLocation = true;
+                _this3.gettingLocation = true;
                 _context2.prev = 1;
-                _this2.gettingLocation = false;
+                _this3.gettingLocation = false;
                 _context2.next = 5;
-                return _this2.getCoords();
+                return _this3.getCoords();
 
               case 5:
-                location = _context2.sent;
-                _this2.latitude = location.coords.latitude;
-                _this2.longitude = location.coords.longitude;
+                _location = _context2.sent;
+                _this3.latitude = _location.coords.latitude;
+                _this3.longitude = _location.coords.longitude;
                 _context2.next = 10;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default()(_this2.getAddressUrl);
+                return axios__WEBPACK_IMPORTED_MODULE_1___default()(_this3.addressUrl);
 
               case 10:
                 address_data = _context2.sent;
-                //console.log(address_data.data.items[0]);
-                _this2.geoLocation = address_data.data.items[0];
+                if (address_data.data.items.length > 0) _this3.setGeoLocation(address_data.data.items[0]);
                 _context2.next = 18;
                 break;
 
               case 14:
                 _context2.prev = 14;
                 _context2.t0 = _context2["catch"](1);
-                _this2.gettingLocation = false;
-                _this2.errorStr = _context2.t0.message;
+                _this3.gettingLocation = false;
+                _this3.errorStr = _context2.t0.message;
 
               case 18:
               case "end":
@@ -3000,12 +3015,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           }
         }, _callee2, null, [[1, 14]]);
       }))();
-    } // async getAddress() {
-    //     axios.get(this.locationUrl).then(result => {
-    //         this.geoLocation = result;
-    //     });
-    // }
-
+    }
   })
 });
 
@@ -3062,7 +3072,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       phone: "",
-      url: "lmr.vskidke.ru",
       dialCode: "",
       isValid: false,
       onFocus: false,
@@ -3092,12 +3101,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   mounted: function mounted() {//console.log("Component mounted.");
   },
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])(["isModal", "isSuccess"])), {}, {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])(["isModal", "isSuccess", "ipLocation", "locale"])), {}, {
     inputValid: function inputValid() {
       return this.phone.length > 0 && this.isValid;
+    },
+    url: function url() {
+      switch (this.locale) {
+        case "ru":
+          return "lmr.vskidke.ru";
+
+        case "en":
+          "lme.vskidke.ru";
+      }
     }
   }),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess"])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess", "setIpLocation"])), {}, {
     submitForm: function submitForm() {
       var _this = this;
 
@@ -3135,7 +3153,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.isValid = input.isValid;
     },
     onCountryChange: function onCountryChange(country) {
-      //console.log(country);
+      this.setIpLocation(country.name);
+      console.log(country);
       this.phone = "";
     }
   })
@@ -9194,306 +9213,313 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "app-template flex flex-col" }, [
-    _c(
-      "header",
-      { staticClass: "app-header flex flex-row justify-between items-center" },
-      [
-        _c("div", { staticClass: "app-header-logo" }, [
-          _c(
-            "svg",
-            {
-              staticClass: "h-full",
-              attrs: {
-                xmlns: "http://www.w3.org/2000/svg",
-                width: "208",
-                viewBox: "0 0 208 48"
-              }
-            },
-            [
-              _c("g", [
+  return _c(
+    "div",
+    { staticClass: "app-template flex flex-col", class: _vm.localeClass },
+    [
+      _c(
+        "header",
+        {
+          staticClass: "app-header flex flex-row justify-between items-center"
+        },
+        [
+          _c("div", { staticClass: "app-header-logo" }, [
+            _c(
+              "svg",
+              {
+                staticClass: "h-full",
+                attrs: {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  width: "208",
+                  viewBox: "0 0 208 48"
+                }
+              },
+              [
                 _c("g", [
                   _c("g", [
-                    _c("path", {
-                      attrs: {
-                        fill: "#13100d",
-                        d:
-                          "M50.19 31.032V9.07h4.526v22.717c0 1.802.98 2.939 2.723 2.939a2.586 2.586 0 0 0 2.723-2.94V9.07h4.575v21.962c0 5.29-2.772 7.837-7.298 7.837s-7.249-2.547-7.249-7.837z"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("path", {
-                      attrs: {
-                        fill: "#13100d",
-                        d:
-                          "M74.007 23.852v-10.57h2.297c1.721 0 2.6.97 2.6 2.86v4.899c0 1.831-.879 2.811-2.6 2.811zM69.55 38.458h4.496V28.152h2.175c4.526 0 7.249-2.635 7.249-7.836v-3.41c0-5.318-2.723-7.836-7.249-7.836H69.55z"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("path", {
-                      attrs: {
-                        fill: "#13100d",
-                        d:
-                          "M91.696 23.852v-10.57h2.336c1.721 0 2.6.97 2.6 2.86v4.899c0 1.831-.879 2.811-2.6 2.811zM87.18 38.458h4.555V28.152h2.106c4.536 0 7.259-2.635 7.259-7.836v-3.41c0-5.318-2.723-7.836-7.259-7.836H87.18z"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("path", {
-                      attrs: {
-                        fill: "#13100d",
-                        d:
-                          "M104.87 9.07h12.49v4.242h-7.964v8.238h6.798v4.202h-6.798v8.445h7.964v4.231h-12.49z"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("path", {
-                      attrs: {
-                        fill: "#13100d",
-                        d:
-                          "M126.524 23.303v-9.991h2.263c1.714 0 2.556.97 2.556 2.86v4.28c0 1.872-.842 2.851-2.556 2.851zm-4.614 15.155h4.526V27.143h1.47l3.27 11.334h4.576l-3.82-11.96c2.576-1.049 3.918-3.155 3.918-6.926v-2.684c0-5.32-2.596-7.837-7.132-7.837h-6.788z"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("path", {
-                      attrs: {
-                        fill: "#13100d",
-                        d:
-                          "M139.5 31.072V16.467c0-5.212 2.762-7.837 7.17-7.837 4.409 0 7.25 2.527 7.25 7.768v2.116h-4.575v-2.84c0-1.803-.794-2.851-2.635-2.851-1.842 0-2.714 1.077-2.714 2.85v16.154a2.576 2.576 0 0 0 2.812 2.86 2.488 2.488 0 0 0 2.762-2.811v-3.184h4.575v2.42c0 5.25-2.939 7.768-7.386 7.768-4.448 0-7.259-2.557-7.259-7.808z"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("path", {
-                      attrs: {
-                        fill: "#13100d",
-                        d:
-                          "M162.565 24.49v-8.62a2.715 2.715 0 0 1 1.279-2.541 2.704 2.704 0 0 1 2.84 0 2.715 2.715 0 0 1 1.279 2.54v8.621zm-4.486 13.969h4.535v-9.796h5.359v9.796h4.565V16.546c0-5.29-2.802-7.896-7.288-7.896-4.487 0-7.22 2.606-7.22 7.896z"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("path", {
-                      attrs: {
-                        fill: "#13100d",
-                        d:
-                          "M176.61 31.112v-2.429h4.526v3.194c0 1.802.803 2.85 2.645 2.85 2.096 0 2.684-1.43 2.684-3.526v-1.137c0-2.596-.98-3.487-2.94-4.32l-1.723-.715c-3.262-1.303-5.065-3.36-5.065-7.474v-1.048c0-5.33 2.596-7.837 7.122-7.837s7.043 2.44 7.043 7.768v2.106h-4.565v-2.87c0-1.802-.715-2.772-2.517-2.772-1.803 0-2.596 1.038-2.596 3.144v1.47c0 2.096.627 2.89 3.017 3.82l1.675.666c3.566 1.391 5.114 3.703 5.114 7.73v.92c0 5.8-2.724 8.229-7.25 8.229-4.525 0-7.17-2.557-7.17-7.769z"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("path", {
-                      attrs: {
-                        fill: "#13100d",
-                        d:
-                          "M195.23 9.07h12.5v4.242h-7.974v8.238h6.798v4.202h-6.798v8.445h7.974v4.231h-12.5z"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("path", {
-                      attrs: {
-                        fill: "#13100d",
-                        d:
-                          "M.06 29.64l20.327 11.755 15.252-8.816v5.877l-15.252 8.817L.06 35.518V29.64z"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("path", {
-                      attrs: {
-                        fill: "#13100d",
-                        d:
-                          "M10.22 29.638l10.168-5.878v5.878l-5.084 2.938-5.084-2.938z"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("path", {
-                      attrs: {
-                        fill: "#13100d",
-                        d:
-                          "M.06 6.13l20.327 11.755L35.639 9.07v5.877l-15.252 8.817L.06 12.008V6.13z"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
-                    _c("path", {
-                      attrs: {
-                        fill: "#13100d",
-                        d:
-                          "M10.22.25l15.252 8.816-5.084 2.94L10.23 6.127 10.22.25z"
-                      }
-                    })
+                    _c("g", [
+                      _c("path", {
+                        attrs: {
+                          fill: "#13100d",
+                          d:
+                            "M50.19 31.032V9.07h4.526v22.717c0 1.802.98 2.939 2.723 2.939a2.586 2.586 0 0 0 2.723-2.94V9.07h4.575v21.962c0 5.29-2.772 7.837-7.298 7.837s-7.249-2.547-7.249-7.837z"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", [
+                      _c("path", {
+                        attrs: {
+                          fill: "#13100d",
+                          d:
+                            "M74.007 23.852v-10.57h2.297c1.721 0 2.6.97 2.6 2.86v4.899c0 1.831-.879 2.811-2.6 2.811zM69.55 38.458h4.496V28.152h2.175c4.526 0 7.249-2.635 7.249-7.836v-3.41c0-5.318-2.723-7.836-7.249-7.836H69.55z"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", [
+                      _c("path", {
+                        attrs: {
+                          fill: "#13100d",
+                          d:
+                            "M91.696 23.852v-10.57h2.336c1.721 0 2.6.97 2.6 2.86v4.899c0 1.831-.879 2.811-2.6 2.811zM87.18 38.458h4.555V28.152h2.106c4.536 0 7.259-2.635 7.259-7.836v-3.41c0-5.318-2.723-7.836-7.259-7.836H87.18z"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", [
+                      _c("path", {
+                        attrs: {
+                          fill: "#13100d",
+                          d:
+                            "M104.87 9.07h12.49v4.242h-7.964v8.238h6.798v4.202h-6.798v8.445h7.964v4.231h-12.49z"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", [
+                      _c("path", {
+                        attrs: {
+                          fill: "#13100d",
+                          d:
+                            "M126.524 23.303v-9.991h2.263c1.714 0 2.556.97 2.556 2.86v4.28c0 1.872-.842 2.851-2.556 2.851zm-4.614 15.155h4.526V27.143h1.47l3.27 11.334h4.576l-3.82-11.96c2.576-1.049 3.918-3.155 3.918-6.926v-2.684c0-5.32-2.596-7.837-7.132-7.837h-6.788z"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", [
+                      _c("path", {
+                        attrs: {
+                          fill: "#13100d",
+                          d:
+                            "M139.5 31.072V16.467c0-5.212 2.762-7.837 7.17-7.837 4.409 0 7.25 2.527 7.25 7.768v2.116h-4.575v-2.84c0-1.803-.794-2.851-2.635-2.851-1.842 0-2.714 1.077-2.714 2.85v16.154a2.576 2.576 0 0 0 2.812 2.86 2.488 2.488 0 0 0 2.762-2.811v-3.184h4.575v2.42c0 5.25-2.939 7.768-7.386 7.768-4.448 0-7.259-2.557-7.259-7.808z"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", [
+                      _c("path", {
+                        attrs: {
+                          fill: "#13100d",
+                          d:
+                            "M162.565 24.49v-8.62a2.715 2.715 0 0 1 1.279-2.541 2.704 2.704 0 0 1 2.84 0 2.715 2.715 0 0 1 1.279 2.54v8.621zm-4.486 13.969h4.535v-9.796h5.359v9.796h4.565V16.546c0-5.29-2.802-7.896-7.288-7.896-4.487 0-7.22 2.606-7.22 7.896z"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", [
+                      _c("path", {
+                        attrs: {
+                          fill: "#13100d",
+                          d:
+                            "M176.61 31.112v-2.429h4.526v3.194c0 1.802.803 2.85 2.645 2.85 2.096 0 2.684-1.43 2.684-3.526v-1.137c0-2.596-.98-3.487-2.94-4.32l-1.723-.715c-3.262-1.303-5.065-3.36-5.065-7.474v-1.048c0-5.33 2.596-7.837 7.122-7.837s7.043 2.44 7.043 7.768v2.106h-4.565v-2.87c0-1.802-.715-2.772-2.517-2.772-1.803 0-2.596 1.038-2.596 3.144v1.47c0 2.096.627 2.89 3.017 3.82l1.675.666c3.566 1.391 5.114 3.703 5.114 7.73v.92c0 5.8-2.724 8.229-7.25 8.229-4.525 0-7.17-2.557-7.17-7.769z"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", [
+                      _c("path", {
+                        attrs: {
+                          fill: "#13100d",
+                          d:
+                            "M195.23 9.07h12.5v4.242h-7.974v8.238h6.798v4.202h-6.798v8.445h7.974v4.231h-12.5z"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", [
+                      _c("path", {
+                        attrs: {
+                          fill: "#13100d",
+                          d:
+                            "M.06 29.64l20.327 11.755 15.252-8.816v5.877l-15.252 8.817L.06 35.518V29.64z"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", [
+                      _c("path", {
+                        attrs: {
+                          fill: "#13100d",
+                          d:
+                            "M10.22 29.638l10.168-5.878v5.878l-5.084 2.938-5.084-2.938z"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", [
+                      _c("path", {
+                        attrs: {
+                          fill: "#13100d",
+                          d:
+                            "M.06 6.13l20.327 11.755L35.639 9.07v5.877l-15.252 8.817L.06 12.008V6.13z"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("g", [
+                      _c("path", {
+                        attrs: {
+                          fill: "#13100d",
+                          d:
+                            "M10.22.25l15.252 8.816-5.084 2.94L10.23 6.127 10.22.25z"
+                        }
+                      })
+                    ])
                   ])
                 ])
-              ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "app-call flex flex-col md:flex-row" }, [
+            _c(
+              "a",
+              {
+                staticClass: "app-call-number",
+                attrs: { href: "tel:8 910 235-89-36" }
+              },
+              [_vm._v("\n                +7 967 069-04-29\n            ")]
+            ),
+            _vm._v(" "),
+            _c(
+              "span",
+              {
+                staticClass: "app-call-book",
+                on: {
+                  click: function($event) {
+                    return _vm.toggleModal()
+                  }
+                }
+              },
+              [_vm._v("\n                Заказать звонок\n            ")]
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      !_vm.isSuccess && !_vm.isModal
+        ? _c("div", { staticClass: "home-view flex-grow flex flex-col" }, [
+            _c(
+              "section",
+              { staticClass: "home-view-content flex flex-col flex-grow" },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "flex-grow md:flex md:flex-col md:justify-center"
+                  },
+                  [
+                    _c("h1", [_vm._v("Открытие банковских счетов")]),
+                    _vm._v(" "),
+                    _c("h3", [
+                      _vm._v(
+                        "\n                    за 10 дней для офшорных компаний в Казахстане\n                    и Кыргызстане\n                "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c("Form", { attrs: { type: "form" } }),
+                    _vm._v(" "),
+                    _c("a", { attrs: { href: "http://uppercase.group/" } }, [
+                      _vm._v("Перейти на сайт")
+                    ])
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm._m(1)
+              ]
+            )
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.isSuccess && _vm.isModal
+        ? _c(
+            "div",
+            {
+              staticClass: "success-view flex-grow flex flex-col justify-center"
+            },
+            [
+              _c("h2", [_vm._v("Спасибо!")]),
+              _vm._v(" "),
+              _c("h4", [_vm._v("Ваша заявка принята")]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "flex justify-center items-center button-pulse",
+                  attrs: { href: "http://uppercase.group/" }
+                },
+                [_vm._v("Перейти на сайт")]
+              )
             ]
           )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "app-call flex flex-col md:flex-row" }, [
-          _c(
-            "a",
+        : _vm._e(),
+      _vm._v(" "),
+      !_vm.isSuccess && _vm.isModal
+        ? _c(
+            "div",
             {
-              staticClass: "app-call-number",
-              attrs: { href: "tel:8 910 235-89-36" }
+              staticClass:
+                "modal-view mx-auto relative flex-grow flex flex-col justify-center"
             },
-            [_vm._v("\n                +7 967 069-04-29\n            ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "span",
-            {
-              staticClass: "app-call-book",
-              on: {
-                click: function($event) {
-                  return _vm.toggleModal()
-                }
-              }
-            },
-            [_vm._v("\n                Заказать звонок\n            ")]
-          )
-        ])
-      ]
-    ),
-    _vm._v(" "),
-    !_vm.isSuccess && !_vm.isModal
-      ? _c("div", { staticClass: "home-view flex-grow flex flex-col" }, [
-          _c(
-            "section",
-            { staticClass: "home-view-content flex flex-col flex-grow" },
             [
               _c(
                 "div",
                 {
-                  staticClass: "flex-grow md:flex md:flex-col md:justify-center"
+                  staticClass: "absolute top-1 right-1 cursor-pointer",
+                  on: { click: _vm.toggleModal }
                 },
                 [
-                  _c("h1", [_vm._v("Открытие банковских счетов")]),
-                  _vm._v(" "),
-                  _c("h3", [
-                    _vm._v(
-                      "\n                    за 10 дней для офшорных компаний в Казахстане\n                    и Кыргызстане\n                "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("Form", { attrs: { type: "form" } }),
-                  _vm._v(" "),
-                  _c("a", { attrs: { href: "http://uppercase.group/" } }, [
-                    _vm._v("Перейти на сайт")
-                  ])
-                ],
-                1
+                  _c(
+                    "svg",
+                    {
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "16",
+                        height: "16",
+                        viewBox: "0 0 18 18"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          fill: "none",
+                          stroke: "#d9d7d7",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round",
+                          "stroke-miterlimit": "20",
+                          "stroke-width": "1.5",
+                          d: "M1 1l16 16"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          fill: "none",
+                          stroke: "#d9d7d7",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round",
+                          "stroke-miterlimit": "20",
+                          "stroke-width": "1.5",
+                          d: "M17 1L1 17"
+                        }
+                      })
+                    ]
+                  )
+                ]
               ),
               _vm._v(" "),
-              _vm._m(1)
-            ]
+              _c("Form", { attrs: { type: "callback" } })
+            ],
+            1
           )
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.isSuccess && _vm.isModal
-      ? _c(
-          "div",
-          {
-            staticClass: "success-view flex-grow flex flex-col justify-center"
-          },
-          [
-            _c("h2", [_vm._v("Спасибо!")]),
-            _vm._v(" "),
-            _c("h4", [_vm._v("Ваша заявка принята")]),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "flex justify-center items-center button-pulse",
-                attrs: { href: "http://uppercase.group/" }
-              },
-              [_vm._v("Перейти на сайт")]
-            )
-          ]
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    !_vm.isSuccess && _vm.isModal
-      ? _c(
-          "div",
-          {
-            staticClass:
-              "modal-view mx-auto relative flex-grow flex flex-col justify-center"
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass: "absolute top-1 right-1 cursor-pointer",
-                on: { click: _vm.toggleModal }
-              },
-              [
-                _c(
-                  "svg",
-                  {
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      width: "16",
-                      height: "16",
-                      viewBox: "0 0 18 18"
-                    }
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        fill: "none",
-                        stroke: "#d9d7d7",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round",
-                        "stroke-miterlimit": "20",
-                        "stroke-width": "1.5",
-                        d: "M1 1l16 16"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("path", {
-                      attrs: {
-                        fill: "none",
-                        stroke: "#d9d7d7",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round",
-                        "stroke-miterlimit": "20",
-                        "stroke-width": "1.5",
-                        d: "M17 1L1 17"
-                      }
-                    })
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c("Form", { attrs: { type: "callback" } })
-          ],
-          1
-        )
-      : _vm._e()
-  ])
+        : _vm._e()
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -25298,7 +25324,10 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
     modal: false,
-    success: false
+    success: false,
+    locale: "en",
+    ipLocation: null,
+    geoLocation: null
   },
   getters: {
     isModal: function isModal(state) {
@@ -25306,6 +25335,15 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     isSuccess: function isSuccess(state) {
       return state.success;
+    },
+    ipLocation: function ipLocation(state) {
+      return state.ipLocation;
+    },
+    geoLocation: function geoLocation(state) {
+      return state.geoLocation;
+    },
+    locale: function locale(state) {
+      return state.locale;
     }
   },
   mutations: {
@@ -25320,6 +25358,15 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     UNSET_SUCCESS: function UNSET_SUCCESS(state) {
       return state.success = false;
+    },
+    SET_IP_LOCATION: function SET_IP_LOCATION(state, ipLocation) {
+      return state.ipLocation = ipLocation;
+    },
+    SET_GEO_LOCATION: function SET_GEO_LOCATION(state, geoLocation) {
+      return state.geoLocation = geoLocation;
+    },
+    SET_LOCALE: function SET_LOCALE(state, locale) {
+      return state.locale = locale;
     }
   },
   actions: {
@@ -25334,6 +25381,15 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     unsetSuccess: function unsetSuccess(context) {
       return context.commit("UNSET_SUCCESS");
+    },
+    setIpLocation: function setIpLocation(context, payload) {
+      return context.commit("SET_IP_LOCATION", payload);
+    },
+    setGeoLocation: function setGeoLocation(context, payload) {
+      return context.commit("SET_GEO_LOCATION", payload);
+    },
+    setLocale: function setLocale(context, payload) {
+      return context.commit("SET_LOCALE", payload);
     }
   }
 }));

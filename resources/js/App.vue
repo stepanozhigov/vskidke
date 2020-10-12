@@ -1,5 +1,5 @@
 <template>
-    <div class="app-template flex flex-col">
+    <div class="app-template flex flex-col" :class="localeClass">
         <!-- HEADER -->
         <header class="app-header flex flex-row justify-between items-center">
             <!-- {{-- SVG --}} -->
@@ -205,16 +205,16 @@ export default {
         latitude: null,
         longitude: null,
         gettingLocation: false,
+        geoError: false,
         geoErrorStr: null,
-        apiKey: "wX06cxXBzf6GzYsHqV_liYXD9pcxnGHfA8JXa2Y_w14",
-        geoLocation: null,
-        ipLocation: null
+        apiKey: "izLr3tzed9tqFm2ArDXT5J0FPBZHbfuztoWv7-WwU4Q"
     }),
     components: {
         Form
     },
     // CREATED
     created() {
+        this.getDomainLocale();
         this.getAddress();
     },
     mounted: function() {
@@ -227,8 +227,14 @@ export default {
         );
     },
     computed: {
-        ...mapGetters(["isModal", "isSuccess"]),
-        getAddressUrl() {
+        ...mapGetters([
+            "isModal",
+            "isSuccess",
+            "ipLocation",
+            "geoLocation",
+            "locale"
+        ]),
+        addressUrl() {
             return `https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=${this.apiKey}&at=${this.latitude},${this.longitude}&lang=en-US`;
         },
         country() {
@@ -236,16 +242,35 @@ export default {
         },
         city() {
             return this.geoLocation.address.city;
+        },
+        localeClass() {
+            return "locale-" + this.locale;
         }
     },
     methods: {
-        ...mapActions(["setModal", "unsetModal", "setSuccess", "unsetSuccess"]),
+        ...mapActions([
+            "setModal",
+            "unsetModal",
+            "setSuccess",
+            "unsetSuccess",
+            "setIpLocation",
+            "setGeoLocation",
+            "setLocale"
+        ]),
         setViewHeight: function() {
             let vh = window.innerHeight * 0.01;
             document.documentElement.style.setProperty("--vh", `${vh}px`);
             //console.log(vh);
         },
-
+        getDomainLocale() {
+            if (location.hostname.includes("lmr")) {
+                this.setLocale("ru");
+            } else if (location.hostname.includes("lme")) {
+                this.setLocale("en");
+            } else {
+                this.setLocale("en");
+            }
+        },
         toggleModal() {
             if (this.isModal) {
                 this.unsetModal();
@@ -258,6 +283,7 @@ export default {
         async getCoords() {
             return new Promise((resolve, reject) => {
                 if (!("geolocation" in navigator)) {
+                    this.geoError = true;
                     reject(new Error("Geolocation is not available."));
                 }
 
@@ -279,20 +305,14 @@ export default {
                 const location = await this.getCoords();
                 this.latitude = location.coords.latitude;
                 this.longitude = location.coords.longitude;
-                const address_data = await axios(this.getAddressUrl);
-                //console.log(address_data.data.items[0]);
-                this.geoLocation = address_data.data.items[0];
+                const address_data = await axios(this.addressUrl);
+                if (address_data.data.items.length > 0)
+                    this.setGeoLocation(address_data.data.items[0]);
             } catch (e) {
                 this.gettingLocation = false;
                 this.errorStr = e.message;
             }
         }
-
-        // async getAddress() {
-        //     axios.get(this.locationUrl).then(result => {
-        //         this.geoLocation = result;
-        //     });
-        // }
     }
 };
 </script>

@@ -1,26 +1,26 @@
 <template>
-  <form
-    class="form-template"
-    @submit.prevent="submitForm"
-    :class="{ 'form-callback': type == 'callback' }"
-  >
-    <vue-tel-input
-      v-model="phone"
-      v-bind="settings"
-      @validate="onValidate"
-      @onInput="onInput"
-      @country-changed="onCountryChange"
-    ></vue-tel-input>
-
-    <button
-      class="button-pulse"
-      :class="{ disabled: !inputValid }"
-      v-bind:disabled="!inputValid"
+    <form
+        class="form-template"
+        @submit.prevent="submitForm"
+        :class="{ 'form-callback': type == 'callback' }"
     >
-      <span v-if="type == 'form'">Получить консультацию и рассчёт</span>
-      <span v-if="type == 'callback'">Заказать звонок</span>
-    </button>
-  </form>
+        <vue-tel-input
+            v-model="phone"
+            v-bind="settings"
+            @validate="onValidate"
+            @onInput="onInput"
+            @country-changed="onCountryChange"
+        ></vue-tel-input>
+
+        <button
+            class="button-pulse"
+            :class="{ disabled: !inputValid }"
+            v-bind:disabled="!inputValid"
+        >
+            <span v-if="type == 'form'">Получить консультацию и рассчёт</span>
+            <span v-if="type == 'callback'">Заказать звонок</span>
+        </button>
+    </form>
 </template>
 
 <script>
@@ -29,78 +29,110 @@ import axios from "axios";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
-  data: () => ({
-    phone: "",
-    url: "lmr.vskidke.ru",
-    dialCode: "",
-    isValid: false,
-    onFocus: false,
-    settings: {
-      placeholder: "Ваш телефон *",
-      disabledFormatting: false,
-      enabledCountryCode: true,
-      mode: "international",
-      preferredCountries: ["fr", "us", "gb"],
-      validCharactersOnly: true,
-      dynamicPlaceholder: true,
-      inputOptions: {
-        showDialCode: false,
-        tabindex: 0,
-      },
-    },
-  }),
-  props: {
-    type: {
-      type: String,
-      default: "none",
-    },
-  },
-  components: { VueTelInput },
-  mounted() {
-    //console.log("Component mounted.");
-  },
-  computed: {
-    ...mapGetters(["isModal", "isSuccess"]),
-    inputValid: function () {
-      return this.phone.length > 0 && this.isValid;
-    },
-  },
-  methods: {
-    ...mapActions(["setModal", "unsetModal", "setSuccess", "unsetSuccess"]),
-    submitForm() {
-      if (this.isValid) {
-        axios
-          .post("api/lead", {
-            phone: this.phone,
-            url: this.url,
-          })
-          .then((response) => {
-            fbq("track", "Lead");
-            if (this.type == "form") {
-              ym(62231704, "reachGoal", "leadmagnit-form-open-account");
-              ga("send", "event", "leadmagnit-forms-accoint-in-KZ", "send");
-            } else if (this.type == "callback") {
-              ym(62231704, "reachGoal", "leadmagnit-callback-open-account");
-              ga("send", "event", "leadmagnit-callback-accoint-in-KZ", "send");
+    data: () => ({
+        phone: "",
+        dialCode: "",
+        isValid: false,
+        onFocus: false,
+        settings: {
+            placeholder: "Ваш телефон *",
+            disabledFormatting: false,
+            enabledCountryCode: true,
+            mode: "international",
+            preferredCountries: ["fr", "us", "gb"],
+            validCharactersOnly: true,
+            dynamicPlaceholder: true,
+            inputOptions: {
+                showDialCode: false,
+                tabindex: 0
             }
+        }
+    }),
+    props: {
+        type: {
+            type: String,
+            default: "none"
+        }
+    },
+    components: { VueTelInput },
+    mounted() {
+        //console.log("Component mounted.");
+    },
+    computed: {
+        ...mapGetters(["isModal", "isSuccess", "ipLocation", "locale"]),
+        inputValid: function() {
+            return this.phone.length > 0 && this.isValid;
+        },
+        url() {
+            switch (this.locale) {
+                case "ru":
+                    return "lmr.vskidke.ru";
+                case "en":
+                    "lme.vskidke.ru";
+            }
+        }
+    },
+    methods: {
+        ...mapActions([
+            "setModal",
+            "unsetModal",
+            "setSuccess",
+            "unsetSuccess",
+            "setIpLocation"
+        ]),
+        submitForm() {
+            if (this.isValid) {
+                axios
+                    .post("api/lead", {
+                        phone: this.phone,
+                        url: this.url
+                    })
+                    .then(response => {
+                        fbq("track", "Lead");
+                        if (this.type == "form") {
+                            ym(
+                                62231704,
+                                "reachGoal",
+                                "leadmagnit-form-open-account"
+                            );
+                            ga(
+                                "send",
+                                "event",
+                                "leadmagnit-forms-accoint-in-KZ",
+                                "send"
+                            );
+                        } else if (this.type == "callback") {
+                            ym(
+                                62231704,
+                                "reachGoal",
+                                "leadmagnit-callback-open-account"
+                            );
+                            ga(
+                                "send",
+                                "event",
+                                "leadmagnit-callback-accoint-in-KZ",
+                                "send"
+                            );
+                        }
 
+                        this.phone = "";
+                        this.setSuccess();
+                        this.setModal();
+                    });
+            }
+        },
+        onValidate({ number, isValid, country }) {
+            //console.log(number);
+        },
+        onInput(input) {
+            //console.log(input);
+            this.isValid = input.isValid;
+        },
+        onCountryChange(country) {
+            this.setIpLocation(country.name);
+            console.log(country);
             this.phone = "";
-            this.setSuccess();
-            this.setModal();
-          });
-      }
-    },
-    onValidate({ number, isValid, country }) {
-      //console.log(number);
-    },
-    onInput(input) {
-      //console.log(input);
-      this.isValid = input.isValid;
-    },
-    onCountryChange(country) {
-      //console.log(country);
-      this.phone = "";
-    },
-  },
+        }
+    }
 };
 </script>
