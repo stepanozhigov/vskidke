@@ -9,14 +9,16 @@ export default new Vuex.Store({
         success: false,
         locale: "en",
         ipLocation: null,
-        geoLocation: null
+        geoLocation: null,
+        redirectTo: "http://uppercase.group/"
     },
     getters: {
         isModal: state => state.modal,
         isSuccess: state => state.success,
         ipLocation: state => state.ipLocation,
         geoLocation: state => state.geoLocation,
-        locale: state => state.locale
+        locale: state => state.locale,
+        redirectTo: state => state.redirectTo
     },
     mutations: {
         SET_MODAL: state => (state.modal = true),

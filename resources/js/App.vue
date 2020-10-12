@@ -155,12 +155,8 @@
                     <Form type="form" />
 
                     <!-- A -->
-                    <a v-if="isRu" href="http://uppercase.group/"
-                        >Перейти на сайт</a
-                    >
-                    <a v-if="isEn" href="http://uppercase.group/"
-                        >Go to the Website</a
-                    >
+                    <a v-if="isRu" :href="redirectTo">Перейти на сайт</a>
+                    <a v-if="isEn" :href="redirectTo">Go to the Website</a>
                 </div>
 
                 <!-- P -->
@@ -182,12 +178,23 @@
             v-if="isSuccess && isModal"
             class="success-view flex-grow flex flex-col justify-center"
         >
-            <h2>Спасибо!</h2>
-            <h4>Ваша заявка принята</h4>
+            <h2 v-if="isRu">Спасибо!</h2>
+            <h2 v-else-if="isEn">Thank you!</h2>
+
+            <h4 v-if="isRu">Ваша заявка принята</h4>
+            <h4 v-else-if="isEn">Your request has been sent</h4>
+
             <a
-                href="http://uppercase.group/"
+                v-if="isRu"
+                :href="redirectTo"
                 class="flex justify-center items-center button-pulse"
                 >Перейти на сайт</a
+            >
+            <a
+                v-if="isEn"
+                :href="redirectTo"
+                class="flex justify-center items-center button-pulse"
+                >Go to the Website</a
             >
         </div>
         <!-- /SUCCESS VIEW -->
@@ -266,6 +273,7 @@ export default {
     },
     computed: {
         ...mapGetters([
+            "redirectTo",
             "isModal",
             "isSuccess",
             "ipLocation",

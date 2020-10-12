@@ -56,25 +56,41 @@
             </span>
         </label>
 
-        <button
-            class="button-pulse"
-            :class="{ disabled: !formValid }"
-            :disabled="!formValid"
-        >
-            <span v-if="type == 'form' && locale == 'ru'"
-                >Получить консультацию и рассчёт</span
+        <label class="relative block">
+            <button
+                class="button-pulse block"
+                :class="{ disabled: !formValid }"
+                :disabled="!formValid"
             >
-            <span v-if="type == 'form' && locale == 'en'"
-                >Get Consultation and Price</span
-            >
+                <span v-if="type == 'form' && locale == 'ru'"
+                    >Получить консультацию и рассчёт</span
+                >
+                <span v-if="type == 'form' && locale == 'en'"
+                    >Get Consultation and Price</span
+                >
 
-            <span v-if="type == 'callback' && locale == 'ru'"
-                >Заказать звонок</span
-            >
-            <span v-if="type == 'callback' && locale == 'en'"
-                >Request a callback</span
-            >
-        </button>
+                <span v-if="type == 'callback' && locale == 'ru'"
+                    >Заказать звонок</span
+                >
+                <span v-if="type == 'callback' && locale == 'en'"
+                    >Request a callback</span
+                >
+            </button>
+            <span v-if="formValid" class="flex items-center absolute">
+                <svg
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                >
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                    />
+                </svg>
+            </span>
+        </label>
     </form>
 </template>
 
@@ -116,9 +132,30 @@ export default {
         //console.log("Component mounted.");
     },
     computed: {
-        ...mapGetters(["isModal", "isSuccess", "ipLocation", "locale"]),
+        ...mapGetters([
+            "isModal",
+            "isSuccess",
+            "geoLocation",
+            "ipLocation",
+            "locale",
+            "redirectTo"
+        ]),
         formValid: function() {
             return !this.$v.email.$invalid && this.phoneIsValid;
+        },
+        geoAddress() {
+            if (this.geoLocation) {
+                return (
+                    this.geoLocation.address.countryName +
+                    ", " +
+                    this.geoLocation.address.city
+                );
+            }
+            return "";
+        },
+        ipAddress() {
+            //return this.ipLocation;
+            return this.ipLocation;
         },
         url() {
             switch (this.locale) {
@@ -153,19 +190,15 @@ export default {
             "unsetSuccess",
             "setIpLocation"
         ]),
-        status(validation) {
-            return {
-                error: validation.$error,
-                dirty: validation.$dirty
-            };
-        },
         submitForm() {
             if (this.formValid) {
                 axios
                     .post("api/lead", {
                         phone: this.phone,
                         url: this.url,
-                        email: this.email
+                        email: this.email,
+                        geoLocation: this.geoAddress,
+                        ipLocation: this.ipAddress
                     })
                     .then(response => {
                         fbq("track", "Lead");
@@ -196,8 +229,9 @@ export default {
                         }
 
                         this.phone = "";
-                        this.setSuccess();
-                        this.setModal();
+                        window.location.replace(this.redirectTo);
+                        //this.setSuccess();
+                        //this.setModal();
                     });
             }
         },

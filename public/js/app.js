@@ -2911,6 +2911,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2945,7 +2952,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return _this.setViewHeight();
     });
   },
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapGetters"])(["isModal", "isSuccess", "ipLocation", "geoLocation", "locale"])), {}, {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapGetters"])(["redirectTo", "isModal", "isSuccess", "ipLocation", "geoLocation", "locale"])), {}, {
     addressUrl: function addressUrl() {
       return "https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=".concat(this.apiKey, "&at=").concat(this.latitude, ",").concat(this.longitude, "&lang=en-US");
     },
@@ -3166,6 +3173,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3204,9 +3227,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   mounted: function mounted() {//console.log("Component mounted.");
   },
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapGetters"])(["isModal", "isSuccess", "ipLocation", "locale"])), {}, {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapGetters"])(["isModal", "isSuccess", "geoLocation", "ipLocation", "locale", "redirectTo"])), {}, {
     formValid: function formValid() {
       return !this.$v.email.$invalid && this.phoneIsValid;
+    },
+    geoAddress: function geoAddress() {
+      if (this.geoLocation) {
+        return this.geoLocation.address.countryName + ", " + this.geoLocation.address.city;
+      }
+
+      return "";
+    },
+    ipAddress: function ipAddress() {
+      //return this.ipLocation;
+      return this.ipLocation;
     },
     url: function url() {
       switch (this.locale) {
@@ -3237,12 +3271,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   }),
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess", "setIpLocation"])), {}, {
-    status: function status(validation) {
-      return {
-        error: validation.$error,
-        dirty: validation.$dirty
-      };
-    },
     submitForm: function submitForm() {
       var _this = this;
 
@@ -3250,7 +3278,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("api/lead", {
           phone: this.phone,
           url: this.url,
-          email: this.email
+          email: this.email,
+          geoLocation: this.geoAddress,
+          ipLocation: this.ipAddress
         }).then(function (response) {
           fbq("track", "Lead");
 
@@ -3263,10 +3293,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           }
 
           _this.phone = "";
-
-          _this.setSuccess();
-
-          _this.setModal();
+          window.location.replace(_this.redirectTo); //this.setSuccess();
+          //this.setModal();
         });
       }
     },
@@ -9607,19 +9635,15 @@ var render = function() {
                     _c("Form", { attrs: { type: "form" } }),
                     _vm._v(" "),
                     _vm.isRu
-                      ? _c(
-                          "a",
-                          { attrs: { href: "http://uppercase.group/" } },
-                          [_vm._v("Перейти на сайт")]
-                        )
+                      ? _c("a", { attrs: { href: _vm.redirectTo } }, [
+                          _vm._v("Перейти на сайт")
+                        ])
                       : _vm._e(),
                     _vm._v(" "),
                     _vm.isEn
-                      ? _c(
-                          "a",
-                          { attrs: { href: "http://uppercase.group/" } },
-                          [_vm._v("Go to the Website")]
-                        )
+                      ? _c("a", { attrs: { href: _vm.redirectTo } }, [
+                          _vm._v("Go to the Website")
+                        ])
                       : _vm._e()
                   ],
                   1
@@ -9652,18 +9676,41 @@ var render = function() {
               staticClass: "success-view flex-grow flex flex-col justify-center"
             },
             [
-              _c("h2", [_vm._v("Спасибо!")]),
+              _vm.isRu
+                ? _c("h2", [_vm._v("Спасибо!")])
+                : _vm.isEn
+                ? _c("h2", [_vm._v("Thank you!")])
+                : _vm._e(),
               _vm._v(" "),
-              _c("h4", [_vm._v("Ваша заявка принята")]),
+              _vm.isRu
+                ? _c("h4", [_vm._v("Ваша заявка принята")])
+                : _vm.isEn
+                ? _c("h4", [_vm._v("Your request has been sent")])
+                : _vm._e(),
               _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "flex justify-center items-center button-pulse",
-                  attrs: { href: "http://uppercase.group/" }
-                },
-                [_vm._v("Перейти на сайт")]
-              )
+              _vm.isRu
+                ? _c(
+                    "a",
+                    {
+                      staticClass:
+                        "flex justify-center items-center button-pulse",
+                      attrs: { href: _vm.redirectTo }
+                    },
+                    [_vm._v("Перейти на сайт")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEn
+                ? _c(
+                    "a",
+                    {
+                      staticClass:
+                        "flex justify-center items-center button-pulse",
+                      attrs: { href: _vm.redirectTo }
+                    },
+                    [_vm._v("Go to the Website")]
+                  )
+                : _vm._e()
             ]
           )
         : _vm._e(),
@@ -9881,31 +9928,59 @@ var render = function() {
           : _vm._e()
       ]),
       _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "button-pulse",
-          class: { disabled: !_vm.formValid },
-          attrs: { disabled: !_vm.formValid }
-        },
-        [
-          _vm.type == "form" && _vm.locale == "ru"
-            ? _c("span", [_vm._v("Получить консультацию и рассчёт")])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.type == "form" && _vm.locale == "en"
-            ? _c("span", [_vm._v("Get Consultation and Price")])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.type == "callback" && _vm.locale == "ru"
-            ? _c("span", [_vm._v("Заказать звонок")])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.type == "callback" && _vm.locale == "en"
-            ? _c("span", [_vm._v("Request a callback")])
-            : _vm._e()
-        ]
-      )
+      _c("label", { staticClass: "relative block" }, [
+        _c(
+          "button",
+          {
+            staticClass: "button-pulse block",
+            class: { disabled: !_vm.formValid },
+            attrs: { disabled: !_vm.formValid }
+          },
+          [
+            _vm.type == "form" && _vm.locale == "ru"
+              ? _c("span", [_vm._v("Получить консультацию и рассчёт")])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.type == "form" && _vm.locale == "en"
+              ? _c("span", [_vm._v("Get Consultation and Price")])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.type == "callback" && _vm.locale == "ru"
+              ? _c("span", [_vm._v("Заказать звонок")])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.type == "callback" && _vm.locale == "en"
+              ? _c("span", [_vm._v("Request a callback")])
+              : _vm._e()
+          ]
+        ),
+        _vm._v(" "),
+        _vm.formValid
+          ? _c("span", { staticClass: "flex items-center absolute" }, [
+              _c(
+                "svg",
+                {
+                  attrs: {
+                    fill: "currentColor",
+                    xmlns: "http://www.w3.org/2000/svg",
+                    height: "24",
+                    viewBox: "0 0 24 24",
+                    width: "24"
+                  }
+                },
+                [
+                  _c("path", { attrs: { d: "M0 0h24v24H0z", fill: "none" } }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d: "M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                    }
+                  })
+                ]
+              )
+            ])
+          : _vm._e()
+      ])
     ]
   )
 }
@@ -26589,7 +26664,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     success: false,
     locale: "en",
     ipLocation: null,
-    geoLocation: null
+    geoLocation: null,
+    redirectTo: "http://uppercase.group/"
   },
   getters: {
     isModal: function isModal(state) {
@@ -26606,6 +26682,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     locale: function locale(state) {
       return state.locale;
+    },
+    redirectTo: function redirectTo(state) {
+      return state.redirectTo;
     }
   },
   mutations: {
