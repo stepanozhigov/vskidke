@@ -4,35 +4,92 @@
         @submit.prevent="submitForm"
         :class="{ 'form-callback': type == 'callback' }"
     >
-        <vue-tel-input
-            v-model="phone"
-            v-bind="settings"
-            @validate="onValidate"
-            @onInput="onInput"
-            @country-changed="onCountryChange"
-        ></vue-tel-input>
+        <label for="phone" class="relative block">
+            <vue-tel-input
+                v-model="phone"
+                v-bind="settings"
+                @validate="onCountryValidate"
+                @onInput="onCountryInput"
+                @country-changed="onCountryChange"
+                :placeholder="phonePlaceholder"
+                autocomplete="off"
+            ></vue-tel-input>
+            <span v-if="phoneIsValid" class="flex items-center absolute">
+                <svg
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                >
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                    />
+                </svg>
+            </span>
+        </label>
+
+        <label for="email" class="relative block">
+            <input
+                type="email"
+                name="email"
+                class="email"
+                v-model="email"
+                :placeholder="emailPlaceholder"
+                autocomplete="off"
+                required
+            />
+            <span v-if="!$v.email.$invalid" class="flex items-center absolute">
+                <svg
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                >
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                    />
+                </svg>
+            </span>
+        </label>
 
         <button
             class="button-pulse"
-            :class="{ disabled: !inputValid }"
-            v-bind:disabled="!inputValid"
+            :class="{ disabled: !formValid }"
+            v-bind:disabled="!formValid"
         >
-            <span v-if="type == 'form'">Получить консультацию и рассчёт</span>
-            <span v-if="type == 'callback'">Заказать звонок</span>
+            <span v-if="type == 'form' && locale == 'ru'"
+                >Получить консультацию и рассчёт</span
+            >
+            <span v-if="type == 'form' && locale == 'en'"
+                >Get Consultation and Price</span
+            >
+
+            <span v-if="type == 'callback' && locale == 'ru'"
+                >Заказать звонок</span
+            >
+            <span v-if="type == 'callback' && locale == 'en'"
+                >Request a callback</span
+            >
         </button>
     </form>
 </template>
 
 <script>
 import { VueTelInput } from "vue-tel-input";
+import { email, required, helpers } from "vuelidate/lib/validators";
 import axios from "axios";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
     data: () => ({
+        email: "",
         phone: "",
         dialCode: "",
-        isValid: false,
+        phoneIsValid: false,
         onFocus: false,
         settings: {
             placeholder: "Ваш телефон *",
@@ -60,15 +117,31 @@ export default {
     },
     computed: {
         ...mapGetters(["isModal", "isSuccess", "ipLocation", "locale"]),
-        inputValid: function() {
-            return this.phone.length > 0 && this.isValid;
+        formValid: function() {
+            return this.phone.length > 0 && this.phoneIsValid;
         },
         url() {
             switch (this.locale) {
                 case "ru":
                     return "lmr.vskidke.ru";
                 case "en":
-                    "lme.vskidke.ru";
+                    return "lme.vskidke.ru";
+            }
+        },
+        emailPlaceholder() {
+            switch (this.locale) {
+                case "ru":
+                    return "Электронная Почта *";
+                case "en":
+                    return "Your E-mail *";
+            }
+        },
+        phonePlaceholder() {
+            switch (this.locale) {
+                case "ru":
+                    return "Ваш телефон *";
+                case "en":
+                    return "Your phone number *";
             }
         }
     },
@@ -80,8 +153,14 @@ export default {
             "unsetSuccess",
             "setIpLocation"
         ]),
+        status(validation) {
+            return {
+                error: validation.$error,
+                dirty: validation.$dirty
+            };
+        },
         submitForm() {
-            if (this.isValid) {
+            if (this.formValid) {
                 axios
                     .post("api/lead", {
                         phone: this.phone,
@@ -121,17 +200,23 @@ export default {
                     });
             }
         },
-        onValidate({ number, isValid, country }) {
+        onCountryValidate({ number, isValid, country }) {
             //console.log(number);
         },
-        onInput(input) {
+        onCountryInput(input) {
             //console.log(input);
-            this.isValid = input.isValid;
+            this.phoneIsValid = input.isValid;
         },
         onCountryChange(country) {
             if (this.ipLocation == null) this.setIpLocation(country.name);
-            console.log(country);
+            //console.log(country);
             this.phone = "";
+        }
+    },
+    validations: {
+        email: {
+            email,
+            required
         }
     }
 };

@@ -100,9 +100,17 @@
                 <a href="tel:8 910 235-89-36" class="app-call-number">
                     +7 967 069-04-29
                 </a>
+
                 <!-- {{-- Book call --}} -->
-                <span @click="toggleModal()" class="app-call-book">
+                <span v-if="isRu" @click="toggleModal()" class="app-call-book">
                     Заказать звонок
+                </span>
+                <span
+                    v-else-if="isEn"
+                    @click="toggleModal()"
+                    class="app-call-book"
+                >
+                    Request a callback
                 </span>
             </div>
         </header>
@@ -116,23 +124,53 @@
             <!-- CONTENT -->
             <section class="home-view-content flex flex-col flex-grow">
                 <div class="flex-grow md:flex md:flex-col md:justify-center">
-                    <h1>Открытие банковских счетов</h1>
-                    <h3>
+                    <!-- H1 -->
+                    <h1 v-if="isRu">Открытие банковских счетов</h1>
+                    <h1 v-else-if="isEn">Secure Bank Accounts</h1>
+
+                    <!-- H3 -->
+                    <h3 v-if="isRu">
                         за 10 дней для&nbsp;офшорных компаний в&nbsp;Казахстане
                         и&nbsp;Кыргызстане
                     </h3>
-                    <h5>
+                    <h3 v-else-if="isEn">
+                        for offshore companies in&nbsp;Kazakhstan and Kyrgyzstan
+                        in&nbsp;10&nbsp;days!
+                    </h3>
+
+                    <!-- H5 -->
+                    <h5 v-if="isRu">
                         Оставьте номер телефона и&nbsp;получите подробную
                         консультацию в течение<br />
                         5&nbsp;минут по&nbsp;телефону или&nbsp;WhatsApp
                     </h5>
+                    <h5 v-if="isEn">
+                        Leave your contacts and get consultation from our
+                        experts<br />
+                        in&nbsp;5&nbsp;minutes! Phone and WhatsApp consultation
+                        available
+                    </h5>
+
+                    <!-- FORM -->
                     <Form type="form" />
-                    <a href="http://uppercase.group/">Перейти на сайт</a>
+
+                    <!-- A -->
+                    <a v-if="isRu" href="http://uppercase.group/"
+                        >Перейти на сайт</a
+                    >
+                    <a v-if="isEn" href="http://uppercase.group/"
+                        >Go to the Website</a
+                    >
                 </div>
 
-                <p>
+                <!-- P -->
+                <p v-if="isRu">
                     Оставляя контактную информацию, вы
                     <span>соглашаетесь</span> на обработку персональных данных
+                </p>
+                <p v-else-if="isEn">
+                    I agree to Terms and Conditions and personal data consent
+                    form.
                 </p>
             </section>
             <!-- /CONTENT -->
@@ -245,6 +283,12 @@ export default {
         },
         localeClass() {
             return "locale-" + this.locale;
+        },
+        isRu() {
+            return this.locale == "ru";
+        },
+        isEn() {
+            return this.locale == "en";
         }
     },
     methods: {

@@ -786,7 +786,7 @@ video {
   color: #b3adae;
 }
 
-.form-template input {
+.form-template .vue-tel-input input {
   font-family: SuisseIntl;
   font-weight: 400;
   padding-left: 1rem;
@@ -797,6 +797,36 @@ video {
   background-color: transparent;
   border-style: none;
   outline: 0;
+}
+
+.form-template label {
+  width: 100%;
+}
+
+.form-template label input.email {
+  background-color: transparent;
+  outline: 0;
+  margin-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 4rem;
+  width: 100%;
+  font-family: SuisseIntl;
+  font-weight: 400;
+  color: #f8f7f6;
+  font-size: 1.125rem;
+  height: 3.5rem;
+  border-radius: 3px;
+  display: flex;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+}
+
+.form-template label span {
+  color: #f8f7f6;
+  margin-right: 1rem;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
 .form-template ::placeholder {
