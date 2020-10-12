@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\View;
 
-class setLocale
+class SetLocale
 {
     /**
      * Handle an incoming request.
