@@ -11,7 +11,11 @@ class LeadController extends Controller
     {
         $response = Http::post('http://amoconnect.ru/amo-ipravo/api/slug/lmr-ifinance', [
             'url' => $request->url,
-            'phone' => $request->phone
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'geoLocation' => $request->geoLocation,
+            'ipLocation' => $request->ipLocation
+
         ]);
         return response()->json($response);
     }
