@@ -196,6 +196,7 @@ export default {
             ipLocation: this.ipAddress,
           })
           .then((response) => {
+            console.log(response);
             fbq("track", "Lead");
             if (this.type == "form") {
               ym(62231704, "reachGoal", "leadmagnit-form-open-account");

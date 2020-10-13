@@ -9,14 +9,19 @@ class LeadController extends Controller
 {
     public function store(Request $request)
     {
-        $response = Http::post('http://amoconnect.ru/amo-ipravo/api/slug/lmr-ifinance', [
+        $response = Http::asForm()->post('http://amoconnect.ru/amo-ipravo/api/slug/lmr-ifinance', [
             'url' => $request->url,
             'phone' => $request->phone,
             'email' => $request->email,
-            'geoLocation' => $request->geoLocation,
-            'ipLocation' => $request->ipLocation
-
+            'contact_fields' => [
+                'geo_location' => $request->geoLocation,
+                'ip_location' => $request->ipLocation
+            ]
         ]);
-        return response()->json($response);
+        if ($response->successful()) {
+            return response()->json($response);
+        } elseif ($response->failed() || $response->clientError() || $response->serverError()) {
+            return response()->json($response->throw()->json());
+        }
     }
 }
