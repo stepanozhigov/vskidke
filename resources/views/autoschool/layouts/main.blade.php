@@ -9,7 +9,7 @@
     <link rel="icon" href="{{ asset('images/favicon-32x32.png')}}" sizes='32x32'>
     <link rel="icon" href="{{ asset('images/favicon-128x128.png')}}" sizes='128x128'>
     <link rel="icon" href="{{ asset('images/favicon-180x180.png')}}" sizes='180x180'>
-    <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('/autoschool/css/app.css') }}" rel="stylesheet">
 
 </head>
 
@@ -19,12 +19,8 @@
         <App />
     </div>
 
-    {{-- HERE Maps API --}}
-    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
-
     {{-- VUE-CLI JS --}}
-    <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="{{ mix('autoschool/js/app.js') }}" defer></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">

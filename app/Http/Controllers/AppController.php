@@ -9,6 +9,6 @@ class AppController extends Controller
     public function index($subdomain)
 
     {
-        return view($subdomain);
+        return view($subdomain . '.app');
     }
 }

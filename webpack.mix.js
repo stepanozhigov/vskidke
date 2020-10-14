@@ -24,8 +24,20 @@ require("laravel-mix-purgecss");
 //         open: false
 //     });
 
+
+// AUTOSCHOOL
 mix
-.js("resources/js/app.js", "public/js")
+.js("resources/autoschool/js/app.js", "public/autoschool/js")
+.sass("resources/autoschool/sass/app.scss", "public/autoschool/css")
+.options({
+            autoprefixer: false,
+            processCssUrls: false,
+            postCss: [tailwindcss("./tailwind.config.js")],
+            autoprefixer: {
+                browsers: ["last 9 versions"]
+            }
+        })
+.version()
 .browserSync({
             proxy: "autoschool.vskidke.local",
             open: false
