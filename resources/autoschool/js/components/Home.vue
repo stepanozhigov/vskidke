@@ -27,8 +27,12 @@
         </div>
 </template>
 <script>
+import Form from './Form'
 export default {
     name: 'Home',
-    data:()=> ({})
+    data:()=> ({}),
+    components: {
+        Form
+    }
 }
 </script>

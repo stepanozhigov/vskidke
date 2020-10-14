@@ -5,7 +5,7 @@
           +7 342 243-34-34
         </a>
         <!-- {{-- Book call --}} -->
-        <span @click="toggleModal()" class="app-call-book">
+        <span @click="toggleModal" class="app-call-book">
           Заказать звонок
         </span>
       </div>

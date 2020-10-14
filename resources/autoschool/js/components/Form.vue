@@ -70,10 +70,10 @@ export default {
                 axios
                     .post("/lead", {
                         phone: this.phone,
-                        tag: "Монтажники по окнам"
+                        tag: "Автошкола 'Лайк'"
                     })
                     .then(response => {
-                        ym(67978810, "reachGoal", "send-form");
+                        ym(68288701,'reachGoal','send_form');
                         this.phone = "";
                         this.setSuccess();
                         this.setModal();

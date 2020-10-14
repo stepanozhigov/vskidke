@@ -1,8 +1,9 @@
 @layer base {
     @font-face {
-        font-family: Manrope;
+        font-family: Inter;
         font-weight: 400;
-        src: url("../fonts/Manrope-Regular.otf") format("opentype");
+        src: url("../fonts/Inter-Regular.woff") format("woff");
+        src: url("../fonts/Inter-Regular.woff2") format("woff2");
     }
     @font-face {
         font-family: SuisseIntl;

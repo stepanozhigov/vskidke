@@ -53,8 +53,19 @@ export default {
     data:()=> ({}),
     
     methods: {
+        ...mapActions(["setModal", "unsetModal", "setSuccess", "unsetSuccess"]),
+      toggleModal() {
+            if (this.isModal) {
+                this.unsetModal();
+            } else {
+                this.setModal();
+            }
+            this.unsetSuccess();
+        }
         
-        
-    }
+    },
+    computed: {
+        ...mapGetters(["isModal", "isSuccess"])
+    },
 }
 </script>

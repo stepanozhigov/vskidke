@@ -2074,9 +2074,9 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["helpe
         this.isValid = true;
         axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/lead", {
           phone: this.phone,
-          tag: "Монтажники по окнам"
+          tag: "Автошкола 'Лайк'"
         }).then(function (response) {
-          ym(67978810, "reachGoal", "send-form");
+          ym(68288701, 'reachGoal', 'send_form');
           _this.phone = "";
 
           _this.setSuccess();
@@ -2109,15 +2109,8 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["helpe
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _Logo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Logo */ "./resources/autoschool/js/components/Logo.vue");
-/* harmony import */ var _Phone__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Phone */ "./resources/autoschool/js/components/Phone.vue");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+/* harmony import */ var _Logo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Logo */ "./resources/autoschool/js/components/Logo.vue");
+/* harmony import */ var _Phone__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Phone */ "./resources/autoschool/js/components/Phone.vue");
 //
 //
 //
@@ -2125,7 +2118,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2134,21 +2126,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {};
   },
   components: {
-    Logo: _Logo__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Phone: _Phone__WEBPACK_IMPORTED_MODULE_2__["default"]
-  },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["isModal", "isSuccess"])),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess"])), {}, {
-    toggleModal: function toggleModal() {
-      if (this.isModal) {
-        this.unsetModal();
-      } else {
-        this.setModal();
-      }
-
-      this.unsetSuccess();
-    }
-  })
+    Logo: _Logo__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Phone: _Phone__WEBPACK_IMPORTED_MODULE_1__["default"]
+  }
 });
 
 /***/ }),
@@ -2162,6 +2142,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Form */ "./resources/autoschool/js/components/Form.vue");
 //
 //
 //
@@ -2190,10 +2171,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Home',
   data: function data() {
     return {};
+  },
+  components: {
+    Form: _Form__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
 
@@ -2232,6 +2217,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2286,7 +2277,18 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {};
   },
-  methods: {}
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess"])), {}, {
+    toggleModal: function toggleModal() {
+      if (this.isModal) {
+        this.unsetModal();
+      } else {
+        this.setModal();
+      }
+
+      this.unsetSuccess();
+    }
+  }),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["isModal", "isSuccess"]))
 });
 
 /***/ }),
@@ -4315,14 +4317,7 @@ var render = function() {
     _vm._v(" "),
     _c(
       "span",
-      {
-        staticClass: "app-call-book",
-        on: {
-          click: function($event) {
-            return _vm.toggleModal()
-          }
-        }
-      },
+      { staticClass: "app-call-book", on: { click: _vm.toggleModal } },
       [_vm._v("\n      Заказать звонок\n    ")]
     )
   ])
