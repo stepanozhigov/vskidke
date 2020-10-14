@@ -6,8 +6,8 @@ import store from "./store";
 import Vuelidate from "vuelidate";
 Vue.use(Vuelidate);
 
-import VueCountryCode from "vue-country-code";
-Vue.use(VueCountryCode);
+const VueInputMask = require("vue-inputmask").default;
+Vue.use(VueInputMask);
 
 const app = new Vue({
     el: "#app",

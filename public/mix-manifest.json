@@ -1,6 +1,6 @@
 {
-    "/autoschool/js/app.js": "/autoschool/js/app.js?id=02ca988d2c18bc1c1e4e",
-    "/autoschool/css/app.css": "/autoschool/css/app.css?id=ebd8c2d6894562fcdfcf",
+    "/autoschool/js/app.js": "/autoschool/js/app.js?id=3e413110ffe543ce9828",
+    "/autoschool/css/app.css": "/autoschool/css/app.css?id=16081696dfb1cab5e29c",
     "/autoschool/images/bg-image-lg.jpg": "/autoschool/images/bg-image-lg.jpg?id=40ecd2cbb72b1cd69153",
     "/autoschool/images/bg-image-md.jpg": "/autoschool/images/bg-image-md.jpg?id=d69e5c46a8f6806ed949",
     "/autoschool/images/bg-image-sm.jpg": "/autoschool/images/bg-image-sm.jpg?id=62ee814cee484c757916",
@@ -10,10 +10,19 @@
     "/autoschool/images/favicon-128x128.png": "/autoschool/images/favicon-128x128.png?id=d446b5669ea8fd8c37e1",
     "/autoschool/images/favicon-180x180.png": "/autoschool/images/favicon-180x180.png?id=a057a3c1c593954c3d70",
     "/autoschool/images/favicon-32x32.png": "/autoschool/images/favicon-32x32.png?id=0e2ddd78d33ae8f25fef",
+    "/autoschool/images/logo.svg": "/autoschool/images/logo.svg?id=e6d82125940dbb27f8dc",
     "/autoschool/fonts/Manrope-Light.otf": "/autoschool/fonts/Manrope-Light.otf?id=cb129697d87c058f1896",
     "/autoschool/fonts/Manrope-Regular.otf": "/autoschool/fonts/Manrope-Regular.otf?id=792ef1ec978ee33b348a",
     "/autoschool/fonts/SuisseIntl-Bold.otf": "/autoschool/fonts/SuisseIntl-Bold.otf?id=0d5ed786e76e26925f38",
     "/autoschool/fonts/SuisseIntl-Light.otf": "/autoschool/fonts/SuisseIntl-Light.otf?id=50022a46faf941f942c6",
     "/autoschool/fonts/SuisseIntl-Medium.otf": "/autoschool/fonts/SuisseIntl-Medium.otf?id=12284af368413f1f1c10",
-    "/autoschool/fonts/SuisseIntl-Regular.otf": "/autoschool/fonts/SuisseIntl-Regular.otf?id=5634c47567af0c048ab8"
+    "/autoschool/fonts/SuisseIntl-Regular.otf": "/autoschool/fonts/SuisseIntl-Regular.otf?id=5634c47567af0c048ab8",
+    "/autoschool/images/driving_bkg-1440.jpg": "/autoschool/images/driving_bkg-1440.jpg?id=aef4298f349c823879eb",
+    "/autoschool/images/driving_bkg-1440@2x.jpg": "/autoschool/images/driving_bkg-1440@2x.jpg?id=e8716325b155f88fd8f4",
+    "/autoschool/images/driving_bkg-414.jpg": "/autoschool/images/driving_bkg-414.jpg?id=54f78743511e9f3832d6",
+    "/autoschool/images/driving_bkg-414@2x.jpg": "/autoschool/images/driving_bkg-414@2x.jpg?id=11dfbfb7afde64977dda",
+    "/autoschool/images/driving_bkg-768.jpg": "/autoschool/images/driving_bkg-768.jpg?id=d8d1bd34ff18c7342ca3",
+    "/autoschool/images/driving_bkg-768@2x.jpg": "/autoschool/images/driving_bkg-768@2x.jpg?id=eb8f39a44b13c2f2c63c",
+    "/autoschool/fonts/Inter-Regular.woff": "/autoschool/fonts/Inter-Regular.woff?id=2f71705650e9bbfd9d7f",
+    "/autoschool/fonts/Inter-Regular.woff2": "/autoschool/fonts/Inter-Regular.woff2?id=e4eb59afd6f214d48a06"
 }

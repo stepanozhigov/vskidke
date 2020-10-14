@@ -2,486 +2,453 @@
     .app-template {
         @apply h-screen;
         background-color: theme("colors.bg");
-    }
-    .app-header {
-        @apply h-16;
-        @apply px-4;
 
-        background-color: theme("colors.bg");
-        box-shadow: inset 0 -1px 0 theme("colors.shadow");
-
-        .app-header-logo {
-            height: 3rem;
+        @screen lg {
+            padding-left: 8.135rem;
+            padding-right: 8.135rem;
+            padding-bottom: 6.25rem;
         }
 
-        .app-call {
-            font-size: 0.75rem;
-            line-height: 1rem;
-
-            .app-call-number {
-                @apply font-suisseIntl;
-                @apply font-normal;
-                color: theme("colors.cblack");
-                letter-spacing: -0.25px;
-            }
-            .app-call-book {
-                @apply font-suisseIntl;
-                @apply font-medium;
-                @apply cursor-pointer;
-                @apply border-dotted border-b-2;
-                color: theme("colors.cbrown");
-            }
-        }
-    }
-
-    //DROPDOWN
-    .dropdown {
-        z-index: 10;
-
-        .iti-flag {
-            margin-right: 0.35rem;
-        }
-        .dropdown-list {
-            @apply font-suisseIntl;
+        .app-header {
+            @apply font-inter;
             @apply font-normal;
-        }
-        .dropdown-arrow {
-            color: theme("colors.shadow");
-        }
-    }
+            background-color: theme("colors.bg");
+            height: 5.25rem;
+            @apply pl-4;
+            @apply pr-8;
+            @apply py-6;
 
-    // HOME VIEW
-    .home-view {
-        background-image: url("../images/bg-image-sm.jpg");
-        @apply bg-top;
-        @apply bg-no-repeat;
-        @apply bg-cover;
-
-        @apply px-4;
-
-        .home-view-content {
-            h1 {
-                @apply font-suisseIntl;
-                @apply font-bold;
-                color: theme("colors.cwhite");
-                font-size: 2rem;
-                letter-spacing: -0.3px;
-                line-height: 2.5rem;
-
-                @apply mt-8;
+            @screen lg {
+                @apply px-0;
             }
 
-            h3 {
-                @apply font-suisseIntl;
-                @apply font-bold;
-                color: theme("colors.cwhite");
-                font-size: 1.125rem;
-                line-height: 1.375rem;
+            .app-header-logo {
+                height: 2.6875rem;
 
-                @apply mt-4;
+                @screen md {
+                    margin-top: -0.35rem;
+                }
             }
 
-            h5 {
-                @apply font-suisseIntl;
+            .app-header-desc {
+                @apply font-inter;
                 @apply font-light;
-                color: theme("colors.cwhite");
+                @apply hidden;
+                @apply uppercase;
                 font-size: 0.875rem;
-                line-height: 1.25rem;
+                margin-left: 2.5rem;
 
-                @apply mt-4;
+                @screen md {
+                    @apply block;
+                    margin-left: 3rem;
+                }
             }
 
-            a {
-                @apply block;
-                @apply font-manrope;
-                @apply font-normal underline;
-                color: theme("colors.cwhite1");
-                font-size: 1rem;
-                line-height: 1.5rem;
-                letter-spacing: -0.3px;
-                @apply mt-6;
+            .app-call {
+                .app-call-number {
+                    color: theme("colors.cgray3");
+                    font-size: 0.875rem;
+                }
+                .app-call-book {
+                    color: theme("colors.cred");
+                    font-size: 0.875rem;
+                    line-height: 1rem;
+                    @apply cursor-pointer;
+                    border-bottom: 2px dotted theme("colors.cred");
+
+                    @screen md {
+                        font-size: 0.875rem;
+                        @apply ml-4;
+                    }
+                }
+            }
+        }
+
+        .home-view {
+            background-image: url("../images/driving_bkg-414@2x.jpg");
+            @apply bg-top;
+            @apply bg-no-repeat;
+            @apply bg-cover;
+            @apply p-4;
+
+            @screen md {
+                min-height: 720px;
+                background-image: url("../images/driving_bkg-768@2x.jpg");
+                @apply p-8;
+                @apply pb-4;
             }
 
+            @screen lg {
+                background-image: url("../images/driving_bkg-1440@2x.jpg");
+                padding-left: 6.25rem;
+                padding-right: 6.25rem;
+            }
+
+            .home-view-content {
+                @apply relative;
+
+                h1 {
+                    font-size: 0.875rem;
+                    font-weight: 300;
+                    letter-spacing: 0.25rem;
+                    line-height: 1.25rem;
+                    color: theme("colors.bg");
+                    text-transform: uppercase;
+                    text-align: center;
+
+                    @screen md {
+                        font-size: 1.125rem;
+
+                        @apply text-left;
+                        @apply absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                }
+
+                h3 {
+                    @apply text-center;
+
+                    @screen md {
+                        @apply text-left;
+                        @apply ml-0;
+                        @apply mr-0;
+                    }
+
+                    span:nth-child(1) {
+                        @apply block;
+                        @apply font-inter;
+                        @apply font-normal;
+
+                        color: theme("colors.bg");
+                        font-size: 1.5rem;
+                        line-height: 1.5rem;
+                        @apply mt-4;
+
+                        @screen md {
+                            @apply mt-0;
+                            font-size: 2.5rem;
+                            line-height: 3rem;
+                        }
+                    }
+
+                    span:nth-child(2) {
+                        @apply block;
+                        @apply font-inter;
+                        @apply font-normal;
+
+                        @apply uppercase;
+                        color: theme("colors.bg");
+                        font-size: 1.5rem;
+                        line-height: 2.25rem;
+                        @apply mt-1;
+
+                        @screen md {
+                            font-size: 3rem;
+                            line-height: 4.5rem;
+                            @apply mt-1;
+                        }
+                    }
+                    span:nth-child(3) {
+                        @apply block;
+                        @apply font-inter;
+                        @apply font-normal;
+
+                        color: theme("colors.bg");
+                        font-size: 1.5rem;
+                        line-height: 1.5rem;
+
+                        @screen md {
+                            font-size: 2.5rem;
+                            line-height: 3rem;
+                        }
+                    }
+                }
+
+                h5 {
+                    @apply font-inter;
+                    @apply font-light;
+                    color: theme("colors.bg");
+                    font-size: 1rem;
+                    line-height: 1.25rem;
+                    letter-spacing: 0.65px;
+                    @apply mt-6;
+                    @apply mx-auto;
+                    @apply text-center;
+                    max-width: 20rem;
+
+                    @screen md {
+                        max-width: 30.3rem;
+                        font-size: 1.125rem;
+                        line-height: 1.5rem;
+                        @apply text-left;
+                        @apply ml-0;
+                        @apply mr-0;
+                    }
+                }
+
+                form {
+                    @screen md {
+                        max-width: 30.3rem;
+                        @apply ml-0;
+                        @apply mr-0;
+
+                        @screen lg {
+                            max-width: 23.75rem;
+                        }
+                    }
+
+                    input {
+                        @apply font-inter;
+                        @apply font-light;
+                        color: theme("colors.cgray3");
+                        font-size: 1.125rem;
+                        text-align: center;
+
+                        border-radius: 8px;
+                        border: 1px solid theme("colors.cgray1");
+                        background-color: theme("colors.bg");
+
+                        @apply p-4;
+                        @apply mx-auto;
+                        @screen md {
+                            @apply mt-12;
+                        }
+                    }
+                    button {
+                        @apply font-inter;
+                        @apply font-light;
+                        color: theme("colors.bg");
+                        font-size: 1.125rem;
+                        text-align: center;
+
+                        border-radius: 8px;
+                        border: 1px solid theme("colors.cred");
+                        background-color: theme("colors.cred");
+
+                        @apply mt-4;
+                        @apply p-4;
+                        @apply mx-auto;
+                    }
+                }
+
+                a {
+                    @apply block;
+                    @apply font-inter;
+                    @apply font-light;
+                    @apply text-center;
+                    color: theme("colors.bg");
+                    font-size: 1.125rem;
+                    @apply underline;
+                    @apply mt-8;
+                    @apply mx-auto;
+
+                    @screen md {
+                        @apply text-left;
+                        @apply ml-0;
+                        @apply mr-0;
+                        @apply mt-6;
+                    }
+                }
+            }
             p {
-                @apply font-suisseIntl;
-                @apply font-normal;
-                color: theme("colors.cdark");
+                @apply block;
+                @apply font-inter;
+                @apply font-light;
+                @apply text-center;
+                color: theme("colors.cgray1");
                 font-size: 0.5rem;
-                letter-spacing: -0.3px;
-                line-height: 0.625rem;
+                @apply mx-auto;
 
-                @apply mb-4;
+                @screen md {
+                    font-size: 0.75rem;
+                    @apply text-left;
+                    @apply ml-0;
+                    @apply mr-0;
+                }
+
+                @screen lg {
+                    max-width: 18.3rem;
+                    line-height: 1rem;
+                }
 
                 span {
                     @apply underline;
                 }
             }
         }
-    }
 
-    //FORM
-    .form-template {
-        margin-top: 1.625rem;
-
-        &.form-callback {
-            input {
-                color: theme("colors.cdark");
-            }
-        }
-
-        //Phone Code style
-        .vue-tel-input {
-            @apply outline-none;
-            &:focus-within {
-                @apply outline-none;
-                box-shadow: none;
-                border-color: theme("colors.formborder");
-            }
-
-            .vti__dropdown {
-                background-color: theme("colors.cwhite");
-                &:hover {
-                    background-color: theme("colors.cwhite");
-                }
-                .open {
-                    background-color: theme("colors.cwhite");
-                }
-                .show {
-                    background-color: theme("colors.cwhite");
-                }
-
-                .vti__selection {
-                    .vti__flag {
-                        transform: scale(1.1, 1.1);
-                    }
-                    .vti__country-code {
-                        @apply font-suisseIntl;
-                        @apply font-normal;
-                        color: theme("colors.cdark");
-                        font-size: 1.125rem;
-                    }
-                    .vti__dropdown-arrow {
-                        color: theme("colors.cdark");
-                        margin-left: 0.35rem;
-                        margin-right: 0.35rem;
-                    }
-                }
-                .vti__dropdown-list {
-                    .vti__dropdown-item {
-                        strong {
-                            @apply font-normal;
-                        }
-                        span {
-                            color: theme("colors.cgray");
-                        }
-                    }
-                }
-            }
-
-            input.vti__input {
-                @apply font-suisseIntl;
-                @apply font-normal;
-                @apply pl-4;
-                color: theme("colors.cwhite");
-                font-size: 1.125rem;
-                @apply w-full;
-                height: 3.5rem;
-                @apply bg-transparent border-none outline-none;
-                // box-shadow: inset 0 -1px 0 #dbdad7;
-                &:focus {
-                    @apply outline-none;
-                }
-                @apply outline-none;
-                &:focus-within {
-                    @apply outline-none;
-                }
-            }
-        }
-
-        label {
-            @apply w-full;
-
-            input.email {
-                @apply bg-transparent outline-none;
-                @apply mt-4 pl-4 pr-16;
-                @apply w-full;
-                @apply font-suisseIntl;
-                @apply font-normal;
-                color: theme("colors.cwhite");
-                font-size: 1.125rem;
-                height: 3.5rem;
-                border-radius: 3px;
-                display: flex;
-                border: 1px solid theme("colors.formborder");
-                border-radius: 3px;
-            }
-            span {
-                color: theme("colors.cwhite");
-                @apply mr-4;
-                right: 0;
-                top: 0;
-                bottom: 0;
-            }
-        }
-
-        ::placeholder {
-            color: theme("colors.cgray");
-        }
-
-        //button
-        button {
-            @apply mt-4;
-            @apply w-full;
-            @apply outline-none;
-            height: 3.5rem;
-            box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16);
-            border-radius: 1px;
-            background-color: theme("colors.cbrown");
-
-            &.disabled {
-                @apply cursor-not-allowed;
-            }
-
-            span {
-                @apply font-suisseIntl;
-                @apply font-normal;
-                color: theme("colors.cbright");
-                font-size: 1.125rem;
-                letter-spacing: -0.4px;
-                line-height: 1.5rem;
-            }
-        }
-    }
-
-    // SUCCESS VIEW
-    .success-view {
-        margin: 0 1.125rem 0;
-
-        h2 {
-            @apply font-suisseIntl;
-            @apply font-normal;
-            color: theme("colors.clightgray");
-            font-size: 1rem;
-            line-height: 1.5rem;
-        }
-        h4 {
-            @apply font-suisseIntl;
-            @apply font-bold;
-            color: theme("colors.clightgray");
-            font-size: 1.875rem;
-            letter-spacing: -0.7px;
-            line-height: 2.5rem;
-            @apply mt-4;
-        }
-        a {
-            @apply font-suisseIntl;
-            @apply font-normal;
-            font-size: 1.125rem;
-            color: theme("colors.cbright");
-            letter-spacing: -0.4px;
-            line-height: 1.5rem;
-
-            height: 3.5rem;
-            box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16);
-            border-radius: 1px;
-            background-color: theme("colors.cbrown");
-
-            @apply mt-12;
-        }
-    }
-
-    //MODAL VIEW
-    .modal-view {
-        .form-template {
-            input.vti__input,
-            input.email,
-            .svg-valid {
-                color: theme("colors.cdark");
-            }
-        }
-    }
-
-    // SCREEN SIZES
-    @screen sm {
-    }
-
-    @screen md {
-        .app-template {
-            @apply px-8 pb-8;
-        }
-        .app-header {
-            @apply h-20;
-        }
-        .app-call {
-            font-size: 1rem;
-            line-height: 1.5rem;
-
-            .app-call-number {
-                font-size: 1rem;
-                line-height: 1.5rem;
-                // font-size: 1rem;
-                // line-height: 1.5rem;
-            }
-            .app-call-book {
-                font-size: 1rem;
-                line-height: 1.5rem;
-                // font-size: 1rem;
-                // line-height: 1.5rem;
-                @apply ml-2;
-            }
-        }
-        .home-view {
-            background-image: url("../images/bg-image-md.jpg");
-            @apply bg-top;
-            @apply bg-no-repeat;
-            @apply bg-cover;
-
-            @apply px-10;
-
-            .home-view-content {
-                h1 {
-                    @apply font-bold;
-                    font-size: 4rem;
-                    // letter-spacing: -0.0625rem;
-                    letter-spacing: 0;
-                    line-height: 4.5rem;
-
-                    @apply mt-0;
-                }
-
-                h3 {
-                    font-size: 2rem;
-                    letter-spacing: 0;
-                    line-height: 2.5rem;
-                    margin-top: 1.625rem;
-                }
-
-                h5 {
-                    font-size: 1rem;
-                    line-height: 1.5rem;
-                    margin-top: 1.625rem;
-                    letter-spacing: 0;
-                    // width: 27rem;
-                }
-
-                a {
-                }
-
-                .form-template {
-                    max-width: 24rem;
-                }
-                p {
-                    text-align: left;
-                    font-size: 0.875rem;
-                    letter-spacing: 0;
-                    line-height: 0.625rem;
-                }
-            }
-        }
-        // SUCCESS VIEW
         .success-view {
-            @apply mx-auto;
+            @apply p-4;
+            border-top: 1px solid rgba(186, 190, 194, 0.35);
+
+            @screen md {
+                @apply pb-16;
+            }
 
             h2 {
-                @apply font-light;
-                font-size: 1rem;
-                line-height: 1.5rem;
-                letter-spacing: 8.53px;
-                line-height: 1.25rem;
-                text-transform: uppercase;
+                @apply font-inter;
+                @apply font-normal;
+                @apply uppercase;
+                @apply text-center;
+                color: theme("colors.cgray4");
+                font-size: 0.875rem;
+                letter-spacing: 4px;
+                line-height: 1.125rem;
+
+                @screen lg {
+                    font-size: 1.375rem;
+                }
             }
             h4 {
-                font-size: 3rem;
-                letter-spacing: 0;
-                line-height: 3.5rem;
+                @apply block;
+                @apply font-inter;
+                @apply font-normal;
+                @apply text-center;
+                color: theme("colors.cgray3");
+                font-size: 2rem;
+                line-height: 2.5rem;
                 @apply mt-4;
+
+                @screen lg {
+                    @apply font-light;
+                    font-size: 4rem;
+                    line-height: 4.5rem;
+                }
             }
             a {
-                @apply font-suisseIntl;
+                @apply font-inter;
                 @apply font-normal;
+                color: theme("colors.bg");
                 font-size: 1.125rem;
-                color: theme("colors.cbright");
-                letter-spacing: 0;
-                line-height: 1.5rem;
+                text-align: center;
 
-                height: 3.5rem;
-                max-width: 23.75rem;
-                box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16);
-                border-radius: 1px;
-                background-color: theme("colors.cbrown");
+                border-radius: 8px;
+                border: 1px solid theme("colors.cred");
+                background-color: theme("colors.cred");
 
                 @apply mt-12;
-            }
-            p {
-                text-align: left;
-                margin-top: auto;
-            }
-        }
-    }
-
-    @screen lg {
-        .app-template {
-            padding: 0 8.125rem 6rem;
-        }
-        .app-call {
-            .app-call-number {
-            }
-            .app-call-book {
-            }
-        }
-        .home-view {
-            background-image: url("../images/bg-image-lg.jpg");
-            @apply bg-center;
-            @apply bg-no-repeat;
-            @apply bg-cover;
-
-            @apply px-4;
-
-            .home-view-content {
+                @apply p-4;
                 @apply mx-auto;
-                max-width: 46rem;
+
+                @screen md {
+                    max-width: 20.5rem;
+                }
+            }
+
+            .success-view-icons {
+                .success-view-icon {
+                    .success-view-icon-svg {
+                        height: 5rem;
+                    }
+                    p {
+                        @apply font-inter;
+                        @apply font-normal;
+                        @apply text-center;
+                        color: theme("colors.cgray3");
+                        @apply mt-4;
+                        font-size: 1.25rem;
+                        line-height: 1.5rem;
+                    }
+                }
+            }
+        }
+
+        .modal-view {
+            @apply p-4;
+            @apply w-full;
+            border-top: 1px solid rgba(186, 190, 194, 0.35);
+
+            .modal-view-content {
+                @screen md {
+                    max-width: 30.3rem;
+                    @apply mx-auto;
+                }
 
                 h1 {
-                    @apply font-bold;
-                    font-size: 3rem;
-                    letter-spacing: -0.05rem;
-                    line-height: 3.5rem;
-                }
-
-                h3 {
-                    @apply font-suisseIntl;
-                    @apply font-bold;
-                    color: theme("colors.cwhite");
-                    font-size: 1.5rem;
-                    line-height: 1.875rem;
-                    letter-spacing: 0;
-                    max-width: 40rem;
-                    @apply mt-2;
-                }
-
-                h5 {
-                    @apply font-suisseIntl;
-                    @apply font-light;
-                    color: theme("colors.cwhite");
-                    font-size: 0.875rem;
-                    line-height: 1.25rem;
-                    margin-top: 1.5625rem;
-                }
-
-                a {
                     @apply block;
-                    @apply font-manrope;
-                    @apply font-normal underline;
-                    color: theme("colors.cwhite1");
-                    font-size: 1rem;
-                    line-height: 1.5rem;
-                    letter-spacing: 0;
+                    @apply font-inter;
+                    @apply font-normal;
+                    @apply text-center;
+                    color: theme("colors.cgray3");
+                    font-size: 2rem;
+                    line-height: 2.5rem;
+                    @apply mt-4;
+                }
+
+                .modal-view-close {
+                    top: 1rem;
+                    right: 1rem;
+                }
+                form {
+                    @screen md {
+                        //max-width: 30.3rem;
+                        @apply ml-0;
+                        @apply mr-0;
+
+                        @screen lg {
+                            max-width: 23.75rem;
+                        }
+                    }
+
+                    input {
+                        @apply font-inter;
+                        @apply font-light;
+                        color: theme("colors.cgray3");
+                        font-size: 1.125rem;
+                        text-align: center;
+
+                        border-radius: 8px;
+                        border: 1px solid theme("colors.cgray1");
+                        background-color: theme("colors.bg");
+
+                        @apply p-4;
+                        @apply mx-auto;
+                    }
+                    button {
+                        @apply font-inter;
+                        @apply font-light;
+                        color: theme("colors.bg");
+                        font-size: 1.125rem;
+                        text-align: center;
+
+                        border-radius: 8px;
+                        border: 1px solid theme("colors.cred");
+                        background-color: theme("colors.cred");
+
+                        @apply mt-4;
+                        @apply p-4;
+                        @apply mx-auto;
+                    }
+                }
+            }
+            a {
+                @apply block;
+                @apply font-inter;
+                @apply font-light;
+                @apply text-center;
+                color: theme("colors.cgray4");
+                font-size: 1.125rem;
+                @apply underline;
+                @apply mt-8;
+                @apply mx-auto;
+
+                @screen md {
+                    @apply text-left;
+                    @apply ml-0;
+                    @apply mr-0;
                     @apply mt-6;
                 }
             }
-        }
-
-        .success-view {
+            p {
+                @apply block;
+                @apply font-inter;
+                @apply font-light;
+                @apply text-center;
+                color: theme("colors.cgray1");
+                font-size: 0.5rem;
+                @apply mx-auto;
+            }
         }
     }
 }

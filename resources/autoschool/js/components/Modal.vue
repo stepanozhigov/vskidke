@@ -1,0 +1,60 @@
+<template>
+    <div
+        class="modal-view mx-auto flex-grow flex flex-col"
+    >
+        <div
+            class="modal-view-content  relative w-full flex flex-col flex-grow justify-center items-center"
+        >
+            <h1>Заказать звонок</h1>
+            <div
+                @click="toggleModal"
+                class="absolute modal-view-close cursor-pointer"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 18 18"
+                >
+                    <path
+                        fill="none"
+                        stroke="#d9d7d7"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-miterlimit="20"
+                        stroke-width="1.5"
+                        d="M1 1l16 16"
+                    />
+                    <path
+                        fill="none"
+                        stroke="#d9d7d7"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-miterlimit="20"
+                        stroke-width="1.5"
+                        d="M17 1L1 17"
+                    />
+                </svg>
+            </div>
+            <Form type="callback" />
+            <a href="#" @click.prevent="toggleModal">Закрыть</a>
+        </div>
+
+        <p>
+            Оставляя контактную информацию, вы соглашаетесь на обработку
+            персональных данных
+        </p>
+    </div>
+</template>
+<script>
+import { mapGetters, mapActions } from "vuex";
+export default {
+    name: 'Modal',
+    data:()=> ({}),
+    
+    methods: {
+        
+        
+    }
+}
+</script>

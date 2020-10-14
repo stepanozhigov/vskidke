@@ -4,44 +4,30 @@ module.exports = {
         // purgeLayersByDefault: true,
     },
     purge: [
-        "resources/autoschool/js/*.vue",
-        "resources/autoschool/js/components/*.vue",
-        "resources/autoschool/sass/*.scss",
-        "views/autoschool/layouts/*"
+        "resources/js/*.vue",
+        "resources/js/components/*.vue",
+        "resources/sass/*.scss",
+        "views/layouts/*"
     ],
     theme: {
-        fontFamily: {
-            manrope: ["Manrope"],
-            suisseIntl: ["SuisseIntl"]
-        },
-        height: theme => ({
-            auto: "auto",
-            ...theme("spacing"),
-            full: "100%",
-            screen: "calc(var(--vh)*100)"
-        }),
-        inset: {
-            1: "1rem"
-        },
         extend: {
+            fontFamily: {
+                inter: ["Inter"],
+                suisseIntl: ["SuisseIntl"]
+            },
+            height: {
+                mobilescreen: "calc(var(--vh)*100)"
+            },
             colors: {
-                cwhite: "#f8f7f6",
-                cwhite1: "#faf9f8",
-                cblack: "#14120e",
-                cbrown: "#b39059",
-                cgray: "#b3adae",
-                cbright: "#ffffff",
-                cdark: "#66615a",
                 bg: "#ffffff",
-                shadow: "#dbdad7",
-                clightgray: "#14120e",
-                formborder: "#bbb"
+                cred: "#dc1414",
+                cgray1: "#babec2",
+                cgray2: "#6b6b6b",
+                cgray3: "#485058",
+                cgray4: "#808890"
             }
         }
     },
     variants: {},
-    plugins: [],
-    corePlugins: {
-        inset: true
-    }
+    plugins: []
 };
