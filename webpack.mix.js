@@ -27,12 +27,14 @@ require("laravel-mix-purgecss");
 
 // AUTOSCHOOL
 mix
+.copy("resources/autoschool/images/*", "public/autoschool/images")
+.copy("resources/autoschool/fonts/*", "public/autoschool/fonts")
 .js("resources/autoschool/js/app.js", "public/autoschool/js")
 .sass("resources/autoschool/sass/app.scss", "public/autoschool/css")
 .options({
             autoprefixer: false,
             processCssUrls: false,
-            postCss: [tailwindcss("./tailwind.config.js")],
+            postCss: [tailwindcss("./tailwind.autoschool.config.js")],
             autoprefixer: {
                 browsers: ["last 9 versions"]
             }
