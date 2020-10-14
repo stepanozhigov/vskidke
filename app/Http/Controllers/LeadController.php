@@ -19,7 +19,7 @@ class LeadController extends Controller
             ]
         ]);
         if ($response->successful()) {
-            return response()->json($response);
+            return response()->json($response->json());
         } elseif ($response->failed() || $response->clientError() || $response->serverError()) {
             return response()->json($response->throw()->json());
         }

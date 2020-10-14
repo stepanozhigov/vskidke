@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 class AppController extends Controller
 {
-    public function index()
+    public function index($subdomain)
 
     {
-        return view('app');
+        return view($subdomain);
     }
 }
