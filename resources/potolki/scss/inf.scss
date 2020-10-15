@@ -1,0 +1,43 @@
+.inf{
+    display: none;
+
+    @include above($break_sm) {
+        display: block;
+        padding-top: rem(80);
+        padding-bottom: rem(80);
+    }
+
+    &__wrapper{
+        @include wrapper();
+    }
+    &__items{
+        @include row-flex();
+
+        &_item{
+            @include col(); 
+            @include size(12);
+            @include size-lg(6);
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            &:nth-child(1),
+            &:nth-child(2){
+                margin-bottom: rem(48);
+
+                @include above($break_md) {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    &_text{
+        font-size: rem(18);
+        text-align: center;
+        margin-top: rem(16);
+        @include above($break_md) {
+            font-size: rem(20);
+        }
+    }
+}

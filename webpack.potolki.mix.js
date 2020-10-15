@@ -7,7 +7,7 @@ require("laravel-mix-purgecss");
 mix
 .copy("resources/potolki/images/*", "public/potolki/images")
 .copy("resources/potolki/fonts/*", "public/potolki/fonts")
-.js("resources/potolki/js/app.js", "public/potolki/js")
+.js("resources/potolki/js/potolki.js", "public/potolki/js")
 .sass("resources/potolki/sass/app.scss", "public/potolki/css")
 .version()
 .options({

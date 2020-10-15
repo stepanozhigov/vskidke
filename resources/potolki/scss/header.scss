@@ -1,0 +1,104 @@
+.header{
+    font-family: $helvetica;
+    font-size: rem(16);
+    overflow: hidden;
+    background-color: #fff;
+    z-index: 500;
+
+    &.mob{
+        display: none;
+
+        @include above($break_sm) {
+            display: block;
+        }
+    }
+
+    &__wrapper{
+        @include wrapper();
+    }
+    &__items{
+        @include row-flex();
+        position: relative;
+
+        @include above($break_sm) {
+            padding-left: rem(20);
+            padding-right: rem(20);
+        }
+
+        &_item{
+            @include col();
+            display: flex;
+            align-items: center;
+        }
+    }
+    .logo{
+        @include size(24);
+        @include size-md(14);
+        padding-top: rem(16);
+        padding-bottom: rem(16);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        @include above($break_sm) {
+            justify-content: flex-start;
+        }
+
+        &_link{
+            display: flex;
+        }
+
+        img{
+            height: rem(43);
+
+            @include above($break_sm) {
+                height: rem(48);
+            }
+            
+        }
+
+        &_name{
+            font-family: $helvetica;
+            font-size: rem(12);
+            letter-spacing: rem(0.8);
+            text-transform: uppercase;
+            margin-left: rem(32);
+            margin-bottom: rem(10);
+
+            @include above($break_sm) {
+                font-size: rem(14);
+                letter-spacing: rem(0.9);
+            }
+
+            @include above($break_md) {
+                margin-left: rem(48);
+            }
+        }
+    }
+    .contact{
+        @include size(24);
+        @include size-md(10);
+        display: none;
+
+        @include above($break_sm) {
+            padding-top: rem(14);
+            padding-bottom: rem(14);
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+    }
+    .phone{
+        display: flex;
+        line-height: 1;
+        align-items: center;
+        @include above($break_sm) {
+            margin-bottom: rem(10);
+            font-size: rem(18);
+        }
+        svg{
+            margin-right: rem(8);
+        }
+    }
+}

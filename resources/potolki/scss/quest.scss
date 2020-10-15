@@ -1,0 +1,363 @@
+.quest{
+    overflow: hidden;
+
+    @include above($break_sm) {
+        overflow: visible;
+    }
+    &__wrapper{
+        @include wrapper();
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include above($break_sm) {
+            min-height: auto;
+            display: block;
+        }
+    }
+
+    &__items{
+        max-width: rem(414);
+        width: 100%;
+        position: relative;
+
+        @include above($break_sm) {
+            @include row-flex();
+            max-width: none;
+        }
+        
+        &_item{
+            @include col();
+            @include size(24);
+        }
+    }
+
+    &_img{
+        height: rem(160);
+        width: rem(104);
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        flex-shrink: 0;
+        float: left;
+
+        img{
+            max-height: 100%;
+        }
+        @include above($break_sm) {
+            height: auto;
+            width: auto;
+            grid-area: img;
+        }
+    }
+
+    &_content{
+        @include above($break_sm) {
+            display: grid;
+            grid-template-areas:
+                "img titles"
+                "img list";
+            grid-template-columns: rem(280) auto;
+            grid-template-rows: min-content auto;
+            border-radius: rem(16);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16), 0 0 8px rgba(0, 0, 0, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+
+            padding-left: rem(30);
+            padding-right: rem(30);
+            min-height: rem(575);
+
+        }
+
+        @include above($break_md) {
+            min-height: rem(464);
+        }
+
+        &.finish{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            @include between(0, $break_sm) {
+                min-height: 100vh;
+            }
+
+            .quest__control{
+                flex-direction: column;
+
+                @include above($break_sm) {
+                    flex-direction: row;
+                    justify-content: center;
+                }
+            }
+
+            .btn_next{
+                margin-bottom: rem(16);
+
+                @include above($break_sm) {
+                    margin-bottom: 0;
+                    margin-right: rem(16);
+                }
+            }
+        }
+    }
+
+    &_intro{
+        font-family: $futura;
+        font-size: rem(14);
+        letter-spacing: rem(4);
+        text-transform: uppercase;
+        color: #babec2;
+        margin-bottom: rem(8);
+
+        @include above($break_sm) {
+            letter-spacing: rem(5);
+        }
+    }
+
+    &__titles{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-left: rem(8);
+        height: rem(160);
+        
+        @include above($break_sm) {
+            grid-area: titles;
+            padding-left: 0;
+            padding-top: rem(48);
+            height: auto;
+        }
+
+    }
+
+    &_title{
+        font-size: rem(20);
+        padding-bottom: rem(32);
+        @include above($break_xs) {
+            font-size: rem(22);
+        }
+        @include above($break_sm) {
+            font-size: rem(24);
+        }
+        @include above($break_md) {
+            font-size: rem(32);
+        }
+    }
+
+    &_info{
+        margin-bottom: rem(24);
+        font-family: $helvetica;
+
+        &.finish{
+            text-align: center;
+        }
+    }
+
+    &__list{
+        width: 100%;
+        position: relative;
+        padding-top: rem(48);
+        padding-bottom: rem(48);
+        grid-area: list;
+        min-height: calc(100vh - 160px);
+        box-sizing: border-box;
+
+        @include above($break_sm) {
+            padding-top: 0;
+            min-height: auto;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        ul{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+ 
+
+        }
+
+        li{
+            margin-bottom: rem(32);
+            font-family: $helvetica;
+            list-style-type: none;
+
+        }
+
+        &::before{
+            content: '';
+            position: absolute;
+            border-radius: rem(16);
+            top: 0;
+            bottom: 0;
+            right: rem(-16);
+            left: rem(-16);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16), 0 0 8px rgba(0, 0, 0, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+
+            @include above($break_sm) {
+                display: none;
+            }
+        }
+    }
+
+    &__range{
+
+        &_pad{
+            padding-top: rem(32);
+            @include above($break_sm) {
+                padding-top: 0;
+            }
+        }
+        
+        @include above($break_md) {
+            @include row-flex();
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+        &_wrapper{
+            @include above($break_md) {
+
+                
+                @include col();
+                @include size(11);
+                @include offset-right(1);
+                max-width: rem(280);
+            }
+        }
+
+        &_title{
+            font-size: rem(18);
+            font-weight: 400;
+
+            @include above($break_sm) {
+                font-size: rem(20);
+            }
+
+        }
+        &_item{
+            margin-top: rem(60);
+            margin-bottom: rem(45);
+        }
+    }
+
+
+    &__control{
+        display: flex;
+        margin-top: rem(24);
+        width: 100%;
+
+        @include above($break_md) {
+            align-self: flex-end;
+        }
+
+        &_finish{
+            flex-direction: column;
+            max-width: rem(404);
+        }
+        .btn_prev{
+            background: #babec2;
+            box-shadow: inset 0 -1px 0 #808890;
+            margin-right: rem(10);
+        }
+        .btn_next,
+        .btn_prev{
+            max-width: rem(414);
+            width: 100%;
+
+            @include above($break_sm) {
+                max-width: rem(275);
+            }
+        }
+
+        .btn_send{
+            max-width: rem(404);
+            width: 100%;
+        }
+    }
+
+    .close{
+        right: rem(7);
+
+        @include above($break_sm) {
+            right: rem(30);
+            top: rem(30);
+        }
+    }
+}
+
+.gifts{
+    position: relative;
+    max-width: rem(404);
+
+    &_md{
+        @include row-flex();
+    }
+
+    &_img{
+        border-radius: rem(9);
+        cursor: pointer;
+        box-sizing: border-box;
+    }
+
+
+    &_arrow{
+        z-index: 999;
+        outline: none;
+        position: absolute;
+        top: calc(50% - 25px);
+        width: rem(50);
+        height: rem(50);
+        border: solid rem(2) $red;
+        border-radius: rem(8);
+        background-color: #fff;
+        box-shadow: rem(2) rem(2) rem(1)#00000061;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+
+        @include above($break_sm) {
+            display: flex;
+        }
+        svg{
+            height: rem(25);
+            width: rem(25);
+        }
+    }
+    &_prev{
+        left: rem(-20);
+    }
+    &_next{
+        right: rem(-20);
+    }
+
+    &__paginated{
+        margin-top: rem(16);
+        display: flex;
+        justify-content: center;
+
+        &_dot{
+            height: rem(8);
+            width: rem(8);
+            margin: 0 rem(4);
+            border-radius: 100%;
+            box-sizing: border-box;
+            background-color: #e6e8ea;
+
+            &.active{
+                background-color: $red;
+            }
+        }
+    }
+    
+}
+
+.radio_img{
+    @include col();
+    @include size(8);
+}

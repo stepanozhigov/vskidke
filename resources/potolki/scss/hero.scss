@@ -1,0 +1,104 @@
+.hero{
+    text-align: center;
+
+    &__wrapper{
+        @include wrapper();
+        height: calc(100vh - 75px);
+        max-height: rem(568);
+        box-sizing: border-box;
+        display: flex;
+        padding-top: rem(20);
+        padding-bottom: rem(20);
+        background-image: url('/img/quiz/sand.png');
+
+        @include above($break_sm) {
+            min-height: auto;
+            max-height: none;
+            height: auto;
+            padding-top: rem(64);
+            padding-bottom: rem(64);
+        }
+
+        @include above($break_md) {
+            border-radius: rem(16);
+        }
+       
+    }
+    &__items{
+        @include row-flex();
+        flex: 1;
+
+        &_item{
+            @include col(); 
+            @include size(24);
+            // @include size-md(20);
+            // @include offset-md(2);
+            // @include size-lgx(22);
+            // @include offset-lgx(1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+    }
+    &_intro{
+        font-size: rem(14);
+        line-height: 1.5;
+        letter-spacing: rem(4);
+        text-transform: uppercase;
+        margin-bottom: rem(8);
+        color: #808890;
+        font-family: $futura;
+
+        @include above($break_sm) {
+            font-size: rem(16);
+            letter-spacing: rem(10);
+            margin-bottom: rem(16);
+        }
+        @include above($break_md) {
+            font-size: rem(20);
+            letter-spacing: rem(12);
+        }
+    }
+    &_title{
+        font-size: rem(32);
+
+        @include above($break_sm) {
+            font-size: rem(48);
+            margin-bottom: rem(50);
+        }
+        @include above($break_lg) {
+            font-size: rem(56);
+        }
+
+        .mark{
+            @include above($break_sm) {
+                font-size: rem(40);
+            }
+            @include above($break_lg) {
+                font-size: rem(48);
+            }
+        }
+    }
+
+    &_link{
+        color: $red;
+        font-family: $helvetica;
+        font-size: rem(20);
+        text-decoration: underline;
+        margin-top: rem(24);
+        display: inline-block;
+        cursor: pointer;
+        font-weight: 400;
+    }
+
+    .btn{
+        max-width: rem(320);
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+
+        @include above($break_sm) {
+            margin-top: rem(10);
+        }
+    }
+}

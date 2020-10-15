@@ -10,6 +10,6 @@ class LeadController extends Controller
 {
     public function store(Request $request)
     {
-        Mail::to(env('MAIL_FROM_AUTOSCHOOL'))->send(new SendMail($request->phone, $request->tag));
+        Mail::to(env('MAIL_TO_AUTOSCHOOL'))->send(new SendMail($request->phone, $request->tag));
     }
 }
