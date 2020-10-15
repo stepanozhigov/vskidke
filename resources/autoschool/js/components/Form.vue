@@ -10,8 +10,7 @@
             v-model="phone"
             type="tel"
             autocomplete="off"
-            class="w-full mt-8"
-            :class="[{ 'phone-border': modalBorder }]"
+            class="w-full"
             placeholder="Ваш телефон*"
             v-mask="{ mask: '\+7 (999) 999-99-99', greedy: true }"
             v-on:change="maskCheck"
@@ -45,11 +44,7 @@ export default {
         onFocus: false
     }),
     props: {
-        modalBorder: {
-            type: Boolean,
-            default: false,
-            required: false
-        }
+        
     },
     validations: {
         phone: {
@@ -58,7 +53,7 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(["isModal", "isSuccess"])
+        ...mapGetters(["isModal", "isSuccess","redirectTo"])
     },
     methods: {
         ...mapActions(["setModal", "unsetModal", "setSuccess", "unsetSuccess"]),
@@ -74,9 +69,9 @@ export default {
                     })
                     .then(response => {
                         ym(68288701,'reachGoal','send_form');
-                        this.phone = "";
-                        this.setSuccess();
-                        this.setModal();
+                        window.location.replace(this.redirectTo);
+                        // this.setSuccess();
+                        // this.setModal();
                     });
             }
         },

@@ -23,7 +23,7 @@
             }
 
             .app-header-logo {
-                height: 2.6875rem;
+                height: 3rem;
 
                 @screen md {
                     margin-top: -0.35rem;
@@ -45,13 +45,14 @@
             }
 
             .app-call {
+                font-size: 0.75rem;
+                @apply text-center;
+
                 .app-call-number {
-                    color: theme("colors.cgray3");
-                    font-size: 0.875rem;
+                    color: theme("colors.phonenumber");
                 }
                 .app-call-book {
                     color: theme("colors.cred");
-                    font-size: 0.875rem;
                     line-height: 1rem;
                     @apply cursor-pointer;
                     border-bottom: 2px dotted theme("colors.cred");
@@ -85,16 +86,16 @@
             }
 
             .home-view-content {
+                @apply font-inter;
                 @apply relative;
+                @apply text-left;
+                color: theme("colors.cwhite");
 
                 h1 {
-                    font-size: 0.875rem;
-                    font-weight: 300;
-                    letter-spacing: 0.25rem;
-                    line-height: 1.25rem;
-                    color: theme("colors.bg");
-                    text-transform: uppercase;
+                    font-size: 2rem;
+                    @apply font-normal;
                     text-align: center;
+                    @apply pt-8;
 
                     @screen md {
                         font-size: 1.125rem;
@@ -107,7 +108,11 @@
                 }
 
                 h3 {
-                    @apply text-center;
+                    @apply font-bold;
+                    color: theme("colors.bg");
+                    font-size: 1.125rem;
+                    line-height: 1.475rem;
+                    @apply mt-12;
 
                     @screen md {
                         @apply text-left;
@@ -117,64 +122,23 @@
 
                     span:nth-child(1) {
                         @apply block;
-                        @apply font-inter;
-                        @apply font-normal;
-
-                        color: theme("colors.bg");
-                        font-size: 1.5rem;
-                        line-height: 1.5rem;
-                        @apply mt-4;
-
-                        @screen md {
-                            @apply mt-0;
-                            font-size: 2.5rem;
-                            line-height: 3rem;
-                        }
                     }
 
                     span:nth-child(2) {
                         @apply block;
-                        @apply font-inter;
-                        @apply font-normal;
-
-                        @apply uppercase;
-                        color: theme("colors.bg");
-                        font-size: 1.5rem;
-                        line-height: 2.25rem;
-                        @apply mt-1;
-
-                        @screen md {
-                            font-size: 3rem;
-                            line-height: 4.5rem;
-                            @apply mt-1;
-                        }
                     }
                     span:nth-child(3) {
                         @apply block;
-                        @apply font-inter;
-                        @apply font-normal;
-
-                        color: theme("colors.bg");
-                        font-size: 1.5rem;
-                        line-height: 1.5rem;
-
-                        @screen md {
-                            font-size: 2.5rem;
-                            line-height: 3rem;
-                        }
                     }
                 }
 
                 h5 {
-                    @apply font-inter;
-                    @apply font-light;
-                    color: theme("colors.bg");
-                    font-size: 1rem;
-                    line-height: 1.25rem;
+                    @apply font-normal;
+                    font-size: 0.875rem;
+                    line-height: 1.3rem;
                     letter-spacing: 0.65px;
                     @apply mt-6;
                     @apply mx-auto;
-                    @apply text-center;
                     max-width: 20rem;
 
                     @screen md {
@@ -188,6 +152,7 @@
                 }
 
                 form {
+                    @apply mt-6;
                     @screen md {
                         max-width: 30.3rem;
                         @apply ml-0;
@@ -201,13 +166,12 @@
                     input {
                         @apply font-inter;
                         @apply font-light;
-                        color: theme("colors.cgray3");
+                        @apply text-left;
+                        color: theme("colors.cgray1");
                         font-size: 1.125rem;
-                        text-align: center;
 
-                        border-radius: 8px;
-                        border: 1px solid theme("colors.cgray1");
-                        background-color: theme("colors.bg");
+                        border-bottom: 1px solid theme("colors.cgray1");
+                        background-color: transparent;
 
                         @apply p-4;
                         @apply mx-auto;
@@ -215,14 +179,20 @@
                             @apply mt-12;
                         }
                     }
+                    input:focus {
+                        color: theme("colors.cwhite");
+                        border-bottom: 1px solid theme("colors.cwhite");
+                        outline: none;
+                    }
                     button {
                         @apply font-inter;
                         @apply font-light;
+                        @apply shadow;
                         color: theme("colors.bg");
                         font-size: 1.125rem;
                         text-align: center;
 
-                        border-radius: 8px;
+                        border-radius: 1px;
                         border: 1px solid theme("colors.cred");
                         background-color: theme("colors.cred");
 
@@ -234,13 +204,12 @@
 
                 a {
                     @apply block;
-                    @apply font-inter;
                     @apply font-light;
-                    @apply text-center;
+                    @apply text-left;
                     color: theme("colors.bg");
                     font-size: 1.125rem;
                     @apply underline;
-                    @apply mt-8;
+                    @apply mt-6;
                     @apply mx-auto;
 
                     @screen md {
@@ -255,7 +224,7 @@
                 @apply block;
                 @apply font-inter;
                 @apply font-light;
-                @apply text-center;
+                @apply text-left;
                 color: theme("colors.cgray1");
                 font-size: 0.5rem;
                 @apply mx-auto;
@@ -366,14 +335,14 @@
                 }
 
                 h1 {
+                    @apply w-full;
                     @apply block;
                     @apply font-inter;
-                    @apply font-normal;
-                    @apply text-center;
-                    color: theme("colors.cgray3");
+                    @apply font-extrabold;
+                    @apply text-left;
+                    color: theme("colors.cblack");
                     font-size: 2rem;
                     line-height: 2.5rem;
-                    @apply mt-4;
                 }
 
                 .modal-view-close {
@@ -381,8 +350,8 @@
                     right: 1rem;
                 }
                 form {
+                    @apply mt-8;
                     @screen md {
-                        //max-width: 30.3rem;
                         @apply ml-0;
                         @apply mr-0;
 
@@ -394,25 +363,30 @@
                     input {
                         @apply font-inter;
                         @apply font-light;
+                        @apply text-left;
                         color: theme("colors.cgray3");
                         font-size: 1.125rem;
-                        text-align: center;
 
-                        border-radius: 8px;
-                        border: 1px solid theme("colors.cgray1");
+                        border-bottom: 1px solid theme("colors.cgray1");
                         background-color: theme("colors.bg");
 
-                        @apply p-4;
+                        @apply pl-0 pr-4 py-4;
+
                         @apply mx-auto;
+
+                        &:focus {
+                            outline: none;
+                        }
                     }
                     button {
                         @apply font-inter;
                         @apply font-light;
+                        @apply shadow;
                         color: theme("colors.bg");
                         font-size: 1.125rem;
                         text-align: center;
 
-                        border-radius: 8px;
+                        border-radius: 1px;
                         border: 1px solid theme("colors.cred");
                         background-color: theme("colors.cred");
 
@@ -426,12 +400,11 @@
                 @apply block;
                 @apply font-inter;
                 @apply font-light;
-                @apply text-center;
                 color: theme("colors.cgray4");
                 font-size: 1.125rem;
                 @apply underline;
-                @apply mt-8;
-                @apply mx-auto;
+                @apply mt-6;
+                @apply mr-auto;
 
                 @screen md {
                     @apply text-left;
@@ -439,15 +412,6 @@
                     @apply mr-0;
                     @apply mt-6;
                 }
-            }
-            p {
-                @apply block;
-                @apply font-inter;
-                @apply font-light;
-                @apply text-center;
-                color: theme("colors.cgray1");
-                font-size: 0.5rem;
-                @apply mx-auto;
             }
         }
     }

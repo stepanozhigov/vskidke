@@ -1966,8 +1966,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     //
     //this.setSuccess();
-    //this.setModal();
-    //
+    this.setModal(); //
+
     this.setViewHeight();
     window.addEventListener("resize", function () {
       _this.setViewHeight();
@@ -2035,7 +2035,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -2050,20 +2049,14 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["helpe
       onFocus: false
     };
   },
-  props: {
-    modalBorder: {
-      type: Boolean,
-      "default": false,
-      required: false
-    }
-  },
+  props: {},
   validations: {
     phone: {
       required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"],
       phoneValidate: phoneValidate
     }
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapGetters"])(["isModal", "isSuccess"])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapGetters"])(["isModal", "isSuccess", "redirectTo"])),
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess"])), {}, {
     submitForm: function submitForm() {
       var _this = this;
@@ -2077,11 +2070,8 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["helpe
           tag: "Автошкола 'Лайк'"
         }).then(function (response) {
           ym(68288701, 'reachGoal', 'send_form');
-          _this.phone = "";
-
-          _this.setSuccess();
-
-          _this.setModal();
+          window.location.replace(_this.redirectTo); // this.setSuccess();
+          // this.setModal();
         });
       }
     },
@@ -2142,9 +2132,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Form */ "./resources/autoschool/js/components/Form.vue");
-//
-//
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/autoschool/js/components/Form.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2172,13 +2167,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Home',
   data: function data() {
     return {};
   },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['redirectTo'])),
   components: {
-    Form: _Form__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Form: _Form__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
 });
 
@@ -2217,6 +2214,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/autoschool/js/components/Form.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2266,16 +2264,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Modal',
   data: function data() {
     return {};
+  },
+  components: {
+    Form: _Form__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess"])), {}, {
     toggleModal: function toggleModal() {
@@ -3892,8 +3889,7 @@ var render = function() {
             expression: "{ mask: '\\+7 (999) 999-99-99', greedy: true }"
           }
         ],
-        staticClass: "w-full mt-8",
-        class: [{ "phone-border": _vm.modalBorder }],
+        staticClass: "w-full",
         attrs: {
           type: "tel",
           autocomplete: "off",
@@ -3989,16 +3985,9 @@ var render = function() {
         _vm._v(" "),
         _c("Form", { attrs: { type: "form" } }),
         _vm._v(" "),
-        _c(
-          "a",
-          {
-            attrs: {
-              href:
-                "https://instagram.com/avtoshkola_like_perm?igshid=an3rw1mt0ryj"
-            }
-          },
-          [_vm._v("Перейти в Instagram")]
-        )
+        _c("a", { attrs: { href: _vm.redirectTo } }, [
+          _vm._v("Перейти в Instagram")
+        ])
       ],
       1
     ),
@@ -4025,12 +4014,10 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("h5", [
       _vm._v(
-        "\n                Оставьте номер телефона и мы отправим специальное предложение"
+        "\n                Оставьте номер телефона и мы отправим специальное предложение на WhatsApp"
       ),
       _c("br"),
-      _vm._v(
-        "на WhatsApp в течении 5 минут\n                Отправьте заявку, чтобы узнать условия работы и мы\n                свяжемся с вами в ближайшее время\n            "
-      )
+      _vm._v("в течении 5 минут\n            ")
     ])
   },
   function() {
@@ -4038,10 +4025,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", { staticClass: "mt-auto" }, [
-      _vm._v(
-        "\n            Оставляя контактную информацию, вы соглашаетесь на\n            "
-      ),
-      _c("span", [_vm._v("обработку персональных данных")])
+      _vm._v("\n            Оставляя контактную информацию, вы "),
+      _c("span", [_vm._v("соглашаетесь")]),
+      _vm._v(" на\n            обработку персональных данных\n        ")
     ])
   }
 ]
@@ -4070,12 +4056,8 @@ var render = function() {
     _c(
       "svg",
       {
-        attrs: {
-          xmlns: "http://www.w3.org/2000/svg",
-          width: "219",
-          height: "64",
-          viewBox: "0 0 219 64"
-        }
+        staticClass: "h-full",
+        attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 219 64" }
       },
       [
         _c("g", [
@@ -4256,7 +4238,7 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("Form", { attrs: { type: "callback" } }),
+          _c("Form"),
           _vm._v(" "),
           _c(
             "a",
@@ -4273,13 +4255,7 @@ var render = function() {
           )
         ],
         1
-      ),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "\n        Оставляя контактную информацию, вы соглашаетесь на обработку\n        персональных данных\n    "
-        )
-      ])
+      )
     ]
   )
 }
@@ -21150,7 +21126,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
     modal: false,
-    success: false
+    success: false,
+    redirectTo: 'https://instagram.com/avtoshkola_like_perm?igshid=an3rw1mt0ryj'
   },
   getters: {
     isModal: function isModal(state) {
@@ -21158,6 +21135,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     isSuccess: function isSuccess(state) {
       return state.success;
+    },
+    redirectTo: function redirectTo(state) {
+      return state.redirectTo;
     }
   },
   mutations: {

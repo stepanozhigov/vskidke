@@ -12,25 +12,27 @@
                     <span>— от 10800 ₽</span>
                 </h3>
                 <h5>
-                    Оставьте номер телефона и мы отправим специальное предложение<br/>на WhatsApp в течении 5 минут
-                    Отправьте заявку, чтобы узнать условия работы и&nbsp;мы
-                    свяжемся с&nbsp;вами в&nbsp;ближайшее время
+                    Оставьте номер телефона и мы отправим специальное предложение на WhatsApp<br/>в течении 5 минут
                 </h5>
                 <Form type="form" />
-                <a href="https://instagram.com/avtoshkola_like_perm?igshid=an3rw1mt0ryj">Перейти в Instagram</a>
+                <a :href="redirectTo">Перейти в Instagram</a>
             </div>
 
             <p class="mt-auto">
-                Оставляя контактную информацию, вы соглашаетесь на
-                <span>обработку персональных данных</span>
+                Оставляя контактную информацию, вы <span>соглашаетесь</span> на
+                обработку персональных&nbsp;данных
             </p>
         </div>
 </template>
 <script>
+import {mapGetters} from 'vuex'
 import Form from './Form'
 export default {
     name: 'Home',
     data:()=> ({}),
+    computed: {
+        ...mapGetters(['redirectTo'])
+    },
     components: {
         Form
     }

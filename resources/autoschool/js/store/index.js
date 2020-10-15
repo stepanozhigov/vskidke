@@ -6,11 +6,13 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         modal: false,
-        success: false
+        success: false,
+        redirectTo: 'https://instagram.com/avtoshkola_like_perm?igshid=an3rw1mt0ryj'
     },
     getters: {
         isModal: state => state.modal,
-        isSuccess: state => state.success
+        isSuccess: state => state.success,
+        redirectTo:state =>state.redirectTo
     },
     mutations: {
         SET_MODAL: state => (state.modal = true),

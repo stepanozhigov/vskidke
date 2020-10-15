@@ -36,22 +36,20 @@
                     />
                 </svg>
             </div>
-            <Form type="callback" />
+            <Form />
             <a href="#" @click.prevent="toggleModal">Закрыть</a>
         </div>
-
-        <p>
-            Оставляя контактную информацию, вы соглашаетесь на обработку
-            персональных данных
-        </p>
     </div>
 </template>
 <script>
 import { mapGetters, mapActions } from "vuex";
+import Form from './Form'
 export default {
     name: 'Modal',
     data:()=> ({}),
-    
+    components: {
+        Form
+    },
     methods: {
         ...mapActions(["setModal", "unsetModal", "setSuccess", "unsetSuccess"]),
       toggleModal() {
