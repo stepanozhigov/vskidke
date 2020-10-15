@@ -32,6 +32,9 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->view('autoschool.emails.email');
+        return $this
+            ->from(env('MAIL_FROM_ADDRESS_AUTOSCHOOL'), env('MAIL_FROM_NAME_AUTOSCHOOL'))
+            ->subject(env('MAIL_SUBJECT_AUTOSCHOOL'))
+            ->view('autoschool.emails.email');
     }
 }
