@@ -13,13 +13,7 @@ window.Vue = Vue;
 import store from './store';
 Vue.component('App', require('./App.vue').default);
 
-//const leadPage = $('.lead_page');
-
-
-
-if (leadPage.length > 0) {
-    new Vue({
-        el: '#app',
-        store
-    })
-}
+const app = new Vue({
+    el: '#app',
+    store
+})

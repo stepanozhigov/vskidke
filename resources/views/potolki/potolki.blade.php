@@ -1,1 +1,0 @@
-@extends('autoschool.layouts.main')

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Автошкола 'Лайк'</title>
+    <title>Потолки</title>
     <link rel="icon" href="{{ asset('potolki/images/favicon-32x32.png')}}" sizes='32x32'>
     <link rel="icon" href="{{ asset('potolki/images/favicon-128x128.png')}}" sizes='128x128'>
     <link rel="icon" href="{{ asset('potolki/images/favicon-180x180.png')}}" sizes='180x180'>
@@ -20,7 +20,7 @@
     </div>
 
     {{-- VUE-CLI JS --}}
-    <script src="{{ mix('potolki/js/app.js') }}" defer></script>
+    <script src="{{ mix('potolki/js/potolki.js') }}" defer></script>
 
     <!-- Facebook Pixel Code -->
     <script>
