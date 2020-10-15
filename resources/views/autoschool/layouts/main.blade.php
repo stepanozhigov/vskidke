@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Uppercase</title>
-    <link rel="icon" href="{{ asset('images/favicon-32x32.png')}}" sizes='32x32'>
-    <link rel="icon" href="{{ asset('images/favicon-128x128.png')}}" sizes='128x128'>
-    <link rel="icon" href="{{ asset('images/favicon-180x180.png')}}" sizes='180x180'>
+    <title>Автошкола 'Лайк'</title>
+    <link rel="icon" href="{{ asset('autoschool/images/favicon-32x32.png')}}" sizes='32x32'>
+    <link rel="icon" href="{{ asset('autoschool/images/favicon-128x128.png')}}" sizes='128x128'>
+    <link rel="icon" href="{{ asset('autoschool/images/favicon-180x180.png')}}" sizes='180x180'>
     <link href="{{ mix('/autoschool/css/app.css') }}" rel="stylesheet">
 
 </head>
