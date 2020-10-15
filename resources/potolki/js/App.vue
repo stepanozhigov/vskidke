@@ -145,8 +145,8 @@ export default {
 
 @font-face {
     font-family: 'PTRoubleSans';
-    src: url('../../fonts/subset-PTRoubleSans.woff2') format('woff2'),
-    url('../../fonts/subset-PTRoubleSans.woff') format('woff');
+    src: url('../fonts/subset-PTRoubleSans.woff2') format('woff2'),
+    url('../fonts/subset-PTRoubleSans.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -154,8 +154,8 @@ export default {
 
 @font-face {
     font-family: 'Futura PT';
-    src: url('../../fonts/Futura-PT-Light.woff2') format('woff2'),
-    url('../../fonts/Futura-PT-Light.woff') format('woff');
+    src: url('../fonts/Futura-PT-Light.woff2') format('woff2'),
+    url('../fonts/Futura-PT-Light.woff') format('woff');
     font-weight: 300;
     font-style: normal;
     font-stretch: normal;
@@ -164,8 +164,8 @@ export default {
 
 @font-face {
     font-family: 'Futura PT';
-    src: url('../../fonts/Futura-PT-Book.woff2') format('woff2'),
-    url('../../fonts/Futura-PT-Book.woff') format('woff');
+    src: url('../fonts/Futura-PT-Book.woff2') format('woff2'),
+    url('../fonts/Futura-PT-Book.woff') format('woff');
     font-weight: 400;
     font-style: normal;
     font-stretch: normal;
@@ -174,8 +174,8 @@ export default {
 
 @font-face {
     font-family: 'Playfair Display';
-    src: url('../../fonts/subset-PlayfairDisplay-Italic.woff2') format('woff2'),
-    url('../../fonts/subset-PlayfairDisplay-Italic.woff') format('woff');
+    src: url('../fonts/subset-PlayfairDisplay-Italic.woff2') format('woff2'),
+    url('../fonts/subset-PlayfairDisplay-Italic.woff') format('woff');
     font-weight: 400;
     font-style: italic;
     font-display: swap;
@@ -183,8 +183,8 @@ export default {
 
 @font-face {
     font-family: 'Playfair Display';
-    src: url('../../fonts/subset-PlayfairDisplay-Regular.woff2') format('woff2'),
-    url('../../fonts/subset-PlayfairDisplay-Regular.woff') format('woff');
+    src: url('../fonts/subset-PlayfairDisplay-Regular.woff2') format('woff2'),
+    url('../fonts/subset-PlayfairDisplay-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -192,7 +192,7 @@ export default {
 
 @font-face {
     font-family: 'Helvetica Neue';
-    src: url('../../fonts/subset-HelveticaNeue-Bold.woff') format('woff');
+    src: url('../fonts/subset-HelveticaNeue-Bold.woff') format('woff');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -200,7 +200,7 @@ export default {
 
 @font-face {
     font-family: 'Helvetica Neue';
-    src: url('../../fonts/subset-HelveticaNeue-Medium.woff') format('woff');
+    src: url('../fonts/subset-HelveticaNeue-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -208,7 +208,7 @@ export default {
 
 @font-face {
     font-family: 'Helvetica Neue';
-    src: url('../../fonts/subset-HelveticaNeue-Regular.woff') format('woff');
+    src: url('../fonts/subset-HelveticaNeue-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -216,7 +216,7 @@ export default {
 
 @font-face {
     font-family: 'Helvetica Neue';
-    src: url('../../fonts/subset-HelveticaNeue-Light.woff') format('woff');
+    src: url('../fonts/subset-HelveticaNeue-Light.woff') format('woff');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -225,7 +225,7 @@ export default {
 @font-face {
     font-family: 'PTRoubleSerif';
     font-display: swap;
-    src: url('../../fonts/PTRoubleSerif.woff') format('woff');
+    src: url('../fonts/PTRoubleSerif.woff') format('woff');
     font-weight: 300;
     font-style: normal;
     font-stretch: normal;
