@@ -31,10 +31,11 @@ mix
 .copy("resources/autoschool/fonts/*", "public/autoschool/fonts")
 .js("resources/autoschool/js/app.js", "public/autoschool/js")
 .sass("resources/autoschool/sass/app.scss", "public/autoschool/css")
+.version()
 .options({
             autoprefixer: false,
             processCssUrls: false,
-            postCss: [tailwindcss("./tailwind.autoschool.config.js")],
+            postCss: [tailwindcss("./tailwind.config.js")],
             autoprefixer: {
                 browsers: ["last 9 versions"]
             }
@@ -45,6 +46,6 @@ mix
             open: false
         });
 
-        if (mix.inProduction()) {
-            mix.version();
-        }
+        // if (mix.inProduction()) {
+        //     mix.version();
+        // }

@@ -4,10 +4,10 @@ module.exports = {
         // purgeLayersByDefault: true,
     },
     purge: [
-        "resources/js/*.vue",
-        "resources/js/components/*.vue",
-        "resources/sass/*.scss",
-        "views/layouts/*"
+        "resources/autoschool/js/*.vue",
+        "resources/autoschool/js/components/*.vue",
+        "resources/autoschool/sass/*.scss",
+        "views/autoschool/layouts/*"
     ],
     theme: {
         extend: {
