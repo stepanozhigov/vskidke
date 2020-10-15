@@ -14,6 +14,7 @@
     }
 
     @screen lg {
+        @apply bg-left-top;
         background-image: url("../images/driving_bkg-1440@2x.jpg");
         padding-left: 6.25rem;
         padding-right: 6.25rem;
