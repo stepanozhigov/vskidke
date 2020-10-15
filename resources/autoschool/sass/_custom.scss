@@ -47,6 +47,7 @@
             .app-call {
                 font-size: 0.75rem;
                 @apply text-center;
+                @apply font-semibold;
 
                 .app-call-number {
                     color: theme("colors.phonenumber");
@@ -178,12 +179,17 @@
                         @screen md {
                             @apply mt-12;
                         }
+
+                        &::placeholder {
+                            color: theme("colors.cgray1");
+                        }
+                        &:focus {
+                            color: theme("colors.cgray1");
+                            border-bottom: 1px solid theme("colors.cwhite");
+                            outline: none;
+                        }
                     }
-                    input:focus {
-                        color: theme("colors.cwhite");
-                        border-bottom: 1px solid theme("colors.cwhite");
-                        outline: none;
-                    }
+
                     button {
                         @apply font-inter;
                         @apply font-light;

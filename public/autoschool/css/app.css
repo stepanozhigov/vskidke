@@ -582,7 +582,7 @@ video {
 @font-face {
   font-family: Inter;
 
-  font-weight: 500;
+  font-weight: 400;
 
   src: url("../fonts/Inter-Regular.woff") format("woff");
 
@@ -592,11 +592,21 @@ video {
 @font-face {
   font-family: Inter;
 
-  font-weight: 600;
+  font-weight: 500;
 
   src: url("../fonts/Inter-Medium.woff") format("woff");
 
   src: url("../fonts/Inter-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Inter;
+
+  font-weight: 600;
+
+  src: url("../fonts/Inter-SemiBold.woff") format("woff");
+
+  src: url("../fonts/Inter-SemiBold.woff2") format("woff2");
 }
 
 @font-face {
@@ -711,6 +721,7 @@ video {
 .app-template .app-header .app-call {
   font-size: 0.75rem;
   text-align: center;
+  font-weight: 500;
 }
 
 .app-template .app-header .app-call .app-call-number {
@@ -867,8 +878,12 @@ video {
   }
 }
 
+.app-template .home-view .home-view-content form input::placeholder {
+  color: #b3adae;
+}
+
 .app-template .home-view .home-view-content form input:focus {
-  color: #f8f7f6;
+  color: #b3adae;
   border-bottom: 1px solid #f8f7f6;
   outline: none;
 }

@@ -1,6 +1,6 @@
 {
     "/autoschool/js/app.js": "/autoschool/js/app.js?id=9affd62bee31adf34cc1",
-    "/autoschool/css/app.css": "/autoschool/css/app.css?id=2023847e0649d9ca0e78",
+    "/autoschool/css/app.css": "/autoschool/css/app.css?id=895b4eb978f6a707c9c3",
     "/autoschool/images/bg-image-lg.jpg": "/autoschool/images/bg-image-lg.jpg?id=40ecd2cbb72b1cd69153",
     "/autoschool/images/bg-image-md.jpg": "/autoschool/images/bg-image-md.jpg?id=d69e5c46a8f6806ed949",
     "/autoschool/images/bg-image-sm.jpg": "/autoschool/images/bg-image-sm.jpg?id=62ee814cee484c757916",
@@ -30,5 +30,7 @@
     "/autoschool/fonts/Inter-Medium.woff": "/autoschool/fonts/Inter-Medium.woff?id=2536bc465e7859ebc119",
     "/autoschool/fonts/Inter-Medium.woff2": "/autoschool/fonts/Inter-Medium.woff2?id=cea148ecab5b14d3fa75",
     "/autoschool/fonts/Inter-ExtraBold.woff": "/autoschool/fonts/Inter-ExtraBold.woff?id=401d4dd898e8ea07b4ad",
-    "/autoschool/fonts/Inter-ExtraBold.woff2": "/autoschool/fonts/Inter-ExtraBold.woff2?id=579ad8173a1c274813e8"
+    "/autoschool/fonts/Inter-ExtraBold.woff2": "/autoschool/fonts/Inter-ExtraBold.woff2?id=579ad8173a1c274813e8",
+    "/autoschool/fonts/Inter-SemiBold.woff": "/autoschool/fonts/Inter-SemiBold.woff?id=952a7b40efd6b5239c1b",
+    "/autoschool/fonts/Inter-SemiBold.woff2": "/autoschool/fonts/Inter-SemiBold.woff2?id=731e3358feba7ca9afa1"
 }
