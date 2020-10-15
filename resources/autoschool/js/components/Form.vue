@@ -20,7 +20,7 @@
         <button
             class="button-pulse w-full flex justify-center focus:outline-none active:outline-none"
         >
-            Отправить заявку
+            Получить предложение
         </button>
     </form>
 </template>

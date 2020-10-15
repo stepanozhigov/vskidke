@@ -1966,8 +1966,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     //
     //this.setSuccess();
-    this.setModal(); //
-
+    //this.setModal();
+    //
     this.setViewHeight();
     window.addEventListener("resize", function () {
       _this.setViewHeight();
@@ -3913,7 +3913,7 @@ var render = function() {
           staticClass:
             "button-pulse w-full flex justify-center focus:outline-none active:outline-none"
         },
-        [_vm._v("\n        Отправить заявку\n    ")]
+        [_vm._v("\n        Получить предложение\n    ")]
       )
     ]
   )
@@ -3981,9 +3981,13 @@ var render = function() {
         _vm._v(" "),
         _vm._m(0),
         _vm._v(" "),
-        _vm._m(1),
+        _c("h5", [
+          _vm._v(
+            "\n                Оставьте номер телефона и мы отправим специальное предложение на WhatsApp в течении 5 минут\n            "
+          )
+        ]),
         _vm._v(" "),
-        _c("Form", { attrs: { type: "form" } }),
+        _c("Form"),
         _vm._v(" "),
         _c("a", { attrs: { href: _vm.redirectTo } }, [
           _vm._v("Перейти в Instagram")
@@ -3992,7 +3996,7 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _vm._m(2)
+    _vm._m(1)
   ])
 }
 var staticRenderFns = [
@@ -4006,18 +4010,6 @@ var staticRenderFns = [
       _c("span", [_vm._v("— в автошколе Перми")]),
       _vm._v(" "),
       _c("span", [_vm._v("— от 10800 ₽")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h5", [
-      _vm._v(
-        "\n                Оставьте номер телефона и мы отправим специальное предложение на WhatsApp"
-      ),
-      _c("br"),
-      _vm._v("в течении 5 минут\n            ")
     ])
   },
   function() {

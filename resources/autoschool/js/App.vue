@@ -36,7 +36,7 @@ export default {
     mounted: function() {
         //
         //this.setSuccess();
-        this.setModal();
+        //this.setModal();
         //
         this.setViewHeight();
         window.addEventListener("resize", () => {

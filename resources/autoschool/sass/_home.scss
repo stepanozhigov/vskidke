@@ -1,0 +1,189 @@
+.home-view {
+    background-image: url("../images/driving_bkg-414@2x.jpg");
+    @apply bg-top;
+    @apply bg-no-repeat;
+    @apply bg-cover;
+    @apply p-4;
+
+    @screen md {
+        min-height: 720px;
+        background-image: url("../images/driving_bkg-768@2x.jpg");
+        @apply p-8;
+        @apply pb-4;
+        @apply flex flex-col;
+    }
+
+    @screen lg {
+        background-image: url("../images/driving_bkg-1440@2x.jpg");
+        padding-left: 6.25rem;
+        padding-right: 6.25rem;
+    }
+
+    .home-view-content {
+        @apply font-inter;
+        @apply relative;
+        @apply text-left;
+        color: theme("colors.cwhite");
+
+        h1 {
+            font-size: 2rem;
+            @apply font-normal;
+            text-align: left;
+            @apply pt-8;
+
+            @screen md {
+                max-width: 50%;
+                font-size: 4rem;
+                line-height: 4.5rem;
+            }
+
+            @screen lg {
+                max-width: 100%;
+            }
+        }
+
+        h3 {
+            @apply font-bold;
+            color: theme("colors.bg");
+            font-size: 1.125rem;
+            line-height: 1.475rem;
+            @apply mt-12;
+
+            @screen md {
+                font-size: 2rem;
+                line-height: 2.5rem;
+                margin-top: 1.25rem;
+                @apply font-normal;
+                @apply text-left;
+                @apply ml-0;
+                @apply mr-auto;
+            }
+
+            span:nth-child(1) {
+                @apply block;
+            }
+
+            span:nth-child(2) {
+                @apply block;
+            }
+            span:nth-child(3) {
+                @apply block;
+            }
+        }
+
+        h5 {
+            @apply font-normal;
+            font-size: 0.875rem;
+            line-height: 1.3rem;
+            letter-spacing: 0.65px;
+            @apply mt-6;
+            @apply text-left;
+            max-width: 20rem;
+
+            @screen md {
+                max-width: 30.3rem;
+                font-size: 1rem;
+                line-height: 1.5rem;
+                @apply ml-0;
+                @apply mr-auto;
+            }
+        }
+
+        form {
+            @apply mt-6;
+            @screen md {
+                max-width: 30.3rem;
+                @apply ml-0;
+                @apply mr-0;
+
+                @screen lg {
+                    max-width: 23.75rem;
+                }
+            }
+
+            input {
+                @apply font-inter;
+                @apply font-light;
+                @apply text-left;
+                color: theme("colors.cgray1");
+                font-size: 1.125rem;
+
+                border-bottom: 1px solid theme("colors.cgray1");
+                background-color: transparent;
+
+                @apply p-4;
+                @apply mx-auto;
+                @screen md {
+                }
+
+                &::placeholder {
+                    color: theme("colors.cgray1");
+                }
+                &:focus {
+                    color: theme("colors.cgray1");
+                    border-bottom: 1px solid theme("colors.cwhite");
+                    outline: none;
+                }
+            }
+
+            button {
+                @apply font-inter;
+                @apply font-light;
+                @apply shadow;
+                color: theme("colors.bg");
+                font-size: 1.125rem;
+                text-align: center;
+
+                border-radius: 1px;
+                border: 1px solid theme("colors.cred");
+                background-color: theme("colors.cred");
+
+                @apply mt-4;
+                @apply p-4;
+                @apply mx-auto;
+            }
+        }
+
+        a {
+            @apply block;
+            @apply font-light;
+            @apply text-left;
+            color: theme("colors.bg");
+            font-size: 1.125rem;
+            @apply underline;
+            @apply mt-6;
+            @apply mx-auto;
+
+            @screen md {
+                @apply text-left;
+                @apply ml-0;
+                @apply mr-0;
+                @apply mt-6;
+            }
+        }
+    }
+    p {
+        @apply block;
+        @apply font-inter;
+        @apply font-light;
+        @apply text-left;
+        color: theme("colors.cgray1");
+        font-size: 0.5rem;
+        @apply mx-auto;
+
+        @screen md {
+            font-size: 0.75rem;
+            @apply text-left;
+            @apply ml-0;
+            @apply mr-0;
+        }
+
+        @screen lg {
+            line-height: 1rem;
+        }
+
+        span {
+            @apply underline;
+        }
+    }
+}

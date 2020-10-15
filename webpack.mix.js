@@ -31,6 +31,7 @@ mix
 .copy("resources/autoschool/fonts/*", "public/autoschool/fonts")
 .js("resources/autoschool/js/app.js", "public/autoschool/js")
 .sass("resources/autoschool/sass/app.scss", "public/autoschool/css")
+.version()
 .options({
             autoprefixer: false,
             processCssUrls: false,
@@ -39,7 +40,7 @@ mix
                 browsers: ["last 9 versions"]
             }
         })
-.version()
+
 .browserSync({
             proxy: "autoschool.vskidke.local",
             open: false
