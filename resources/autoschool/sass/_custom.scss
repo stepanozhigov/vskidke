@@ -346,8 +346,8 @@
                 }
 
                 .modal-view-close {
-                    top: 1rem;
-                    right: 1rem;
+                    top: 0;
+                    right: 0;
                 }
                 form {
                     @apply mt-8;
@@ -367,7 +367,7 @@
                         color: theme("colors.cgray3");
                         font-size: 1.125rem;
 
-                        border-bottom: 1px solid theme("colors.cgray1");
+                        border-bottom: 1px solid theme("colors.inpuborder");
                         background-color: theme("colors.bg");
 
                         @apply pl-0 pr-4 py-4;
@@ -376,6 +376,10 @@
 
                         &:focus {
                             outline: none;
+                        }
+
+                        &::placeholder {
+                            color: theme("colors.cgray3");
                         }
                     }
                     button {
@@ -400,7 +404,7 @@
                 @apply block;
                 @apply font-inter;
                 @apply font-light;
-                color: theme("colors.cgray4");
+                color: theme("colors.modalclose");
                 font-size: 1.125rem;
                 @apply underline;
                 @apply mt-6;
