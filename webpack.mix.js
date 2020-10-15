@@ -31,7 +31,6 @@ mix
 .copy("resources/autoschool/fonts/*", "public/autoschool/fonts")
 .js("resources/autoschool/js/app.js", "public/autoschool/js")
 .sass("resources/autoschool/sass/app.scss", "public/autoschool/css")
-.version()
 .options({
             autoprefixer: false,
             processCssUrls: false,
@@ -45,3 +44,7 @@ mix
             proxy: "autoschool.vskidke.local",
             open: false
         });
+
+        if (mix.inProduction()) {
+            mix.version();
+        }
