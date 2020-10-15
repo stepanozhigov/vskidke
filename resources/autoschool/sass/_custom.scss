@@ -117,7 +117,7 @@
                     @screen md {
                         @apply ml-0;
                         @apply mr-0;
-
+                        margin-right: auto;
                         @screen lg {
                             max-width: 23.75rem;
                         }
@@ -176,7 +176,7 @@
                 @screen md {
                     @apply text-left;
                     @apply ml-0;
-                    @apply mr-0;
+                    margin-right: auto;
                     @apply mt-6;
                 }
             }
