@@ -68,7 +68,7 @@
 						.then((response) => {
 							fbq("track", "Лид передан успешно");
 							ym(68288701, "reachGoal", "send_form");
-							//window.location.replace(this.redirectTo);
+							window.location.replace(this.redirectTo);
 							// this.setSuccess();
 							// this.setModal();
 						});
