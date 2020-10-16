@@ -40,7 +40,6 @@ body {
 
 .input {
   height: 3.5rem;
-  font-family: "Helvetica Neue", sans-serif;
   color: #808890;
   padding: 0 1.5rem;
   border-radius: 0.5rem;
@@ -353,13 +352,6 @@ button[disabled] {
   transform: scale(1.1);
 }
 
-.header {
-  font-family: "Helvetica Neue", sans-serif;
-  font-size: 1rem;
-  overflow: hidden;
-  background-color: #fff;
-  z-index: 500;
-}
 .header.mob {
   display: none;
 }
