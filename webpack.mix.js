@@ -3,23 +3,22 @@ const tailwindcss = require("tailwindcss");
 const autoprefixer = require("autoprefixer");
 require("laravel-mix-purgecss");
 
-// POTOLKI
+// AUTOSCHOOL
 mix
-.copy("resources/potolki/images/", "public/potolki/images/")
-.copy("resources/potolki/fonts/", "public/potolki/fonts/")
-.js("resources/potolki/js/potolki.js", "public/potolki/js")
-.sass("resources/potolki/scss/app.scss", "public/potolki/css")
+.copy("resources/autoschool/images/*", "public/autoschool/images")
+.copy("resources/autoschool/fonts/*", "public/autoschool/fonts")
+.js("resources/autoschool/js/app.js", "public/autoschool/js")
+.sass("resources/autoschool/sass/app.scss", "public/autoschool/css")
 .version()
 .options({
-            //autoprefixer: false,
+            autoprefixer: false,
             processCssUrls: false,
-            // postCss: [tailwindcss("./tailwind.config.js")],
-            // autoprefixer: {
-            //     browsers: ["last 9 versions"]
-            // }
+            postCss: [tailwindcss("./tailwind.config.js")],
+            autoprefixer: {
+                browsers: ["last 9 versions"]
+            }
         })
-
 .browserSync({
-            proxy: "potolki.vskidke.local",
+            proxy: "autoschool.vskidke.local",
             open: false
         });
