@@ -20,17 +20,17 @@ module.exports = {
             },
             colors: {
                 bg: "#ffffff",
-                phonenumber: '#2a2928',
-                modalclose: '#66605a',
-                inpuborder: '#dbd9d7',
-                cblack: '#14120e',
-                cwhite:'#f8f7f6',
+                phonenumber: "#2a2928",
+                modalclose: "#66605a",
+                inpuborder: "#dbd9d7",
+                cblack: "#14120e",
+                cwhite: "#f8f7f6",
                 cred: "#c10327",
                 cgray1: "#b3adae",
                 cgray2: "#6b6b6b",
                 cgray3: "#485058",
                 cgray4: "#808890",
-                cfooter:'#a7a5a0'
+                cfooter: "#a7a5a0"
             }
         }
     },
