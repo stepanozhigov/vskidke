@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Potolki;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,7 @@ class PotolkiController extends Controller
     public function index()
 
     {
-        return view('potolki.app');
+        return view('app');
     }
 
     public function bitrix(Request $request)

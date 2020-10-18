@@ -1,1 +1,0 @@
-@extends('potolki.layouts.main')

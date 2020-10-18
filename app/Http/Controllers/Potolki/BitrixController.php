@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Potolki\Controllers;
 
 use App\Connectors\BitrixConnector;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class BitrixController extends Controller

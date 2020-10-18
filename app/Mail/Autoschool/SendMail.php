@@ -35,6 +35,6 @@ class SendMail extends Mailable
         return $this
             ->from(env('MAIL_FROM_ADDRESS_AUTOSCHOOL'), env('MAIL_FROM_NAME_AUTOSCHOOL'))
             ->subject(env('MAIL_SUBJECT_AUTOSCHOOL'))
-            ->view('autoschool.emails.email');
+            ->view('emails.email');
     }
 }
