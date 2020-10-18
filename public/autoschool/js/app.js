@@ -21150,15 +21150,27 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 
 /***/ }),
 
+/***/ "./resources/potolki/scss/app.scss":
+/*!*****************************************!*\
+  !*** ./resources/potolki/scss/app.scss ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!***********************************************************************************!*\
-  !*** multi ./resources/autoschool/js/app.js ./resources/autoschool/sass/app.scss ***!
-  \***********************************************************************************/
+/*!*********************************************************************************************************************!*\
+  !*** multi ./resources/autoschool/js/app.js ./resources/autoschool/sass/app.scss ./resources/potolki/scss/app.scss ***!
+  \*********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/stepan/Documents/vskidke/resources/autoschool/js/app.js */"./resources/autoschool/js/app.js");
-module.exports = __webpack_require__(/*! /Users/stepan/Documents/vskidke/resources/autoschool/sass/app.scss */"./resources/autoschool/sass/app.scss");
+__webpack_require__(/*! /Users/stepan/Documents/vskidke/resources/autoschool/sass/app.scss */"./resources/autoschool/sass/app.scss");
+module.exports = __webpack_require__(/*! /Users/stepan/Documents/vskidke/resources/potolki/scss/app.scss */"./resources/potolki/scss/app.scss");
 
 
 /***/ })
