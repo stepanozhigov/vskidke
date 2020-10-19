@@ -35,8 +35,23 @@ mix
         processCssUrls: false
     });
 
+//ROMATTI
+mix
+    //.copy("resources/potolki/images/", "public/potolki/images/")
+    //.copy("resources/potolki/fonts/", "public/potolki/fonts/")
+    .js("resources/romatti/js/app.js", "public/romatti/js")
+    .sass("resources/romatti/scss/app.scss", "public/romatti/css")
+    .options({
+        autoprefixer: false,
+        processCssUrls: false,
+        postCss: [tailwindcss("./tailwind.config.js")],
+        autoprefixer: {
+            browsers: ["last 9 versions"]
+        }
+    });
+
 mix.browserSync({
-    proxy: "potolki.vskidke.local",
+    proxy: "romatti.vskidke.local",
     open: false
 });
 

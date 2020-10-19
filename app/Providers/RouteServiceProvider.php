@@ -48,14 +48,20 @@ class RouteServiceProvider extends ServiceProvider
             //AUTOSCHOOL
             Route::middleware('web')
                 ->name('autoschool.')
-                ->namespace($this->namespace.'\Autoschool')
+                ->namespace($this->namespace . '\Autoschool')
                 ->group(base_path('routes/autoschool.php'));
 
             //POTOLKI
             Route::middleware('web')
                 ->name('potolki.')
-                ->namespace($this->namespace.'\Potolki')
+                ->namespace($this->namespace . '\Potolki')
                 ->group(base_path('routes/potolki.php'));
+
+            //ROMATTI
+            Route::middleware('web')
+                ->name('romatti.')
+                ->namespace($this->namespace . '\Romatti')
+                ->group(base_path('routes/romatti.php'));
         });
     }
 

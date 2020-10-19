@@ -580,85 +580,43 @@ video {
 }
 
 @font-face {
-  font-family: Inter;
+  font-family: Montserrat;
 
   font-weight: 400;
 
-  src: url("../fonts/Inter-Regular.woff") format("woff");
+  src: url("../../_webfonts/Montserrat-Regular.woff") format("woff");
 
-  src: url("../fonts/Inter-Regular.woff2") format("woff2");
+  src: url("../../_webfonts/Montserrat-Regular.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: Inter;
+  font-family: Montserrat;
 
   font-weight: 500;
 
-  src: url("../fonts/Inter-Medium.woff") format("woff");
+  src: url("../../_webfonts/Montserrat-Medium.woff") format("woff");
 
-  src: url("../fonts/Inter-Medium.woff2") format("woff2");
+  src: url("../../_webfonts/Montserrat-Medium.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: Inter;
+  font-family: Montserrat;
 
   font-weight: 600;
 
-  src: url("../fonts/Inter-SemiBold.woff") format("woff");
+  src: url("../../_webfonts/Montserrat-SemiBold.woff") format("woff");
 
-  src: url("../fonts/Inter-SemiBold.woff2") format("woff2");
+  src: url("../../_webfonts/Montserrat-SemiBold.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: Inter;
+  font-family: Montserrat;
 
   font-weight: 700;
 
-  src: url("../fonts/Inter-Bold.woff") format("woff");
+  src: url("../../_webfonts/Montserrat-Bold.woff") format("woff");
 
-  src: url("../fonts/Inter-Bold.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: Inter;
-
-  font-weight: 800;
-
-  src: url("../fonts/Inter-ExtraBold.woff") format("woff");
-
-  src: url("../fonts/Inter-ExtraBold.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: SuisseIntl;
-
-  font-weight: 300;
-
-  src: url("../fonts/SuisseIntl-Light.otf") format("opentype");
-}
-
-@font-face {
-  font-family: SuisseIntl;
-
-  font-weight: 400;
-
-  src: url("../fonts/SuisseIntl-Regular.otf") format("opentype");
-}
-
-@font-face {
-  font-family: SuisseIntl;
-
-  font-weight: 500;
-
-  src: url("../fonts/SuisseIntl-Medium.otf") format("opentype");
-}
-
-@font-face {
-  font-family: SuisseIntl;
-
-  font-weight: 700;
-
-  src: url("../fonts/SuisseIntl-Bold.otf") format("opentype");
+  src: url("../../_webfonts/Montserrat-Bold.woff2") format("woff2");
 }
 
 .app-template {
