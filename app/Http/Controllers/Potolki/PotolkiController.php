@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Potolki;
 
+use App\Connectors\BitrixConnector;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,16 @@ class PotolkiController extends Controller
 
     public function bitrix(Request $request)
     {
-        //Mail::to(env('MAIL_TO_AUTOSCHOOL'))->send(new SendMail($request->phone, $request->tag));
+        $bitrixConnector = new BitrixConnector();
+
+        $data = [
+            'title' => 'Лидмагнит',
+            'name'  =>  'Потолки',
+            'phone' =>  $request->phone,
+            'direction' =>  56,
+            'city'  =>  528,
+        ];
+        $result = $bitrixConnector->addLead($data);
+        return response()->json($result);
     }
 }

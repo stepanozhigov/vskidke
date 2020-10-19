@@ -76,29 +76,31 @@
 				} else {
 					this.isValid = true;
 					if (this.type === "callback") {
-						ga.getAll()[0].send("event", "callback", "send");
-						ym(40202559, "reachGoal", "form-sub");
+						// ga.getAll()[0].send("event", "callback", "send");
+						// ym(40202559, "reachGoal", "form-sub");
 					} else {
-						ga.getAll()[0].send("event", "lead", "send");
-						ym(40202559, "reachGoal", "lead");
+						// ga.getAll()[0].send("event", "lead", "send");
+						// ym(40202559, "reachGoal", "lead");
 					}
 					fbq("track", "Lead");
-					window.pixel.Event("lead");
-					window.pixel.Add(32528967);
+					// window.pixel.Event("lead");
+					// window.pixel.Add(32528967);
 
 					axios
-						.post("/forms/add-lead", {
+						.post("/bitrix", {
 							phone: this.phone,
 							name: "Лидмагнит потолки",
-							city: this.$store.state.city.bx_code,
-							city_name: this.$store.state.city.name,
+							//city: this.$store.state.city.bx_code,
+							//city: this.$store.state.city.bx_code,
+							//city_name: this.$store.state.city.name,
 						})
 						.then(
-							(response) => (
-								(this.phone = ""),
-								(this.$store.state.isSuccess = true),
-								(this.$store.state.isModal = true)
-							)
+							(response) => {
+                                console.log(response);
+								this.phone = "";
+								this.$store.state.isSuccess = true;
+								this.$store.state.isModal = true;
+                            }
 						);
 				}
 			},
