@@ -2165,8 +2165,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3866,7 +3864,7 @@ var render = function() {
   return _c(
     "form",
     {
-      staticClass: "w-full flex flex-col items-center mx-auto",
+      staticClass: "flex flex-col items-center w-full mx-auto",
       on: {
         submit: function($event) {
           $event.preventDefault()
@@ -3894,7 +3892,7 @@ var render = function() {
         attrs: {
           type: "tel",
           autocomplete: "off",
-          placeholder: "Ваш телефон*"
+          placeholder: "Введите ваш номер*"
         },
         domProps: { value: _vm.phone },
         on: {
@@ -3912,9 +3910,9 @@ var render = function() {
         "button",
         {
           staticClass:
-            "button-pulse w-full flex justify-center focus:outline-none active:outline-none"
+            "flex justify-center w-full button-pulse focus:outline-none active:outline-none"
         },
-        [_vm._v("\n\t\tПолучить предложение\n\t")]
+        [_vm._v("\n\t\tПолучить каталог и скидку\n\t")]
       )
     ]
   )
@@ -3970,7 +3968,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "home-view flex-grow flex flex-col" }, [
+  return _c("div", { staticClass: "flex flex-col flex-grow home-view" }, [
     _c(
       "div",
       {
@@ -3978,41 +3976,31 @@ var render = function() {
           "home-view-content md:flex-grow md:flex md:flex-col md:justify-center"
       },
       [
-        _c("h1", [_vm._v("Обучение вождению")]),
-        _vm._v(" "),
-        _vm._m(0),
+        _c("h1", [
+          _vm._v(
+            "Интернет-магазин дизайнерских светильников «Romatti» от 9 800 ₽"
+          )
+        ]),
         _vm._v(" "),
         _c("h5", [
           _vm._v(
-            "\n                Оставьте номер телефона и мы отправим специальное предложение на WhatsApp в течении 5 минут\n            "
+            "\n                Оставьте ваш номер телефона и мы вышлем на WhatsApp каталог с ценами в течение 5 минут\n            "
           )
         ]),
         _vm._v(" "),
         _c("Form"),
         _vm._v(" "),
         _c("a", { attrs: { href: _vm.redirectTo } }, [
-          _vm._v("Перейти в Instagram")
+          _vm._v("Перейти на сайт")
         ])
       ],
       1
     ),
     _vm._v(" "),
-    _vm._m(1)
+    _vm._m(0)
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h3", [
-      _c("span", [_vm._v("— по современной методике")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("— в автошколе Перми")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("— от 10800 ₽")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -4254,14 +4242,14 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "app-call flex flex-col md:flex-row" }, [
+  return _c("div", { staticClass: "flex flex-col app-call md:flex-row" }, [
     _c(
       "a",
       {
         staticClass: "app-call-number",
-        attrs: { href: "tel:+7 342 243-34-34" }
+        attrs: { href: "tel:+7 747 135-00-00" }
       },
-      [_vm._v("\n      +7 342 243-34-34\n    ")]
+      [_vm._v("\n      +7 747 135-0000\n    ")]
     ),
     _vm._v(" "),
     _c(
@@ -21100,7 +21088,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
   state: {
     modal: false,
     success: false,
-    redirectTo: 'https://instagram.com/avtoshkola_like_perm?igshid=an3rw1mt0ryj'
+    redirectTo: 'https://romatti.ru/'
   },
   getters: {
     isModal: function isModal(state) {

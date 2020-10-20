@@ -1,5 +1,5 @@
 .home-view {
-    background-image: url("../images/driving_bkg-414@2x.jpg");
+    background-image: url("../images/romatti_bkg-414@2x.jpg");
     @apply bg-top;
     @apply bg-no-repeat;
     @apply bg-cover;
@@ -7,7 +7,7 @@
 
     @screen md {
         min-height: 720px;
-        background-image: url("../images/driving_bkg-768@2x.jpg");
+        background-image: url("../images/romatti_bkg-768@2x.jpg");
         @apply p-8;
         @apply pb-4;
         @apply flex flex-col;
@@ -15,7 +15,7 @@
 
     @screen lg {
         @apply bg-left-top;
-        background-image: url("../images/driving_bkg-1440@2x.jpg");
+        background-image: url("../images/romatti_bkg-1440@2x.jpg");
         padding-left: 6.25rem;
         padding-right: 6.25rem;
     }

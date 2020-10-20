@@ -2,7 +2,7 @@
 	<!-- {{--FORM--}} -->
 	<form
 		@submit.prevent="submitForm"
-		class="w-full flex flex-col items-center mx-auto"
+		class="flex flex-col items-center w-full mx-auto"
 	>
 		<!-- {{--PHONE INPUT--}} -->
 
@@ -11,16 +11,16 @@
 			type="tel"
 			autocomplete="off"
 			class="w-full"
-			placeholder="Ваш телефон*"
+			placeholder="Введите ваш номер*"
 			v-mask="{ mask: '\+7 (999) 999-99-99', greedy: true }"
 			v-on:change="maskCheck"
 		/>
 
 		<!-- {{--SUBMIT PHONE--}} -->
 		<button
-			class="button-pulse w-full flex justify-center focus:outline-none active:outline-none"
+			class="flex justify-center w-full button-pulse focus:outline-none active:outline-none"
 		>
-			Получить предложение
+			Получить каталог и скидку
 		</button>
 	</form>
 </template>

@@ -7,7 +7,7 @@ module.exports = {
         "resources/romatti/js/*.vue",
         "resources/romatti/js/components/*.vue",
         "resources/romatti/sass/*.scss",
-        "romatti/views/layouts/*"
+        "resources/romatti/views/layouts/*"
     ],
     theme: {
         extend: {

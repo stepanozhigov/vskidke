@@ -1,8 +1,8 @@
 <template>
-    <div class="app-call flex flex-col md:flex-row">
+    <div class="flex flex-col app-call md:flex-row">
         <!-- {{-- Make call --}} -->
-        <a href="tel:+7 342 243-34-34" class="app-call-number">
-          +7 342 243-34-34
+        <a href="tel:+7 747 135-00-00" class="app-call-number">
+          +7 747 135-0000
         </a>
         <!-- {{-- Book call --}} -->
         <span @click="toggleModal" class="app-call-book">

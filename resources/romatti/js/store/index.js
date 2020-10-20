@@ -7,7 +7,7 @@ export default new Vuex.Store({
     state: {
         modal: false,
         success: false,
-        redirectTo: 'https://instagram.com/avtoshkola_like_perm?igshid=an3rw1mt0ryj'
+        redirectTo: 'https://romatti.ru/'
     },
     getters: {
         isModal: state => state.modal,

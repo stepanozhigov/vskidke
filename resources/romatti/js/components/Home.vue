@@ -1,23 +1,21 @@
 <template>
     <div
-            class="home-view flex-grow flex flex-col"
+            class="flex flex-col flex-grow home-view"
         >
             <div
                 class="home-view-content md:flex-grow md:flex md:flex-col md:justify-center"
             >
-                <h1>Обучение вождению</h1>
-                <h3>
-                    <span>— по современной методике</span>
-                    <span>— в автошколе Перми</span>
-                    <span>— от 10800 ₽</span>
-                </h3>
+                <h1>Интернет-магазин дизайнерских светильников «Romatti» от 9 800 ₽</h1>
                 <h5>
-                    Оставьте номер телефона и мы отправим специальное предложение на&nbsp;WhatsApp в&nbsp;течении 5&nbsp;минут
+                    Оставьте ваш номер телефона и мы вышлем на WhatsApp каталог с ценами в&nbsp;течение 5&nbsp;минут
                 </h5>
                 <Form />
-                <a :href="redirectTo">Перейти в Instagram</a>
+
+                <!-- GOTO WEBSITE -->
+                <a :href="redirectTo">Перейти на сайт</a>
             </div>
 
+            <!-- AGREEMENT -->
             <p class="mt-auto">
                 Оставляя контактную информацию, вы <span>соглашаетесь</span> на
                 обработку персональных&nbsp;данных

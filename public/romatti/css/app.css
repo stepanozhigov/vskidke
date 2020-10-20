@@ -20481,7 +20481,7 @@ video {
 }
 
 .home-view {
-  background-image: url("../images/driving_bkg-414@2x.jpg");
+  background-image: url("../images/romatti_bkg-414@2x.jpg");
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -20491,7 +20491,7 @@ video {
 @media (min-width: 768px) {
   .home-view {
     min-height: 720px;
-    background-image: url("../images/driving_bkg-768@2x.jpg");
+    background-image: url("../images/romatti_bkg-768@2x.jpg");
     padding: 2rem;
     padding-bottom: 1rem;
     display: flex;
@@ -20502,7 +20502,7 @@ video {
 @media (min-width: 1024px) {
   .home-view {
     background-position: left top;
-    background-image: url("../images/driving_bkg-1440@2x.jpg");
+    background-image: url("../images/romatti_bkg-1440@2x.jpg");
     padding-left: 6.25rem;
     padding-right: 6.25rem;
   }
