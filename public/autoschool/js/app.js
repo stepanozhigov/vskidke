@@ -21179,10 +21179,10 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/stepan/Documents/vskidke/resources/autoschool/js/app.js */"./resources/autoschool/js/app.js");
-__webpack_require__(/*! /Users/stepan/Documents/vskidke/resources/autoschool/sass/app.scss */"./resources/autoschool/sass/app.scss");
-__webpack_require__(/*! /Users/stepan/Documents/vskidke/resources/potolki/scss/app.scss */"./resources/potolki/scss/app.scss");
-module.exports = __webpack_require__(/*! /Users/stepan/Documents/vskidke/resources/romatti/scss/app.scss */"./resources/romatti/scss/app.scss");
+__webpack_require__(/*! C:\WebProjects\vskidke\resources\autoschool\js\app.js */"./resources/autoschool/js/app.js");
+__webpack_require__(/*! C:\WebProjects\vskidke\resources\autoschool\sass\app.scss */"./resources/autoschool/sass/app.scss");
+__webpack_require__(/*! C:\WebProjects\vskidke\resources\potolki\scss\app.scss */"./resources/potolki/scss/app.scss");
+module.exports = __webpack_require__(/*! C:\WebProjects\vskidke\resources\romatti\scss\app.scss */"./resources/romatti/scss/app.scss");
 
 
 /***/ })
