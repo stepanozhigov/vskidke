@@ -18,11 +18,6 @@ mix
     //         browsers: ["last 9 versions"]
     //     }
     // });
-    // .browserSync({
-    //     proxy: "autoschool.vskidke.local",
-    //     open: false
-    // });
-
 
 
 // POTOLKI
