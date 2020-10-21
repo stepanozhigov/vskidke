@@ -11,26 +11,30 @@
         @apply text-center;
         color: theme("colors.textwhite");
         h1 {
+            max-width: rem(328);
             @apply font-normal;
             @apply uppercase;
             font-size: rem(10);
             letter-spacing: rem(5);
             @apply pt-4;
+            @apply mx-auto;
         }
 
         h3 {
+            max-width: rem(328);
             @apply font-extrabold;
             @apply uppercase;
-            font-size: rem(23);
+            font-size: rem(20);
             line-height: rem(32);
-            letter-spacing: rem(1);
+            letter-spacing: 0;
             @apply mt-12;
+            @apply mx-auto;
         }
 
         h5 {
             @apply font-medium;
             @apply text-center;
-            font-size: rem(14);
+            font-size: rem(13);
             line-height: rem(20);
             letter-spacing: rem(1);
             @apply mt-6;
@@ -108,9 +112,9 @@
     p {
         @apply block;
         @apply font-normal;
-        @apply text-left;
+        @apply text-center;
         color: theme("colors.textmute");
-        font-size: rem(7);
+        font-size: rem(6);
         @apply mx-auto;
 
         span {
