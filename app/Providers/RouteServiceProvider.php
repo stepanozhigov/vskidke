@@ -62,6 +62,12 @@ class RouteServiceProvider extends ServiceProvider
                 ->name('romatti.')
                 ->namespace($this->namespace . '\Romatti')
                 ->group(base_path('routes/romatti.php'));
+
+            //ZAMANIA
+            Route::middleware('web')
+                ->name('zamania.')
+                ->namespace($this->namespace . '\Zamania')
+                ->group(base_path('routes/zamania.php'));
         });
     }
 

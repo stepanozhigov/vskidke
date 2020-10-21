@@ -1,0 +1,78 @@
+@layer base {
+    .app-template {
+        @apply h-screen;
+        background-color: theme("colors.cwhite");
+
+        .success-view {
+            @apply p-4;
+            border-top: 1px solid rgba(186, 190, 194, 0.35);
+
+            @screen md {
+                @apply pb-16;
+            }
+
+            h2 {
+                @apply font-normal;
+                @apply uppercase;
+                @apply text-center;
+                color: theme("colors.cgray4");
+                font-size: rem(24);
+                letter-spacing: 3px;
+                line-height: 1.125rem;
+
+                @screen lg {
+                    font-size: 1.375rem;
+                }
+            }
+            h4 {
+                @apply block;
+                @apply font-normal;
+                @apply text-center;
+                color: theme("colors.cgray3");
+                font-size: 2rem;
+                line-height: 2.5rem;
+                @apply mt-4;
+
+                @screen lg {
+                    @apply font-light;
+                    font-size: 4rem;
+                    line-height: 4.5rem;
+                }
+            }
+            a {
+                @apply font-normal;
+                color: theme("colors.bg");
+                font-size: 1.125rem;
+                text-align: center;
+
+                border-radius: 8px;
+                border: 1px solid theme("colors.cred");
+                background-color: theme("colors.cred");
+
+                @apply mt-12;
+                @apply p-4;
+                @apply mx-auto;
+
+                @screen md {
+                    max-width: 20.5rem;
+                }
+            }
+
+            .success-view-icons {
+                .success-view-icon {
+                    .success-view-icon-svg {
+                        height: 5rem;
+                    }
+                    p {
+                        @apply font-normal;
+                        @apply text-center;
+                        color: theme("colors.cgray3");
+                        @apply mt-4;
+                        font-size: 1.25rem;
+                        line-height: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+}

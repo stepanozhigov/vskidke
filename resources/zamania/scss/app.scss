@@ -1,0 +1,13 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@import "../../_webfonts";
+@import "../../_mixins";
+@import "custom";
+@import "header";
+@import "home";
+@import "modal";
+@import "animation";

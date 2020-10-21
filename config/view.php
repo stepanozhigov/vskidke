@@ -1,4 +1,5 @@
 <?php
+//use App\Http\Requests\Request;
 //dd(resource_path(explode('.', request()->getHost())[0]) . '/views');
 return [
 
@@ -14,7 +15,7 @@ return [
     */
 
     'paths' => [
-        resource_path(explode('.', request()->getHost())[0]) . '/views',
+        resource_path(explode('.', $_SERVER['HTTP_HOST'])[0]) . '/views',
     ],
 
     /*

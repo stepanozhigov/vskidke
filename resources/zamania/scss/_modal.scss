@@ -1,0 +1,97 @@
+@layer base {
+    .modal-view {
+        @apply p-4;
+        @apply w-full;
+        border-top: 1px solid rgba(186, 190, 194, 0.35);
+
+        .modal-view-content {
+
+            h1 {
+                @apply w-full;
+                @apply block;
+                @apply font-extrabold;
+                @apply text-center;
+                color: theme("colors.cyellow");
+                font-size: 2rem;
+            }
+
+            .modal-view-close {
+                top: 0;
+                right: 0;
+            }
+
+            form {
+                @apply mt-8;
+                @screen md {
+                    @apply ml-0;
+                    @apply mr-0;
+                    margin-right: auto;
+                }
+
+                input {
+                    @apply font-normal;
+                    @apply text-left;
+                    color: theme('colors.phone');
+                    font-size: rem(18);
+                    @apply pl-6;
+    
+                    height: rem(56);
+                    border: 1px solid theme("colors.inputborder");
+                    border-radius: rem(56/2);
+                    background-color: transparent;
+    
+                    @apply mx-auto;
+    
+                    &::placeholder {
+                        color: theme('colors.placeholder');
+                    }
+                    &:focus {
+                        outline: none;
+                    }
+                }
+                
+                button {
+                    @apply font-shadow;
+                    @apply font-normal;
+                    @apply leading-normal;
+                    color: theme("colors.cwhite");
+                    font-size: rem(16);
+                    text-align: center;
+    
+                    height: rem(56);
+                    border: none;
+                    border-radius: rem(56/2);
+                    background-color: theme("colors.cyellow");
+    
+                    @apply mt-4;
+                    @apply mx-auto;
+    
+                    &:active {
+                         outline: none;
+                         background: none;
+                    }
+                    &:focus {
+                        outline: none;
+                    }
+    
+                    span {
+                        padding-top: .3rem;
+                    }
+    
+                }
+            }
+        }
+        
+        a {
+            @apply block;
+            @apply font-shadow;
+            @apply font-normal;
+            @apply text-center;
+            color: theme("colors.cyellow");
+            font-size: 1rem;
+            @apply underline;
+            @apply mt-6;
+            @apply mx-auto;
+        }
+    }
+}
