@@ -1,0 +1,110 @@
+.home-view {
+    background-image: url("../images/zamania_bkg-414@2x.jpg");
+    @apply bg-top;
+    @apply bg-no-repeat;
+    @apply bg-cover;
+    @apply p-4;
+
+    .home-view-content {
+        @apply font-inter;
+        @apply relative;
+        @apply text-left;
+        color: theme("colors.cwhite");
+
+        h1 {
+            font-size: 2rem;
+            @apply font-normal;
+            text-align: left;
+            @apply pt-8;
+        }
+
+        h3 {
+            @apply font-bold;
+            color: theme("colors.bg");
+            font-size: 1.125rem;
+            line-height: 1.475rem;
+            @apply mt-12;
+
+            span:nth-child(1) {
+                @apply block;
+            }
+
+            span:nth-child(2) {
+                @apply block;
+            }
+            span:nth-child(3) {
+                @apply block;
+            }
+        }
+
+        h5 {
+            @apply font-normal;
+            font-size: 0.875rem;
+            line-height: 1.3rem;
+            letter-spacing: 0.65px;
+            @apply mt-6;
+            @apply text-left;
+            max-width: 20rem;
+        }
+
+        form {
+            @apply mt-6;
+        
+
+            input {
+                @apply font-inter;
+                @apply font-light;
+                @apply text-left;
+                color: theme("colors.cgray1");
+                font-size: 1.125rem;
+
+                border-bottom: 1px solid theme("colors.cgray1");
+                background-color: transparent;
+
+                @apply p-4;
+                @apply mx-auto;
+            }
+
+            button {
+                @apply font-inter;
+                @apply font-light;
+                @apply shadow;
+                color: theme("colors.bg");
+                font-size: 1.125rem;
+                text-align: center;
+
+                border-radius: 1px;
+                border: 1px solid theme("colors.cred");
+                background-color: theme("colors.cred");
+
+                @apply mt-4;
+                @apply p-4;
+                @apply mx-auto;
+            }
+        }
+
+        a {
+            @apply block;
+            @apply font-light;
+            @apply text-left;
+            color: theme("colors.bg");
+            font-size: 1.125rem;
+            @apply underline;
+            @apply mt-6;
+            @apply mx-auto;
+        }
+    }
+    p {
+        @apply block;
+        @apply font-inter;
+        @apply font-light;
+        @apply text-left;
+        color: theme("colors.cgray1");
+        font-size: 0.5rem;
+        @apply mx-auto;
+
+        span {
+            @apply underline;
+        }
+    }
+}

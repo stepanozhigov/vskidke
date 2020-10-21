@@ -1,0 +1,185 @@
+@layer base {
+    .app-template {
+        @apply h-screen;
+        background-color: theme("colors.bg");
+
+        @screen lg {
+            // min-height: 720px;
+            padding-left: 8.135rem;
+            padding-right: 8.135rem;
+            padding-bottom: 6.25rem;
+        }
+
+        .success-view {
+            @apply p-4;
+            border-top: 1px solid rgba(186, 190, 194, 0.35);
+
+            @screen md {
+                @apply pb-16;
+            }
+
+            h2 {
+                @apply font-inter;
+                @apply font-normal;
+                @apply uppercase;
+                @apply text-center;
+                color: theme("colors.cgray4");
+                font-size: 0.875rem;
+                letter-spacing: 4px;
+                line-height: 1.125rem;
+
+                @screen lg {
+                    font-size: 1.375rem;
+                }
+            }
+            h4 {
+                @apply block;
+                @apply font-inter;
+                @apply font-normal;
+                @apply text-center;
+                color: theme("colors.cgray3");
+                font-size: 2rem;
+                line-height: 2.5rem;
+                @apply mt-4;
+
+                @screen lg {
+                    @apply font-light;
+                    font-size: 4rem;
+                    line-height: 4.5rem;
+                }
+            }
+            a {
+                @apply font-inter;
+                @apply font-normal;
+                color: theme("colors.bg");
+                font-size: 1.125rem;
+                text-align: center;
+
+                border-radius: 8px;
+                border: 1px solid theme("colors.cred");
+                background-color: theme("colors.cred");
+
+                @apply mt-12;
+                @apply p-4;
+                @apply mx-auto;
+
+                @screen md {
+                    max-width: 20.5rem;
+                }
+            }
+
+            .success-view-icons {
+                .success-view-icon {
+                    .success-view-icon-svg {
+                        height: 5rem;
+                    }
+                    p {
+                        @apply font-inter;
+                        @apply font-normal;
+                        @apply text-center;
+                        color: theme("colors.cgray3");
+                        @apply mt-4;
+                        font-size: 1.25rem;
+                        line-height: 1.5rem;
+                    }
+                }
+            }
+        }
+
+        .modal-view {
+            @apply p-4;
+            @apply w-full;
+            border-top: 1px solid rgba(186, 190, 194, 0.35);
+
+            .modal-view-content {
+                @screen md {
+                    max-width: 30.3rem;
+                    @apply mx-auto;
+                }
+
+                h1 {
+                    @apply w-full;
+                    @apply block;
+                    @apply font-inter;
+                    @apply font-extrabold;
+                    @apply text-left;
+                    color: theme("colors.cblack");
+                    font-size: 2rem;
+                    line-height: 2.5rem;
+                }
+
+                .modal-view-close {
+                    top: 0;
+                    right: 0;
+                }
+                form {
+                    @apply mt-8;
+                    @screen md {
+                        @apply ml-0;
+                        @apply mr-0;
+                        margin-right: auto;
+                        @screen lg {
+                            max-width: 23.75rem;
+                        }
+                    }
+
+                    input {
+                        @apply font-inter;
+                        @apply font-light;
+                        @apply text-left;
+                        color: theme("colors.cgray3");
+                        font-size: 1.125rem;
+
+                        border-bottom: 1px solid theme("colors.inpuborder");
+                        background-color: theme("colors.bg");
+
+                        @apply pl-0 pr-4 py-4;
+
+                        @apply mx-auto;
+
+                        &:focus {
+                            outline: none;
+                        }
+
+                        &::placeholder {
+                            color: theme("colors.cgray3");
+                        }
+                    }
+                    button {
+                        @apply font-inter;
+                        @apply font-light;
+                        @apply shadow;
+                        color: theme("colors.bg");
+                        font-size: 1.125rem;
+                        text-align: center;
+
+                        border-radius: 1px;
+                        border: 1px solid theme("colors.cred");
+                        background-color: theme("colors.cred");
+
+                        @apply mt-4;
+                        @apply p-4;
+                        @apply mx-auto;
+                    }
+                }
+            }
+            a {
+                @apply block;
+                @apply font-inter;
+                @apply font-light;
+                color: theme("colors.modalclose");
+                font-size: 1.125rem;
+                @apply underline;
+                @apply mt-6;
+                @apply mr-auto;
+
+                @screen md {
+                    @apply text-left;
+                    @apply ml-0;
+                    margin-right: auto;
+                    @apply mt-6;
+                }
+            }
+        }
+    }
+}

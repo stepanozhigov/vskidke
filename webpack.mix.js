@@ -37,21 +37,36 @@ mix
 
 //ROMATTI
 mix
-    //.copy("resources/potolki/images/", "public/potolki/images/")
-    //.copy("resources/potolki/fonts/", "public/potolki/fonts/")
+    //.copy("resources/romatti/images/", "public/romatti/images/")
+    //.copy("resources/romatti/fonts/", "public/romatti/fonts/")
     .js("resources/romatti/js/app.js", "public/romatti/js")
     .sass("resources/romatti/scss/app.scss", "public/romatti/css")
     .options({
         autoprefixer: false,
         processCssUrls: false,
-        postCss: [tailwindcss("./tailwind.config.js")],
+        postCss: [tailwindcss("./tailwind.romatti.config.js")],
         autoprefixer: {
             browsers: ["last 9 versions"]
         }
     });
 
+//ZAMANIA
+mix
+//.copy("resources/zamania/images/", "public/zamania/images/")
+//.copy("resources/zamania/fonts/", "public/zamania/fonts/")
+.js("resources/zamania/js/app.js", "public/zamania/js")
+.sass("resources/zamania/scss/app.scss", "public/zamania/css")
+.options({
+    autoprefixer: false,
+    processCssUrls: false,
+    postCss: [tailwindcss("./tailwind.config.js")],
+    autoprefixer: {
+        browsers: ["last 9 versions"]
+    }
+});
+
 mix.browserSync({
-    proxy: "romatti.vskidke.local",
+    proxy: "zamania.vskidke.local",
     open: false
 });
 

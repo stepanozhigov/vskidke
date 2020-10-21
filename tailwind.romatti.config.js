@@ -1,5 +1,5 @@
 //
-//  ZAMANIA
+//ROMATTI
 //
 module.exports = {
     future: {
@@ -7,10 +7,10 @@ module.exports = {
         // purgeLayersByDefault: true,
     },
     purge: [
-        "resources/zamania/js/*.vue",
-        "resources/zamania/js/components/*.vue",
-        "resources/zamania/sass/*.scss",
-        "resources/zamania/views/layouts/*"
+        "resources/romatti/js/*.vue",
+        "resources/romatti/js/components/*.vue",
+        "resources/romatti/sass/*.scss",
+        "resources/romatti/views/layouts/*"
     ],
     theme: {
         extend: {
