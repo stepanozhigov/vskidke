@@ -14,10 +14,15 @@
             max-width: rem(328);
             @apply font-normal;
             @apply uppercase;
-            font-size: rem(10);
-            letter-spacing: rem(5);
+            font-size: rem(8);
+            letter-spacing: rem(2);
             @apply pt-4;
             @apply mx-auto;
+
+            @screen phone {
+                letter-spacing: rem(3);
+                font-size: rem(10);
+            }
         }
 
         h3 {
@@ -29,15 +34,32 @@
             letter-spacing: 0;
             @apply mt-12;
             @apply mx-auto;
+
+            @screen phone {
+                font-size: rem(20);
+            }
+
+            span {
+                line-height: rem(56);
+
+                @screen phone {
+                    line-height: rem(64);
+                }
+            }
         }
 
         h5 {
             @apply font-medium;
             @apply text-center;
-            font-size: rem(13);
+            font-size: rem(12);
             line-height: rem(20);
-            letter-spacing: rem(1);
+            letter-spacing: rem(0);
             @apply mt-6;
+
+            @screen phone {
+                letter-spacing: rem(1);
+                font-size: rem(13);
+            }
         }
 
         form {
@@ -71,7 +93,7 @@
                 @apply font-normal;
                 @apply leading-normal;
                 color: theme("colors.cwhite");
-                font-size: rem(16);
+                font-size: rem(14);
                 text-align: center;
 
                 height: rem(56);
@@ -93,6 +115,11 @@
                 span {
                     padding-top: .3rem;
                 }
+
+                @screen phone {
+                    font-size: rem(16);
+                }
+
 
             }
         }

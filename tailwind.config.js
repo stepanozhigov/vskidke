@@ -14,6 +14,12 @@ module.exports = {
     ],
     theme: {
         extend: {
+            screens: {
+                'phone': '360px',
+                'tablet': '480px',
+                'laptop': '768px',
+                'display': '1024px'
+            },
             fontFamily: {
                 shadow: ["Shadow"],
                 montserrat: ["Montserrat"]

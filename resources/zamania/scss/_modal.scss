@@ -55,7 +55,7 @@
                     @apply font-normal;
                     @apply leading-normal;
                     color: theme("colors.cwhite");
-                    font-size: rem(16);
+                    font-size: rem(14);
                     text-align: center;
     
                     height: rem(56);
@@ -77,6 +77,11 @@
                     span {
                         padding-top: .3rem;
                     }
+    
+                    @screen phone {
+                        font-size: rem(16);
+                    }
+    
     
                 }
             }
