@@ -27,16 +27,18 @@
 
         h3 {
             max-width: rem(328);
+            @apply font-shadow;
             @apply font-extrabold;
             @apply uppercase;
             font-size: rem(20);
             line-height: rem(32);
-            letter-spacing: 0;
+            letter-spacing: rem(1);
             @apply mt-12;
             @apply mx-auto;
 
             @screen phone {
-                font-size: rem(20);
+                font-size: rem(23);
+                letter-spacing: rem(1);
             }
 
             span {
