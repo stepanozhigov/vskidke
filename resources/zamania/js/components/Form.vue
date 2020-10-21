@@ -48,6 +48,9 @@
 				phoneValidate,
 			},
 		},
+		mounted: function () {
+			console.log(process.env.MIX_APP_ENV);
+		},
 		computed: {
 			...mapGetters(["isModal", "isSuccess", "redirectTo"]),
 		},
@@ -59,13 +62,15 @@
 				} else {
 					this.isValid = true;
 					axios
-						.post("/lead", {
+						.post("/bx24", {
 							phone: this.phone,
 							tag: "Парк Zамания в Москве",
 						})
 						.then((response) => {
 							fbq("track", "Лид передан успешно");
-							//window.location.replace(this.redirectTo);
+							if (process.env.MIX_APP_ENV == "production") {
+								window.location.replace(this.redirectTo);
+							}
 							// this.setSuccess();
 							// this.setModal();
 						});

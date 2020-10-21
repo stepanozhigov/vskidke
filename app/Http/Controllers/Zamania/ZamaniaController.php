@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Zamania;
 
 use App\Connectors\BitrixConnector;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class ZamaniaController extends Controller
 {
@@ -13,18 +15,18 @@ class ZamaniaController extends Controller
         return view('app');
     }
 
-    // public function bitrix(Request $request)
-    // {
-    //     $bitrixConnector = new BitrixConnector();
-
-    //     $data = [
-    //         'title' => 'Лидмагнит',
-    //         'name'  =>  'Romatti',
-    //         'phone' =>  $request->phone,
-    //         //'direction' =>  56,
-    //         'city'  =>  528,
-    //     ];
-    //     $result = $bitrixConnector->addLead($data);
-    //     return response()->json($result);
-    // }
+    public function bitrix24(Request $request)
+    {
+        $data = [
+            'fields'=>[
+                'SOURCE_ID'=>'SELF',
+                'TITLE'=>'ХЕЛОУИН',
+                'SOURCE_DESCRIPTION'=>'zamania.vskidke.ru',
+                'UTM_SOURCE'=>'trendPro',
+                "PHONE"=> [["VALUE"=>$request->phone, "VALUE_TYPE"=> "WORK"]]
+            ]
+        ];
+        $response = Http::post('https://b24.zamania.ru/rest/4769/tlypdtk47mxjpkgk/crm.lead.add',$data);
+        return response()->json($response->json());
+    }
 }

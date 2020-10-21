@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2054,20 +2054,27 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["helpe
       phoneValidate: phoneValidate
     }
   },
+  mounted: function mounted() {
+    console.log("local");
+  },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapGetters"])(["isModal", "isSuccess", "redirectTo"])),
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess"])), {}, {
     submitForm: function submitForm() {
+      var _this = this;
+
       if (this.$v.phone.$invalid) {
         this.isValid = false;
       } else {
         this.isValid = true;
-        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/lead", {
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/bx24", {
           phone: this.phone,
           tag: "Парк Zамания в Москве"
         }).then(function (response) {
-          fbq("track", "Лид передан успешно"); //window.location.replace(this.redirectTo);
-          // this.setSuccess();
+          fbq("track", "Лид передан успешно");
+
+          if (false) {} // this.setSuccess();
           // this.setModal();
+
         });
       }
     },
@@ -21603,26 +21610,14 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 
 /***/ }),
 
-/***/ "./resources/zamania/scss/app.scss":
-/*!*****************************************!*\
-  !*** ./resources/zamania/scss/app.scss ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 0:
-/*!*****************************************************************************!*\
-  !*** multi ./resources/zamania/js/app.js ./resources/zamania/scss/app.scss ***!
-  \*****************************************************************************/
+/***/ 3:
+/*!*******************************************!*\
+  !*** multi ./resources/zamania/js/app.js ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\WebProjects\vskidke\resources\zamania\js\app.js */"./resources/zamania/js/app.js");
-module.exports = __webpack_require__(/*! C:\WebProjects\vskidke\resources\zamania\scss\app.scss */"./resources/zamania/scss/app.scss");
+module.exports = __webpack_require__(/*! C:\WebProjects\vskidke\resources\zamania\js\app.js */"./resources/zamania/js/app.js");
 
 
 /***/ })

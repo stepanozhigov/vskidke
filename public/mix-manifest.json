@@ -1,4 +1,10 @@
 {
-    "/zamania/js/app.js": "/zamania/js/app.js",
-    "/zamania/css/app.css": "/zamania/css/app.css"
+    "/autoschool/js/app.js": "/autoschool/js/app.js",
+    "/autoschool/css/app.css": "/autoschool/css/app.css",
+    "/potolki/css/app.css": "/potolki/css/app.css",
+    "/romatti/css/app.css": "/romatti/css/app.css",
+    "/zamania/css/app.css": "/zamania/css/app.css",
+    "/potolki/js/potolki.js": "/potolki/js/potolki.js",
+    "/romatti/js/app.js": "/romatti/js/app.js",
+    "/zamania/js/app.js": "/zamania/js/app.js"
 }
