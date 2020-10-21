@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1955,7 +1955,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {};
   },
   components: {
-    'app-header': _components_Header__WEBPACK_IMPORTED_MODULE_3__["default"],
+    "app-header": _components_Header__WEBPACK_IMPORTED_MODULE_3__["default"],
     Home: _components_Home__WEBPACK_IMPORTED_MODULE_4__["default"],
     Success: _components_Success__WEBPACK_IMPORTED_MODULE_5__["default"],
     Modal: _components_Modal__WEBPACK_IMPORTED_MODULE_6__["default"],
@@ -2008,8 +2008,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
 //
 //
 //
@@ -4028,7 +4026,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "app-template flex flex-col" },
+    { staticClass: "app-template flex flex-col h-mobilescreen" },
     [
       _c("app-header"),
       _vm._v(" "),
@@ -4108,18 +4106,22 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass:
-            "flex justify-center w-full button-pulse focus:outline-none active:outline-none"
-        },
-        [_vm._v("\n\t\tПолучить расписание и прайс\n\t")]
-      )
+      _vm._m(0)
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      { staticClass: "flex justify-center items-center w-full button-pulse" },
+      [_c("span", [_vm._v(" Получить расписание и прайс ")])]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -21556,7 +21558,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
   state: {
     modal: false,
     success: false,
-    redirectTo: 'https://romatti.ru/'
+    redirectTo: 'https://m.zamania.ru/ceny-v-moskva'
   },
   getters: {
     isModal: function isModal(state) {
@@ -21601,14 +21603,26 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 
 /***/ }),
 
-/***/ 3:
-/*!*******************************************!*\
-  !*** multi ./resources/zamania/js/app.js ***!
-  \*******************************************/
+/***/ "./resources/zamania/scss/app.scss":
+/*!*****************************************!*\
+  !*** ./resources/zamania/scss/app.scss ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 0:
+/*!*****************************************************************************!*\
+  !*** multi ./resources/zamania/js/app.js ./resources/zamania/scss/app.scss ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\WebProjects\vskidke\resources\zamania\js\app.js */"./resources/zamania/js/app.js");
+__webpack_require__(/*! C:\WebProjects\vskidke\resources\zamania\js\app.js */"./resources/zamania/js/app.js");
+module.exports = __webpack_require__(/*! C:\WebProjects\vskidke\resources\zamania\scss\app.scss */"./resources/zamania/scss/app.scss");
 
 
 /***/ })

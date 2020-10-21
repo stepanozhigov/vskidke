@@ -18,7 +18,7 @@
     </div>
 
     {{-- VUE-CLI JS --}}
-    <script src="{{ mix('romatti/js/app.js') }}" defer></script>
+    <script src="{{ mix('zamania/js/app.js') }}" defer></script>
 
     <!-- Facebook Pixel Code -->
     <script>

@@ -4,8 +4,10 @@
 
 @tailwind utilities;
 
-@import "fonts";
+@import "../../_webfonts";
+@import "../../_mixins";
+@import "custom";
 @import "header";
 @import "home";
-@import "custom";
+@import "modal";
 @import "animation";

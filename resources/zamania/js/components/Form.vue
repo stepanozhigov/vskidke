@@ -17,10 +17,8 @@
 		/>
 
 		<!-- {{--SUBMIT PHONE--}} -->
-		<button
-			class="flex justify-center w-full button-pulse focus:outline-none active:outline-none"
-		>
-			Получить расписание и прайс
+		<button class="flex justify-center items-center w-full button-pulse">
+			<span> Получить расписание и прайс </span>
 		</button>
 	</form>
 </template>

@@ -8,16 +8,16 @@ require("laravel-mix-purgecss");
 mix
     //.copy("resources/autoschool/images/*", "public/autoschool/images")
     //.copy("resources/autoschool/fonts/*", "public/autoschool/fonts")
-    .js("resources/autoschool/js/app.js", "public/autoschool/js")
-    .sass("resources/autoschool/sass/app.scss", "public/autoschool/css")
-    .options({
-        autoprefixer: false,
-        processCssUrls: false,
-        postCss: [tailwindcss("./tailwind.autoschool.config.js")],
-        autoprefixer: {
-            browsers: ["last 9 versions"]
-        }
-    });
+    // .js("resources/autoschool/js/app.js", "public/autoschool/js")
+    // .sass("resources/autoschool/sass/app.scss", "public/autoschool/css")
+    // .options({
+    //     autoprefixer: false,
+    //     processCssUrls: false,
+    //     postCss: [tailwindcss("./tailwind.autoschool.config.js")],
+    //     autoprefixer: {
+    //         browsers: ["last 9 versions"]
+    //     }
+    // });
     // .browserSync({
     //     proxy: "autoschool.vskidke.local",
     //     open: false
@@ -29,26 +29,26 @@ mix
 mix
     //.copy("resources/potolki/images/", "public/potolki/images/")
     //.copy("resources/potolki/fonts/", "public/potolki/fonts/")
-    .js("resources/potolki/js/potolki.js", "public/potolki/js")
-    .sass("resources/potolki/scss/app.scss", "public/potolki/css")
-    .options({
-        processCssUrls: false
-    });
+    // .js("resources/potolki/js/potolki.js", "public/potolki/js")
+    // .sass("resources/potolki/scss/app.scss", "public/potolki/css")
+    // .options({
+    //     processCssUrls: false
+    // });
 
 //ROMATTI
 mix
     //.copy("resources/romatti/images/", "public/romatti/images/")
     //.copy("resources/romatti/fonts/", "public/romatti/fonts/")
-    .js("resources/romatti/js/app.js", "public/romatti/js")
-    .sass("resources/romatti/scss/app.scss", "public/romatti/css")
-    .options({
-        autoprefixer: false,
-        processCssUrls: false,
-        postCss: [tailwindcss("./tailwind.romatti.config.js")],
-        autoprefixer: {
-            browsers: ["last 9 versions"]
-        }
-    });
+    // .js("resources/romatti/js/app.js", "public/romatti/js")
+    // .sass("resources/romatti/scss/app.scss", "public/romatti/css")
+    // .options({
+    //     autoprefixer: false,
+    //     processCssUrls: false,
+    //     postCss: [tailwindcss("./tailwind.romatti.config.js")],
+    //     autoprefixer: {
+    //         browsers: ["last 9 versions"]
+    //     }
+    // });
 
 //ZAMANIA
 mix

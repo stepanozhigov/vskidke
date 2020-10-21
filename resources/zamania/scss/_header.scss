@@ -1,46 +1,31 @@
 .app-header {
-    @apply font-inter;
+    @apply font-montserrat;
     @apply font-normal;
-    background-color: theme("colors.bg");
-    height: 5.25rem;
-    @apply pl-4;
-    @apply pr-8;
-    @apply py-6;
-
-    @screen lg {
-        @apply px-0;
-    }
+    background-color: theme("colors.cwhite");
+    padding: 0 rem(11) 0 rem(8);
+    height: rem(64);
 
     .app-header-logo {
         height: 3rem;
-
-        @screen md {
-            height: 4rem;
-        }
     }
 
     .app-call {
         @apply text-center;
-        @apply font-medium;
-        font-size: 0.875rem;
+        
 
         .app-call-number {
-            color: theme("colors.phonenumber");
-            @screen md {
-                font-size: 1rem;
-            }
+            font-size: rem(14);
+            @apply font-medium;
+            color: theme("colors.phone");
         }
         .app-call-book {
-            color: theme("colors.cred");
+            font-size: rem(10);
+            @apply font-medium;
+            @apply uppercase;
+            color: theme("colors.cyellow");
             line-height: 1rem;
+            border-bottom: 2px dotted theme("colors.cyellow");
             @apply cursor-pointer;
-            border-bottom: 2px dotted theme("colors.cred");
-
-            @screen md {
-                @apply ml-4;
-                margin-top: 0.2rem;
-                font-size: 1rem;
-            }
         }
     }
 }
