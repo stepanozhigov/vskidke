@@ -14,7 +14,7 @@
 <body class="antialiased">
 
     <div id="app">
-        <App />
+    <App environment="{{env('APP_ENV')}}"/>
     </div>
 
     {{-- VUE-CLI JS --}}

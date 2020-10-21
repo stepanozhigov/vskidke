@@ -1,5 +1,5 @@
 <template>
-	<div class="app-template flex flex-col h-mobilescreen">
+	<div class="app-template flex flex-col min-h-full">
 		<!-- HEADER -->
 		<app-header></app-header>
 		<!-- /HEADER -->
@@ -37,6 +37,7 @@
 			Form,
 		},
 		mounted: function () {
+			this.setEnv(this.environment);
 			//
 			//this.setSuccess();
 			//this.setModal();
@@ -48,14 +49,26 @@
 			window.addEventListener("orientationchange", () => this.setViewHeight());
 		},
 		computed: {
-			...mapGetters(["isModal", "isSuccess"]),
+			...mapGetters(["isModal", "isSuccess", "env"]),
 		},
 		methods: {
-			...mapActions(["setModal", "unsetModal", "setSuccess", "unsetSuccess"]),
+			...mapActions([
+				"setModal",
+				"unsetModal",
+				"setSuccess",
+				"unsetSuccess",
+				"setEnv",
+			]),
 			setViewHeight: function () {
 				let vh = window.innerHeight * 0.01;
 				document.documentElement.style.setProperty("--vh", `${vh}px`);
 				//console.log(vh);
+			},
+		},
+		props: {
+			environment: {
+				type: String,
+				default: "",
 			},
 		},
 	};
