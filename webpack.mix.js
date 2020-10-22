@@ -25,7 +25,7 @@ mix
     //.copy("resources/romatti/fonts/", "public/romatti/fonts/")
     .js("resources/romatti/js/app.js", "public/romatti/js",)
     .sass("resources/romatti/scss/app.scss", "public/romatti/css",
-    {},[tailwindcss("./tailwind.romatti.config.js")])
+    {},[tailwindcss("./tailwind.config.js")])
 
 //ZAMANIA
 mix
@@ -33,7 +33,7 @@ mix
 //.copy("resources/zamania/fonts/", "public/zamania/fonts/")
 .js("resources/zamania/js/app.js", "public/zamania/js")
 .sass("resources/zamania/scss/app.scss", "public/zamania/css",
-{},[tailwindcss("./tailwind.config.js")])
+{},[tailwindcss("./tailwind.zamania.config.js")])
 
 
 .options({
