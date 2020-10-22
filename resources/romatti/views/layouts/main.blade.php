@@ -37,6 +37,17 @@
             src="https://www.facebook.com/tr?id=368891644222754&ev=PageView&noscript=1" ; /></noscript>
     <!-- End Facebook Pixel Code -->
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-181067846-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-181067846-1');
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
 </body>
 
 </html>
