@@ -45,7 +45,7 @@ mix
 });
 
 mix.browserSync({
-    proxy: "romatti.vskidke.local",
+    proxy: "zamania.vskidke.local",
     open: false
 });
 

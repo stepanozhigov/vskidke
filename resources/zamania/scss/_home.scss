@@ -30,8 +30,8 @@
             @apply font-shadow;
             @apply font-extrabold;
             @apply uppercase;
-            font-size: rem(20);
-            line-height: rem(32);
+            font-size: rem(18);
+            line-height: rem(0);
             letter-spacing: rem(1);
             @apply mt-12;
             @apply mx-auto;
@@ -47,6 +47,10 @@
                 @screen phone {
                     line-height: rem(64);
                 }
+            }
+
+            span.rouble {
+                @apply font-montserrat;
             }
         }
 
