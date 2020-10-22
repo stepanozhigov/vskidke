@@ -18,7 +18,7 @@
 
 		<!-- {{--SUBMIT PHONE--}} -->
 		<button class="flex justify-center items-center w-full button-pulse">
-			<span> Получить расписание и прайс </span>
+			<span>{{ btnText }}</span>
 		</button>
 	</form>
 </template>
@@ -41,7 +41,12 @@
 			isValid: true,
 			onFocus: false,
 		}),
-		props: {},
+		props: {
+			btnText: {
+				type: String,
+				default: "Получить расписание и прайс",
+			},
+		},
 		validations: {
 			phone: {
 				required,
