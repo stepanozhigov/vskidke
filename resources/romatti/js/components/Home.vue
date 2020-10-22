@@ -1,9 +1,7 @@
 <template>
 	<div class="flex flex-col flex-grow home-view">
-		<h1>Огромный выбор | Доставка</h1>
-		<div
-			class="home-view-content tablet:flex-grow tablet:flex tablet:flex-col tablet:justify-center"
-		>
+		<div class="home-view-content tablet:flex-grow tablet:flex tablet:flex-col">
+			<h1>Огромный выбор | Доставка</h1>
 			<h3>
 				Интернет-магазин дизайнерских светильников «Romatti»
 				от&nbsp;9&nbsp;800&nbsp;₽

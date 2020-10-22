@@ -9,7 +9,6 @@
     @apply p-4;
 
     @screen tablet {
-        min-height: 544px;
         background-image: url("../images/romatti_bkg-768@2x.jpg");
         padding-left: rem(40);
         padding-right: rem(40);
@@ -18,38 +17,17 @@
     }
 
     @screen monitor {
+        min-height: rem(544);
         @apply bg-right-top;
         background-image: url("../images/romatti_bkg-1440@2x.jpg");
         
     }
 
-    h1 {
-        @apply font-normal;
-        @apply uppercase;
-        font-size: rem(10);
-        color: theme('colors.whitetext');
-        letter-spacing: rem(3);
-        text-align: left;
-
-        @screen mdphone {
-            letter-spacing: rem(5);
-        }
-
-        @screen tablet {
-            top:rem(-16);
-            left:rem(-16);
-            font-size: rem(16);
-        }
-
-        @screen monitor {
-            max-width: rem(551);
-        }
-    }
+    
 
     .home-view-content {
         min-width: 18rem;
         @apply mx-auto;
-        margin-top: rem(32);
 
         @apply font-montserrat;
         @apply relative;
@@ -59,6 +37,29 @@
         @screen monitor {
             @apply mx-auto;
             max-width: rem(722);
+        }
+
+        h1 {
+            @apply font-normal;
+            @apply uppercase;
+            font-size: rem(10);
+            color: theme('colors.whitetext');
+            letter-spacing: rem(3);
+            text-align: left;
+    
+            @screen mdphone {
+                letter-spacing: rem(5);
+            }
+    
+            @screen tablet {
+                top:rem(-16);
+                left:rem(-16);
+                font-size: rem(16);
+            }
+    
+            @screen monitor {
+                max-width: rem(551);
+            }
         }
 
         h3 {
@@ -75,12 +76,14 @@
             }
 
             @screen tablet {
+                margin-top:rem(144);
                 font-size: rem(48);
                 line-height: rem(56);
                 letter-spacing: rem(-0.7);
             }
 
             @screen monitor {
+                margin-top:rem(40);
                 font-size: rem(32);
                 line-height: rem(40);
                 letter-spacing: rem(-0.3);
@@ -96,8 +99,8 @@
             
             margin-top: rem(13);
 
-            @screen mdphone {
-                
+            @screen tablet {
+                margin-top:rem(26);
             }
 
             @screen tablet {
@@ -108,7 +111,7 @@
                 line-height: rem(24);
                 letter-spacing: 0;
 
-                margin-top:26px;
+                margin-top:rem(16);
             }
         }
 
@@ -117,9 +120,14 @@
             @apply mx-auto;
 
             @screen tablet {
+                margin-top: rem(50);
                 width: rem(328);
                 margin-left:0;
                 margin-right:auto;
+            }
+
+            @screen monitor {
+                margin-top: rem(16)
             }
 
             input {
