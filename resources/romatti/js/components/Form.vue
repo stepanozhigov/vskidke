@@ -70,11 +70,10 @@
 					axios
 						.post("/lead", {
 							phone: this.phone,
-							tag: "Автошкола 'Лайк'",
 						})
 						.then((response) => {
 							fbq("track", "Лид передан успешно");
-							ym(68288701, "reachGoal", "send_form");
+							ym(68586496,'reachGoal','send form');
 							window.location.replace(this.redirectTo);
 							// this.setSuccess();
 							// this.setModal();
