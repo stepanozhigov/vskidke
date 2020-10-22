@@ -17,9 +17,7 @@
 		/>
 
 		<!-- {{--SUBMIT PHONE--}} -->
-		<button
-			class="flex justify-center w-full button-pulse focus:outline-none active:outline-none"
-		>
+		<button class="flex justify-center items-center w-full button-pulse">
 			Получить каталог и скидку
 		</button>
 	</form>

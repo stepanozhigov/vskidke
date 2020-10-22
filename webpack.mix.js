@@ -8,16 +8,16 @@ require("laravel-mix-purgecss");
 mix
     //.copy("resources/autoschool/images/*", "public/autoschool/images")
     //.copy("resources/autoschool/fonts/*", "public/autoschool/fonts")
-    .js("resources/autoschool/js/app.js", "public/autoschool/js")
-    .sass("resources/autoschool/sass/app.scss", "public/autoschool/css",
-    {},[tailwindcss("./tailwind.autoschool.config.js")])
+    // .js("resources/autoschool/js/app.js", "public/autoschool/js")
+    // .sass("resources/autoschool/sass/app.scss", "public/autoschool/css",
+    // {},[tailwindcss("./tailwind.autoschool.config.js")])
     
 // POTOLKI
 mix
     //.copy("resources/potolki/images/", "public/potolki/images/")
     //.copy("resources/potolki/fonts/", "public/potolki/fonts/")
-    .js("resources/potolki/js/potolki.js", "public/potolki/js")
-    .sass("resources/potolki/scss/app.scss", "public/potolki/css")
+    // .js("resources/potolki/js/potolki.js", "public/potolki/js")
+    // .sass("resources/potolki/scss/app.scss", "public/potolki/css")
 
 //ROMATTI
 mix
@@ -31,9 +31,9 @@ mix
 mix
 //.copy("resources/zamania/images/", "public/zamania/images/")
 //.copy("resources/zamania/fonts/", "public/zamania/fonts/")
-.js("resources/zamania/js/app.js", "public/zamania/js")
-.sass("resources/zamania/scss/app.scss", "public/zamania/css",
-{},[tailwindcss("./tailwind.zamania.config.js")])
+// .js("resources/zamania/js/app.js", "public/zamania/js")
+// .sass("resources/zamania/scss/app.scss", "public/zamania/css",
+// {},[tailwindcss("./tailwind.zamania.config.js")])
 
 
 .options({
@@ -45,7 +45,7 @@ mix
 });
 
 mix.browserSync({
-    proxy: "zamania.vskidke.local",
+    proxy: "romatti.vskidke.local",
     open: false
 });
 

@@ -1,9 +1,9 @@
 @layer base {
     .app-template {
-        @apply h-screen;
+        @apply min-h-screen;
         background-color: theme("colors.bg");
 
-        @screen lg {
+        @screen monitor {
             // min-height: 720px;
             padding-left: 8.135rem;
             padding-right: 8.135rem;
@@ -14,12 +14,12 @@
             @apply p-4;
             border-top: 1px solid rgba(186, 190, 194, 0.35);
 
-            @screen md {
+            @screen tablet {
                 @apply pb-16;
             }
 
             h2 {
-                @apply font-inter;
+                @apply font-montserrat;
                 @apply font-normal;
                 @apply uppercase;
                 @apply text-center;
@@ -28,13 +28,13 @@
                 letter-spacing: 4px;
                 line-height: 1.125rem;
 
-                @screen lg {
+                @screen monitor {
                     font-size: 1.375rem;
                 }
             }
             h4 {
                 @apply block;
-                @apply font-inter;
+                @apply font-montserrat;
                 @apply font-normal;
                 @apply text-center;
                 color: theme("colors.cgray3");
@@ -42,14 +42,14 @@
                 line-height: 2.5rem;
                 @apply mt-4;
 
-                @screen lg {
+                @screen monitor {
                     @apply font-light;
                     font-size: 4rem;
                     line-height: 4.5rem;
                 }
             }
             a {
-                @apply font-inter;
+                @apply font-montserrat;
                 @apply font-normal;
                 color: theme("colors.bg");
                 font-size: 1.125rem;
@@ -63,7 +63,7 @@
                 @apply p-4;
                 @apply mx-auto;
 
-                @screen md {
+                @screen tablet {
                     max-width: 20.5rem;
                 }
             }
@@ -74,7 +74,7 @@
                         height: 5rem;
                     }
                     p {
-                        @apply font-inter;
+                        @apply font-montserrat;
                         @apply font-normal;
                         @apply text-center;
                         color: theme("colors.cgray3");
@@ -92,7 +92,7 @@
             border-top: 1px solid rgba(186, 190, 194, 0.35);
 
             .modal-view-content {
-                @screen md {
+                @screen tablet {
                     max-width: 30.3rem;
                     @apply mx-auto;
                 }
@@ -100,7 +100,7 @@
                 h1 {
                     @apply w-full;
                     @apply block;
-                    @apply font-inter;
+                    @apply font-montserrat;
                     @apply font-extrabold;
                     @apply text-left;
                     color: theme("colors.cblack");
@@ -114,17 +114,14 @@
                 }
                 form {
                     @apply mt-8;
-                    @screen md {
+                    @screen tablet {
                         @apply ml-0;
                         @apply mr-0;
                         margin-right: auto;
-                        @screen lg {
-                            max-width: 23.75rem;
-                        }
                     }
 
                     input {
-                        @apply font-inter;
+                        @apply font-montserrat;
                         @apply font-light;
                         @apply text-left;
                         color: theme("colors.cgray3");
@@ -146,7 +143,7 @@
                         }
                     }
                     button {
-                        @apply font-inter;
+                        @apply font-montserrat;
                         @apply font-light;
                         @apply shadow;
                         color: theme("colors.bg");
@@ -165,7 +162,7 @@
             }
             a {
                 @apply block;
-                @apply font-inter;
+                @apply font-montserrat;
                 @apply font-light;
                 color: theme("colors.modalclose");
                 font-size: 1.125rem;
@@ -173,7 +170,7 @@
                 @apply mt-6;
                 @apply mr-auto;
 
-                @screen md {
+                @screen tablet {
                     @apply text-left;
                     @apply ml-0;
                     margin-right: auto;

@@ -5,7 +5,7 @@
     @apply bg-cover;
     @apply p-4;
 
-    @screen md {
+    @screen tablet {
         min-height: 720px;
         background-image: url("../images/romatti_bkg-768@2x.jpg");
         @apply p-8;
@@ -13,7 +13,7 @@
         @apply flex flex-col;
     }
 
-    @screen lg {
+    @screen monitor {
         @apply bg-left-top;
         background-image: url("../images/romatti_bkg-1440@2x.jpg");
         padding-left: 6.25rem;
@@ -21,141 +21,134 @@
     }
 
     .home-view-content {
-        @apply font-inter;
+        min-width: 18rem;
+        @apply mx-auto;
+
+        @apply font-montserrat;
         @apply relative;
         @apply text-left;
-        color: theme("colors.cwhite");
+        color: theme("colors.whitetext");
 
         h1 {
-            font-size: 2rem;
             @apply font-normal;
+            @apply uppercase;
+            font-size: rem(10);
+            color: theme('colors.whitetext');
+            letter-spacing: rem(3);
             text-align: left;
-            @apply pt-8;
 
-            @screen md {
-                max-width: 50%;
-                font-size: 4rem;
-                line-height: 4.5rem;
+            @screen mdphone {
+                letter-spacing: rem(5);
             }
 
-            @screen lg {
-                max-width: 100%;
+            @screen tablet {
+                
+            }
+
+            @screen monitor {
+                
             }
         }
 
         h3 {
             @apply font-bold;
-            color: theme("colors.bg");
-            font-size: 1.125rem;
-            line-height: 1.475rem;
-            @apply mt-12;
+            color: theme("colors.whitetext");
+            font-size: rem(20);
+            line-height: rem(30);
+            letter-spacing: rem(-0.2);
 
-            @screen md {
-                font-size: 2rem;
-                line-height: 2.5rem;
-                margin-top: 1.25rem;
-                @apply font-normal;
-                @apply text-left;
-                @apply ml-0;
-                @apply mr-auto;
-            }
+           margin-top: rem(13);
 
-            span:nth-child(1) {
-                @apply block;
-            }
-
-            span:nth-child(2) {
-                @apply block;
-            }
-            span:nth-child(3) {
-                @apply block;
+            @screen mdphone {
+                font-size: rem(24);
             }
         }
 
         h5 {
             @apply font-normal;
-            font-size: 0.875rem;
-            line-height: 1.3rem;
-            letter-spacing: 0.65px;
-            @apply mt-6;
+            font-size: rem(14);
+            line-height: rem(20);
+            letter-spacing: 0;
             @apply text-left;
-            max-width: 20rem;
+            
+            margin-top: rem(13);
 
-            @screen md {
-                max-width: 30.3rem;
-                font-size: 1rem;
-                line-height: 1.5rem;
-                @apply ml-0;
-                @apply mr-auto;
+            @screen mdphone {
+                
             }
         }
 
         form {
-            @apply mt-6;
-            @screen md {
-                max-width: 30.3rem;
-                @apply ml-0;
-                @apply mr-0;
-
-                @screen lg {
-                    max-width: 23.75rem;
-                }
-            }
+            margin-top: rem(34);
+            @apply mx-auto;
 
             input {
-                @apply font-inter;
+                @apply font-montserrat;
                 @apply font-light;
                 @apply text-left;
-                color: theme("colors.cgray1");
-                font-size: 1.125rem;
+                color: theme("colors.whitetext");
+                font-size: rem(18);
 
-                border-bottom: 1px solid theme("colors.cgray1");
+                border: 1px solid theme("colors.whitetext");
+                border-radius: 1px;
                 background-color: transparent;
+
+                height: rem(56);
 
                 @apply p-4;
                 @apply mx-auto;
-                @screen md {
-                }
 
                 &::placeholder {
-                    color: theme("colors.cgray1");
+                    color: theme("colors.placeholder");
                 }
                 &:focus {
-                    color: theme("colors.cgray1");
-                    border-bottom: 1px solid theme("colors.cwhite");
+                    color: theme("colors.whitetext");
                     outline: none;
                 }
             }
 
             button {
-                @apply font-inter;
-                @apply font-light;
-                @apply shadow;
-                color: theme("colors.bg");
-                font-size: 1.125rem;
+                @apply font-montserrat;
+                @apply font-bold;
+                @apply uppercase;
+                color: theme("colors.blacktext");
+                font-size: rem(14);
                 text-align: center;
 
+                height: rem(56);
+
                 border-radius: 1px;
-                border: 1px solid theme("colors.cred");
-                background-color: theme("colors.cred");
+                border: none;
+                background-color: theme("colors.yellowtext");
 
                 @apply mt-4;
-                @apply p-4;
                 @apply mx-auto;
+
+                &:active {
+                    outline: none;
+                    background: none;
+               }
+               &:focus {
+                   outline: none;
+               }
             }
         }
 
         a {
             @apply block;
-            @apply font-light;
-            @apply text-left;
-            color: theme("colors.bg");
-            font-size: 1.125rem;
-            @apply underline;
-            @apply mt-6;
             @apply mx-auto;
 
-            @screen md {
+            @apply font-bold;
+            @apply text-left;
+            @apply uppercase;
+            color: theme("colors.yellowtext");
+            font-size: rem(14);
+            @apply underline;
+
+            margin-top: rem(25);
+            
+
+            @screen tablet {
                 @apply text-left;
                 @apply ml-0;
                 @apply mr-0;
@@ -165,22 +158,23 @@
     }
     p {
         @apply block;
-        @apply font-inter;
         @apply font-light;
         @apply text-left;
-        color: theme("colors.cgray1");
-        font-size: 0.5rem;
-        @apply mx-auto;
+        color: theme("colors.graytext");
+        font-size: rem(7);
 
-        @screen md {
-            font-size: 0.75rem;
-            @apply text-left;
-            @apply ml-0;
-            @apply mr-0;
+        margin-top: rem(19);
+
+        @screen mdphone {
+            margin-top: auto;
         }
 
-        @screen lg {
-            line-height: 1rem;
+        @screen tablet {
+            
+        }
+
+        @screen monitor {
+            
         }
 
         span {
