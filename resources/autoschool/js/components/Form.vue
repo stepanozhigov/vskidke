@@ -66,7 +66,7 @@
 							tag: "Автошкола 'Лайк'",
 						})
 						.then((response) => {
-							fbq("track", "Лид передан успешно");
+							fbq("track", "Lead");
 							ym(68288701, "reachGoal", "send_form");
 							window.location.replace(this.redirectTo);
 							// this.setSuccess();

@@ -65,7 +65,7 @@
 							phone: this.phone,
 						})
 						.then((response) => {
-							fbq("track", "Лид передан успешно");
+							fbq("track", "Lead");
 							if (this.env == "production") {
 								window.location.replace(this.redirectTo);
 							}

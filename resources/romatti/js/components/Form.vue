@@ -72,8 +72,8 @@
 							phone: this.phone,
 						})
 						.then((response) => {
-							fbq("track", "Лид передан успешно");
-							ym(68586496,'reachGoal','send form');
+							fbq("track", "Lead");
+							ym(68586496, "reachGoal", "send form");
 							window.location.replace(this.redirectTo);
 							// this.setSuccess();
 							// this.setModal();
