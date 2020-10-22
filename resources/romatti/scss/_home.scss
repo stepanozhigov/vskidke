@@ -13,7 +13,7 @@
         background-image: url("../images/romatti_bkg-768@2x.jpg");
         padding-left: rem(40);
         padding-right: rem(40);
-        padding-top: rem(48);
+        padding-top: rem(24);
         
     }
 
@@ -23,9 +23,33 @@
         
     }
 
+    h1 {
+        @apply font-normal;
+        @apply uppercase;
+        font-size: rem(10);
+        color: theme('colors.whitetext');
+        letter-spacing: rem(3);
+        text-align: left;
+
+        @screen mdphone {
+            letter-spacing: rem(5);
+        }
+
+        @screen tablet {
+            top:rem(-16);
+            left:rem(-16);
+            font-size: rem(16);
+        }
+
+        @screen monitor {
+            max-width: rem(551);
+        }
+    }
+
     .home-view-content {
         min-width: 18rem;
         @apply mx-auto;
+        margin-top: rem(32);
 
         @apply font-montserrat;
         @apply relative;
@@ -35,29 +59,6 @@
         @screen monitor {
             @apply mx-auto;
             max-width: rem(722);
-        }
-
-        h1 {
-            @apply font-normal;
-            @apply uppercase;
-            font-size: rem(10);
-            color: theme('colors.whitetext');
-            letter-spacing: rem(3);
-            text-align: left;
-
-            @screen mdphone {
-                letter-spacing: rem(5);
-            }
-
-            @screen tablet {
-                top:0;
-                left:0;
-                font-size: rem(16);
-            }
-
-            @screen monitor {
-                max-width: rem(551);
-            }
         }
 
         h3 {
