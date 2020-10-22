@@ -1955,7 +1955,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {};
   },
   components: {
-    'app-header': _components_Header__WEBPACK_IMPORTED_MODULE_3__["default"],
+    "app-header": _components_Header__WEBPACK_IMPORTED_MODULE_3__["default"],
     Home: _components_Home__WEBPACK_IMPORTED_MODULE_4__["default"],
     Success: _components_Success__WEBPACK_IMPORTED_MODULE_5__["default"],
     Modal: _components_Modal__WEBPACK_IMPORTED_MODULE_6__["default"],
@@ -1966,8 +1966,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     //
     //this.setSuccess();
-    //this.setModal();
-    //
+    this.setModal(); //
+
     this.setViewHeight();
     window.addEventListener("resize", function () {
       _this.setViewHeight();
@@ -2047,7 +2047,12 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["helpe
       onFocus: false
     };
   },
-  props: {},
+  props: {
+    btnText: {
+      type: String,
+      "default": "Получить каталог и скидку"
+    }
+  },
   validations: {
     phone: {
       required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"],
@@ -2259,12 +2264,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Modal',
+  name: "Modal",
   data: function data() {
     return {};
   },
@@ -3907,7 +3910,7 @@ var render = function() {
       _c(
         "button",
         { staticClass: "flex justify-center items-center w-full button-pulse" },
-        [_vm._v("\n\t\tПолучить каталог и скидку\n\t")]
+        [_vm._v("\n\t\t" + _vm._s(_vm.btnText) + "\n\t")]
       )
     ]
   )
@@ -4145,7 +4148,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "modal-view-content  relative w-full flex flex-col flex-grow justify-center items-center"
+            "modal-view-content relative w-full flex flex-col flex-grow items-center"
         },
         [
           _c("h1", [_vm._v("Заказать звонок")]),
@@ -4196,7 +4199,7 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("Form"),
+          _c("Form", { attrs: { btnText: "Заказать звонок" } }),
           _vm._v(" "),
           _c(
             "a",

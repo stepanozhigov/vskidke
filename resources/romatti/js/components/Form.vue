@@ -18,7 +18,7 @@
 
 		<!-- {{--SUBMIT PHONE--}} -->
 		<button class="flex justify-center items-center w-full button-pulse">
-			Получить каталог и скидку
+			{{ btnText }}
 		</button>
 	</form>
 </template>
@@ -41,7 +41,12 @@
 			isValid: true,
 			onFocus: false,
 		}),
-		props: {},
+		props: {
+			btnText: {
+				type: String,
+				default: "Получить каталог и скидку",
+			},
+		},
 		validations: {
 			phone: {
 				required,
