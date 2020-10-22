@@ -2172,6 +2172,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3980,7 +3983,7 @@ var render = function() {
         _vm._v(" "),
         _c("h3", [
           _vm._v(
-            "Интернет-магазин дизайнерских светильников «Romatti» от 9 800 ₽"
+            "\n\t\t\tИнтернет-магазин дизайнерских светильников «Romatti»\n\t\t\tот 9 800 ₽\n\t\t"
           )
         ]),
         _vm._v(" "),

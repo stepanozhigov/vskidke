@@ -4,7 +4,10 @@
 			class="home-view-content tablet:relative tablet:flex-grow tablet:flex tablet:flex-col tablet:justify-center"
 		>
 			<h1 class="tablet:absolute">Огромный выбор | Доставка</h1>
-			<h3>Интернет-магазин дизайнерских светильников «Romatti» от 9 800 ₽</h3>
+			<h3>
+				Интернет-магазин дизайнерских светильников «Romatti»
+				от&nbsp;9&nbsp;800&nbsp;₽
+			</h3>
 			<h5>
 				Оставьте ваш номер телефона и мы вышлем на WhatsApp каталог
 				с&nbsp;ценами в&nbsp;течение&nbsp;5&nbsp;минут

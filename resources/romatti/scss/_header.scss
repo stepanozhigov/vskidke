@@ -1,4 +1,7 @@
 .app-header {
+
+    flex-shrink: 0;
+
     @apply font-montserrat;
     @apply font-medium;
     background-color: theme("colors.bg");
@@ -42,7 +45,7 @@
                 font-size: rem(14);
 
                 @apply ml-2;
-                margin-top: 0.2rem;
+                margin-top: 0.1rem;
             }
         }
     }

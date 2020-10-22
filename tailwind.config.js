@@ -18,7 +18,6 @@ module.exports = {
             'mdphone': '360px',
             'lgphone' : '410px',
             'tablet': '480px',
-            'laptop': '768px',
             'monitor': '1024px'
         },
         extend: {

@@ -8,10 +8,11 @@
         }
 
         @screen monitor {
-            // min-height: 720px;
-            padding-left: 8.135rem;
-            padding-right: 8.135rem;
-            padding-bottom: 6.25rem;
+            height: 100vh;
+            min-height: 720px;
+            padding-left: rem(130);
+            padding-right: rem(130);
+            padding-bottom: rem(98);
         }
     }
 }
