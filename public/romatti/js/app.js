@@ -2051,6 +2051,10 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["helpe
     btnText: {
       type: String,
       "default": "Получить каталог и скидку"
+    },
+    placeholderText: {
+      type: String,
+      "default": "Введите ваш номер*"
     }
   },
   validations: {
@@ -3893,7 +3897,7 @@ var render = function() {
         attrs: {
           type: "tel",
           autocomplete: "off",
-          placeholder: "Введите ваш номер*"
+          placeholder: _vm.placeholderText
         },
         domProps: { value: _vm.phone },
         on: {
@@ -4199,7 +4203,12 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("Form", { attrs: { btnText: "Заказать звонок" } }),
+          _c("Form", {
+            attrs: {
+              btnText: "Отправить заявку",
+              placeholderText: "Ваш телефон*"
+            }
+          }),
           _vm._v(" "),
           _c(
             "a",

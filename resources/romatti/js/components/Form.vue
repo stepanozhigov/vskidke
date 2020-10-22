@@ -11,7 +11,7 @@
 			type="tel"
 			autocomplete="off"
 			class="w-full"
-			placeholder="Введите ваш номер*"
+			:placeholder="placeholderText"
 			v-mask="{ mask: '\+7 (999) 999-99-99', greedy: true }"
 			v-on:change="maskCheck"
 		/>
@@ -45,6 +45,10 @@
 			btnText: {
 				type: String,
 				default: "Получить каталог и скидку",
+			},
+			placeholderText: {
+				type: String,
+				default: "Введите ваш номер*",
 			},
 		},
 		validations: {

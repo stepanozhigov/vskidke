@@ -34,7 +34,7 @@
 					/>
 				</svg>
 			</div>
-			<Form btnText="Заказать звонок" />
+			<Form btnText="Отправить заявку" placeholderText="Ваш телефон*" />
 			<a href="#" @click.prevent="toggleModal">Закрыть</a>
 		</div>
 	</div>

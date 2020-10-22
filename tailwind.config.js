@@ -34,7 +34,8 @@ module.exports = {
                 'yellowtext': '#ffdd2d',
                 'whitetext': '#f8f7f6',
                 'placeholder': '#a7a5a0',
-                'graytext': '#dbd9d7'
+                'graytext': '#dbd9d7',
+                'graytext1': '#66605a'
 
             }
         }

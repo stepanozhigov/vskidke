@@ -20,7 +20,7 @@
         }
         .app-call-book {
             font-size: rem(10);
-            @apply font-medium;
+            @apply font-semibold;
             @apply uppercase;
             color: theme("colors.yellowtext");
             line-height: 1rem;
