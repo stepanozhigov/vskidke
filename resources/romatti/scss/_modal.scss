@@ -23,10 +23,11 @@
         }
         form {
             @apply mt-8;
+            @apply w-full;
+
             @screen tablet {
-                @apply ml-0;
-                @apply mr-0;
-                margin-right: auto;
+                max-width: 50%;
+                margin-right:auto;
             }
 
             input {

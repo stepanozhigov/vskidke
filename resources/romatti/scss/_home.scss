@@ -8,9 +8,10 @@
     @screen tablet {
         min-height: 720px;
         background-image: url("../images/romatti_bkg-768@2x.jpg");
-        @apply p-8;
-        @apply pb-4;
-        @apply flex flex-col;
+        padding-left: rem(40);
+        padding-right: rem(40);
+        padding-top: rem(24);
+        
     }
 
     @screen monitor {
@@ -39,10 +40,13 @@
 
             @screen mdphone {
                 letter-spacing: rem(5);
+                letter-spacing: rem(7);
             }
 
             @screen tablet {
-                
+                top:0;
+                left:0;
+                font-size: rem(16);
             }
 
             @screen monitor {
@@ -62,6 +66,12 @@
             @screen mdphone {
                 font-size: rem(24);
             }
+
+            @screen tablet {
+                font-size: rem(48);
+                line-height: rem(56);
+                letter-spacing: rem(-0.7);
+            }
         }
 
         h5 {
@@ -76,11 +86,28 @@
             @screen mdphone {
                 
             }
+
+            @screen tablet {
+                max-width: rem(402);
+
+                @apply font-medium;
+                font-size: rem(16);
+                line-height: rem(24);
+                letter-spacing: 0;
+
+                margin-top:26px;
+            }
         }
 
         form {
             margin-top: rem(34);
             @apply mx-auto;
+
+            @screen tablet {
+                width: rem(328);
+                margin-left:0;
+                margin-right:auto;
+            }
 
             input {
                 @apply font-montserrat;
@@ -104,6 +131,10 @@
                 &:focus {
                     color: theme("colors.whitetext");
                     outline: none;
+                }
+
+                @screen tablet {
+                    
                 }
             }
 
@@ -131,6 +162,10 @@
                }
                &:focus {
                    outline: none;
+               }
+
+               @screen tablet {
+                    
                }
             }
         }
@@ -171,7 +206,7 @@
         }
 
         @screen tablet {
-            
+            font-size: rem(12);
         }
 
         @screen monitor {

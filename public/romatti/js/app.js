@@ -1966,8 +1966,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     //
     //this.setSuccess();
-    this.setModal(); //
-
+    //this.setModal();
+    //
     this.setViewHeight();
     window.addEventListener("resize", function () {
       _this.setViewHeight();
@@ -2318,13 +2318,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Phone',
+  name: "Phone",
   data: function data() {
     return {};
   },
@@ -3869,7 +3865,7 @@ var render = function() {
   return _c(
     "form",
     {
-      staticClass: "flex flex-col items-center w-full mx-auto",
+      staticClass: "flex flex-col items-center tablet:items-start",
       on: {
         submit: function($event) {
           $event.preventDefault()
@@ -3975,10 +3971,12 @@ var render = function() {
       "div",
       {
         staticClass:
-          "home-view-content md:flex-grow md:flex md:flex-col md:justify-center"
+          "home-view-content tablet:relative tablet:flex-grow tablet:flex tablet:flex-col tablet:justify-center"
       },
       [
-        _c("h1", [_vm._v("Огромный выбор | Доставка")]),
+        _c("h1", { staticClass: "tablet:absolute" }, [
+          _vm._v("Огромный выбор | Доставка")
+        ]),
         _vm._v(" "),
         _c("h3", [
           _vm._v(
@@ -4251,20 +4249,20 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "flex flex-col app-call md:flex-row" }, [
+  return _c("div", { staticClass: "flex flex-col app-call tablet:flex-row" }, [
     _c(
       "a",
       {
         staticClass: "app-call-number",
         attrs: { href: "tel:+7 747 135-00-00" }
       },
-      [_vm._v("\n      +7 747 135-0000\n    ")]
+      [_vm._v(" +7 747 135-0000 ")]
     ),
     _vm._v(" "),
     _c(
       "span",
       { staticClass: "app-call-book", on: { click: _vm.toggleModal } },
-      [_vm._v("\n      Заказать звонок\n    ")]
+      [_vm._v(" Заказать звонок ")]
     )
   ])
 }

@@ -2,7 +2,7 @@
 	<!-- {{--FORM--}} -->
 	<form
 		@submit.prevent="submitForm"
-		class="flex flex-col items-center w-full mx-auto"
+		class="flex flex-col items-center tablet:items-start"
 	>
 		<!-- {{--PHONE INPUT--}} -->
 

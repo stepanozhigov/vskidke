@@ -4,13 +4,24 @@
     background-color: theme("colors.bg");
     height: rem(64);
 
+    padding-left: rem(8);
+    padding-right: rem(11);
+
+    @screen tablet {
+        height: rem(80);
+    }
+
     .app-header-logo {
         height: rem(24);
-        padding-left: rem(8);
+
+        @screen tablet {
+            height: rem(32);
+        }
+        
     }
 
     .app-call {
-        margin-right: rem(11);
+        
         @apply text-center;
 
         .app-call-number {
@@ -20,7 +31,7 @@
         }
         .app-call-book {
             font-size: rem(10);
-            @apply font-semibold;
+            @apply font-bold;
             @apply uppercase;
             color: theme("colors.yellowtext");
             line-height: 1rem;
@@ -28,7 +39,9 @@
             border-bottom: 2px dotted theme("colors.yellowtext");
 
             @screen tablet {
-                @apply ml-4;
+                font-size: rem(14);
+
+                @apply ml-2;
                 margin-top: 0.2rem;
             }
         }

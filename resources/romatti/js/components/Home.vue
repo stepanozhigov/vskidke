@@ -1,9 +1,9 @@
 <template>
 	<div class="flex flex-col flex-grow home-view">
 		<div
-			class="home-view-content md:flex-grow md:flex md:flex-col md:justify-center"
+			class="home-view-content tablet:relative tablet:flex-grow tablet:flex tablet:flex-col tablet:justify-center"
 		>
-			<h1>Огромный выбор | Доставка</h1>
+			<h1 class="tablet:absolute">Огромный выбор | Доставка</h1>
 			<h3>Интернет-магазин дизайнерских светильников «Romatti» от 9 800 ₽</h3>
 			<h5>
 				Оставьте ваш номер телефона и мы вышлем на WhatsApp каталог
