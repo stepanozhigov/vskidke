@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Upperlicense</title>
-    <link rel="icon" href="{{ asset('images/favicon-32x32.png')}}" sizes='32x32'>
-    <link rel="icon" href="{{ asset('images/favicon-128x128.png')}}" sizes='128x128'>
-    <link rel="icon" href="{{ asset('images/favicon-180x180.png')}}" sizes='180x180'>
+    <link rel="icon" href="{{ asset('upperlicense/images/favicon-32x32.png')}}" sizes='32x32'>
+    <link rel="icon" href="{{ asset('upperlicense/images/favicon-128x128.png')}}" sizes='128x128'>
+    <link rel="icon" href="{{ asset('upperlicense/images/favicon-180x180.png')}}" sizes='180x180'>
     <link href="{{ mix('/upperlicense/css/app.css') }}" rel="stylesheet">
 
 </head>
@@ -41,7 +41,7 @@
     <!-- End Facebook Pixel Code -->
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162968640-4"></script>;
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162968640-4"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
