@@ -68,6 +68,12 @@ class RouteServiceProvider extends ServiceProvider
                 ->name('zamania.')
                 ->namespace($this->namespace . '\Zamania')
                 ->group(base_path('routes/zamania.php'));
+
+            //UPPERLICENSE
+            Route::middleware('web')
+                ->name('upperlicense.')
+                ->namespace($this->namespace . '\Upperlicense')
+                ->group(base_path('routes/upperlicense.php'));
         });
     }
 

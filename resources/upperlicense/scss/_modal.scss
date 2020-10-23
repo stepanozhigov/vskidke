@@ -1,0 +1,97 @@
+.modal-view {
+    @apply p-4;
+    @apply w-full;
+    border-top: 1px solid rgba(186, 190, 194, 0.35);
+
+    .modal-view-content {
+        min-width: 18rem;
+
+        h1 {
+            @apply font-bold;
+            @apply text-left;
+            font-size: rem(32);
+            color: theme("colors.blacktext");
+            letter-spacing: rem(-0.3);
+
+            margin-top: rem(126);
+            margin-right: auto;
+        }
+
+        .modal-view-close {
+            top: 0;
+            right: 0;
+        }
+        form {
+            @apply mt-8;
+            @apply w-full;
+
+            @screen tablet {
+                max-width: 50%;
+                margin-right:auto;
+            }
+
+            input {
+                @apply font-suisseintl;
+                @apply font-light;
+                @apply text-left;
+                color: theme("colors.blacktext");
+                font-size: rem(18);
+
+                border: 1px solid theme("colors.yellowtext");
+                border-radius: 1px;
+                background-color: transparent;
+
+                height: rem(56);
+
+                @apply p-4;
+                @apply mx-auto;
+
+                &::placeholder {
+                    color: theme("colors.placeholder");
+                }
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            button {
+                @apply font-suisseintl;
+                @apply font-bold;
+                @apply uppercase;
+                color: theme("colors.whitetext");
+                font-size: rem(14);
+                text-align: center;
+
+                height: rem(56);
+                box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16);
+
+                border-radius: 1px;
+                border: none;
+                background-color: theme("colors.yellowtext");
+
+                @apply mt-4;
+                @apply mx-auto;
+
+                &:active {
+                    outline: none;
+                    background: none;
+               }
+               &:focus {
+                   outline: none;
+               }
+            }
+        }
+    }
+    a {
+        @apply block;
+
+        @apply font-normal;
+        @apply text-left;
+        color: theme("colors.graytext1");
+        font-size: rem(16);
+        @apply underline;
+
+        margin-top: rem(24);
+        margin-right: auto;
+    }
+}

@@ -1,0 +1,246 @@
+.home-view {
+
+    flex-shrink: 1;
+
+    background-image: url("../images/medicine_bkg-414@2x.jpg");
+    @apply bg-top;
+    @apply bg-no-repeat;
+    @apply bg-cover;
+    @apply p-4;
+
+    @screen tablet {
+        background-image: url("../images/medicine_bkg-768@2x.jpg");
+        padding-left: rem(40);
+        padding-right: rem(40);
+        padding-top: rem(24);
+        
+    }
+
+    @screen monitor {
+        min-height: rem(544);
+        @apply bg-right-top;
+        background-image: url("../images/medicine_bkg-1440@2x.jpg");
+        
+    }
+
+    
+
+    .home-view-content {
+        min-width: 18rem;
+        @apply mx-auto;
+
+        @apply font-suisseintl;
+        @apply relative;
+        @apply text-left;
+        color: theme("colors.whitetext");
+
+        @screen monitor {
+            @apply mx-auto;
+            max-width: rem(722);
+        }
+
+        h1 {
+            @apply font-normal;
+            @apply uppercase;
+            font-size: rem(10);
+            color: theme('colors.whitetext');
+            letter-spacing: rem(3);
+            text-align: left;
+    
+            @screen phone {
+                letter-spacing: rem(5);
+            }
+    
+            @screen tablet {
+                top:rem(-16);
+                left:rem(-16);
+                font-size: rem(16);
+            }
+    
+            @screen monitor {
+                max-width: rem(551);
+            }
+        }
+
+        h3 {
+            @apply font-bold;
+            color: theme("colors.whitetext");
+            font-size: rem(20);
+            line-height: rem(30);
+            letter-spacing: rem(-0.2);
+
+           margin-top: rem(13);
+
+            @screen phone {
+                font-size: rem(24);
+            }
+
+            @screen tablet {
+                margin-top:rem(144);
+                font-size: rem(48);
+                line-height: rem(56);
+                letter-spacing: rem(-0.7);
+            }
+
+            @screen monitor {
+                margin-top:rem(40);
+                font-size: rem(32);
+                line-height: rem(40);
+                letter-spacing: rem(-0.3);
+            }
+        }
+
+        h5 {
+            @apply font-normal;
+            font-size: rem(14);
+            line-height: rem(20);
+            letter-spacing: 0;
+            @apply text-left;
+            
+            margin-top: rem(13);
+
+            @screen tablet {
+                margin-top:rem(26);
+            }
+
+            @screen tablet {
+                max-width: rem(402);
+
+                @apply font-medium;
+                font-size: rem(16);
+                line-height: rem(24);
+                letter-spacing: 0;
+
+                margin-top:rem(16);
+            }
+        }
+
+        form {
+            margin-top: rem(34);
+            @apply mx-auto;
+
+            @screen tablet {
+                margin-top: rem(50);
+                width: rem(328);
+                margin-left:0;
+                margin-right:auto;
+            }
+
+            @screen monitor {
+                margin-top: rem(16)
+            }
+
+            input {
+                @apply font-suisseintl;
+                @apply font-light;
+                @apply text-left;
+                color: theme("colors.whitetext");
+                font-size: rem(18);
+
+                border: 1px solid theme("colors.whitetext");
+                border-radius: 1px;
+                background-color: transparent;
+
+                height: rem(56);
+
+                @apply p-4;
+                @apply mx-auto;
+
+                &::placeholder {
+                    color: theme("colors.placeholder");
+                }
+                &:focus {
+                    color: theme("colors.whitetext");
+                    outline: none;
+                }
+
+                @screen tablet {
+                    
+                }
+            }
+
+            button {
+                @apply font-suisseintl;
+                @apply font-bold;
+                @apply uppercase;
+                color: theme("colors.blacktext");
+                font-size: rem(14);
+                text-align: center;
+
+                height: rem(56);
+                box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16);
+
+                border-radius: 1px;
+                border: none;
+                background-color: theme("colors.yellowtext");
+
+                @apply mt-4;
+                @apply mx-auto;
+
+                &:active {
+                    outline: none;
+                    background: none;
+               }
+               &:focus {
+                   outline: none;
+               }
+
+               @screen tablet {
+                    
+               }
+            }
+        }
+
+        a {
+            @apply block;
+            @apply mx-auto;
+
+            @apply font-bold;
+            @apply text-left;
+            @apply uppercase;
+            color: theme("colors.yellowtext");
+            font-size: rem(14);
+            @apply underline;
+
+            margin-top: rem(25);
+            
+
+            @screen tablet {
+                @apply text-left;
+                @apply ml-0;
+                @apply mr-0;
+                @apply mt-6;
+            }
+        }
+    }
+    p {
+        @apply block;
+        @apply font-light;
+        @apply text-left;
+        color: theme("colors.graytext");
+        font-size: rem(7);
+
+        min-width: 18rem;
+        margin-right:auto;
+        margin-top: rem(19);
+
+        @screen phone {
+            margin-top: auto;
+        }
+
+        @screen tablet {
+            font-size: rem(12);
+            
+        }
+
+        @screen monitor {
+            @apply mx-auto;
+            width: rem(722);
+            max-width: rem(722);
+        }
+
+        span {
+            @apply underline;
+        }
+    }
+}

@@ -1,5 +1,5 @@
 //
-//ROMATTI
+//UPPERLICENSE
 //
 module.exports = {
     future: {
@@ -7,35 +7,33 @@ module.exports = {
         // purgeLayersByDefault: true,
     },
     purge: [
-        "resources/romatti/js/*.vue",
-        "resources/romatti/js/components/*.vue",
-        "resources/romatti/sass/*.scss",
-        "resources/romatti/views/layouts/*"
+        "resources/upperlicense/js/*.vue",
+        "resources/upperlicense/js/components/*.vue",
+        "resources/upperlicense/sass/*.scss",
+        "resources/upperlicense/views/layouts/*"
     ],
     theme: {
         screens: {
-            'smphone': '320px',
-            'mdphone': '360px',
-            'lgphone' : '410px',
+            'phone': '360px',
             'tablet': '480px',
+            'laptop': '768px',
             'monitor': '1024px'
         },
         extend: {
             fontFamily: {
-                montserrat: ["Montserrat"]
+                suisseintl: ["SuisseIntl"]
             },
             height: {
                 mobilescreen: "calc(var(--vh)*100)"
             },
             colors: {
                 'bg': '#ffffff',
-                'blacktext': '#2a2928',
-                'yellowtext': '#ffdd2d',
-                'whitetext': '#f8f7f6',
-                'placeholder': '#a7a5a0',
-                'graytext': '#dbd9d7',
-                'graytext1': '#66605a'
-
+                'whitetext': '#f6f8f6',
+                'darktext': '#0e1410',
+                'greentext': '#4f7359',
+                'placeholder': '#b3adae',
+                'greytext': '#a0a7a2',
+                'bottomborder': '#d7dbd8'
             }
         }
     },
