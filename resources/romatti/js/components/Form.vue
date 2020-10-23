@@ -57,8 +57,9 @@
 				phoneValidate,
 			},
 		},
+		mounted: function () {},
 		computed: {
-			...mapGetters(["isModal", "isSuccess", "redirectTo"]),
+			...mapGetters(["isModal", "isSuccess", "redirectTo", "env"]),
 		},
 		methods: {
 			...mapActions(["setModal", "unsetModal", "setSuccess", "unsetSuccess"]),
@@ -68,13 +69,15 @@
 				} else {
 					this.isValid = true;
 					axios
-						.post("/lead", {
+						.post("/bx24", {
 							phone: this.phone,
 						})
 						.then((response) => {
 							fbq("track", "Lead");
 							ym(68586496, "reachGoal", "send form");
-							window.location.replace(this.redirectTo);
+							if (this.env == "production") {
+								window.location.replace(this.redirectTo);
+							}
 							// this.setSuccess();
 							// this.setModal();
 						});

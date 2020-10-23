@@ -36,7 +36,14 @@
 			Modal,
 			Form,
 		},
+		props: {
+			environment: {
+				type: String,
+				default: "",
+			},
+		},
 		mounted: function () {
+			this.setEnv(this.environment);
 			//
 			//this.setSuccess();
 			//this.setModal();
@@ -48,10 +55,16 @@
 			window.addEventListener("orientationchange", () => this.setViewHeight());
 		},
 		computed: {
-			...mapGetters(["isModal", "isSuccess"]),
+			...mapGetters(["isModal", "isSuccess", "env"]),
 		},
 		methods: {
-			...mapActions(["setModal", "unsetModal", "setSuccess", "unsetSuccess"]),
+			...mapActions([
+				"setModal",
+				"unsetModal",
+				"setSuccess",
+				"unsetSuccess",
+				"setEnv",
+			]),
 			setViewHeight: function () {
 				let vh = window.innerHeight * 0.01;
 				document.documentElement.style.setProperty("--vh", `${vh}px`);

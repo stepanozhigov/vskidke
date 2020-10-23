@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Romatti;
 
-use App\Connectors\BitrixConnector;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class RomattiController extends Controller
 {
@@ -14,18 +14,18 @@ class RomattiController extends Controller
         return view('app');
     }
 
-    public function bitrix(Request $request)
+    public function bitrix24(Request $request)
     {
-        $bitrixConnector = new BitrixConnector();
-
         $data = [
-            'title' => 'Лидмагнит',
-            'name'  =>  'Romatti',
-            'phone' =>  $request->phone,
-            //'direction' =>  56,
-            'city'  =>  528,
+            'fields'=>[
+                'SOURCE_ID'=>'SELF',
+                'TITLE'=>'СВЕТИЛЬНИКИ',
+                'SOURCE_DESCRIPTION'=>'romatti.vskidke.ru',
+                'UTM_SOURCE'=>'trendPro',
+                "PHONE"=> [["VALUE"=>$request->phone, "VALUE_TYPE"=> "WORK"]]
+            ]
         ];
-        $result = $bitrixConnector->addLead($data);
-        return response()->json($result);
+        $response = Http::post('https://romatti.bitrix24.ru/rest/7519/hq211ydndfikozas/crm.lead.add',$data);
+        return response()->json($response->json());
     }
 }
