@@ -48,11 +48,11 @@
             letter-spacing: 0;
             text-align: left;
 
-            margin-top: rem(90);
+            margin-top: rem(60);
     
             @screen phone {
                 width: rem(343);
-
+                margin-top: rem(90);
                 font-size: rem(24);
                 line-height: rem(30);
                 letter-spacing: rem(-0.2);
@@ -191,9 +191,11 @@
             min-width: 18rem;
             margin-right:auto;
             margin-top: rem(40);
+            padding-top: 1rem;
     
             @screen phone {
                 margin-top: auto;
+                padding-top: 2rem;
             }
     
             @screen tablet {
