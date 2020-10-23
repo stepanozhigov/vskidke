@@ -23,8 +23,6 @@
         
     }
 
-    
-
     .home-view-content {
         min-width: 18rem;
         @apply mx-auto;
@@ -61,40 +59,15 @@
             }
     
             @screen tablet {
-                
-                // font-size: rem(16);
+                margin-top: rem(250);
+                width: rem(624);
+                font-size: rem(32);
+                line-height: rem(40);
+                letter-spacing: rem(-0.3);
             }
     
             @screen monitor {
                 //max-width: rem(551);
-            }
-        }
-
-        h3 {
-            @apply font-bold;
-            color: theme("colors.whitetext");
-            font-size: rem(20);
-            line-height: rem(30);
-            letter-spacing: rem(-0.2);
-
-           margin-top: rem(21);
-
-            @screen phone {
-                font-size: rem(24);
-            }
-
-            @screen tablet {
-                margin-top:rem(144);
-                font-size: rem(48);
-                line-height: rem(56);
-                letter-spacing: rem(-0.7);
-            }
-
-            @screen monitor {
-                margin-top:rem(40);
-                font-size: rem(32);
-                line-height: rem(40);
-                letter-spacing: rem(-0.3);
             }
         }
 
@@ -114,21 +87,25 @@
             @screen tablet {
                 max-width: rem(402);
 
-                @apply font-medium;
+                @apply font-light;
                 font-size: rem(16);
                 line-height: rem(24);
                 letter-spacing: 0;
 
-                margin-top:rem(16);
+                margin-top:rem(31);
             }
         }
 
         form {
-            margin-top: rem(34);
+            margin-top: rem(26);
             @apply mx-auto;
 
+            @screen phone {
+
+            }
+
             @screen tablet {
-                margin-top: rem(50);
+                margin-top: rem(43);
                 width: rem(328);
                 margin-left:0;
                 margin-right:auto;
@@ -145,8 +122,7 @@
                 color: theme("colors.whitetext");
                 font-size: rem(18);
 
-                border: 1px solid theme("colors.whitetext");
-                border-radius: 1px;
+                border-bottom: 1px solid theme("colors.bottomborder");
                 background-color: transparent;
 
                 height: rem(56);
@@ -168,19 +144,17 @@
             }
 
             button {
-                @apply font-suisseintl;
-                @apply font-bold;
-                @apply uppercase;
-                color: theme("colors.blacktext");
-                font-size: rem(14);
+                @apply font-normal;
+                color: theme("colors.greentext");
+                font-size: rem(18);
                 text-align: center;
 
                 height: rem(56);
                 box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16);
 
                 border-radius: 1px;
-                border: none;
-                background-color: theme("colors.yellowtext");
+                border: 1px solid theme('colors.greentext');
+                background-color: theme("colors.whitetext");
 
                 @apply mt-4;
                 @apply mx-auto;
@@ -198,46 +172,25 @@
                }
             }
         }
-
-        a {
-            @apply block;
-            @apply mx-auto;
-
-            @apply font-bold;
-            @apply text-left;
-            @apply uppercase;
-            color: theme("colors.yellowtext");
-            font-size: rem(14);
-            @apply underline;
-
-            margin-top: rem(25);
-            
-
-            @screen tablet {
-                @apply text-left;
-                @apply ml-0;
-                @apply mr-0;
-                @apply mt-6;
-            }
-        }
     }
+
     p {
         @apply block;
-        @apply font-light;
+        @apply font-normal;
         @apply text-left;
-        color: theme("colors.graytext");
-        font-size: rem(7);
+        color: theme("colors.greytext");
+        font-size: rem(8);
 
         min-width: 18rem;
         margin-right:auto;
-        margin-top: rem(19);
+        margin-top: rem(40);
 
         @screen phone {
             margin-top: auto;
         }
 
         @screen tablet {
-            font-size: rem(12);
+            font-size: rem(14);
             
         }
 

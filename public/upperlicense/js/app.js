@@ -4422,12 +4422,12 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "flex flex-col app-call" }, [
+  return _c("div", { staticClass: "flex flex-col tablet:flex-row app-call" }, [
     _c(
       "a",
       {
         staticClass: "app-call-number",
-        attrs: { href: "tel:+7 495 120-40-68" }
+        attrs: { href: "tel:+7 747 135-0000" }
       },
       [_vm._v(" 8 495 120-40-68 ")]
     ),

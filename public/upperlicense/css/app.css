@@ -19783,12 +19783,12 @@ body #app .app-template {
 }
 
 .app-header .app-header-logo {
-  height: 1.5rem;
+  height: 2rem;
 }
 
 @media (min-width: 480px) {
   .app-header .app-header-logo {
-    height: 2rem;
+    height: 3rem;
   }
 }
 
@@ -19802,6 +19802,12 @@ body #app .app-template {
   color: #0e1410;
 }
 
+@media (min-width: 480px) {
+  .app-header .app-call .app-call-number {
+    font-size: 1rem;
+  }
+}
+
 .app-header .app-call .app-call-book {
   font-size: 0.75rem;
   font-weight: 500;
@@ -19813,7 +19819,7 @@ body #app .app-template {
 
 @media (min-width: 480px) {
   .app-header .app-call .app-call-book {
-    font-size: 0.875rem;
+    font-size: 1rem;
     margin-left: 0.5rem;
     margin-top: 0.1rem;
   }
@@ -19884,42 +19890,16 @@ body #app .app-template {
 }
 
 @media (min-width: 480px) {
-}
-
-@media (min-width: 1024px) {
-}
-
-.home-view .home-view-content h3 {
-  font-weight: 700;
-  color: #f6f8f6;
-  font-size: 1.25rem;
-  line-height: 1.875rem;
-  letter-spacing: -0.0125rem;
-  margin-top: 1.3125rem;
-}
-
-@media (min-width: 360px) {
-  .home-view .home-view-content h3 {
-    font-size: 1.5rem;
-  }
-}
-
-@media (min-width: 480px) {
-  .home-view .home-view-content h3 {
-    margin-top: 9rem;
-    font-size: 3rem;
-    line-height: 3.5rem;
-    letter-spacing: -0.04375rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .home-view .home-view-content h3 {
-    margin-top: 2.5rem;
+  .home-view .home-view-content h1 {
+    margin-top: 15.625rem;
+    width: 39rem;
     font-size: 2rem;
     line-height: 2.5rem;
     letter-spacing: -0.01875rem;
   }
+}
+
+@media (min-width: 1024px) {
 }
 
 .home-view .home-view-content h5 {
@@ -19940,23 +19920,26 @@ body #app .app-template {
 @media (min-width: 480px) {
   .home-view .home-view-content h5 {
     max-width: 25.125rem;
-    font-weight: 500;
+    font-weight: 300;
     font-size: 1rem;
     line-height: 1.5rem;
     letter-spacing: 0;
-    margin-top: 1rem;
+    margin-top: 1.9375rem;
   }
 }
 
 .home-view .home-view-content form {
-  margin-top: 2.125rem;
+  margin-top: 1.625rem;
   margin-left: auto;
   margin-right: auto;
 }
 
+@media (min-width: 360px) {
+}
+
 @media (min-width: 480px) {
   .home-view .home-view-content form {
-    margin-top: 3.125rem;
+    margin-top: 2.6875rem;
     width: 20.5rem;
     margin-left: 0;
     margin-right: auto;
@@ -19975,8 +19958,7 @@ body #app .app-template {
   text-align: left;
   color: #f6f8f6;
   font-size: 1.125rem;
-  border: 1px solid #f6f8f6;
-  border-radius: 1px;
+  border-bottom: 1px solid #d7dbd8;
   background-color: transparent;
   height: 3.5rem;
   padding: 1rem;
@@ -19997,17 +19979,15 @@ body #app .app-template {
 }
 
 .home-view .home-view-content form button {
-  font-family: SuisseIntl;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: ;
-  font-size: 0.875rem;
+  font-weight: 400;
+  color: #4f7359;
+  font-size: 1.125rem;
   text-align: center;
   height: 3.5rem;
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16);
   border-radius: 1px;
-  border: none;
-  background-color: ;
+  border: 1px solid #4f7359;
+  background-color: #f6f8f6;
   margin-top: 1rem;
   margin-left: auto;
   margin-right: auto;
@@ -20025,37 +20005,15 @@ body #app .app-template {
 @media (min-width: 480px) {
 }
 
-.home-view .home-view-content a {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  font-weight: 700;
-  text-align: left;
-  text-transform: uppercase;
-  color: ;
-  font-size: 0.875rem;
-  text-decoration: underline;
-  margin-top: 1.5625rem;
-}
-
-@media (min-width: 480px) {
-  .home-view .home-view-content a {
-    text-align: left;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 1.5rem;
-  }
-}
-
 .home-view p {
   display: block;
-  font-weight: 300;
+  font-weight: 400;
   text-align: left;
-  color: ;
-  font-size: 0.4375rem;
+  color: #a0a7a2;
+  font-size: 0.5rem;
   min-width: 18rem;
   margin-right: auto;
-  margin-top: 1.1875rem;
+  margin-top: 2.5rem;
 }
 
 @media (min-width: 360px) {
@@ -20066,7 +20024,7 @@ body #app .app-template {
 
 @media (min-width: 480px) {
   .home-view p {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
   }
 }
 
