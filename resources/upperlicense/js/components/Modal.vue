@@ -1,8 +1,6 @@
 <template>
 	<div class="modal-view mx-auto flex-grow flex flex-col">
-		<div
-			class="modal-view-content relative w-full flex flex-col flex-grow justify-center items-center"
-		>
+		<div class="modal-view-content relative w-full flex flex-col flex-grow">
 			<h1>Заказать звонок</h1>
 			<div
 				@click="toggleModal"

@@ -1,5 +1,5 @@
 .modal-view {
-    @apply p-4;
+    @apply px-4;
     @apply w-full;
     border-top: 1px solid rgba(186, 190, 194, 0.35);
 
@@ -9,21 +9,21 @@
         h1 {
             @apply font-bold;
             @apply text-left;
-            font-size: rem(32);
-            color: theme("colors.blacktext");
+            font-size: rem(30);
+            color: theme("colors.darktext");
             letter-spacing: rem(-0.3);
 
-            margin-top: rem(126);
+            margin-top: rem(149);
             margin-right: auto;
         }
 
         .modal-view-close {
-            top: 0;
-            right: 0;
+            top: 1rem;
+            right: 0rem;
         }
         form {
-            @apply mt-8;
             @apply w-full;
+            margin-top: rem(32);
 
             @screen tablet {
                 max-width: 50%;
@@ -32,13 +32,12 @@
 
             input {
                 @apply font-suisseintl;
-                @apply font-light;
+                @apply font-normal;
                 @apply text-left;
-                color: theme("colors.blacktext");
+                color: theme("colors.darktext");
                 font-size: rem(18);
 
-                border: 1px solid theme("colors.yellowtext");
-                border-radius: 1px;
+                border-bottom: 1px solid theme("colors.bottomborder");
                 background-color: transparent;
 
                 height: rem(56);
@@ -50,24 +49,29 @@
                     color: theme("colors.placeholder");
                 }
                 &:focus {
+                    color: theme("colors.darktext");
+                    border-bottom: 1px solid theme("colors.darktext");
                     outline: none;
+                }
+
+                @screen tablet {
+                    
                 }
             }
 
             button {
-                @apply font-suisseintl;
-                @apply font-bold;
-                @apply uppercase;
+                @apply font-normal;
                 color: theme("colors.whitetext");
-                font-size: rem(14);
+                font-size: rem(18);
                 text-align: center;
 
                 height: rem(56);
-                box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16);
+                box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16),
+                0 8px 8px rgba(79, 115, 89, 0.16),
+                0 0 8px rgba(79, 115, 89, 0.08);
 
                 border-radius: 1px;
-                border: none;
-                background-color: theme("colors.yellowtext");
+                background-color: theme("colors.greentext");
 
                 @apply mt-4;
                 @apply mx-auto;
@@ -78,6 +82,10 @@
                }
                &:focus {
                    outline: none;
+               }
+
+               @screen tablet {
+                    
                }
             }
         }

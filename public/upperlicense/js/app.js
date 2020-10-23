@@ -1966,8 +1966,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     this.setEnv(this.environment); //
     //this.setSuccess();
-    //this.setModal();
-    //
+
+    this.setModal(); //
 
     this.setViewHeight();
     window.addEventListener("resize", function () {
@@ -2334,8 +2334,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
 //
 //
 //
@@ -4326,7 +4324,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "modal-view-content relative w-full flex flex-col flex-grow justify-center items-center"
+            "modal-view-content relative w-full flex flex-col flex-grow"
         },
         [
           _c("h1", [_vm._v("Заказать звонок")]),
