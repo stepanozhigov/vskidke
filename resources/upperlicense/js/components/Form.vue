@@ -1,9 +1,6 @@
 <template>
 	<!-- {{--FORM--}} -->
-	<form
-		@submit.prevent="submitForm"
-		class="flex flex-col items-center w-full mx-auto"
-	>
+	<form @submit.prevent="submitForm" class="flex flex-col items-center">
 		<!-- {{--PHONE INPUT--}} -->
 
 		<input
@@ -84,8 +81,8 @@
 							if (this.env == "production") {
 								window.location.replace(this.redirectTo);
 							}
-							// this.setSuccess();
-							// this.setModal();
+							//this.setSuccess();
+							//this.setModal();
 						});
 				}
 			},

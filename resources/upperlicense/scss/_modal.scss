@@ -6,6 +6,11 @@
     .modal-view-content {
         min-width: 18rem;
 
+        @screen phone {
+            margin: 0 auto;
+            width: 50%;
+        }
+
         h1 {
             @apply font-bold;
             @apply text-left;
@@ -13,8 +18,13 @@
             color: theme("colors.darktext");
             letter-spacing: rem(-0.3);
 
-            margin-top: rem(149);
+            margin-top: rem(100);
             margin-right: auto;
+
+            @screen tablet {
+                margin-top: rem(200);
+                text-align: center;
+            }
         }
 
         .modal-view-close {
@@ -26,7 +36,8 @@
             margin-top: rem(32);
 
             @screen tablet {
-                max-width: 50%;
+                width: 100%;
+                margin-left:auto;
                 margin-right:auto;
             }
 

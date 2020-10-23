@@ -1966,8 +1966,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     this.setEnv(this.environment); //
     //this.setSuccess();
-
-    this.setModal(); //
+    //this.setModal();
+    //
 
     this.setViewHeight();
     window.addEventListener("resize", function () {
@@ -2015,9 +2015,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
 //
 //
 //
@@ -2095,8 +2092,8 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["helpe
 
           if (_this.env == "production") {
             window.location.replace(_this.redirectTo);
-          } // this.setSuccess();
-          // this.setModal();
+          } //this.setSuccess();
+          //this.setModal();
 
         });
       }
@@ -3970,7 +3967,7 @@ var render = function() {
   return _c(
     "form",
     {
-      staticClass: "flex flex-col items-center w-full mx-auto",
+      staticClass: "flex flex-col items-center",
       on: {
         submit: function($event) {
           $event.preventDefault()
@@ -4076,7 +4073,7 @@ var render = function() {
       "div",
       {
         staticClass:
-          "home-view-content md:flex-grow md:flex md:flex-col md:justify-center"
+          "home-view-content phone:flex-grow phone:flex phone:flex-col phone:justify-center"
       },
       [
         _c("h1", [
@@ -4091,12 +4088,12 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("Form")
+        _c("Form"),
+        _vm._v(" "),
+        _vm._m(0)
       ],
       1
-    ),
-    _vm._v(" "),
-    _vm._m(0)
+    )
   ])
 }
 var staticRenderFns = [
@@ -4104,10 +4101,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "mt-auto" }, [
-      _vm._v("\n\t\tОставляя контактную информацию, вы "),
+    return _c("p", [
+      _vm._v("\n\t\t\tОставляя контактную информацию, вы "),
       _c("span", [_vm._v("соглашаетесь")]),
-      _vm._v(" на обработку\n\t\tперсональных данных\n\t")
+      _vm._v(" на\n\t\t\tобработку персональных данных\n\t\t")
     ])
   }
 ]
@@ -21267,7 +21264,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     env: 'local',
     modal: false,
     success: false,
-    redirectTo: 'https://m.zamania.ru/ceny-v-moskva'
+    redirectTo: 'https://license.kz'
   },
   getters: {
     isModal: function isModal(state) {
