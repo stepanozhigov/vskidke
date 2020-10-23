@@ -3,7 +3,6 @@
     flex-shrink: 0;
 
     @apply font-suisseintl;
-    @apply font-medium;
     background-color: theme("colors.bg");
     height: rem(64);
 
@@ -28,18 +27,17 @@
         @apply text-center;
 
         .app-call-number {
-            font-size: rem(14);
-            @apply font-medium;
-            color: theme("colors.blacktext");
+            font-size: rem(13);
+            @apply font-normal;
+            color: theme("colors.darktext");
         }
         .app-call-book {
-            font-size: rem(10);
-            @apply font-bold;
-            @apply uppercase;
-            color: theme("colors.yellowtext");
+            font-size: rem(12);
+            @apply font-medium;
+            color: theme("colors.greentext");
             line-height: 1rem;
             @apply cursor-pointer;
-            border-bottom: 2px dotted theme("colors.yellowtext");
+            border-bottom: 2px dotted theme("colors.greentext");
 
             @screen tablet {
                 font-size: rem(14);

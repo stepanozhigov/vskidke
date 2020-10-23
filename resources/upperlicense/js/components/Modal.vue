@@ -34,7 +34,7 @@
 					/>
 				</svg>
 			</div>
-			<Form btnText="Заказать звонок" />
+			<Form btnText="Заказать звонок" actionType="callback" />
 			<a href="#" @click.prevent="toggleModal">Закрыть</a>
 		</div>
 	</div>

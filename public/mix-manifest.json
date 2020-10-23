@@ -1,12 +1,12 @@
 {
-    "/autoschool/js/app.js": "/autoschool/js/app.js?id=6bdc8daaf4ebcae9f368",
-    "/autoschool/css/app.css": "/autoschool/css/app.css?id=317e30d0ee655b590d78",
-    "/potolki/css/app.css": "/potolki/css/app.css?id=d353dd7386580f5da6d0",
-    "/romatti/css/app.css": "/romatti/css/app.css?id=9c3260c33abd18204f20",
-    "/zamania/css/app.css": "/zamania/css/app.css?id=bb4e345aaaaccb8415a9",
-    "/upperlicense/css/app.css": "/upperlicense/css/app.css?id=61cf23c7a23d53d076fe",
-    "/potolki/js/potolki.js": "/potolki/js/potolki.js?id=9f3341e04faab0d8f372",
-    "/romatti/js/app.js": "/romatti/js/app.js?id=499dec926515325fbf2d",
-    "/upperlicense/js/app.js": "/upperlicense/js/app.js?id=761b737b9b3560f00bb6",
-    "/zamania/js/app.js": "/zamania/js/app.js?id=c41c7c3da9c1e7e70f79"
+    "/autoschool/js/app.js": "/autoschool/js/app.js",
+    "/autoschool/css/app.css": "/autoschool/css/app.css",
+    "/potolki/css/app.css": "/potolki/css/app.css",
+    "/romatti/css/app.css": "/romatti/css/app.css",
+    "/zamania/css/app.css": "/zamania/css/app.css",
+    "/upperlicense/css/app.css": "/upperlicense/css/app.css",
+    "/potolki/js/potolki.js": "/potolki/js/potolki.js",
+    "/romatti/js/app.js": "/romatti/js/app.js",
+    "/upperlicense/js/app.js": "/upperlicense/js/app.js",
+    "/zamania/js/app.js": "/zamania/js/app.js"
 }

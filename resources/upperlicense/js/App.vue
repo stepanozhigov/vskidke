@@ -1,5 +1,5 @@
 <template>
-	<div class="app-template flex flex-col min-h-full">
+	<div class="app-template flex flex-col">
 		<!-- HEADER -->
 		<app-header></app-header>
 		<!-- /HEADER -->

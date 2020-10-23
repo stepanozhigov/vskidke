@@ -14,18 +14,21 @@ class UpperlicenseController extends Controller
         return view('app');
     }
 
-    public function bitrix24(Request $request)
+    public function ammoconnect(Request $request)
     {
-        $data = [
-            'fields'=>[
-                'SOURCE_ID'=>'SELF',
-                'TITLE'=>'ХЕЛОУИН',
-                'SOURCE_DESCRIPTION'=>'zamania.vskidke.ru',
-                'UTM_SOURCE'=>'trendPro',
-                "PHONE"=> [["VALUE"=>$request->phone, "VALUE_TYPE"=> "WORK"]]
-            ]
-        ];
-        $response = Http::post('https://b24.zamania.ru/rest/4769/tlypdtk47mxjpkgk/crm.lead.add',$data);
-        return response()->json($response->json());
+        $response = Http::asForm()->post('http://amoconnect.ru/amo-ipravo/api/slug/upperlicense-vskidke-ru', [
+            'url' => $request->url,
+            'phone' => $request->phone,
+            //'email' => $request->email,
+            // 'contact_fields' => [
+            //     'geo_location' => $request->geoLocation,
+            //     'ip_location' => $request->ipLocation
+            // ]
+        ]);
+        if ($response->successful()) {
+            return response()->json($response->json());
+        } elseif ($response->failed() || $response->clientError() || $response->serverError()) {
+            return response()->json($response->throw()->json());
+        }
     }
 }

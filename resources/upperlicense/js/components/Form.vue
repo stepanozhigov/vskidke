@@ -44,7 +44,11 @@
 		props: {
 			btnText: {
 				type: String,
-				default: "Получить расписание и прайс",
+				default: "Отправить заявку",
+			},
+			actionType: {
+				type: String,
+				default: "form",
 			},
 		},
 		validations: {
@@ -66,11 +70,17 @@
 					this.isValid = true;
 					//console.log(this.env);
 					axios
-						.post("/bx24", {
+						.post("/ammoconnect", {
 							phone: this.phone,
+							url: "upperlicense.vskidke.ru",
 						})
 						.then((response) => {
 							fbq("track", "Lead");
+							if (this.actionType == "form") {
+								ym(62231704, "reachGoal", "leadmagnit-form-medlicense");
+							} else if (this.actionType == "callback") {
+								ym(62231704, "reachGoal", "leadmagnit-callback-medlicense");
+							}
 							if (this.env == "production") {
 								window.location.replace(this.redirectTo);
 							}
