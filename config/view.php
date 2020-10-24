@@ -1,6 +1,9 @@
 <?php
 //use App\Http\Requests\Request;
 //dd(resource_path(explode('.', request()->getHost())[0]) . '/views');
+$host_parts = preg_split("/[\s.]+/", $_SERVER['HTTP_HOST']);
+$subdomain = $host_parts[0] == 'www' ? $host_parts[1] : $host_parts[0];
+//dd(resource_path($subdomain) . '/views');
 return [
 
     /*
@@ -15,9 +18,8 @@ return [
     */
 
     'paths' => [
-        resource_path(explode('.', $_SERVER['HTTP_HOST'])[0]) . '/views',
+        resource_path($subdomain) . '/views',
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Compiled View Path

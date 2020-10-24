@@ -52,7 +52,7 @@ mix
 });
 
 mix.browserSync({
-    proxy: "upperlicense.vskidke.local",
+    proxy: "www.upperlicense.vskidke.local",
     open: false
 });
 
