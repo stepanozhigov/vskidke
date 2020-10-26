@@ -75,8 +75,18 @@
 							fbq("track", "Lead");
 							if (this.actionType == "form") {
 								ym(62231704, "reachGoal", "leadmagnit-form-medlicense");
+								ga.getAll()[0].send(
+									"event",
+									"leadmagnit-form-medlicense",
+									"send"
+								);
 							} else if (this.actionType == "callback") {
 								ym(62231704, "reachGoal", "leadmagnit-callback-medlicense");
+								ga.getAll()[0].send(
+									"event",
+									"leadmagnit-callback-medlicense",
+									"send"
+								);
 							}
 							if (this.env == "production") {
 								window.location.replace(this.redirectTo);
