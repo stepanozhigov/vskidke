@@ -85,7 +85,6 @@
 
 					navigator.geolocation.getCurrentPosition(
 						(pos) => {
-							console.log(pos);
 							resolve(pos);
 						},
 						(err) => {
@@ -102,6 +101,7 @@
 					this.latitude = location.coords.latitude;
 					this.longitude = location.coords.longitude;
 					const address_data = await axios(this.addressUrl);
+					console.log(address_data);
 					if (address_data.data.items.length > 0)
 						this.setGeoLocation(address_data.data.items[0]);
 				} catch (e) {
