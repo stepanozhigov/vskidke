@@ -52,7 +52,7 @@ mix
 });
 
 mix.browserSync({
-    proxy: "www.upperlicense.vskidke.local",
+    proxy: "zamania.vskidke.local",
     open: false
 });
 

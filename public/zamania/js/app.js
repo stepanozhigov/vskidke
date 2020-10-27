@@ -2075,19 +2075,26 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["helpe
       if (this.$v.phone.$invalid) {
         this.isValid = false;
       } else {
-        this.isValid = true; //console.log(this.env);
+        this.isValid = true; //check saved phone
 
-        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/bx24", {
-          phone: this.phone
-        }).then(function (response) {
-          fbq("track", "Lead");
+        if (this.phone != localStorage.getItem("phone")) {
+          //console.log(this.env);
+          axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/bx24", {
+            phone: this.phone
+          }).then(function (response) {
+            //FB pixel
+            fbq("track", "Lead"); //redirect
 
-          if (_this.env == "production") {
-            window.location.replace(_this.redirectTo);
-          } // this.setSuccess();
-          // this.setModal();
+            if (_this.env == "production") {
+              //save phone
+              localStorage.setItem("phone", _this.phone); //redirect
 
-        });
+              window.location.replace(_this.redirectTo);
+            } // this.setSuccess();
+            // this.setModal();
+
+          });
+        }
       }
     },
     maskCheck: function maskCheck(field) {

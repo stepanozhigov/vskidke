@@ -64,19 +64,29 @@
 					this.isValid = false;
 				} else {
 					this.isValid = true;
-					//console.log(this.env);
-					axios
-						.post("/bx24", {
-							phone: this.phone,
-						})
-						.then((response) => {
-							fbq("track", "Lead");
-							if (this.env == "production") {
-								window.location.replace(this.redirectTo);
-							}
-							// this.setSuccess();
-							// this.setModal();
-						});
+
+					//check saved phone
+					if (this.phone != localStorage.getItem("phone")) {
+						//console.log(this.env);
+						axios
+							.post("/bx24", {
+								phone: this.phone,
+							})
+							.then((response) => {
+								//FB pixel
+								fbq("track", "Lead");
+
+								//redirect
+								if (this.env == "production") {
+									//save phone
+									localStorage.setItem("phone", this.phone);
+									//redirect
+									window.location.replace(this.redirectTo);
+								}
+								// this.setSuccess();
+								// this.setModal();
+							});
+					}
 				}
 			},
 			maskCheck: function (field) {
