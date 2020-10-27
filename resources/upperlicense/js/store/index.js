@@ -8,7 +8,7 @@ export default new Vuex.Store({
         env: 'local',
         modal: false,
         success: false,
-        redirectTo: 'https://license.kz'
+        redirectTo: 'https://license.kz/en/serviceGroup/63'
     },
     getters: {
         isModal: state => state.modal,
