@@ -85,6 +85,7 @@
 
 					navigator.geolocation.getCurrentPosition(
 						(pos) => {
+							console.log(pos);
 							resolve(pos);
 						},
 						(err) => {
