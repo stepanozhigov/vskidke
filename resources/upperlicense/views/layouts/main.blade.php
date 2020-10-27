@@ -19,6 +19,10 @@
         <App environment="{{env('APP_ENV')}}"/>
     </div>
 
+    {{-- HERE Maps API --}}
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+
     {{-- VUE-CLI JS --}}
     <script src="{{ mix('upperlicense/js/app.js') }}" defer></script>
 

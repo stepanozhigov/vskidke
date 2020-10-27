@@ -2,41 +2,65 @@
 	<!-- {{--FORM--}} -->
 	<form @submit.prevent="submitForm" class="flex flex-col items-center">
 		<!-- {{--PHONE INPUT--}} -->
-
-		<input
-			v-model="phone"
-			type="tel"
-			autocomplete="off"
-			class="w-full"
-			placeholder="Введите ваш номер*"
-			v-mask="{ mask: '\+7 (999) 999-99-99', greedy: true }"
-			v-on:change="maskCheck"
-		/>
+		<label for="phone" class="relative block label-phone">
+			<vue-tel-input
+				v-model="phone"
+				v-bind="settings"
+				@validate="onCountryValidate"
+				@onInput="onCountryInput"
+				@country-changed="onCountryChange"
+				placeholder="Ваш телефон *"
+				autocomplete="off"
+			></vue-tel-input>
+			<span v-if="phoneIsValid" class="flex items-center absolute svg-valid">
+				<svg
+					fill="currentColor"
+					xmlns="http://www.w3.org/2000/svg"
+					height="24"
+					viewBox="0 0 24 24"
+					width="24"
+				>
+					<path d="M0 0h24v24H0z" fill="none" />
+					<path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+				</svg>
+			</span>
+		</label>
 
 		<!-- {{--SUBMIT PHONE--}} -->
-		<button class="flex justify-center items-center w-full button-pulse">
+		<button
+			class="flex justify-center items-center w-full button-pulse"
+			:class="{ disabled: !formValid }"
+			:disabled="!formValid"
+		>
 			<span>{{ btnText }}</span>
 		</button>
 	</form>
 </template>
 
 <script>
-	import MaskedInput from "vue-masked-input";
-	import { required, helpers } from "vuelidate/lib/validators";
+	import { VueTelInput } from "vue-tel-input";
 	import axios from "axios";
 	import { mapActions, mapGetters } from "vuex";
 
-	//валидация телефона по регулярному вырожению
-	const phoneValidate = helpers.regex(
-		"phoneValidate",
-		/^(\+)?(\(\d{2,3}\) ?\d|\d)(([ \-]?\d)|( ?\(\d{2,3}\) ?)){5,12}\d$/
-	);
-
 	export default {
+		components: { VueTelInput },
 		data: () => ({
 			phone: "",
-			isValid: true,
+			phoneIsValid: false,
 			onFocus: false,
+			settings: {
+				placeholder: "Ваш телефон *",
+				disabledFormatting: false,
+				enabledCountryCode: true,
+				mode: "international",
+				preferredCountries: ["fr", "us", "gb"],
+				validCharactersOnly: true,
+				dynamicPlaceholder: true,
+				inputOptions: {
+					showDialCode: false,
+					tabindex: 0,
+				},
+			},
 		}),
 		props: {
 			btnText: {
@@ -48,24 +72,42 @@
 				default: "form",
 			},
 		},
-		validations: {
-			phone: {
-				required,
-				phoneValidate,
+		computed: {
+			...mapGetters([
+				"isModal",
+				"isSuccess",
+				"redirectTo",
+				"env",
+				"geoLocation",
+				"ipLocation",
+			]),
+			formValid: function () {
+				return this.phoneIsValid;
+			},
+			geoAddress() {
+				if (this.geoLocation) {
+					return (
+						this.geoLocation.address.countryName +
+						", " +
+						this.geoLocation.address.city
+					);
+				}
+				return "";
+			},
+			ipAddress() {
+				return this.ipLocation;
 			},
 		},
-		mounted: function () {},
-		computed: {
-			...mapGetters(["isModal", "isSuccess", "redirectTo", "env"]),
-		},
 		methods: {
-			...mapActions(["setModal", "unsetModal", "setSuccess", "unsetSuccess"]),
+			...mapActions([
+				"setModal",
+				"unsetModal",
+				"setSuccess",
+				"unsetSuccess",
+				"setIpLocation",
+			]),
 			submitForm() {
-				if (this.$v.phone.$invalid) {
-					this.isValid = false;
-				} else {
-					this.isValid = true;
-					//console.log(this.env);
+				if (this.formValid) {
 					axios
 						.post("/ammoconnect", {
 							phone: this.phone,
@@ -96,14 +138,19 @@
 						});
 				}
 			},
-			maskCheck: function (field) {
-				if (field.target.inputmask.isComplete()) {
-					this.isValid = true;
-				} else {
-					this.isValid = false;
-				}
+
+			onCountryValidate({ number, isValid, country }) {
+				//console.log(number);
+			},
+			onCountryInput(input) {
+				//console.log(input);
+				this.phoneIsValid = input.isValid;
+			},
+			onCountryChange(country) {
+				if (this.ipLocation == null) this.setIpLocation(country.name);
+				//console.log(country);
+				this.phone = "";
 			},
 		},
-		components: { MaskedInput },
 	};
 </script>

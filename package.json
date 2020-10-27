@@ -31,7 +31,7 @@
         "vue-country-code": "^1.1.1",
         "vue-inputmask": "^0.2.1",
         "vue-masked-input": "^0.5.2",
-        "vue-tel-input": "^4.4.1",
+        "vue-tel-input": "^4.4.2",
         "vuelidate": "^0.7.5",
         "vuex": "^3.5.1"
     }
