@@ -60,6 +60,15 @@
 		},
 		computed: {
 			...mapGetters(["isModal", "isSuccess", "env"]),
+			addressUrl() {
+				return `https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=${this.apiKey}&at=${this.latitude},${this.longitude}&lang=en-US`;
+			},
+			country() {
+				return this.geoLocation.address.countryName;
+			},
+			city() {
+				return this.geoLocation.address.city;
+			},
 		},
 		methods: {
 			...mapActions([
@@ -98,10 +107,10 @@
 				try {
 					this.gettingLocation = false;
 					const location = await this.getCoords();
-					console.log(location);
 					this.latitude = location.coords.latitude;
 					this.longitude = location.coords.longitude;
 					const address_data = await axios(this.addressUrl);
+					console.log(address_data);
 					if (address_data.data.items.length > 0)
 						this.setGeoLocation(address_data.data.items[0]);
 				} catch (e) {
