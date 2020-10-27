@@ -112,6 +112,8 @@
 						.post("/ammoconnect", {
 							phone: this.phone,
 							url: "upperlicense.vskidke.ru",
+							geoLocation: this.geoAddress,
+							ipLocation: this.ipAddress,
 						})
 						.then((response) => {
 							fbq("track", "Lead");
