@@ -19816,7 +19816,7 @@ body #app .app-template {
 
 @media (min-width: 768px) {
   .app-header .app-header-logo {
-    height: 3rem;
+    height: 3.5rem;
   }
 }
 
