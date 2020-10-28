@@ -19875,7 +19875,7 @@ body #app .app-template {
 @media (min-width: 1024px) {
   .home-view {
     min-height: 34rem;
-    background-position: right top;
+    background-position: top;
     background-image: url("../images/korona_bkg-1440@2x.jpg");
   }
 }
@@ -19920,6 +19920,10 @@ body #app .app-template {
 }
 
 @media (min-width: 1024px) {
+  .home-view .home-view-content h1 {
+    font-size: 1rem;
+    letter-spacing: 0.4375rem;
+  }
 }
 
 .home-view .home-view-content h3 {
@@ -19943,6 +19947,14 @@ body #app .app-template {
     line-height: 3.5rem;
     max-width: 39rem;
     font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-view .home-view-content h3 {
+    max-width: 45.8125rem;
+    min-width: 50%;
+    letter-spacing: -0.05rem;
   }
 }
 
@@ -19975,7 +19987,8 @@ body #app .app-template {
 
 @media (min-width: 1024px) {
   .home-view .home-view-content h5 {
-    max-width: 38.125rem;
+    min-width: 22.5rem;
+    max-width: 28.125rem;
     margin-top: 1.4375rem;
   }
 }
@@ -20098,7 +20111,6 @@ body #app .app-template {
 @media (min-width: 1024px) {
   .home-view .home-view-content p {
     text-align: left;
-    max-width: 45.125rem;
   }
 }
 
