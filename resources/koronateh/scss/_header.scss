@@ -46,9 +46,9 @@
             border-bottom: 2px dotted theme("colors.cyellow");
 
             @screen tablet {
-                font-size: rem(16);
+                font-size: rem(14);
 
-                @apply ml-2;
+                margin-left: rem(16);
                 margin-top: 0.1rem;
             }
         }

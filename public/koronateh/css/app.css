@@ -19847,8 +19847,8 @@ body #app .app-template {
 
 @media (min-width: 768px) {
   .app-header .app-call .app-call-book {
-    font-size: 1rem;
-    margin-left: 0.5rem;
+    font-size: 0.875rem;
+    margin-left: 1rem;
     margin-top: 0.1rem;
   }
 }
@@ -19912,6 +19912,10 @@ body #app .app-template {
 }
 
 @media (min-width: 768px) {
+  .home-view .home-view-content h1 {
+    font-size: 1.125rem;
+    letter-spacing: 0.5rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -19929,6 +19933,15 @@ body #app .app-template {
 @media (min-width: 360px) {
   .home-view .home-view-content h3 {
     font-size: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .home-view .home-view-content h3 {
+    margin-top: 11.4375rem;
+    line-height: 3.5rem;
+    max-width: 39rem;
+    font-size: 3rem;
   }
 }
 
@@ -19951,8 +19964,8 @@ body #app .app-template {
 
 @media (min-width: 768px) {
   .home-view .home-view-content h5 {
-    max-width: 25.625rem;
-    font-weight: 300;
+    max-width: 22.5rem;
+    margin-top: 1.5625rem;
     font-size: 1rem;
     line-height: 1.5rem;
     letter-spacing: 0;
@@ -19978,6 +19991,7 @@ body #app .app-template {
 
 @media (min-width: 768px) {
   .home-view .home-view-content form {
+    margin-top: 2.6875rem;
     max-width: 20.5rem;
     margin-left: 0;
     margin-right: auto;
@@ -20076,7 +20090,7 @@ body #app .app-template {
 
 @media (min-width: 768px) {
   .home-view .home-view-content p {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
   }
 }
 
