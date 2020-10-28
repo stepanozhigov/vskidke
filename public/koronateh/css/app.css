@@ -19807,6 +19807,7 @@ body #app .app-template {
 @media (min-width: 768px) {
   .app-header {
     height: 5rem;
+    padding: 0 0 0;
   }
 }
 
