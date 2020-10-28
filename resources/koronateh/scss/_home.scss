@@ -3,7 +3,7 @@
     flex-shrink: 1;
 
     background-image: url("../images/korona_bkg-414@2x.jpg");
-    @apply bg-top;
+    @apply bg-right-top;
     @apply bg-no-repeat;
     @apply bg-cover;
     @apply p-4;
@@ -38,53 +38,63 @@
 
         h1 {
 
-            width: rem(288);
-
+            text-transform: uppercase;
             @apply font-medium;
-            font-size: rem(12);
-            line-height: rem(16);
+            font-size: rem(10);
             color: theme('colors.whitetext');
-            letter-spacing: 6;
+            letter-spacing: rem(6);
             text-align: left;
 
     
             @screen phone {
-                width: rem(343);
-                font-size: rem(24);
-                line-height: rem(30);
-                letter-spacing: rem(-0.2);
+                font-size: rem(12);
             }
     
             @screen tablet {
-                margin-top: rem(250);
-                max-width: rem(624);
-                width: rem(624);
-                font-size: rem(32);
-                line-height: rem(40);
-                letter-spacing: rem(-0.3);
+                // margin-top: rem(250);
+                // max-width: rem(624);
+                // width: rem(624);
+                // font-size: rem(32);
+                // letter-spacing: rem(-0.3);
             }
     
             @screen monitor {
-                margin-top: rem(80);
+                //margin-top: rem(80);
                 //max-width: rem(551);
             }
         }
 
         h3 {
             margin-top: rem(30);
+
+            font-size: rem(28);
+            font-weight: 900;
+            line-height: rem(40);
+            letter-spacing: rem(-0.3);
+            text-align: left;
+
+            @screen phone {
+                font-size: rem(32);
+            }
         }
 
         h5 {
-            @apply font-normal;
-            font-size: rem(14);
+            font-size: rem(12);
+            font-weight: 500;
             line-height: rem(20);
-            letter-spacing: 0;
-            @apply text-left;
-            max-width: rem(288);
+            letter-spacing: rem(0);
+            text-align: left;
+
+            max-width: 100%;
             margin-top: rem(10);
 
+            @screen phone {
+                font-size: rem(14);
+                max-width: rem(343);
+            }
+
             @screen tablet {
-                max-width: rem(402);
+                max-width: rem(410);
 
                 @apply font-light;
                 font-size: rem(16);
@@ -104,7 +114,7 @@
             margin-top: rem(34);
             margin-left: auto;
             margin-right: auto;
-            width:100%;
+            width: 100%;
 
             @screen phone {
                 
@@ -123,8 +133,8 @@
 
             input {
                 @apply font-roboto;
-                @apply font-light;
                 @apply text-left;
+                font-weight: 400;
                 color: theme("colors.whitetext");
                 font-size: rem(18);
 
@@ -138,6 +148,7 @@
                 @apply mx-auto;
 
                 &::placeholder {
+                    
                     color: theme("colors.placeholder");
                 }
                 &:focus {
@@ -151,17 +162,18 @@
             }
 
             button {
-                @apply font-normal;
-                color: theme("colors.greentext");
-                font-size: rem(18);
+                color: theme("colors.whitetext");
+                font-weight: 500;
+                font-size: rem(16);
                 text-align: center;
 
                 height: rem(56);
                 box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16);
 
                 border-radius: 1px;
-                border: 1px solid theme('colors.greentext');
-                background-color: theme("colors.whitetext");
+                border: 1px solid theme('colors.cyellow');
+                background-color: theme("colors.cyellow");
+                box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16);
 
                 @apply mt-4;
                 @apply mx-auto;
@@ -188,6 +200,10 @@
             display: block;
             margin-top: rem(24);
             text-decoration: underline;
+
+            font-size: rem(16);
+            font-weight: 500;
+            letter-spacing: rem(0);
         }
 
         p {
@@ -195,16 +211,15 @@
             @apply font-normal;
             @apply text-left;
             color: theme("colors.greytext");
-            font-size: rem(8);
-            letter-spacing: rem(-.1);
-            min-width: 18rem;
+            font-size: rem(6);
             margin-right:auto;
-            margin-top: rem(40);
+            margin-top: rem(0);
             padding-top: 1rem;
     
             @screen phone {
                 margin-top: auto;
                 padding-top: 2rem;
+                font-size: rem(7);
             }
     
             @screen tablet {

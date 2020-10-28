@@ -2,12 +2,11 @@
 
     flex-shrink: 0;
 
-    @apply font-roboto;
     background-color: theme("colors.bg");
     height: rem(64);
 
-    padding-left: rem(8);
-    padding-right: rem(11);
+    padding-left: rem(16);
+    padding-right: rem(16);
 
     @screen tablet {
         height: rem(80);
@@ -27,21 +26,24 @@
         @apply text-center;
 
         .app-call-number {
-            font-size: rem(13);
-            @apply font-normal;
+            font-size: rem(14);
+            font-weight: 400;
+            letter-spacing: rem(-0.4);
             color: theme("colors.darktext");
 
             @screen tablet {
-                font-size: rem(16);
+                // font-size: rem(16);
             }
         }
         .app-call-book {
-            font-size: rem(12);
-            @apply font-medium;
-            color: theme("colors.greentext");
+            font-size: rem(10);
+            font-weight: 900;
+            text-transform: uppercase;
             line-height: 1rem;
+            letter-spacing: rem(0.1);
+            color: theme("colors.cyellow");
             @apply cursor-pointer;
-            border-bottom: 2px dotted theme("colors.greentext");
+            border-bottom: 2px dotted theme("colors.cyellow");
 
             @screen tablet {
                 font-size: rem(16);

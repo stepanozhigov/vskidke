@@ -2178,6 +2178,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -4027,21 +4030,25 @@ var render = function() {
           "home-view-content phone:flex-grow phone:flex phone:flex-col phone:justify-center"
       },
       [
-        _c("h1", [_vm._v("Cпецтехника с водителем")]),
+        _c("h1", [_vm._v("Cпецтехника с водителем")]),
         _vm._v(" "),
         _c("h3", [
-          _vm._v("Аренда экскаватора-погрузчика в Москве и МО, от 1 650 ₽/час")
+          _vm._v(
+            "\n\t\t\tАренда экскаватора-погрузчика в Москве и МО,\n\t\t\tот 1 650 ₽/час\n\t\t"
+          )
         ]),
         _vm._v(" "),
         _c("h5", [
           _vm._v(
-            "\n\t\t\tОставьте ваш номер телефона и мы свяжемся с вами в течение 5 минут для\n\t\t\tподробной консультации\n\t\t"
+            "\n\t\t\tОставьте ваш номер телефона и мы свяжемся с вами\n\t\t\tв течение 5 минут для подробной консультации\n\t\t"
           )
         ]),
         _vm._v(" "),
         _c("Form"),
         _vm._v(" "),
-        _c("a", { attrs: { href: _vm.redirectTo } }, [_vm._v("Купить билет")]),
+        _c("a", { attrs: { href: _vm.redirectTo } }, [
+          _vm._v("Перейти на сайт")
+        ]),
         _vm._v(" "),
         _vm._m(0)
       ],
@@ -4307,11 +4314,8 @@ var render = function() {
   return _c("div", { staticClass: "flex flex-col tablet:flex-row app-call" }, [
     _c(
       "a",
-      {
-        staticClass: "app-call-number",
-        attrs: { href: "tel:+7 950 756-01-75" }
-      },
-      [_vm._v("+79507560175")]
+      { staticClass: "app-call-number", attrs: { href: "tel:+79507560175" } },
+      [_vm._v("+7 950 756-01-75")]
     ),
     _vm._v(" "),
     _c(
@@ -21153,7 +21157,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     success: false,
     ipLocation: null,
     geoLocation: null,
-    redirectTo: 'https://license.kz/en/serviceGroup/63'
+    redirectTo: 'https://koronateh.ru'
   },
   getters: {
     isModal: function isModal(state) {

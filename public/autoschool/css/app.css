@@ -751,6 +751,14 @@ video {
   src: url("../../_webfonts/Roboto-Bold.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: Roboto;
+
+  font-weight: 900;
+
+  src: url("../../_webfonts/Roboto-Black.ttf") format("truetype");
+}
+
 .app-template {
   height: 100vh;
   background-color: #ffffff;

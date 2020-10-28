@@ -29,7 +29,7 @@ module.exports = {
                 'bg': '#ffffff',
                 'whitetext': '#f8f7f6',
                 'darktext': '#2a2928',
-                'yellow': '#f39c12',
+                'cyellow': '#f39c12',
                 'placeholder': '#a7a5a0',
                 'greytext': '#dbd9d7',
                 'bottomborder': '#d7dbd8'
