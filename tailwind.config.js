@@ -1,5 +1,5 @@
 //
-//UPPERLICENSE
+//KORONATEH
 //
 module.exports = {
     future: {
@@ -7,10 +7,10 @@ module.exports = {
         // purgeLayersByDefault: true,
     },
     purge: [
-        "resources/upperlicense/js/*.vue",
-        "resources/upperlicense/js/components/*.vue",
-        "resources/upperlicense/sass/*.scss",
-        "resources/upperlicense/views/layouts/*"
+        "resources/koronateh/js/*.vue",
+        "resources/koronateh/js/components/*.vue",
+        "resources/koronateh/sass/*.scss",
+        "resources/koronateh/views/layouts/*"
     ],
     theme: {
         screens: {
@@ -20,18 +20,18 @@ module.exports = {
         },
         extend: {
             fontFamily: {
-                suisseintl: ["SuisseIntl"]
+                roboto: ["Roboto"]
             },
             height: {
                 mobilescreen: "calc(var(--vh)*100)"
             },
             colors: {
                 'bg': '#ffffff',
-                'whitetext': '#f6f8f6',
-                'darktext': '#0e1410',
-                'greentext': '#4f7359',
-                'placeholder': '#b3adae',
-                'greytext': '#a0a7a2',
+                'whitetext': '#f8f7f6',
+                'darktext': '#2a2928',
+                'yellow': '#f39c12',
+                'placeholder': '#a7a5a0',
+                'greytext': '#dbd9d7',
                 'bottomborder': '#d7dbd8'
             }
         }

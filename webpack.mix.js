@@ -41,6 +41,14 @@ mix
 //.copy("resources/zamania/fonts/", "public/zamania/fonts/")
 .js("resources/upperlicense/js/app.js", "public/upperlicense/js")
 .sass("resources/upperlicense/scss/app.scss", "public/upperlicense/css",
+{},[tailwindcss("./tailwind.upperlicense.config.js")])
+
+//KORONATEH
+mix
+//.copy("resources/koronateh/images/", "public/koronateh/images/")
+//.copy("resources/koronateh/fonts/", "public/koronateh/fonts/")
+.js("resources/koronateh/js/app.js", "public/koronateh/js")
+.sass("resources/koronateh/scss/app.scss", "public/koronateh/css",
 {},[tailwindcss("./tailwind.config.js")])
 
 .options({
@@ -52,7 +60,7 @@ mix
 });
 
 mix.browserSync({
-    proxy: "upperlicense.vskidke.local",
+    proxy: "koronateh.vskidke.local",
     open: false
 });
 

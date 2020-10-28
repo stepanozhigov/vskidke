@@ -7,7 +7,7 @@ export default new Vuex.Store({
     state: {
         modal: false,
         success: false,
-        redirectTo: 'https://romatti.ru/',
+        redirectTo: 'https://koronateh.ru',
         env: 'local'
     },
     getters: {

@@ -74,6 +74,12 @@ class RouteServiceProvider extends ServiceProvider
                 ->name('upperlicense.')
                 ->namespace($this->namespace . '\Upperlicense')
                 ->group(base_path('routes/upperlicense.php'));
+
+            //KORONATEH
+            Route::middleware('web')
+                ->name('koronateh.')
+                ->namespace($this->namespace . '\Koronateh')
+                ->group(base_path('routes/koronateh.php'));
         });
     }
 

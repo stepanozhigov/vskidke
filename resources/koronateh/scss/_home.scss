@@ -1,0 +1,226 @@
+.home-view {
+
+    flex-shrink: 1;
+
+    background-image: url("../images/korona_bkg-414@2x.jpg");
+    @apply bg-top;
+    @apply bg-no-repeat;
+    @apply bg-cover;
+    @apply p-4;
+
+    @screen tablet {
+        background-image: url("../images/korona_bkg-768@2x.jpg");
+        padding-left: rem(40);
+        padding-right: rem(40);
+        padding-top: rem(24);
+        
+    }
+
+    @screen monitor {
+        min-height: rem(544);
+        @apply bg-right-top;
+        background-image: url("../images/korona_bkg-1440@2x.jpg");
+        
+    }
+
+    .home-view-content {
+        min-width: 18rem;
+        @apply mx-auto;
+
+        @apply relative;
+        @apply text-left;
+        color: theme("colors.whitetext");
+
+        @screen monitor {
+            @apply mx-auto;
+            max-width: rem(722);
+        }
+
+        h1 {
+
+            width: rem(288);
+
+            @apply font-medium;
+            font-size: rem(12);
+            line-height: rem(16);
+            color: theme('colors.whitetext');
+            letter-spacing: 6;
+            text-align: left;
+
+    
+            @screen phone {
+                width: rem(343);
+                font-size: rem(24);
+                line-height: rem(30);
+                letter-spacing: rem(-0.2);
+            }
+    
+            @screen tablet {
+                margin-top: rem(250);
+                max-width: rem(624);
+                width: rem(624);
+                font-size: rem(32);
+                line-height: rem(40);
+                letter-spacing: rem(-0.3);
+            }
+    
+            @screen monitor {
+                margin-top: rem(80);
+                //max-width: rem(551);
+            }
+        }
+
+        h3 {
+            margin-top: rem(30);
+        }
+
+        h5 {
+            @apply font-normal;
+            font-size: rem(14);
+            line-height: rem(20);
+            letter-spacing: 0;
+            @apply text-left;
+            max-width: rem(288);
+            margin-top: rem(10);
+
+            @screen tablet {
+                max-width: rem(402);
+
+                @apply font-light;
+                font-size: rem(16);
+                line-height: rem(24);
+                letter-spacing: 0;
+
+            }
+
+            @screen monitor {
+                max-width: rem(610);
+                margin-top:rem(23);
+            }
+                
+        }
+
+        form {
+            margin-top: rem(34);
+            margin-left: auto;
+            margin-right: auto;
+            width:100%;
+
+            @screen phone {
+                
+                
+            }
+
+            @screen tablet {
+                max-width: rem(328);
+                margin-left:0;
+                margin-right:auto;
+            }
+
+            @screen monitor {
+                
+            }
+
+            input {
+                @apply font-roboto;
+                @apply font-light;
+                @apply text-left;
+                color: theme("colors.whitetext");
+                font-size: rem(18);
+
+                border: 1px solid theme("colors.whitetext");
+                border-radius: 1px;
+                background-color: transparent;
+
+                height: rem(56);
+
+                @apply p-4;
+                @apply mx-auto;
+
+                &::placeholder {
+                    color: theme("colors.placeholder");
+                }
+                &:focus {
+                    color: theme("colors.whitetext");
+                    outline: none;
+                }
+
+                @screen tablet {
+                    
+                }
+            }
+
+            button {
+                @apply font-normal;
+                color: theme("colors.greentext");
+                font-size: rem(18);
+                text-align: center;
+
+                height: rem(56);
+                box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16);
+
+                border-radius: 1px;
+                border: 1px solid theme('colors.greentext');
+                background-color: theme("colors.whitetext");
+
+                @apply mt-4;
+                @apply mx-auto;
+
+                &:active {
+                    outline: none;
+                    background: none;
+               }
+               &:focus {
+                   outline: none;
+               }
+
+               &.disabled {
+                @apply cursor-not-allowed;
+            }
+
+               @screen tablet {
+                    
+               }
+            }
+        }
+
+        a {
+            display: block;
+            margin-top: rem(24);
+            text-decoration: underline;
+        }
+
+        p {
+            @apply block;
+            @apply font-normal;
+            @apply text-left;
+            color: theme("colors.greytext");
+            font-size: rem(8);
+            letter-spacing: rem(-.1);
+            min-width: 18rem;
+            margin-right:auto;
+            margin-top: rem(40);
+            padding-top: 1rem;
+    
+            @screen phone {
+                margin-top: auto;
+                padding-top: 2rem;
+            }
+    
+            @screen tablet {
+                font-size: rem(14);
+            }
+    
+            @screen monitor {
+                text-align:left;
+                max-width: rem(722);
+            }
+    
+            span {
+                @apply underline;
+            }
+        }
+    }
+
+   
+}
