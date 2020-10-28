@@ -32,7 +32,11 @@
 					/>
 				</svg>
 			</div>
-			<Form btnText="Заказать звонок" actionType="callback" />
+			<Form
+				placeholderText="Ваш телефон*"
+				btnText="Отправить заявку"
+				actionType="callback"
+			/>
 			<a href="#" @click.prevent="toggleModal">Закрыть</a>
 		</div>
 	</div>

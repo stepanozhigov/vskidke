@@ -32,7 +32,9 @@ module.exports = {
                 'cyellow': '#f39c12',
                 'placeholder': '#a7a5a0',
                 'greytext': '#dbd9d7',
-                'bottomborder': '#d7dbd8'
+                'bottomborder': '#d7dbd8',
+                'greytext01': '#66605a'
+
             }
         }
     },

@@ -1969,8 +1969,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     //
     //this.setSuccess();
-    //this.setModal();
-    //
+    this.setModal(); //
+
     this.setViewHeight();
     window.addEventListener("resize", function () {
       _this.setViewHeight();
@@ -2285,6 +2285,10 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -4267,7 +4271,11 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("Form", {
-            attrs: { btnText: "Заказать звонок", actionType: "callback" }
+            attrs: {
+              placeholderText: "Ваш телефон*",
+              btnText: "Отправить заявку",
+              actionType: "callback"
+            }
           }),
           _vm._v(" "),
           _c(

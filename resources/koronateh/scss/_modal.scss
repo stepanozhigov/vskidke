@@ -4,21 +4,26 @@
     border-top: 1px solid rgba(186, 190, 194, 0.35);
 
     .modal-view-content {
-        min-width: 18rem;
 
         @screen phone {
             margin: 0 auto;
+            
+        }
+        @screen tablet {
             width: 50%;
+        }
+        @screen monitor {
+            max-width: rem(450);
         }
 
         h1 {
-            @apply font-bold;
+            @apply font-black;
             @apply text-left;
             font-size: rem(30);
             color: theme("colors.darktext");
             letter-spacing: rem(-0.3);
 
-            margin-top: rem(100);
+            margin-top: rem(126);
             margin-right: auto;
 
             @screen tablet {
@@ -33,7 +38,7 @@
         }
         form {
             @apply w-full;
-            margin-top: rem(32);
+            margin-top: rem(31);
 
             @screen tablet {
                 width: 100%;
@@ -48,7 +53,7 @@
                 color: theme("colors.darktext");
                 font-size: rem(18);
 
-                border-bottom: 1px solid theme("colors.bottomborder");
+                border: 1px solid theme("colors.bottomborder");
                 background-color: transparent;
 
                 height: rem(56);
@@ -61,7 +66,6 @@
                 }
                 &:focus {
                     color: theme("colors.darktext");
-                    border-bottom: 1px solid theme("colors.darktext");
                     outline: none;
                 }
 
@@ -71,9 +75,9 @@
             }
 
             button {
-                @apply font-normal;
+                @apply font-medium;
                 color: theme("colors.whitetext");
-                font-size: rem(18);
+                font-size: rem(16);
                 text-align: center;
 
                 height: rem(56);
@@ -82,7 +86,7 @@
                 0 0 8px rgba(79, 115, 89, 0.08);
 
                 border-radius: 1px;
-                background-color: theme("colors.greentext");
+                background-color: theme("colors.cyellow");
 
                 @apply mt-4;
                 @apply mx-auto;
@@ -106,7 +110,7 @@
 
         @apply font-normal;
         @apply text-left;
-        color: theme("colors.graytext1");
+        color: theme("colors.greytext01");
         font-size: rem(16);
         @apply underline;
 

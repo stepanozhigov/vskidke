@@ -1927,6 +1927,12 @@ body #app .app-template {
   border-color: rgba(215, 219, 216, var(--divide-opacity));
 }
 
+.divide-greytext01 > :not(template) ~ :not(template) {
+  --divide-opacity: 1;
+  border-color: #66605a;
+  border-color: rgba(102, 96, 90, var(--divide-opacity));
+}
+
 .divide-solid > :not(template) ~ :not(template) {
   border-style: solid;
 }
@@ -2647,6 +2653,12 @@ body #app .app-template {
   background-color: rgba(215, 219, 216, var(--bg-opacity));
 }
 
+.bg-greytext01 {
+  --bg-opacity: 1;
+  background-color: #66605a;
+  background-color: rgba(102, 96, 90, var(--bg-opacity));
+}
+
 .hover\:bg-transparent:hover {
   background-color: transparent;
 }
@@ -3247,6 +3259,12 @@ body #app .app-template {
   --bg-opacity: 1;
   background-color: #d7dbd8;
   background-color: rgba(215, 219, 216, var(--bg-opacity));
+}
+
+.hover\:bg-greytext01:hover {
+  --bg-opacity: 1;
+  background-color: #66605a;
+  background-color: rgba(102, 96, 90, var(--bg-opacity));
 }
 
 .focus\:bg-transparent:focus {
@@ -3851,6 +3869,12 @@ body #app .app-template {
   background-color: rgba(215, 219, 216, var(--bg-opacity));
 }
 
+.focus\:bg-greytext01:focus {
+  --bg-opacity: 1;
+  background-color: #66605a;
+  background-color: rgba(102, 96, 90, var(--bg-opacity));
+}
+
 .bg-none {
   background-image: none;
 }
@@ -4392,6 +4416,11 @@ body #app .app-template {
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
 }
 
+.from-greytext01 {
+  --gradient-from-color: #66605a;
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+}
+
 .via-transparent {
   --gradient-via-color: transparent;
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(0, 0, 0, 0));
@@ -4897,6 +4926,11 @@ body #app .app-template {
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
 }
 
+.via-greytext01 {
+  --gradient-via-color: #66605a;
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+}
+
 .to-transparent {
   --gradient-to-color: transparent;
 }
@@ -5299,6 +5333,10 @@ body #app .app-template {
 
 .to-bottomborder {
   --gradient-to-color: #d7dbd8;
+}
+
+.to-greytext01 {
+  --gradient-to-color: #66605a;
 }
 
 .hover\:from-transparent:hover {
@@ -5806,6 +5844,11 @@ body #app .app-template {
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
 }
 
+.hover\:from-greytext01:hover {
+  --gradient-from-color: #66605a;
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+}
+
 .hover\:via-transparent:hover {
   --gradient-via-color: transparent;
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(0, 0, 0, 0));
@@ -6311,6 +6354,11 @@ body #app .app-template {
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
 }
 
+.hover\:via-greytext01:hover {
+  --gradient-via-color: #66605a;
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+}
+
 .hover\:to-transparent:hover {
   --gradient-to-color: transparent;
 }
@@ -6713,6 +6761,10 @@ body #app .app-template {
 
 .hover\:to-bottomborder:hover {
   --gradient-to-color: #d7dbd8;
+}
+
+.hover\:to-greytext01:hover {
+  --gradient-to-color: #66605a;
 }
 
 .focus\:from-transparent:focus {
@@ -7220,6 +7272,11 @@ body #app .app-template {
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
 }
 
+.focus\:from-greytext01:focus {
+  --gradient-from-color: #66605a;
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+}
+
 .focus\:via-transparent:focus {
   --gradient-via-color: transparent;
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(0, 0, 0, 0));
@@ -7725,6 +7782,11 @@ body #app .app-template {
   --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
 }
 
+.focus\:via-greytext01:focus {
+  --gradient-via-color: #66605a;
+  --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+}
+
 .focus\:to-transparent:focus {
   --gradient-to-color: transparent;
 }
@@ -8127,6 +8189,10 @@ body #app .app-template {
 
 .focus\:to-bottomborder:focus {
   --gradient-to-color: #d7dbd8;
+}
+
+.focus\:to-greytext01:focus {
+  --gradient-to-color: #66605a;
 }
 
 .bg-opacity-0 {
@@ -8871,6 +8937,12 @@ body #app .app-template {
   border-color: rgba(215, 219, 216, var(--border-opacity));
 }
 
+.border-greytext01 {
+  --border-opacity: 1;
+  border-color: #66605a;
+  border-color: rgba(102, 96, 90, var(--border-opacity));
+}
+
 .hover\:border-transparent:hover {
   border-color: transparent;
 }
@@ -9473,6 +9545,12 @@ body #app .app-template {
   border-color: rgba(215, 219, 216, var(--border-opacity));
 }
 
+.hover\:border-greytext01:hover {
+  --border-opacity: 1;
+  border-color: #66605a;
+  border-color: rgba(102, 96, 90, var(--border-opacity));
+}
+
 .focus\:border-transparent:focus {
   border-color: transparent;
 }
@@ -10073,6 +10151,12 @@ body #app .app-template {
   --border-opacity: 1;
   border-color: #d7dbd8;
   border-color: rgba(215, 219, 216, var(--border-opacity));
+}
+
+.focus\:border-greytext01:focus {
+  --border-opacity: 1;
+  border-color: #66605a;
+  border-color: rgba(102, 96, 90, var(--border-opacity));
 }
 
 .border-opacity-0 {
@@ -13905,6 +13989,12 @@ body #app .app-template {
   color: rgba(215, 219, 216, var(--placeholder-opacity));
 }
 
+.placeholder-greytext01::placeholder {
+  --placeholder-opacity: 1;
+  color: #66605a;
+  color: rgba(102, 96, 90, var(--placeholder-opacity));
+}
+
 .focus\:placeholder-transparent:focus::placeholder {
   color: transparent;
 }
@@ -14505,6 +14595,12 @@ body #app .app-template {
   --placeholder-opacity: 1;
   color: #d7dbd8;
   color: rgba(215, 219, 216, var(--placeholder-opacity));
+}
+
+.focus\:placeholder-greytext01:focus::placeholder {
+  --placeholder-opacity: 1;
+  color: #66605a;
+  color: rgba(102, 96, 90, var(--placeholder-opacity));
 }
 
 .placeholder-opacity-0::placeholder {
@@ -15423,6 +15519,12 @@ body #app .app-template {
   color: rgba(215, 219, 216, var(--text-opacity));
 }
 
+.text-greytext01 {
+  --text-opacity: 1;
+  color: #66605a;
+  color: rgba(102, 96, 90, var(--text-opacity));
+}
+
 .hover\:text-transparent:hover {
   color: transparent;
 }
@@ -16025,6 +16127,12 @@ body #app .app-template {
   color: rgba(215, 219, 216, var(--text-opacity));
 }
 
+.hover\:text-greytext01:hover {
+  --text-opacity: 1;
+  color: #66605a;
+  color: rgba(102, 96, 90, var(--text-opacity));
+}
+
 .focus\:text-transparent:focus {
   color: transparent;
 }
@@ -16625,6 +16733,12 @@ body #app .app-template {
   --text-opacity: 1;
   color: #d7dbd8;
   color: rgba(215, 219, 216, var(--text-opacity));
+}
+
+.focus\:text-greytext01:focus {
+  --text-opacity: 1;
+  color: #66605a;
+  color: rgba(102, 96, 90, var(--text-opacity));
 }
 
 .text-opacity-0 {
@@ -20125,24 +20239,31 @@ body #app .app-template {
   border-top: 1px solid rgba(186, 190, 194, 0.35);
 }
 
-.modal-view .modal-view-content {
-  min-width: 18rem;
-}
-
 @media (min-width: 360px) {
   .modal-view .modal-view-content {
     margin: 0 auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .modal-view .modal-view-content {
     width: 50%;
   }
 }
 
+@media (min-width: 1024px) {
+  .modal-view .modal-view-content {
+    max-width: 28.125rem;
+  }
+}
+
 .modal-view .modal-view-content h1 {
-  font-weight: 700;
+  font-weight: 900;
   text-align: left;
   font-size: 1.875rem;
   color: #2a2928;
   letter-spacing: -0.01875rem;
-  margin-top: 6.25rem;
+  margin-top: 7.875rem;
   margin-right: auto;
 }
 
@@ -20160,7 +20281,7 @@ body #app .app-template {
 
 .modal-view .modal-view-content form {
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 1.9375rem;
 }
 
 @media (min-width: 768px) {
@@ -20177,7 +20298,7 @@ body #app .app-template {
   text-align: left;
   color: #2a2928;
   font-size: 1.125rem;
-  border-bottom: 1px solid #d7dbd8;
+  border: 1px solid #d7dbd8;
   background-color: transparent;
   height: 3.5rem;
   padding: 1rem;
@@ -20191,7 +20312,6 @@ body #app .app-template {
 
 .modal-view .modal-view-content form input:focus {
   color: #2a2928;
-  border-bottom: 1px solid #2a2928;
   outline: none;
 }
 
@@ -20199,14 +20319,14 @@ body #app .app-template {
 }
 
 .modal-view .modal-view-content form button {
-  font-weight: 400;
+  font-weight: 500;
   color: #f8f7f6;
-  font-size: 1.125rem;
+  font-size: 1rem;
   text-align: center;
   height: 3.5rem;
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16), 0 8px 8px rgba(79, 115, 89, 0.16), 0 0 8px rgba(79, 115, 89, 0.08);
   border-radius: 1px;
-  background-color: ;
+  background-color: #f39c12;
   margin-top: 1rem;
   margin-left: auto;
   margin-right: auto;
@@ -20228,7 +20348,7 @@ body #app .app-template {
   display: block;
   font-weight: 400;
   text-align: left;
-  color: ;
+  color: #66605a;
   font-size: 1rem;
   text-decoration: underline;
   margin-top: 1.5rem;
@@ -21461,6 +21581,12 @@ body #app .app-template {
     border-color: rgba(215, 219, 216, var(--divide-opacity));
   }
 
+  .phone\:divide-greytext01 > :not(template) ~ :not(template) {
+    --divide-opacity: 1;
+    border-color: #66605a;
+    border-color: rgba(102, 96, 90, var(--divide-opacity));
+  }
+
   .phone\:divide-solid > :not(template) ~ :not(template) {
     border-style: solid;
   }
@@ -22181,6 +22307,12 @@ body #app .app-template {
     background-color: rgba(215, 219, 216, var(--bg-opacity));
   }
 
+  .phone\:bg-greytext01 {
+    --bg-opacity: 1;
+    background-color: #66605a;
+    background-color: rgba(102, 96, 90, var(--bg-opacity));
+  }
+
   .phone\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -22781,6 +22913,12 @@ body #app .app-template {
     --bg-opacity: 1;
     background-color: #d7dbd8;
     background-color: rgba(215, 219, 216, var(--bg-opacity));
+  }
+
+  .phone\:hover\:bg-greytext01:hover {
+    --bg-opacity: 1;
+    background-color: #66605a;
+    background-color: rgba(102, 96, 90, var(--bg-opacity));
   }
 
   .phone\:focus\:bg-transparent:focus {
@@ -23385,6 +23523,12 @@ body #app .app-template {
     background-color: rgba(215, 219, 216, var(--bg-opacity));
   }
 
+  .phone\:focus\:bg-greytext01:focus {
+    --bg-opacity: 1;
+    background-color: #66605a;
+    background-color: rgba(102, 96, 90, var(--bg-opacity));
+  }
+
   .phone\:bg-none {
     background-image: none;
   }
@@ -23926,6 +24070,11 @@ body #app .app-template {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
   }
 
+  .phone\:from-greytext01 {
+    --gradient-from-color: #66605a;
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+  }
+
   .phone\:via-transparent {
     --gradient-via-color: transparent;
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(0, 0, 0, 0));
@@ -24431,6 +24580,11 @@ body #app .app-template {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
   }
 
+  .phone\:via-greytext01 {
+    --gradient-via-color: #66605a;
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+  }
+
   .phone\:to-transparent {
     --gradient-to-color: transparent;
   }
@@ -24833,6 +24987,10 @@ body #app .app-template {
 
   .phone\:to-bottomborder {
     --gradient-to-color: #d7dbd8;
+  }
+
+  .phone\:to-greytext01 {
+    --gradient-to-color: #66605a;
   }
 
   .phone\:hover\:from-transparent:hover {
@@ -25340,6 +25498,11 @@ body #app .app-template {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
   }
 
+  .phone\:hover\:from-greytext01:hover {
+    --gradient-from-color: #66605a;
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+  }
+
   .phone\:hover\:via-transparent:hover {
     --gradient-via-color: transparent;
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(0, 0, 0, 0));
@@ -25845,6 +26008,11 @@ body #app .app-template {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
   }
 
+  .phone\:hover\:via-greytext01:hover {
+    --gradient-via-color: #66605a;
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+  }
+
   .phone\:hover\:to-transparent:hover {
     --gradient-to-color: transparent;
   }
@@ -26247,6 +26415,10 @@ body #app .app-template {
 
   .phone\:hover\:to-bottomborder:hover {
     --gradient-to-color: #d7dbd8;
+  }
+
+  .phone\:hover\:to-greytext01:hover {
+    --gradient-to-color: #66605a;
   }
 
   .phone\:focus\:from-transparent:focus {
@@ -26754,6 +26926,11 @@ body #app .app-template {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
   }
 
+  .phone\:focus\:from-greytext01:focus {
+    --gradient-from-color: #66605a;
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+  }
+
   .phone\:focus\:via-transparent:focus {
     --gradient-via-color: transparent;
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(0, 0, 0, 0));
@@ -27259,6 +27436,11 @@ body #app .app-template {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
   }
 
+  .phone\:focus\:via-greytext01:focus {
+    --gradient-via-color: #66605a;
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+  }
+
   .phone\:focus\:to-transparent:focus {
     --gradient-to-color: transparent;
   }
@@ -27661,6 +27843,10 @@ body #app .app-template {
 
   .phone\:focus\:to-bottomborder:focus {
     --gradient-to-color: #d7dbd8;
+  }
+
+  .phone\:focus\:to-greytext01:focus {
+    --gradient-to-color: #66605a;
   }
 
   .phone\:bg-opacity-0 {
@@ -28405,6 +28591,12 @@ body #app .app-template {
     border-color: rgba(215, 219, 216, var(--border-opacity));
   }
 
+  .phone\:border-greytext01 {
+    --border-opacity: 1;
+    border-color: #66605a;
+    border-color: rgba(102, 96, 90, var(--border-opacity));
+  }
+
   .phone\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -29007,6 +29199,12 @@ body #app .app-template {
     border-color: rgba(215, 219, 216, var(--border-opacity));
   }
 
+  .phone\:hover\:border-greytext01:hover {
+    --border-opacity: 1;
+    border-color: #66605a;
+    border-color: rgba(102, 96, 90, var(--border-opacity));
+  }
+
   .phone\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -29607,6 +29805,12 @@ body #app .app-template {
     --border-opacity: 1;
     border-color: #d7dbd8;
     border-color: rgba(215, 219, 216, var(--border-opacity));
+  }
+
+  .phone\:focus\:border-greytext01:focus {
+    --border-opacity: 1;
+    border-color: #66605a;
+    border-color: rgba(102, 96, 90, var(--border-opacity));
   }
 
   .phone\:border-opacity-0 {
@@ -33439,6 +33643,12 @@ body #app .app-template {
     color: rgba(215, 219, 216, var(--placeholder-opacity));
   }
 
+  .phone\:placeholder-greytext01::placeholder {
+    --placeholder-opacity: 1;
+    color: #66605a;
+    color: rgba(102, 96, 90, var(--placeholder-opacity));
+  }
+
   .phone\:focus\:placeholder-transparent:focus::placeholder {
     color: transparent;
   }
@@ -34039,6 +34249,12 @@ body #app .app-template {
     --placeholder-opacity: 1;
     color: #d7dbd8;
     color: rgba(215, 219, 216, var(--placeholder-opacity));
+  }
+
+  .phone\:focus\:placeholder-greytext01:focus::placeholder {
+    --placeholder-opacity: 1;
+    color: #66605a;
+    color: rgba(102, 96, 90, var(--placeholder-opacity));
   }
 
   .phone\:placeholder-opacity-0::placeholder {
@@ -34957,6 +35173,12 @@ body #app .app-template {
     color: rgba(215, 219, 216, var(--text-opacity));
   }
 
+  .phone\:text-greytext01 {
+    --text-opacity: 1;
+    color: #66605a;
+    color: rgba(102, 96, 90, var(--text-opacity));
+  }
+
   .phone\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -35559,6 +35781,12 @@ body #app .app-template {
     color: rgba(215, 219, 216, var(--text-opacity));
   }
 
+  .phone\:hover\:text-greytext01:hover {
+    --text-opacity: 1;
+    color: #66605a;
+    color: rgba(102, 96, 90, var(--text-opacity));
+  }
+
   .phone\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -36159,6 +36387,12 @@ body #app .app-template {
     --text-opacity: 1;
     color: #d7dbd8;
     color: rgba(215, 219, 216, var(--text-opacity));
+  }
+
+  .phone\:focus\:text-greytext01:focus {
+    --text-opacity: 1;
+    color: #66605a;
+    color: rgba(102, 96, 90, var(--text-opacity));
   }
 
   .phone\:text-opacity-0 {
@@ -40445,6 +40679,12 @@ body #app .app-template {
     border-color: rgba(215, 219, 216, var(--divide-opacity));
   }
 
+  .tablet\:divide-greytext01 > :not(template) ~ :not(template) {
+    --divide-opacity: 1;
+    border-color: #66605a;
+    border-color: rgba(102, 96, 90, var(--divide-opacity));
+  }
+
   .tablet\:divide-solid > :not(template) ~ :not(template) {
     border-style: solid;
   }
@@ -41165,6 +41405,12 @@ body #app .app-template {
     background-color: rgba(215, 219, 216, var(--bg-opacity));
   }
 
+  .tablet\:bg-greytext01 {
+    --bg-opacity: 1;
+    background-color: #66605a;
+    background-color: rgba(102, 96, 90, var(--bg-opacity));
+  }
+
   .tablet\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -41765,6 +42011,12 @@ body #app .app-template {
     --bg-opacity: 1;
     background-color: #d7dbd8;
     background-color: rgba(215, 219, 216, var(--bg-opacity));
+  }
+
+  .tablet\:hover\:bg-greytext01:hover {
+    --bg-opacity: 1;
+    background-color: #66605a;
+    background-color: rgba(102, 96, 90, var(--bg-opacity));
   }
 
   .tablet\:focus\:bg-transparent:focus {
@@ -42369,6 +42621,12 @@ body #app .app-template {
     background-color: rgba(215, 219, 216, var(--bg-opacity));
   }
 
+  .tablet\:focus\:bg-greytext01:focus {
+    --bg-opacity: 1;
+    background-color: #66605a;
+    background-color: rgba(102, 96, 90, var(--bg-opacity));
+  }
+
   .tablet\:bg-none {
     background-image: none;
   }
@@ -42910,6 +43168,11 @@ body #app .app-template {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
   }
 
+  .tablet\:from-greytext01 {
+    --gradient-from-color: #66605a;
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+  }
+
   .tablet\:via-transparent {
     --gradient-via-color: transparent;
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(0, 0, 0, 0));
@@ -43415,6 +43678,11 @@ body #app .app-template {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
   }
 
+  .tablet\:via-greytext01 {
+    --gradient-via-color: #66605a;
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+  }
+
   .tablet\:to-transparent {
     --gradient-to-color: transparent;
   }
@@ -43817,6 +44085,10 @@ body #app .app-template {
 
   .tablet\:to-bottomborder {
     --gradient-to-color: #d7dbd8;
+  }
+
+  .tablet\:to-greytext01 {
+    --gradient-to-color: #66605a;
   }
 
   .tablet\:hover\:from-transparent:hover {
@@ -44324,6 +44596,11 @@ body #app .app-template {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
   }
 
+  .tablet\:hover\:from-greytext01:hover {
+    --gradient-from-color: #66605a;
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+  }
+
   .tablet\:hover\:via-transparent:hover {
     --gradient-via-color: transparent;
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(0, 0, 0, 0));
@@ -44829,6 +45106,11 @@ body #app .app-template {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
   }
 
+  .tablet\:hover\:via-greytext01:hover {
+    --gradient-via-color: #66605a;
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+  }
+
   .tablet\:hover\:to-transparent:hover {
     --gradient-to-color: transparent;
   }
@@ -45231,6 +45513,10 @@ body #app .app-template {
 
   .tablet\:hover\:to-bottomborder:hover {
     --gradient-to-color: #d7dbd8;
+  }
+
+  .tablet\:hover\:to-greytext01:hover {
+    --gradient-to-color: #66605a;
   }
 
   .tablet\:focus\:from-transparent:focus {
@@ -45738,6 +46024,11 @@ body #app .app-template {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
   }
 
+  .tablet\:focus\:from-greytext01:focus {
+    --gradient-from-color: #66605a;
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+  }
+
   .tablet\:focus\:via-transparent:focus {
     --gradient-via-color: transparent;
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(0, 0, 0, 0));
@@ -46243,6 +46534,11 @@ body #app .app-template {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
   }
 
+  .tablet\:focus\:via-greytext01:focus {
+    --gradient-via-color: #66605a;
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+  }
+
   .tablet\:focus\:to-transparent:focus {
     --gradient-to-color: transparent;
   }
@@ -46645,6 +46941,10 @@ body #app .app-template {
 
   .tablet\:focus\:to-bottomborder:focus {
     --gradient-to-color: #d7dbd8;
+  }
+
+  .tablet\:focus\:to-greytext01:focus {
+    --gradient-to-color: #66605a;
   }
 
   .tablet\:bg-opacity-0 {
@@ -47389,6 +47689,12 @@ body #app .app-template {
     border-color: rgba(215, 219, 216, var(--border-opacity));
   }
 
+  .tablet\:border-greytext01 {
+    --border-opacity: 1;
+    border-color: #66605a;
+    border-color: rgba(102, 96, 90, var(--border-opacity));
+  }
+
   .tablet\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -47991,6 +48297,12 @@ body #app .app-template {
     border-color: rgba(215, 219, 216, var(--border-opacity));
   }
 
+  .tablet\:hover\:border-greytext01:hover {
+    --border-opacity: 1;
+    border-color: #66605a;
+    border-color: rgba(102, 96, 90, var(--border-opacity));
+  }
+
   .tablet\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -48591,6 +48903,12 @@ body #app .app-template {
     --border-opacity: 1;
     border-color: #d7dbd8;
     border-color: rgba(215, 219, 216, var(--border-opacity));
+  }
+
+  .tablet\:focus\:border-greytext01:focus {
+    --border-opacity: 1;
+    border-color: #66605a;
+    border-color: rgba(102, 96, 90, var(--border-opacity));
   }
 
   .tablet\:border-opacity-0 {
@@ -52423,6 +52741,12 @@ body #app .app-template {
     color: rgba(215, 219, 216, var(--placeholder-opacity));
   }
 
+  .tablet\:placeholder-greytext01::placeholder {
+    --placeholder-opacity: 1;
+    color: #66605a;
+    color: rgba(102, 96, 90, var(--placeholder-opacity));
+  }
+
   .tablet\:focus\:placeholder-transparent:focus::placeholder {
     color: transparent;
   }
@@ -53023,6 +53347,12 @@ body #app .app-template {
     --placeholder-opacity: 1;
     color: #d7dbd8;
     color: rgba(215, 219, 216, var(--placeholder-opacity));
+  }
+
+  .tablet\:focus\:placeholder-greytext01:focus::placeholder {
+    --placeholder-opacity: 1;
+    color: #66605a;
+    color: rgba(102, 96, 90, var(--placeholder-opacity));
   }
 
   .tablet\:placeholder-opacity-0::placeholder {
@@ -53941,6 +54271,12 @@ body #app .app-template {
     color: rgba(215, 219, 216, var(--text-opacity));
   }
 
+  .tablet\:text-greytext01 {
+    --text-opacity: 1;
+    color: #66605a;
+    color: rgba(102, 96, 90, var(--text-opacity));
+  }
+
   .tablet\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -54543,6 +54879,12 @@ body #app .app-template {
     color: rgba(215, 219, 216, var(--text-opacity));
   }
 
+  .tablet\:hover\:text-greytext01:hover {
+    --text-opacity: 1;
+    color: #66605a;
+    color: rgba(102, 96, 90, var(--text-opacity));
+  }
+
   .tablet\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -55143,6 +55485,12 @@ body #app .app-template {
     --text-opacity: 1;
     color: #d7dbd8;
     color: rgba(215, 219, 216, var(--text-opacity));
+  }
+
+  .tablet\:focus\:text-greytext01:focus {
+    --text-opacity: 1;
+    color: #66605a;
+    color: rgba(102, 96, 90, var(--text-opacity));
   }
 
   .tablet\:text-opacity-0 {
@@ -59429,6 +59777,12 @@ body #app .app-template {
     border-color: rgba(215, 219, 216, var(--divide-opacity));
   }
 
+  .monitor\:divide-greytext01 > :not(template) ~ :not(template) {
+    --divide-opacity: 1;
+    border-color: #66605a;
+    border-color: rgba(102, 96, 90, var(--divide-opacity));
+  }
+
   .monitor\:divide-solid > :not(template) ~ :not(template) {
     border-style: solid;
   }
@@ -60149,6 +60503,12 @@ body #app .app-template {
     background-color: rgba(215, 219, 216, var(--bg-opacity));
   }
 
+  .monitor\:bg-greytext01 {
+    --bg-opacity: 1;
+    background-color: #66605a;
+    background-color: rgba(102, 96, 90, var(--bg-opacity));
+  }
+
   .monitor\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -60749,6 +61109,12 @@ body #app .app-template {
     --bg-opacity: 1;
     background-color: #d7dbd8;
     background-color: rgba(215, 219, 216, var(--bg-opacity));
+  }
+
+  .monitor\:hover\:bg-greytext01:hover {
+    --bg-opacity: 1;
+    background-color: #66605a;
+    background-color: rgba(102, 96, 90, var(--bg-opacity));
   }
 
   .monitor\:focus\:bg-transparent:focus {
@@ -61353,6 +61719,12 @@ body #app .app-template {
     background-color: rgba(215, 219, 216, var(--bg-opacity));
   }
 
+  .monitor\:focus\:bg-greytext01:focus {
+    --bg-opacity: 1;
+    background-color: #66605a;
+    background-color: rgba(102, 96, 90, var(--bg-opacity));
+  }
+
   .monitor\:bg-none {
     background-image: none;
   }
@@ -61894,6 +62266,11 @@ body #app .app-template {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
   }
 
+  .monitor\:from-greytext01 {
+    --gradient-from-color: #66605a;
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+  }
+
   .monitor\:via-transparent {
     --gradient-via-color: transparent;
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(0, 0, 0, 0));
@@ -62399,6 +62776,11 @@ body #app .app-template {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
   }
 
+  .monitor\:via-greytext01 {
+    --gradient-via-color: #66605a;
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+  }
+
   .monitor\:to-transparent {
     --gradient-to-color: transparent;
   }
@@ -62801,6 +63183,10 @@ body #app .app-template {
 
   .monitor\:to-bottomborder {
     --gradient-to-color: #d7dbd8;
+  }
+
+  .monitor\:to-greytext01 {
+    --gradient-to-color: #66605a;
   }
 
   .monitor\:hover\:from-transparent:hover {
@@ -63308,6 +63694,11 @@ body #app .app-template {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
   }
 
+  .monitor\:hover\:from-greytext01:hover {
+    --gradient-from-color: #66605a;
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+  }
+
   .monitor\:hover\:via-transparent:hover {
     --gradient-via-color: transparent;
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(0, 0, 0, 0));
@@ -63813,6 +64204,11 @@ body #app .app-template {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
   }
 
+  .monitor\:hover\:via-greytext01:hover {
+    --gradient-via-color: #66605a;
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+  }
+
   .monitor\:hover\:to-transparent:hover {
     --gradient-to-color: transparent;
   }
@@ -64215,6 +64611,10 @@ body #app .app-template {
 
   .monitor\:hover\:to-bottomborder:hover {
     --gradient-to-color: #d7dbd8;
+  }
+
+  .monitor\:hover\:to-greytext01:hover {
+    --gradient-to-color: #66605a;
   }
 
   .monitor\:focus\:from-transparent:focus {
@@ -64722,6 +65122,11 @@ body #app .app-template {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
   }
 
+  .monitor\:focus\:from-greytext01:focus {
+    --gradient-from-color: #66605a;
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+  }
+
   .monitor\:focus\:via-transparent:focus {
     --gradient-via-color: transparent;
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(0, 0, 0, 0));
@@ -65227,6 +65632,11 @@ body #app .app-template {
     --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(215, 219, 216, 0));
   }
 
+  .monitor\:focus\:via-greytext01:focus {
+    --gradient-via-color: #66605a;
+    --gradient-color-stops: var(--gradient-from-color), var(--gradient-via-color), var(--gradient-to-color, rgba(102, 96, 90, 0));
+  }
+
   .monitor\:focus\:to-transparent:focus {
     --gradient-to-color: transparent;
   }
@@ -65629,6 +66039,10 @@ body #app .app-template {
 
   .monitor\:focus\:to-bottomborder:focus {
     --gradient-to-color: #d7dbd8;
+  }
+
+  .monitor\:focus\:to-greytext01:focus {
+    --gradient-to-color: #66605a;
   }
 
   .monitor\:bg-opacity-0 {
@@ -66373,6 +66787,12 @@ body #app .app-template {
     border-color: rgba(215, 219, 216, var(--border-opacity));
   }
 
+  .monitor\:border-greytext01 {
+    --border-opacity: 1;
+    border-color: #66605a;
+    border-color: rgba(102, 96, 90, var(--border-opacity));
+  }
+
   .monitor\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -66975,6 +67395,12 @@ body #app .app-template {
     border-color: rgba(215, 219, 216, var(--border-opacity));
   }
 
+  .monitor\:hover\:border-greytext01:hover {
+    --border-opacity: 1;
+    border-color: #66605a;
+    border-color: rgba(102, 96, 90, var(--border-opacity));
+  }
+
   .monitor\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -67575,6 +68001,12 @@ body #app .app-template {
     --border-opacity: 1;
     border-color: #d7dbd8;
     border-color: rgba(215, 219, 216, var(--border-opacity));
+  }
+
+  .monitor\:focus\:border-greytext01:focus {
+    --border-opacity: 1;
+    border-color: #66605a;
+    border-color: rgba(102, 96, 90, var(--border-opacity));
   }
 
   .monitor\:border-opacity-0 {
@@ -71407,6 +71839,12 @@ body #app .app-template {
     color: rgba(215, 219, 216, var(--placeholder-opacity));
   }
 
+  .monitor\:placeholder-greytext01::placeholder {
+    --placeholder-opacity: 1;
+    color: #66605a;
+    color: rgba(102, 96, 90, var(--placeholder-opacity));
+  }
+
   .monitor\:focus\:placeholder-transparent:focus::placeholder {
     color: transparent;
   }
@@ -72007,6 +72445,12 @@ body #app .app-template {
     --placeholder-opacity: 1;
     color: #d7dbd8;
     color: rgba(215, 219, 216, var(--placeholder-opacity));
+  }
+
+  .monitor\:focus\:placeholder-greytext01:focus::placeholder {
+    --placeholder-opacity: 1;
+    color: #66605a;
+    color: rgba(102, 96, 90, var(--placeholder-opacity));
   }
 
   .monitor\:placeholder-opacity-0::placeholder {
@@ -72925,6 +73369,12 @@ body #app .app-template {
     color: rgba(215, 219, 216, var(--text-opacity));
   }
 
+  .monitor\:text-greytext01 {
+    --text-opacity: 1;
+    color: #66605a;
+    color: rgba(102, 96, 90, var(--text-opacity));
+  }
+
   .monitor\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -73527,6 +73977,12 @@ body #app .app-template {
     color: rgba(215, 219, 216, var(--text-opacity));
   }
 
+  .monitor\:hover\:text-greytext01:hover {
+    --text-opacity: 1;
+    color: #66605a;
+    color: rgba(102, 96, 90, var(--text-opacity));
+  }
+
   .monitor\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -74127,6 +74583,12 @@ body #app .app-template {
     --text-opacity: 1;
     color: #d7dbd8;
     color: rgba(215, 219, 216, var(--text-opacity));
+  }
+
+  .monitor\:focus\:text-greytext01:focus {
+    --text-opacity: 1;
+    color: #66605a;
+    color: rgba(102, 96, 90, var(--text-opacity));
   }
 
   .monitor\:text-opacity-0 {
