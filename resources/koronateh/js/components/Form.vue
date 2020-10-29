@@ -46,6 +46,10 @@
 				type: String,
 				default: "Введите ваш номер*",
 			},
+			ymAction: {
+				type: String,
+				default: "send_form",
+			},
 		},
 		validations: {
 			phone: {
@@ -69,7 +73,7 @@
 							phone: this.phone,
 						})
 						.then((response) => {
-							// ym(68586496, "reachGoal", "send form");
+							ym(68785867, "reachGoal", this.ymAction);
 							this.setSuccess();
 							this.setModal();
 							if (this.env == "production") {
