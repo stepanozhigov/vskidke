@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Koronateh;
 
 use App\Http\Controllers\Controller;
 use App\Mail\Autoschool\SendMail;
+use App\Mail\Koronateh\SendKoronatehMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Mail;
@@ -19,6 +20,7 @@ class KoronatehController extends Controller
 
     public function mail(Request $request)
     {
-        Mail::to('koordinator@kazmos.net')->send(new SendMail($request->phone, $request->tag));
+        $to = env('APP_ENV') == 'local' ? env('MAIL_TO_TEST') : 'koordinator@kazmos.net';
+        Mail::to($to)->send(new SendKoronatehMail($request->phone, $request->tag));
     }
 }

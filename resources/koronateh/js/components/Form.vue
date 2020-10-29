@@ -71,11 +71,11 @@
 						.then((response) => {
 							fbq("track", "Lead");
 							ym(68586496, "reachGoal", "send form");
+							this.setSuccess();
+							this.setModal();
 							if (this.env == "production") {
-								window.location.replace(this.redirectTo);
+								setTimeout(window.location.replace(this.redirectTo), 2000);
 							}
-							// this.setSuccess();
-							// this.setModal();
 						});
 				}
 			},

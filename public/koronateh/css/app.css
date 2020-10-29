@@ -20232,18 +20232,6 @@ body #app .app-template {
   text-decoration: underline;
 }
 
-.success-vew {
-  background-color: red;
-  font-family: Roboto;
-}
-
-.success-vew .success-vew-content h2 {
-  font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.375rem;
-  text-transform: uppercase;
-}
-
 .modal-view {
   padding-left: 1rem;
   padding-right: 1rem;

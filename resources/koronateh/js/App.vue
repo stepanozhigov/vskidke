@@ -41,8 +41,8 @@
 		},
 		mounted: function () {
 			//
-			this.setSuccess();
-			this.setModal();
+			//this.setSuccess();
+			//this.setModal();
 			//
 			this.setViewHeight();
 			window.addEventListener("resize", () => {

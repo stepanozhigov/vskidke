@@ -1968,9 +1968,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var _this = this;
 
     //
-    this.setSuccess();
-    this.setModal(); //
-
+    //this.setSuccess();
+    //this.setModal();
+    //
     this.setViewHeight();
     window.addEventListener("resize", function () {
       _this.setViewHeight();
@@ -2084,11 +2084,13 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["helpe
           fbq("track", "Lead");
           ym(68586496, "reachGoal", "send form");
 
-          if (_this.env == "production") {
-            window.location.replace(_this.redirectTo);
-          } // this.setSuccess();
-          // this.setModal();
+          _this.setSuccess();
 
+          _this.setModal();
+
+          if (_this.env == "production") {
+            setTimeout(window.location.replace(_this.redirectTo), 2000);
+          }
         });
       }
     },
