@@ -41,7 +41,7 @@
 		},
 		mounted: function () {
 			//
-			//this.setSuccess();
+			this.setSuccess();
 			this.setModal();
 			//
 			this.setViewHeight();

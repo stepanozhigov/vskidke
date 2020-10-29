@@ -20232,6 +20232,18 @@ body #app .app-template {
   text-decoration: underline;
 }
 
+.success-vew {
+  background-color: red;
+  font-family: Roboto;
+}
+
+.success-vew .success-vew-content h2 {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.375rem;
+  text-transform: uppercase;
+}
+
 .modal-view {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -20353,6 +20365,63 @@ body #app .app-template {
   text-decoration: underline;
   margin-top: 1.5rem;
   margin-right: auto;
+}
+
+.success-view {
+  font-family: Roboto;
+}
+
+.success-view .success-view-content {
+  text-align: left;
+  width: auto;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.success-view .success-view-content h2 {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.375rem;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .success-view .success-view-content h2 {
+    font-size: 1rem;
+  }
+}
+
+.success-view .success-view-content h4 {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -0.01875rem;
+  line-height: 2.5rem;
+  text-align: left;
+  margin-top: 0.5rem;
+  max-width: 12.5rem;
+}
+
+@media (min-width: 768px) {
+  .success-view .success-view-content h4 {
+    max-width: 100%;
+    font-size: 3rem;
+    margin-top: 1rem;
+  }
+}
+
+.success-view .success-view-content a {
+  color: #66605a;
+  text-align: left;
+  text-decoration: underline;
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .success-view .success-view-content a {
+    font-size: 1.25rem;
+  }
 }
 
 .button-pulse {
