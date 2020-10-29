@@ -34,7 +34,7 @@
 			</div>
 			<Form
 				placeholderText="Ваш телефон*"
-				btnText="Отправить заявку"
+				btnText="Заказать звонок"
 				actionType="callback"
 			/>
 			<a href="#" @click.prevent="toggleModal">Закрыть</a>

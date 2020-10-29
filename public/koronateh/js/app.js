@@ -2078,12 +2078,10 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["helpe
         this.isValid = false;
       } else {
         this.isValid = true;
-        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/bx24", {
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/mail", {
           phone: this.phone
         }).then(function (response) {
-          fbq("track", "Lead");
-          ym(68586496, "reachGoal", "send form");
-
+          // ym(68586496, "reachGoal", "send form");
           _this.setSuccess();
 
           _this.setModal();
@@ -3976,7 +3974,7 @@ var render = function() {
           _c("Form", {
             attrs: {
               placeholderText: "Ваш телефон*",
-              btnText: "Отправить заявку",
+              btnText: "Заказать звонок",
               actionType: "callback"
             }
           }),

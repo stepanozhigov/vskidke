@@ -65,12 +65,11 @@
 				} else {
 					this.isValid = true;
 					axios
-						.post("/bx24", {
+						.post("/mail", {
 							phone: this.phone,
 						})
 						.then((response) => {
-							fbq("track", "Lead");
-							ym(68586496, "reachGoal", "send form");
+							// ym(68586496, "reachGoal", "send form");
 							this.setSuccess();
 							this.setModal();
 							if (this.env == "production") {
