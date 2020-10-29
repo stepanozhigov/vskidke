@@ -35,7 +35,6 @@
 			<Form
 				placeholderText="Ваш телефон*"
 				btnText="Заказать звонок"
-				actionType="callback"
 				ymAction="callback"
 			/>
 			<a href="#" @click.prevent="toggleModal">Закрыть</a>
