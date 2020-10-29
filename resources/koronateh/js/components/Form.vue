@@ -50,6 +50,10 @@
 				type: String,
 				default: "send_form",
 			},
+			gaAction: {
+				type: String,
+				default: "send_form",
+			},
 		},
 		validations: {
 			phone: {
@@ -74,6 +78,7 @@
 						})
 						.then((response) => {
 							ym(68785867, "reachGoal", this.ymAction);
+							ga.getAll()[0].send("event", this.gaAction, "send");
 							this.setSuccess();
 							this.setModal();
 							if (this.env == "production") {

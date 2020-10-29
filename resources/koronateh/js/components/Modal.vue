@@ -36,6 +36,7 @@
 				placeholderText="Ваш телефон*"
 				btnText="Заказать звонок"
 				ymAction="callback"
+				gaAction="callback"
 			/>
 			<a href="#" @click.prevent="toggleModal">Закрыть</a>
 		</div>
