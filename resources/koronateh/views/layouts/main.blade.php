@@ -21,14 +21,16 @@
     <script src="{{ mix('koronateh/js/app.js') }}" defer></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-QFV26C1GTM"></script>;
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+    {{-- G-QFV26C1GTM --}}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QFV26C1GTM"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-            gtag('config', 'G-QFV26C1GTM');
-        </script>
+    gtag('config', 'G-QFV26C1GTM');
+
+    </script>
     <!-- /Global site tag (gtag.js) - Google Analytics -->
 
     <!-- Yandex.Metrika counter -->

@@ -78,6 +78,7 @@
 						})
 						.then((response) => {
 							ym(68785867, "reachGoal", this.ymAction);
+							gtag("event", this.gaAction);
 							//ga.getAll()[0].send("event", this.gaAction, "send");
 							this.setSuccess();
 							this.setModal();
