@@ -78,8 +78,12 @@
 						})
 						.then((response) => {
 							ym(68785867, "reachGoal", this.ymAction);
-							gtag("event", this.gaAction);
-							//ga.getAll()[0].send("event", this.gaAction, "send");
+
+							if (this.gaAction == "send_form") {
+								ga("send", "event", "lead", "send_form");
+							} else if (this.gaAction == "callback") {
+								ga("send", "event", "callback", "send");
+							}
 							this.setSuccess();
 							this.setModal();
 							if (this.env == "production") {
