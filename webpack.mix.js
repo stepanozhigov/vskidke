@@ -13,19 +13,19 @@ require("laravel-mix-purgecss");
     // {},[tailwindcss("./tailwind.autoschool.config.js")])
     
 // POTOLKI
-mix
+//mix
     //.copy("resources/potolki/images/", "public/potolki/images/")
     //.copy("resources/potolki/fonts/", "public/potolki/fonts/")
-    .js("resources/potolki/js/potolki.js", "public/potolki/js")
-    .sass("resources/potolki/scss/app.scss", "public/potolki/css")
+    //.js("resources/potolki/js/potolki.js", "public/potolki/js")
+    //.sass("resources/potolki/scss/app.scss", "public/potolki/css")
 
 //ROMATTI
-//mix
+mix
     //.copy("resources/romatti/images/", "public/romatti/images/")
     //.copy("resources/romatti/fonts/", "public/romatti/fonts/")
-    // .js("resources/romatti/js/app.js", "public/romatti/js",)
-    // .sass("resources/romatti/scss/app.scss", "public/romatti/css",
-    // {},[tailwindcss("./tailwind.romatti.config.js")])
+    .js("resources/romatti/js/app.js", "public/romatti/js",)
+    .sass("resources/romatti/scss/app.scss", "public/romatti/css",
+    {},[tailwindcss("./tailwind.romatti.config.js")])
 
 //ZAMANIA
 //mix
@@ -60,7 +60,7 @@ mix
 });
 
 mix.browserSync({
-    proxy: "koronateh.vskidke.local",
+    proxy: "romatti.vskidke.local",
     open: false
 });
 
