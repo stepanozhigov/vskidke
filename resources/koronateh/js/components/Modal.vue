@@ -34,7 +34,7 @@
 			</div>
 			<Form
 				placeholderText="Ваш телефон*"
-				btnText="Заказать звонок"
+				btnText="Отправить заявку"
 				ymAction="callback"
 				gaAction="callback"
 			/>
