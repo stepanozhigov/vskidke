@@ -13,11 +13,11 @@ require("laravel-mix-purgecss");
     // {},[tailwindcss("./tailwind.autoschool.config.js")])
     
 // POTOLKI
-//mix
+mix
     //.copy("resources/potolki/images/", "public/potolki/images/")
     //.copy("resources/potolki/fonts/", "public/potolki/fonts/")
-    // .js("resources/potolki/js/potolki.js", "public/potolki/js")
-    // .sass("resources/potolki/scss/app.scss", "public/potolki/css")
+    .js("resources/potolki/js/potolki.js", "public/potolki/js")
+    .sass("resources/potolki/scss/app.scss", "public/potolki/css")
 
 //ROMATTI
 //mix
