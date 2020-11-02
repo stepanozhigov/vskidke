@@ -1,7 +1,7 @@
 <template>
 	<div class="app-template min-h-screen flex flex-col">
 		<!-- HEADER -->
-		<app-header></app-header>
+		<app-header v-if="!isSuccess && !isModal"></app-header>
 		<!-- /HEADER -->
 
 		<!-- HOME VIEW -->
