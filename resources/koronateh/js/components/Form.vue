@@ -80,11 +80,13 @@
 							ym(68785867, "reachGoal", this.ymAction);
 
 							if (this.gaAction == "send_form") {
-								console.log(this.ymAction);
-								ga("send", "event", "lead", "send_form");
+								//console.log(this.ymAction);
+								ga.getAll()[0].send("event", "lead", "send_form");
+								//ga("send", "event", "lead", "send_form");
 							} else if (this.gaAction == "callback") {
-								console.log(this.ymAction);
-								ga("send", "event", "callback", "send");
+								//console.log(this.ymAction);
+								//ga("send", "event", "callback", "send");
+								ga.getAll()[0].send("event", "callback", "send");
 							}
 							this.setSuccess();
 							this.setModal();
