@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Парк Zамания в Москве</title>
     <link rel="shortcut icon" type="image/png" href="{{ asset('zamania/images/favicon-32x32.png')}}">
-    <link href="{{ mix('/zamania/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('/zamania/css/app.css') }}" rel="stylesheet">
 
 </head>
 
@@ -18,7 +18,7 @@
     </div>
 
     {{-- VUE-CLI JS --}}
-    <script src="{{ mix('zamania/js/app.js') }}" defer></script>
+    <script src="{{ asset('zamania/js/app.js') }}" defer></script>
 
     <!-- Facebook Pixel Code -->
     <script>

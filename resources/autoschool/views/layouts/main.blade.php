@@ -9,7 +9,7 @@
     <link rel="icon" href="{{ asset('autoschool/images/favicon-32x32.png')}}" sizes='32x32'>
     <link rel="icon" href="{{ asset('autoschool/images/favicon-128x128.png')}}" sizes='128x128'>
     <link rel="icon" href="{{ asset('autoschool/images/favicon-180x180.png')}}" sizes='180x180'>
-    <link href="{{ mix('/autoschool/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('/autoschool/css/app.css') }}" rel="stylesheet">
 
 </head>
 
@@ -20,7 +20,7 @@
     </div>
 
     {{-- VUE-CLI JS --}}
-    <script src="{{ mix('autoschool/js/app.js') }}" defer></script>
+    <script src="{{ asset('autoschool/js/app.js') }}" defer></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >

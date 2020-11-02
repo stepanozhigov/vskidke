@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Роматти - дизайнерская мебель и светильники от производителя</title>
     <link rel="shortcut icon" href="{{ asset('romatti/images/favicon.ico')}}">
-    <link href="{{ mix('/romatti/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('/romatti/css/app.css') }}" rel="stylesheet">
 
 </head>
 
@@ -18,7 +18,7 @@
     </div>
 
     {{-- VUE-CLI JS --}}
-    <script src="{{ mix('romatti/js/app.js') }}" defer></script>
+    <script src="{{ asset('romatti/js/app.js') }}" defer></script>
 
     <!-- Facebook Pixel Code -->
     <script>
