@@ -80,8 +80,10 @@
 							ym(68785867, "reachGoal", this.ymAction);
 
 							if (this.gaAction == "send_form") {
+								console.log(this.ymAction);
 								ga("send", "event", "lead", "send_form");
 							} else if (this.gaAction == "callback") {
+								console.log(this.ymAction);
 								ga("send", "event", "callback", "send");
 							}
 							this.setSuccess();
