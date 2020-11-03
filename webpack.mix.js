@@ -20,10 +20,10 @@ require("laravel-mix-purgecss");
     //.sass("resources/potolki/scss/app.scss", "public/potolki/css")
 
 //ROMATTI
-mix
+//mix
     //.copy("resources/romatti/images/", "public/romatti/images/")
     //.copy("resources/romatti/fonts/", "public/romatti/fonts/")
-    .js("resources/romatti/js/app.js", "public/romatti/js")
+    //.js("resources/romatti/js/app.js", "public/romatti/js")
     //.sass("resources/romatti/scss/app.scss", "public/romatti/css",
     //{},[tailwindcss("./tailwind.romatti.config.js")])
 
@@ -51,13 +51,13 @@ mix
 // .sass("resources/koronateh/scss/app.scss", "public/koronateh/css",
 // {},[tailwindcss("./tailwind.config.js")])
 
-.options({
-    autoprefixer: false,
-    processCssUrls: false,
-    autoprefixer: {
-        browsers: ["last 9 versions"]
-    }
-});
+// .options({
+//     autoprefixer: false,
+//     processCssUrls: false,
+//     autoprefixer: {
+//         browsers: ["last 9 versions"]
+//     }
+// });
 
 mix.browserSync({
     proxy: "romatti.vskidke.local",
