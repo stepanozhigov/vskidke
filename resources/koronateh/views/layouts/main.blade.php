@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Корона Аренда спецтехники</title>
     <link rel="icon" href="{{ asset('koronateh/images/favicon.png')}}" sizes='32x32'>
-    <link href="{{ mix('/koronateh/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('/koronateh/css/app.css') }}" rel="stylesheet">
 
 </head>
 
@@ -18,7 +18,7 @@
     </div>
 
     {{-- VUE-CLI JS --}}
-    <script src="{{ mix('koronateh/js/app.js') }}" defer></script>
+    <script src="{{ asset('koronateh/js/app.js') }}" defer></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-181736006-1"></script>

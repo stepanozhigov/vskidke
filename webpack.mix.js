@@ -23,9 +23,9 @@ require("laravel-mix-purgecss");
 mix
     //.copy("resources/romatti/images/", "public/romatti/images/")
     //.copy("resources/romatti/fonts/", "public/romatti/fonts/")
-    .js("resources/romatti/js/app.js", "public/romatti/js",)
-    .sass("resources/romatti/scss/app.scss", "public/romatti/css",
-    {},[tailwindcss("./tailwind.romatti.config.js")])
+    .js("resources/romatti/js/app.js", "public/romatti/js")
+    //.sass("resources/romatti/scss/app.scss", "public/romatti/css",
+    //{},[tailwindcss("./tailwind.romatti.config.js")])
 
 //ZAMANIA
 //mix
@@ -44,12 +44,12 @@ mix
 // {},[tailwindcss("./tailwind.upperlicense.config.js")])
 
 //KORONATEH
-mix
+//mix
 //.copy("resources/koronateh/images/", "public/koronateh/images/")
 //.copy("resources/koronateh/fonts/", "public/koronateh/fonts/")
-.js("resources/koronateh/js/app.js", "public/koronateh/js")
-.sass("resources/koronateh/scss/app.scss", "public/koronateh/css",
-{},[tailwindcss("./tailwind.config.js")])
+// .js("resources/koronateh/js/app.js", "public/koronateh/js")
+// .sass("resources/koronateh/scss/app.scss", "public/koronateh/css",
+// {},[tailwindcss("./tailwind.config.js")])
 
 .options({
     autoprefixer: false,
