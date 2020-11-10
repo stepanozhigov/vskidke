@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Корона Аренда спецтехники</title>
-    <link rel="icon" href="{{ asset('koronateh/images/favicon.png')}}" sizes='32x32'>
+    <link rel="shortcut icon" href="{{ asset('koronateh/images/favicon.ico')}}">
     <link href="{{ asset('/koronateh/css/app.css') }}" rel="stylesheet">
 
 </head>
