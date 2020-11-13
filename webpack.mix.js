@@ -20,10 +20,10 @@ require("laravel-mix-purgecss");
     //.sass("resources/potolki/scss/app.scss", "public/potolki/css")
 
 //ROMATTI
-//mix
+mix
     //.copy("resources/romatti/images/", "public/romatti/images/")
     //.copy("resources/romatti/fonts/", "public/romatti/fonts/")
-    //.js("resources/romatti/js/app.js", "public/romatti/js")
+    .js("resources/romatti/js/app.js", "public/romatti/js")
     //.sass("resources/romatti/scss/app.scss", "public/romatti/css",
     //{},[tailwindcss("./tailwind.romatti.config.js")])
 

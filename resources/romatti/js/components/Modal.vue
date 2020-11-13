@@ -34,7 +34,11 @@
 					/>
 				</svg>
 			</div>
-			<Form btnText="Отправить заявку" placeholderText="Ваш телефон*" />
+			<Form
+				actionType="callback"
+				btnText="Отправить заявку"
+				placeholderText="Ваш телефон*"
+			/>
 			<a href="#" @click.prevent="toggleModal">Закрыть</a>
 		</div>
 	</div>

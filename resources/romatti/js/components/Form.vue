@@ -42,6 +42,10 @@
 			onFocus: false,
 		}),
 		props: {
+			actionType: {
+				type: String,
+				default: "send_form",
+			},
 			btnText: {
 				type: String,
 				default: "Получить каталог и скидку",
@@ -74,6 +78,7 @@
 						})
 						.then((response) => {
 							fbq("track", "Lead");
+							ga.getAll()[0].send("event", "lead", this.actionType);
 							ym(68586496, "reachGoal", "send form");
 							if (this.env == "production") {
 								window.location.replace(this.redirectTo);
