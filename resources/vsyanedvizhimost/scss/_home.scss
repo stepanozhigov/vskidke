@@ -23,8 +23,6 @@
         
     }
 
-    
-
     .home-view-content {
         min-width: 18rem;
         @apply mx-auto;
@@ -126,7 +124,7 @@
             }
 
             input {
-                @apply font-raleway;
+                @apply font-roboto;
                 @apply font-light;
                 @apply text-left;
                 color: theme("colors.whitetext");
