@@ -60,20 +60,20 @@ require("laravel-mix-purgecss");
 
 mix
 //.copy("resources/vsya-nedvizhimost/images/", "public/vsya-nedvizhimost/images/")
-.js("resources/vsyanedvizhimost/js/app.js", "public/vsyanedvizhimost/js")
+//.js("resources/vsyanedvizhimost/js/app.js", "public/vsyanedvizhimost/js")
 .sass("resources/vsyanedvizhimost/scss/app.scss", "public/vsyanedvizhimost/css",
 {},[tailwindcss("./tailwind.vsyanedvizhimost.config.js")])
 
-// .options({
-//     autoprefixer: false,
-//     processCssUrls: false,
-//     autoprefixer: {
-//         browsers: ["last 9 versions"]
-//     }
-// });
+.options({
+    autoprefixer: false,
+    processCssUrls: false,
+    autoprefixer: {
+        browsers: ["last 9 versions"]
+    }
+});
 
 mix.browserSync({
-    proxy: "romatti.vskidke.local",
+    proxy: "vsyanedvizhimost.local",
     open: false
 });
 

@@ -31,7 +31,7 @@
             }
 
             input {
-                @apply font-montserrat;
+                @apply font-raleway;
                 @apply font-light;
                 @apply text-left;
                 color: theme("colors.blacktext");
@@ -55,7 +55,7 @@
             }
 
             button {
-                @apply font-montserrat;
+                @apply font-raleway;
                 @apply font-bold;
                 @apply uppercase;
                 color: theme("colors.whitetext");

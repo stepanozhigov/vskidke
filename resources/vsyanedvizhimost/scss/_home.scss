@@ -29,7 +29,7 @@
         min-width: 18rem;
         @apply mx-auto;
 
-        @apply font-montserrat;
+        @apply font-raleway;
         @apply relative;
         @apply text-left;
         color: theme("colors.whitetext");
@@ -47,7 +47,7 @@
             letter-spacing: rem(3);
             text-align: left;
     
-            @screen mdphone {
+            @screen phone {
                 letter-spacing: rem(5);
             }
     
@@ -71,7 +71,7 @@
 
            margin-top: rem(13);
 
-            @screen mdphone {
+            @screen phone {
                 font-size: rem(24);
             }
 
@@ -131,7 +131,7 @@
             }
 
             input {
-                @apply font-montserrat;
+                @apply font-raleway;
                 @apply font-light;
                 @apply text-left;
                 color: theme("colors.whitetext");
@@ -160,7 +160,7 @@
             }
 
             button {
-                @apply font-montserrat;
+                @apply font-raleway;
                 @apply font-bold;
                 @apply uppercase;
                 color: theme("colors.blacktext");
@@ -224,7 +224,7 @@
         margin-right:auto;
         margin-top: rem(19);
 
-        @screen mdphone {
+        @screen phone {
             margin-top: auto;
         }
 

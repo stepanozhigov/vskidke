@@ -1,5 +1,5 @@
 //
-//vsya-nedvizhimost (вся-недвижимость.рус)
+//vsyanedvizhimost (вся-недвижимость.рус)
 //
 module.exports = {
     future: {
@@ -7,20 +7,20 @@ module.exports = {
         // purgeLayersByDefault: true,
     },
     purge: [
-        "resources/koronateh/js/*.vue",
-        "resources/koronateh/js/components/*.vue",
-        "resources/koronateh/sass/*.scss",
-        "resources/koronateh/views/layouts/*"
+        "resources/vsyanedvizhimost/js/*.vue",
+        "resources/vsyanedvizhimost/js/components/*.vue",
+        "resources/vsyanedvizhimost/sass/*.scss",
+        "resources/vsyanedvizhimost/views/layouts/*"
     ],
     theme: {
         screens: {
-            'phone': '360px',
+            'phone': '375px',
             'tablet': '768px',
             'monitor': '1024px'
         },
         extend: {
             fontFamily: {
-                roboto: ["Roboto"]
+                raleway: ["Raleway"]
             },
             height: {
                 mobilescreen: "calc(var(--vh)*100)"
