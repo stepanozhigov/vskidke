@@ -1,10 +1,12 @@
 .modal-view {
+    @apply font-raleway;
     @apply p-4;
     @apply w-full;
     border-top: 1px solid rgba(186, 190, 194, 0.35);
 
     .modal-view-content {
-        min-width: 18rem;
+        max-width: rem(328);
+        margin: 0 auto;
 
         h1 {
             @apply font-bold;
@@ -26,8 +28,7 @@
             @apply w-full;
 
             @screen tablet {
-                max-width: 50%;
-                margin-right:auto;
+                width:100%;
             }
 
             input {
@@ -37,7 +38,7 @@
                 color: theme("colors.blacktext");
                 font-size: rem(18);
 
-                border: 1px solid theme("colors.yellowtext");
+                border: 1px solid theme("colors.disclaimer");
                 border-radius: 1px;
                 background-color: transparent;
 
@@ -67,7 +68,7 @@
 
                 border-radius: 1px;
                 border: none;
-                background-color: theme("colors.yellowtext");
+                background-color: theme("colors.bluetext");
 
                 @apply mt-4;
                 @apply mx-auto;
@@ -87,9 +88,9 @@
 
         @apply font-normal;
         @apply text-left;
-        color: theme("colors.graytext1");
+        color: theme("colors.close");
         font-size: rem(16);
-        @apply underline;
+        border-bottom: 1px solid theme('colors.close');
 
         margin-top: rem(24);
         margin-right: auto;

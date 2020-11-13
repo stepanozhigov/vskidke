@@ -48,7 +48,7 @@
 			},
 			btnText: {
 				type: String,
-				default: "Получить каталог и скидку",
+				default: "Получить предложение",
 			},
 			placeholderText: {
 				type: String,
@@ -73,18 +73,20 @@
 				} else {
 					this.isValid = true;
 					axios
-						.post("/bx24", {
+						.post("/mail", {
 							phone: this.phone,
 						})
 						.then((response) => {
-							fbq("track", "Lead");
-							ga.getAll()[0].send("event", "lead", this.actionType);
-							ym(68586496, "reachGoal", "send form");
+							// fbq("track", "Lead");
+							// ga.getAll()[0].send("event", "lead", this.actionType);
+							// ym(68586496, "reachGoal", "send form");
+							this.setSuccess();
+							this.setModal();
 							if (this.env == "production") {
-								window.location.replace(this.redirectTo);
+								setTimeout(() => {
+									window.location.replace(this.redirectTo);
+								}, 2000);
 							}
-							// this.setSuccess();
-							// this.setModal();
 						});
 				}
 			},

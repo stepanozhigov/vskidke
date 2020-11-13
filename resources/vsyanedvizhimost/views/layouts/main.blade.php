@@ -12,13 +12,12 @@
 </head>
 
 <body class="antialiased">
-    <h1>vsyanedvizhimost</h1>
-    {{-- <div id="app">
+    <div id="app">
         <App environment="{{env('APP_ENV')}}"/>
-    </div> --}}
+    </div>
 
     {{-- VUE-CLI JS --}}
-    {{-- <script src="{{ asset('vsyanedvizhimost/js/app.js') }}" defer></script> --}}
+    <script src="{{ asset('vsyanedvizhimost/js/app.js') }}" defer></script>
 
     @yield('pixel')
 

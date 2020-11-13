@@ -20,20 +20,22 @@ module.exports = {
         },
         extend: {
             fontFamily: {
-                raleway: ["Raleway"]
+                raleway: ["Raleway"],
+                lato: ["Lato"],
+                roboto: ["Roboto"]
             },
             height: {
                 mobilescreen: "calc(var(--vh)*100)"
             },
             colors: {
                 'bg': '#ffffff',
-                'whitetext': '#f8f7f6',
-                'darktext': '#2a2928',
-                'cyellow': '#f39c12',
-                'placeholder': '#a7a5a0',
-                'greytext': '#dbd9d7',
-                'bottomborder': '#d7dbd8',
-                'greytext01': '#66605a'
+                'whitetext': '#f8f9f9',
+                'bluetext': '#30d0f0',
+                'phonetext': '#374043',
+                'placeholder': '#a5b5b9',
+                'disclaimer': '#eaeeee',
+                'close': '#5e6f72'
+
 
             }
         }
