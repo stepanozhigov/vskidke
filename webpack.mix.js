@@ -5,6 +5,7 @@ require("laravel-mix-purgecss");
 
 
 //AUTOSCHOOL
+
 //mix
     //.copy("resources/autoschool/images/*", "public/autoschool/images")
     //.copy("resources/autoschool/fonts/*", "public/autoschool/fonts")
@@ -20,14 +21,16 @@ require("laravel-mix-purgecss");
     //.sass("resources/potolki/scss/app.scss", "public/potolki/css")
 
 //ROMATTI
-mix
+
+//mix
     //.copy("resources/romatti/images/", "public/romatti/images/")
     //.copy("resources/romatti/fonts/", "public/romatti/fonts/")
-    .js("resources/romatti/js/app.js", "public/romatti/js")
+    //.js("resources/romatti/js/app.js", "public/romatti/js")
     //.sass("resources/romatti/scss/app.scss", "public/romatti/css",
     //{},[tailwindcss("./tailwind.romatti.config.js")])
 
 //ZAMANIA
+
 //mix
 //.copy("resources/zamania/images/", "public/zamania/images/")
 //.copy("resources/zamania/fonts/", "public/zamania/fonts/")
@@ -36,6 +39,7 @@ mix
 // {},[tailwindcss("./tailwind.zamania.config.js")])
 
 //UPPERLICENSE
+
 //mix
 //.copy("resources/zamania/images/", "public/zamania/images/")
 //.copy("resources/zamania/fonts/", "public/zamania/fonts/")
@@ -44,12 +48,21 @@ mix
 // {},[tailwindcss("./tailwind.upperlicense.config.js")])
 
 //KORONATEH
+
 //mix
 //.copy("resources/koronateh/images/", "public/koronateh/images/")
 //.copy("resources/koronateh/fonts/", "public/koronateh/fonts/")
 // .js("resources/koronateh/js/app.js", "public/koronateh/js")
 // .sass("resources/koronateh/scss/app.scss", "public/koronateh/css",
-// {},[tailwindcss("./tailwind.config.js")])
+// {},[tailwindcss("./tailwind.koronateh.config.js")])
+
+//vsya-nedvizhimost
+
+mix
+//.copy("resources/vsya-nedvizhimost/images/", "public/vsya-nedvizhimost/images/")
+.js("resources/vsyanedvizhimost/js/app.js", "public/vsyanedvizhimost/js")
+.sass("resources/vsyanedvizhimost/scss/app.scss", "public/vsyanedvizhimost/css",
+{},[tailwindcss("./tailwind.vsyanedvizhimost.config.js")])
 
 // .options({
 //     autoprefixer: false,

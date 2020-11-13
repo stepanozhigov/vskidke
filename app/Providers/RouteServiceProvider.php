@@ -80,6 +80,12 @@ class RouteServiceProvider extends ServiceProvider
                 ->name('koronateh.')
                 ->namespace($this->namespace . '\Koronateh')
                 ->group(base_path('routes/koronateh.php'));
+
+            //Vsyanedvizhimost
+            Route::middleware('web')
+                ->name('vsyanedvizhimost.')
+                ->namespace($this->namespace . '\Vsyanedvizhimost')
+                ->group(base_path('routes/vsyanedvizhimost.php'));
         });
     }
 

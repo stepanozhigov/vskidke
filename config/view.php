@@ -3,7 +3,11 @@
 //dd(resource_path(explode('.', request()->getHost())[0]) . '/views');
 $host_parts = preg_split("/[\s.]+/", $_SERVER['HTTP_HOST']);
 $subdomain = $host_parts[0] == 'www' ? $host_parts[1] : $host_parts[0];
-//dd(resource_path($subdomain) . '/views');
+
+//vsyanedvizhimost (xn----ctbbheinb0bds0ako4m9a)
+if($subdomain == 'xn----ctbbheinb0bds0ako4m9a') $subdomain = 'vsyanedvizhimost';
+//dd($subdomain);
+
 return [
 
     /*
