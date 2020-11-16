@@ -21,7 +21,7 @@
     <script src="{{ asset('romatti/js/app.js') }}" defer></script>
 
     {{-- ROISTAT --}}
-    <script>
+    <script defer>
         (function(w, d, s, h, id) {
             w.roistatProjectId = id; w.roistatHost = h;
             var p = d.location.protocol == "https:" ? "https://" : "http://";

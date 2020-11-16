@@ -1,6 +1,7 @@
 <template>
 	<!-- {{--FORM--}} -->
 	<form
+		id="form"
 		@submit.prevent="submitForm"
 		class="flex flex-col items-center tablet:items-start"
 	>
@@ -24,6 +25,7 @@
 </template>
 
 <script>
+	import VueCookies from "vue-cookies";
 	import MaskedInput from "vue-masked-input";
 	import { required, helpers } from "vuelidate/lib/validators";
 	import axios from "axios";
@@ -40,6 +42,7 @@
 			phone: "",
 			isValid: true,
 			onFocus: false,
+			roistatVisit: VueCookies.get("roistat_visit") || "nocookie",
 		}),
 		props: {
 			actionType: {
@@ -73,8 +76,12 @@
 				} else {
 					this.isValid = true;
 					axios
-						.post("/bx24", {
+						// .post("/bx24", {
+						// 	phone: this.phone,
+						// })
+						.post("/roistat", {
 							phone: this.phone,
+							roistat: this.roistatVisit,
 						})
 						.then((response) => {
 							fbq("track", "Lead");
@@ -96,6 +103,6 @@
 				}
 			},
 		},
-		components: { MaskedInput },
+		components: { MaskedInput, VueCookies },
 	};
 </script>

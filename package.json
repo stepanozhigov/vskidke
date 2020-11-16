@@ -28,6 +28,7 @@
     },
     "dependencies": {
         "tailwindcss": "^1.8.10",
+        "vue-cookies": "^1.7.4",
         "vue-country-code": "^1.1.1",
         "vue-inputmask": "^0.2.1",
         "vue-masked-input": "^0.5.2",

@@ -28,4 +28,15 @@ class RomattiController extends Controller
         $response = Http::post('https://romatti.bitrix24.ru/rest/7519/hq211ydndfikozas/crm.lead.add',$data);
         return response()->json($response->json());
     }
+
+    public function roistat(Request $request) {
+        $data = $request->only(['phone','roistat']);
+        $key = ['key'=>"M2YwNTQ5MzRmNmZiZDlmMjhiZDE4ZjNhMDUyODY2YWI6MTcxNzI5"];
+        $response = Http::get('https://cloud.roistat.com/api/proxy/1.0/leads/add',array_merge($data,$key));
+        if ($response->successful()) {
+            return response()->json($response->json(),201);
+        } elseif ($response->failed() || $response->clientError() || $response->serverError()) {
+            return response()->json($response->throw()->json(),422);
+        }
+    }
 }
