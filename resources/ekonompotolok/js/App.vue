@@ -29,8 +29,8 @@
 		},
 		created: function () {
 			this.setEnv(this.environment);
-			this.getCities();
 			this.getAddress();
+			this.getCities();
 		},
 		mounted: function () {
 			this.setViewHeight();
@@ -40,15 +40,21 @@
 			window.addEventListener("orientationchange", () => this.setViewHeight());
 		},
 		computed: {
-			...mapGetters(["isModal", "isSuccess", "env"]),
+			...mapGetters(["isModal", "isSuccess", "env", "geoLocation", "cities"]),
 			addressUrl() {
-				return `https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=${this.apiKey}&at=${this.latitude},${this.longitude}&lang=en-US`;
+				return `https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=${this.apiKey}&at=${this.latitude},${this.longitude}&lang=ru`;
 			},
 			country() {
 				return this.geoLocation.address.countryName;
 			},
 			city() {
 				return this.geoLocation.address.city;
+			},
+			selectedCity() {
+				const city = this.cities.filter((city) => city.name == this.city);
+				return city.length > 0
+					? city
+					: this.cities.filter((city) => city.bx_code == 792);
 			},
 		},
 		methods: {

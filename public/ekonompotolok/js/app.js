@@ -2713,8 +2713,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   created: function created() {
     this.setEnv(this.environment);
-    this.getCities();
     this.getAddress();
+    this.getCities();
   },
   mounted: function mounted() {
     var _this = this;
@@ -2727,15 +2727,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return _this.setViewHeight();
     });
   },
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])(["isModal", "isSuccess", "env"])), {}, {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])(["isModal", "isSuccess", "env", "geoLocation", "cities"])), {}, {
     addressUrl: function addressUrl() {
-      return "https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=".concat(this.apiKey, "&at=").concat(this.latitude, ",").concat(this.longitude, "&lang=en-US");
+      return "https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=".concat(this.apiKey, "&at=").concat(this.latitude, ",").concat(this.longitude, "&lang=ru");
     },
     country: function country() {
       return this.geoLocation.address.countryName;
     },
     city: function city() {
       return this.geoLocation.address.city;
+    },
+    selectedCity: function selectedCity() {
+      var _this2 = this;
+
+      var city = this.cities.filter(function (city) {
+        return city.name == _this2.city;
+      });
+      return city.length > 0 ? city : this.cities.filter(function (city) {
+        return city.bx_code == 792;
+      });
     }
   }),
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess", "setEnv", "setGeoLocation", "setIpLocation", "setCities"])), {}, {
@@ -2744,7 +2754,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       document.documentElement.style.setProperty("--vh", "".concat(vh, "px")); //console.log(vh);
     },
     getCities: function getCities() {
-      var _this2 = this;
+      var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
@@ -2753,7 +2763,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               case 0:
                 return _context.abrupt("return", new Promise(function (resolve, reject) {
                   var response = axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("https://potolki-ts.ru/api/cities").then(function (res) {
-                    _this2.setCities(res.data);
+                    _this3.setCities(res.data);
 
                     resolve(res);
                   })["catch"](function (error) {
@@ -2770,7 +2780,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }))();
     },
     getCoords: function getCoords() {
-      var _this3 = this;
+      var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
@@ -2779,7 +2789,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               case 0:
                 return _context2.abrupt("return", new Promise(function (resolve, reject) {
                   if (!("geolocation" in navigator)) {
-                    _this3.geoError = true;
+                    _this4.geoError = true;
                     reject(new Error("Geolocation is not available."));
                   }
 
@@ -2799,7 +2809,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }))();
     },
     getAddress: function getAddress() {
-      var _this4 = this;
+      var _this5 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
         var location, address_data;
@@ -2807,37 +2817,37 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                _this4.gettingLocation = true;
+                _this5.gettingLocation = true;
                 _context3.prev = 1;
-                _this4.gettingLocation = false;
+                _this5.gettingLocation = false;
                 _context3.next = 5;
-                return _this4.getCoords();
+                return _this5.getCoords();
 
               case 5:
                 location = _context3.sent;
 
-                _this4.setIpLocation({
+                _this5.setIpLocation({
                   latitude: location.coords.latitude,
                   longitude: location.coords.longitude
                 }); //console.log(location);
 
 
-                _this4.latitude = location.coords.latitude;
-                _this4.longitude = location.coords.longitude;
+                _this5.latitude = location.coords.latitude;
+                _this5.longitude = location.coords.longitude;
                 _context3.next = 11;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default()(_this4.addressUrl);
+                return axios__WEBPACK_IMPORTED_MODULE_1___default()(_this5.addressUrl);
 
               case 11:
                 address_data = _context3.sent;
-                if (address_data.data.items.length > 0) _this4.setGeoLocation(address_data.data.items[0]);
+                if (address_data.data.items.length > 0) _this5.setGeoLocation(address_data.data.items[0]);
                 _context3.next = 19;
                 break;
 
               case 15:
                 _context3.prev = 15;
                 _context3.t0 = _context3["catch"](1);
-                _this4.gettingLocation = false;
-                _this4.errorStr = _context3.t0.message;
+                _this5.gettingLocation = false;
+                _this5.errorStr = _context3.t0.message;
 
               case 19:
               case "end":
