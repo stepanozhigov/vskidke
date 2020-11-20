@@ -2738,12 +2738,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return this.geoLocation.address.city;
     }
   }),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess", "setEnv", "setGeoLocation", "setIpLocation"])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess", "setEnv", "setGeoLocation", "setIpLocation", "setCities"])), {}, {
     setViewHeight: function setViewHeight() {
       var vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty("--vh", "".concat(vh, "px")); //console.log(vh);
     },
     getCities: function getCities() {
+      var _this2 = this;
+
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
@@ -2751,6 +2753,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               case 0:
                 return _context.abrupt("return", new Promise(function (resolve, reject) {
                   var response = axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("https://potolki-ts.ru/api/cities").then(function (res) {
+                    _this2.setCities(res.data);
+
                     resolve(res);
                   })["catch"](function (error) {
                     reject(error);
@@ -2766,7 +2770,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }))();
     },
     getCoords: function getCoords() {
-      var _this2 = this;
+      var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
@@ -2775,7 +2779,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               case 0:
                 return _context2.abrupt("return", new Promise(function (resolve, reject) {
                   if (!("geolocation" in navigator)) {
-                    _this2.geoError = true;
+                    _this3.geoError = true;
                     reject(new Error("Geolocation is not available."));
                   }
 
@@ -2795,7 +2799,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }))();
     },
     getAddress: function getAddress() {
-      var _this3 = this;
+      var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
         var location, address_data;
@@ -2803,37 +2807,37 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                _this3.gettingLocation = true;
+                _this4.gettingLocation = true;
                 _context3.prev = 1;
-                _this3.gettingLocation = false;
+                _this4.gettingLocation = false;
                 _context3.next = 5;
-                return _this3.getCoords();
+                return _this4.getCoords();
 
               case 5:
                 location = _context3.sent;
 
-                _this3.setIpLocation({
+                _this4.setIpLocation({
                   latitude: location.coords.latitude,
                   longitude: location.coords.longitude
                 }); //console.log(location);
 
 
-                _this3.latitude = location.coords.latitude;
-                _this3.longitude = location.coords.longitude;
+                _this4.latitude = location.coords.latitude;
+                _this4.longitude = location.coords.longitude;
                 _context3.next = 11;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default()(_this3.addressUrl);
+                return axios__WEBPACK_IMPORTED_MODULE_1___default()(_this4.addressUrl);
 
               case 11:
                 address_data = _context3.sent;
-                if (address_data.data.items.length > 0) _this3.setGeoLocation(address_data.data.items[0]);
+                if (address_data.data.items.length > 0) _this4.setGeoLocation(address_data.data.items[0]);
                 _context3.next = 19;
                 break;
 
               case 15:
                 _context3.prev = 15;
                 _context3.t0 = _context3["catch"](1);
-                _this3.gettingLocation = false;
-                _this3.errorStr = _context3.t0.message;
+                _this4.gettingLocation = false;
+                _this4.errorStr = _context3.t0.message;
 
               case 19:
               case "end":
@@ -25063,7 +25067,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     success: false,
     ipLocation: null,
     geoLocation: null,
-    redirectTo: ''
+    redirectTo: '',
+    cities: []
   },
   getters: {
     isModal: function isModal(state) {
@@ -25083,6 +25088,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     env: function env(state) {
       return state.env;
+    },
+    cities: function cities(state) {
+      return state.cities;
     }
   },
   mutations: {
@@ -25106,6 +25114,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     SET_GEO_LOCATION: function SET_GEO_LOCATION(state, geoLocation) {
       return state.geoLocation = geoLocation;
+    },
+    SET_CITIES: function SET_CITIES(state, payload) {
+      return state.cities = payload;
     }
   },
   actions: {
@@ -25129,6 +25140,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     setGeoLocation: function setGeoLocation(context, payload) {
       return context.commit("SET_GEO_LOCATION", payload);
+    },
+    setCities: function setCities(context, payload) {
+      return context.commit("SET_CITIES", payload);
     }
   }
 }));

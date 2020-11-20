@@ -10,7 +10,8 @@ export default new Vuex.Store({
         success: false,
         ipLocation: null,
         geoLocation: null,
-        redirectTo: ''
+        redirectTo: '',
+        cities: []
     },
     getters: {
         isModal: state => state.modal,
@@ -18,7 +19,8 @@ export default new Vuex.Store({
         ipLocation: state => state.ipLocation,
         geoLocation: state => state.geoLocation,
         redirectTo:state =>state.redirectTo,
-        env:state =>state.env
+        env:state =>state.env,
+        cities: state =>state.cities
     },
     mutations: {
         SET_ENV: (state,payload) => (state.env = payload),
@@ -29,6 +31,7 @@ export default new Vuex.Store({
         SET_IP_LOCATION: (state, ipLocation) => (state.ipLocation = ipLocation),
         SET_GEO_LOCATION: (state, geoLocation) =>
             (state.geoLocation = geoLocation),
+        SET_CITIES: (state,payload) => (state.cities = payload)
     },
     actions: {
         setEnv: (context,payload) => context.commit("SET_ENV",payload),
@@ -40,5 +43,6 @@ export default new Vuex.Store({
             context.commit("SET_IP_LOCATION", payload),
         setGeoLocation: (context, payload) =>
             context.commit("SET_GEO_LOCATION", payload),
+        setCities: (context,payload) => context.commit("SET_CITIES",payload)
     }
 });

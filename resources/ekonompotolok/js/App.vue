@@ -60,6 +60,7 @@
 				"setEnv",
 				"setGeoLocation",
 				"setIpLocation",
+				"setCities",
 			]),
 			setViewHeight: function () {
 				let vh = window.innerHeight * 0.01;
@@ -71,6 +72,7 @@
 					const response = axios
 						.get("https://potolki-ts.ru/api/cities")
 						.then((res) => {
+							this.setCities(res.data);
 							resolve(res);
 						})
 						.catch((error) => {
