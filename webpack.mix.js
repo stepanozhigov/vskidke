@@ -22,10 +22,10 @@ require("laravel-mix-purgecss");
 
 //ROMATTI
 
-mix
+//mix
     //.copy("resources/romatti/images/", "public/romatti/images/")
     //.copy("resources/romatti/fonts/", "public/romatti/fonts/")
-    .js("resources/romatti/js/app.js", "public/romatti/js");
+    //.js("resources/romatti/js/app.js", "public/romatti/js");
     //.sass("resources/romatti/scss/app.scss", "public/romatti/css",
     //{},[tailwindcss("./tailwind.romatti.config.js")])
 
@@ -59,10 +59,18 @@ mix
 //vsya-nedvizhimost
 
 //mix
-//.copy("resources/vsya-nedvizhimost/images/", "public/vsya-nedvizhimost/images/")
+//.copy("resources/vsyanedvizhimost/images/", "public/vsyanedvizhimost/images/")
 // .js("resources/vsyanedvizhimost/js/app.js", "public/vsyanedvizhimost/js")
 // .sass("resources/vsyanedvizhimost/scss/app.scss", "public/vsyanedvizhimost/css",
 // {},[tailwindcss("./tailwind.vsyanedvizhimost.config.js")])
+
+//ekonompotolok
+
+//mix
+// .copy("resources/ekonompotolok/images/", "public/ekonompotolok/images/")
+// .js("resources/ekonompotolok/js/app.js", "public/ekonompotolok/js")
+// .sass("resources/ekonompotolok/scss/app.scss", "public/ekonompotolok/css",
+// {},[tailwindcss("./tailwind.ekonompotolok.config.js")])
 
 // .options({
 //     autoprefixer: false,
@@ -73,7 +81,7 @@ mix
 // });
 
 mix.browserSync({
-    proxy: "romatti.vskidke.local",
+    proxy: "localhost",
     open: false
 });
 
