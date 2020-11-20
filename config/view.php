@@ -2,13 +2,13 @@
 //use App\Http\Requests\Request;
 //dd(resource_path(explode('.', request()->getHost())[0]) . '/views');
 $host_parts = preg_split("/[\s.]+/", $_SERVER['HTTP_HOST']);
-$subdomain = $host_parts[0] == 'www' ? $host_parts[1] : $host_parts[0];
+$subdomain_folder = $host_parts[0] == 'www' ? $host_parts[1] : $host_parts[0];
 
 //vsyanedvizhimost (xn----ctbbheinb0bds0ako4m9a)
-if($subdomain == 'xn----ctbbheinb0bds0ako4m9a') $subdomain = 'vsyanedvizhimost';
+if($subdomain_folder == 'xn----ctbbheinb0bds0ako4m9a') $subdomain_folder = 'vsyanedvizhimost';
 //ekonompotolok (xn----stbbddfgbcabi4bzk)
-if($subdomain == 'xn----stbbddfgbcabi4bzk') $subdomain = 'ekonompotolok';
-//dd($subdomain);
+if(in_array($subdomain_folder,['xn----stbbddfgbcabi4bzk','ekonom-potolok'])) $subdomain_folder = 'ekonompotolok';
+//dd($subdomain_folder);
 
 return [
 
@@ -24,7 +24,7 @@ return [
     */
 
     'paths' => [
-        resource_path($subdomain) . '/views',
+        resource_path($subdomain_folder) . '/views',
     ],
     /*
     |--------------------------------------------------------------------------
