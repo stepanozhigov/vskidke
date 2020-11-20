@@ -43,6 +43,15 @@ export default new Vuex.Store({
             context.commit("SET_IP_LOCATION", payload),
         setGeoLocation: (context, payload) =>
             context.commit("SET_GEO_LOCATION", payload),
-        setCities: (context,payload) => context.commit("SET_CITIES",payload)
+        setCities: (context,payload) => {
+            const otherCity = {
+                'bx_code': 792,
+                'name' : 'Другой',
+                'phone' : '8 800 511-97-15',
+                'sort' : 0
+            }
+            payload.push(otherCity);
+            context.commit("SET_CITIES",payload)
+        }
     }
 });

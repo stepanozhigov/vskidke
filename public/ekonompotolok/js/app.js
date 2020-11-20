@@ -25142,7 +25142,14 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
       return context.commit("SET_GEO_LOCATION", payload);
     },
     setCities: function setCities(context, payload) {
-      return context.commit("SET_CITIES", payload);
+      var otherCity = {
+        'bx_code': 792,
+        'name': 'Другой',
+        'phone': '8 800 511-97-15',
+        'sort': 0
+      };
+      payload.push(otherCity);
+      context.commit("SET_CITIES", payload);
     }
   }
 }));
