@@ -1,3 +1,58 @@
 .header {
-    
+    font-family: $jost;
+    background-color:$lightblue;
+
+    &--content {
+        max-width: rem(360);
+        margin: 0 auto;
+        padding: rem(9) rem(18);
+        
+
+        &-logo {
+            height: rem(72);
+            display: flex;
+            justify-content: center;
+        }
+
+        &-city {
+            font-size: rem(18);
+            display: flex;
+            justify-content: space-between;
+            margin-top: rem(18);
+
+            &-name {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 47%;
+                height: rem(45);
+                border-radius: rem(22.5);
+                box-shadow: 4px 4px 8px rgba(88, 84, 82, 0.15), -4px -4px 8px rgba(255, 255, 255, 0.5), inset -1px -1px 0 rgba(255, 255, 255, 0.2);
+            }
+
+            &-phone {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 47%;
+                height: rem(45);
+                border-radius: rem(22.5);
+                color:$white;
+                background-color: $orange;
+                box-shadow: 4px 4px 8px rgba(192, 64, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5), inset -1px -1px 0 rgba(255, 255, 255, 0.2)
+            }
+        }
+
+        &-offer {
+            position: relative;
+            margin-top: rem(18);
+
+            &-image {
+                position: absolute;
+                width: 65%;
+                top:0;
+                right: -1.5rem;
+            }
+        }
+    }
 }

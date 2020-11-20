@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<header></header>
+		<app-header></app-header>
 	</div>
 </template>
 
@@ -19,7 +19,7 @@
 			apiKey: "izLr3tzed9tqFm2ArDXT5J0FPBZHbfuztoWv7-WwU4Q",
 		}),
 		components: {
-			Header,
+			"app-header": Header,
 		},
 		created: function () {
 			this.setEnv(this.environment);
@@ -38,14 +38,14 @@
 			addressUrl() {
 				return `https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=${this.apiKey}&at=${this.latitude},${this.longitude}&lang=ru`;
 			},
-			country() {
+			geoCountryName() {
 				return this.geoLocation.address.countryName;
 			},
-			city() {
+			geoCityName() {
 				return this.geoLocation.address.city;
 			},
 			selectedCity() {
-				const city = this.cities.filter((city) => city.name == this.city);
+				const city = this.cities.filter((city) => city.name == this.geoCityName);
 				return city.length > 0
 					? city
 					: this.cities.filter((city) => city.bx_code == 792);

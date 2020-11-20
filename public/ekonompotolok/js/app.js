@@ -1960,7 +1960,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   components: {
-    Header: _components_Header__WEBPACK_IMPORTED_MODULE_3__["default"]
+    "app-header": _components_Header__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   created: function created() {
     this.setEnv(this.environment);
@@ -1982,17 +1982,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     addressUrl: function addressUrl() {
       return "https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=".concat(this.apiKey, "&at=").concat(this.latitude, ",").concat(this.longitude, "&lang=ru");
     },
-    country: function country() {
+    geoCountryName: function geoCountryName() {
       return this.geoLocation.address.countryName;
     },
-    city: function city() {
+    geoCityName: function geoCityName() {
       return this.geoLocation.address.city;
     },
     selectedCity: function selectedCity() {
       var _this2 = this;
 
       var city = this.cities.filter(function (city) {
-        return city.name == _this2.city;
+        return city.name == _this2.geoCityName;
       });
       return city.length > 0 ? city : this.cities.filter(function (city) {
         return city.bx_code == 792;
@@ -2128,6 +2128,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3522,16 +3541,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [_c("app-header")], 1)
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("header")])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -3553,9 +3565,49 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "header" })
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "header" }, [
+      _c("div", { staticClass: "header--content" }, [
+        _c("div", { staticClass: "header--content-logo" }, [
+          _c("img", {
+            attrs: { src: "ekonompotolok/images/logo.svg", alt: "logo" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "header--content-city" }, [
+          _c("div", { staticClass: "header--content-city-name" }, [
+            _vm._v("Город")
+          ]),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "header--content-city-phone",
+              attrs: { href: "tel:88005119715" }
+            },
+            [_vm._v("8 800 511-97-15")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "header--content-offer" }, [
+          _c("img", {
+            staticClass: "header--content-offer-image",
+            attrs: {
+              src: "ekonompotolok/images/header_banner.png",
+              alt: "offer"
+            }
+          })
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 

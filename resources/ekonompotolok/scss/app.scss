@@ -6,6 +6,8 @@
 
 @tailwind utilities;
 
+@import "reset";
 @import "../../_webfonts";
+@import "variables";
 @import "mixins";
 @import "header";
