@@ -86,6 +86,12 @@ class RouteServiceProvider extends ServiceProvider
                 ->name('vsyanedvizhimost.')
                 ->namespace($this->namespace . '\Vsyanedvizhimost')
                 ->group(base_path('routes/vsyanedvizhimost.php'));
+
+            //Ekonompotolok
+            Route::middleware('web')
+            ->name('ekonompotolok.')
+            ->namespace($this->namespace . '\Ekonompotolok')
+            ->group(base_path('routes/ekonompotolok.php'));
         });
     }
 
