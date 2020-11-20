@@ -1,5 +1,5 @@
 //
-//vsyanedvizhimost (вся-недвижимость.рус)
+//ekonompotolok ()
 //
 module.exports = {
     future: {
@@ -7,10 +7,10 @@ module.exports = {
         // purgeLayersByDefault: true,
     },
     purge: [
-        "resources/vsyanedvizhimost/js/*.vue",
-        "resources/vsyanedvizhimost/js/components/*.vue",
-        "resources/vsyanedvizhimost/sass/*.scss",
-        "resources/vsyanedvizhimost/views/layouts/*"
+        "resources/ekonompotolok/js/*.vue",
+        "resources/ekonompotolok/js/components/*.vue",
+        "resources/ekonompotolok/sass/*.scss",
+        "resources/ekonompotolok/views/layouts/*"
     ],
     theme: {
         screens: {
@@ -20,9 +20,7 @@ module.exports = {
         },
         extend: {
             fontFamily: {
-                raleway: ["Raleway"],
-                lato: ["Lato"],
-                roboto: ["Roboto"]
+                jost: ["Jost"],
             },
             height: {
                 mobilescreen: "calc(var(--vh)*100)"

@@ -1,15 +1,13 @@
 <template>
-	<div class="app-template min-h-screen flex flex-col"></div>
+	<div class="app-template min-h-screen flex flex-col">
+		<logo></logo>
+	</div>
 </template>
 
 <script>
 	import axios from "axios";
 	import { mapGetters, mapActions } from "vuex";
-	import Form from "./components/Form";
-	import Header from "./components/Header";
-	import Home from "./components/Home";
-	import Success from "./components/Success";
-	import Modal from "./components/Modal";
+	import Logo from "./components/Logo";
 	export default {
 		name: "App",
 		data: () => ({
@@ -21,11 +19,7 @@
 			apiKey: "izLr3tzed9tqFm2ArDXT5J0FPBZHbfuztoWv7-WwU4Q",
 		}),
 		components: {
-			"app-header": Header,
-			Home,
-			Success,
-			Modal,
-			Form,
+			Logo,
 		},
 		created: function () {
 			this.setEnv(this.environment);
