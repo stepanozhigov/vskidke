@@ -1,0 +1,54 @@
+.app-header {
+
+    flex-shrink: 0;
+
+    @apply font-suisseintl;
+    background-color: theme("colors.bg");
+    height: rem(64);
+
+    padding-left: rem(8);
+    padding-right: rem(11);
+
+    @screen tablet {
+        height: rem(80);
+    }
+
+    .app-header-logo {
+        height: rem(32);
+
+        @screen tablet {
+            height: rem(48);
+        }
+        
+    }
+
+    .app-call {
+        
+        @apply text-center;
+
+        .app-call-number {
+            font-size: rem(13);
+            @apply font-normal;
+            color: theme("colors.darktext");
+
+            @screen tablet {
+                font-size: rem(16);
+            }
+        }
+        .app-call-book {
+            font-size: rem(12);
+            @apply font-medium;
+            color: theme("colors.greentext");
+            line-height: 1rem;
+            @apply cursor-pointer;
+            border-bottom: 2px dotted theme("colors.greentext");
+
+            @screen tablet {
+                font-size: rem(16);
+
+                @apply ml-2;
+                margin-top: 0.1rem;
+            }
+        }
+    }
+}

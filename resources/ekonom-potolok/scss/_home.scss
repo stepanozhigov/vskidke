@@ -1,0 +1,286 @@
+.home-view {
+
+    flex-shrink: 1;
+
+    background-image: url("../images/medicine_bkg-414@2x.jpg");
+    @apply bg-top;
+    @apply bg-no-repeat;
+    @apply bg-cover;
+    @apply p-4;
+
+    @screen tablet {
+        background-image: url("../images/medicine_bkg-768@2x.jpg");
+        padding-left: rem(40);
+        padding-right: rem(40);
+        padding-top: rem(24);
+        
+    }
+
+    @screen monitor {
+        min-height: rem(544);
+        @apply bg-right-top;
+        background-image: url("../images/medicine_bkg-1440@2x.jpg");
+        
+    }
+
+    .home-view-content {
+        min-width: 18rem;
+        @apply mx-auto;
+
+        @apply font-suisseintl;
+        @apply relative;
+        @apply text-left;
+        color: theme("colors.whitetext");
+
+        @screen monitor {
+            @apply mx-auto;
+            max-width: rem(722);
+        }
+
+        h1 {
+
+            width: rem(288);
+
+            @apply font-bold;
+            font-size: rem(20);
+            line-height: rem(25);
+            color: theme('colors.whitetext');
+            letter-spacing: 0;
+            text-align: left;
+
+            margin-top: rem(60);
+    
+            @screen phone {
+                width: rem(343);
+                margin-top: rem(90);
+                font-size: rem(24);
+                line-height: rem(30);
+                letter-spacing: rem(-0.2);
+            }
+    
+            @screen tablet {
+                margin-top: rem(250);
+                max-width: rem(624);
+                width: rem(624);
+                font-size: rem(32);
+                line-height: rem(40);
+                letter-spacing: rem(-0.3);
+            }
+    
+            @screen monitor {
+                margin-top: rem(80);
+                //max-width: rem(551);
+            }
+        }
+
+        h5 {
+            @apply font-normal;
+            font-size: rem(14);
+            line-height: rem(20);
+            letter-spacing: 0;
+            @apply text-left;
+            max-width: rem(288);
+            margin-top: rem(13);
+
+            @screen tablet {
+                max-width: rem(402);
+
+                @apply font-light;
+                font-size: rem(16);
+                line-height: rem(24);
+                letter-spacing: 0;
+
+                margin-top:rem(31);
+            }
+
+            @screen monitor {
+                max-width: rem(610);
+                margin-top:rem(23);
+            }
+                
+        }
+
+        form {
+            margin-top: rem(26);
+            margin-left: 0;
+            margin-right: auto;
+            width:100%;
+
+            @screen phone {
+                max-width: rem(328);
+                min-width: auto;
+            }
+
+            @screen tablet {
+                margin-top: rem(43);
+                
+                margin-left:0;
+                margin-right:auto;
+            }
+
+            @screen monitor {
+                
+            }
+
+            label {
+                width: 100%;
+                position: relative;
+                display: block;
+
+                //validation check
+                span {
+                    color: theme("colors.whitetext");
+                    @apply mr-4;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                }
+
+                //Phone Code style
+                .vue-tel-input {
+                    @apply outline-none;
+                    border-radius: 1px;
+    
+                    &:focus-within {
+                        @apply outline-none;
+                        box-shadow: none;
+                        border-color: theme("colors.bottomborder");
+                    }
+    
+                    .vti__dropdown {
+
+                        background-color: theme("colors.whitetext");
+                        &:hover {
+                            background-color: theme("colors.whitetext");
+                        }
+                        .open {
+                            background-color: theme("colors.whitetext");
+                        }
+                        .show {
+                            background-color: theme("colors.whitetext");
+                        }
+    
+                        .vti__selection {
+                            margin-right: 0;
+
+                            .vti__flag {
+                                transform: scale(1.1, 1.1);
+                            }
+                            .vti__country-code {
+                                @apply font-normal;
+                                color: theme('colors.darktext');
+                                font-size: 1.125rem;
+                                margin-right:.25rem;
+                                display: none;
+
+                                @screen phone {
+                                    display: block;
+                                }
+                            }
+                            .vti__dropdown-arrow {
+                                color: theme("colors.darktext");
+                                margin-left: 0.35rem;
+                                margin-right: 0.35rem;
+                            }
+                        }
+                        .vti__dropdown-list {
+                            .vti__dropdown-item {
+                                color: theme("colors.darktext");
+                                strong {
+                                    @apply font-normal;
+                                }
+                                span {
+                                    color: theme("colors.darktext");
+                                }
+                            }
+                        }
+                    }
+    
+                    input.vti__input {
+                        @apply font-normal;
+                        @apply pl-4;
+                        color: theme("colors.whitetext");
+                        font-size: 1.125rem;
+                        @apply w-full;
+                        height: 3.5rem;
+                        @apply bg-transparent border-none outline-none;
+                        // box-shadow: inset 0 -1px 0 #dbdad7;
+                        &:focus {
+                            @apply outline-none;
+                        }
+                        @apply outline-none;
+                        &:focus-within {
+                            @apply outline-none;
+                        }
+                    }
+                }
+            }
+
+            button {
+                @apply font-normal;
+                color: theme("colors.greentext");
+                font-size: rem(18);
+                text-align: center;
+
+                height: rem(56);
+                box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16);
+
+                border-radius: 1px;
+                border: 1px solid theme('colors.greentext');
+                background-color: theme("colors.whitetext");
+
+                @apply mt-4;
+                @apply mx-auto;
+
+                &:active {
+                    outline: none;
+                    background: none;
+               }
+               &:focus {
+                   outline: none;
+               }
+
+               &.disabled {
+                @apply cursor-not-allowed;
+            }
+
+               @screen tablet {
+                    
+               }
+            }
+        }
+
+        p {
+            @apply block;
+            @apply font-normal;
+            @apply text-left;
+            color: theme("colors.greytext");
+            font-size: rem(8);
+            letter-spacing: rem(-.1);
+            min-width: 18rem;
+            margin-right:auto;
+            margin-top: rem(40);
+            padding-top: 1rem;
+    
+            @screen phone {
+                margin-top: auto;
+                padding-top: 2rem;
+            }
+    
+            @screen tablet {
+                font-size: rem(14);
+            }
+    
+            @screen monitor {
+                text-align:left;
+                max-width: rem(722);
+            }
+    
+            span {
+                @apply underline;
+            }
+        }
+    }
+
+   
+}
