@@ -10,7 +10,7 @@ export default new Vuex.Store({
         success: false,
         ipLocation: null,
         geoLocation: null,
-        redirectTo: 'https://license.kz/en/serviceGroup/63'
+        redirectTo: ''
     },
     getters: {
         isModal: state => state.modal,

@@ -1,21 +1,5 @@
 <template>
-	<div class="app-template min-h-screen flex flex-col">
-		<!-- HEADER -->
-		<app-header></app-header>
-		<!-- /HEADER -->
-
-		<!-- HOME VIEW -->
-		<home v-if="!isSuccess && !isModal"></home>
-		<!-- /HOME VIEW -->
-
-		<!-- SUCCESS VIEW -->
-		<success v-if="isSuccess && isModal"></success>
-		<!-- /SUCCESS VIEW -->
-
-		<!-- MODAL VIEW -->
-		<modal v-if="!isSuccess && isModal"></modal>
-		<!-- /MODAL VIEW -->
-	</div>
+	<div class="app-template min-h-screen flex flex-col"></div>
 </template>
 
 <script>
@@ -45,13 +29,10 @@
 		},
 		created: function () {
 			this.setEnv(this.environment);
+			this.getCities();
 			this.getAddress();
 		},
 		mounted: function () {
-			//
-			//this.setSuccess();
-			//this.setModal();
-			//
 			this.setViewHeight();
 			window.addEventListener("resize", () => {
 				this.setViewHeight();
@@ -77,13 +58,25 @@
 				"setSuccess",
 				"unsetSuccess",
 				"setEnv",
-				"ipLocation",
-				"geoLocation",
+				"setGeoLocation",
+				"setIpLocation",
 			]),
 			setViewHeight: function () {
 				let vh = window.innerHeight * 0.01;
 				document.documentElement.style.setProperty("--vh", `${vh}px`);
 				//console.log(vh);
+			},
+			async getCities() {
+				return new Promise((resolve, reject) => {
+					const response = axios
+						.get("https://potolki-ts.ru/api/cities")
+						.then((res) => {
+							resolve(res);
+						})
+						.catch((error) => {
+							reject(error);
+						});
+				});
 			},
 			async getCoords() {
 				return new Promise((resolve, reject) => {
@@ -107,10 +100,14 @@
 				try {
 					this.gettingLocation = false;
 					const location = await this.getCoords();
+					this.setIpLocation({
+						latitude: location.coords.latitude,
+						longitude: location.coords.longitude,
+					});
+					//console.log(location);
 					this.latitude = location.coords.latitude;
 					this.longitude = location.coords.longitude;
 					const address_data = await axios(this.addressUrl);
-					//console.log(address_data);
 					if (address_data.data.items.length > 0)
 						this.setGeoLocation(address_data.data.items[0]);
 				} catch (e) {

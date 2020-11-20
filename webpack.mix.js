@@ -66,9 +66,9 @@ require("laravel-mix-purgecss");
 
 //ekonompotolok
 
-//mix
+mix
 // .copy("resources/ekonompotolok/images/", "public/ekonompotolok/images/")
-// .js("resources/ekonompotolok/js/app.js", "public/ekonompotolok/js")
+.js("resources/ekonompotolok/js/app.js", "public/ekonompotolok/js")
 // .sass("resources/ekonompotolok/scss/app.scss", "public/ekonompotolok/css",
 // {},[tailwindcss("./tailwind.ekonompotolok.config.js")])
 
