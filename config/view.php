@@ -6,6 +6,8 @@ $subdomain = $host_parts[0] == 'www' ? $host_parts[1] : $host_parts[0];
 
 //vsyanedvizhimost (xn----ctbbheinb0bds0ako4m9a)
 if($subdomain == 'xn----ctbbheinb0bds0ako4m9a') $subdomain = 'vsyanedvizhimost';
+//ekonompotolok (xn----stbbddfgbcabi4bzk)
+if($subdomain == 'xn----stbbddfgbcabi4bzk') $subdomain = 'ekonompotolok';
 //dd($subdomain);
 
 return [
