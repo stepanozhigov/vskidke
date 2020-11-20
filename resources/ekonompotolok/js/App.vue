@@ -1,13 +1,13 @@
 <template>
-	<div class="app-template min-h-screen flex flex-col">
-		<logo></logo>
+	<div>
+		<header></header>
 	</div>
 </template>
 
 <script>
 	import axios from "axios";
 	import { mapGetters, mapActions } from "vuex";
-	import Logo from "./components/Logo";
+	import Header from "./components/Header";
 	export default {
 		name: "App",
 		data: () => ({
@@ -19,7 +19,7 @@
 			apiKey: "izLr3tzed9tqFm2ArDXT5J0FPBZHbfuztoWv7-WwU4Q",
 		}),
 		components: {
-			Logo,
+			Header,
 		},
 		created: function () {
 			this.setEnv(this.environment);

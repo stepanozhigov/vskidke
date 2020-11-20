@@ -26,15 +26,9 @@ module.exports = {
                 mobilescreen: "calc(var(--vh)*100)"
             },
             colors: {
-                'bg': '#ffffff',
-                'whitetext': '#f8f9f9',
-                'bluetext': '#30d0f0',
-                'phonetext': '#374043',
-                'placeholder': '#a5b5b9',
-                'disclaimer': '#eaeeee',
-                'close': '#5e6f72'
-
-
+                'lightblue': "#cdeeff",
+                'orange': '#fe9800',
+                
             }
         }
     },
