@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<app-header></app-header>
+		<app-calculator></app-calculator>
 	</div>
 </template>
 
@@ -8,6 +9,7 @@
 	import axios from "axios";
 	import { mapGetters, mapActions } from "vuex";
 	import Header from "./components/Header";
+	import Calculator from "./components/Calculator";
 	export default {
 		name: "App",
 		data: () => ({
@@ -20,6 +22,7 @@
 		}),
 		components: {
 			"app-header": Header,
+			"app-calculator": Calculator,
 		},
 		created: function () {
 			this.setEnv(this.environment);

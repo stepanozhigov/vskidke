@@ -15,10 +15,10 @@
 			<div class="header--content-offer">
 				<p class="header--content-offer-day">за 1 день</p>
 				<h1 class="header--content-offer-ceiling">Натяжные<br />потолки</h1>
-				<h3 class="header--content-offer-today">
+				<p class="header--content-offer-today">
 					Только сегодня<br />
 					ваша скидка
-				</h3>
+				</p>
 				<img
 					src="ekonompotolok/images/monday.png"
 					alt="monday"
