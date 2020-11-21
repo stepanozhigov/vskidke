@@ -2152,6 +2152,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
   data: function data() {
@@ -3596,13 +3615,46 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "header--content-offer" }, [
+          _c("p", { staticClass: "header--content-offer-day" }, [
+            _vm._v("за 1 день")
+          ]),
+          _vm._v(" "),
+          _c("h1", { staticClass: "header--content-offer-ceiling" }, [
+            _vm._v("Натяжные"),
+            _c("br"),
+            _vm._v("потолки")
+          ]),
+          _vm._v(" "),
+          _c("h3", { staticClass: "header--content-offer-today" }, [
+            _vm._v("\n\t\t\t\tТолько сегодня"),
+            _c("br"),
+            _vm._v("\n\t\t\t\tваша скидка\n\t\t\t")
+          ]),
+          _vm._v(" "),
           _c("img", {
-            staticClass: "header--content-offer-image",
+            staticClass: "header--content-offer-monday",
+            attrs: { src: "ekonompotolok/images/monday.png", alt: "monday" }
+          }),
+          _vm._v(" "),
+          _c("p", { staticClass: "header--content-offer-rush" }, [
+            _vm._v("\n\t\t\t\tОсталось 7 замеров."),
+            _c("br"),
+            _vm._v("Успейте записаться!\n\t\t\t")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("form", { staticClass: "header--content-form" }, [
+          _c("input", {
+            staticClass: "form-input",
             attrs: {
-              src: "ekonompotolok/images/header_banner.png",
-              alt: "offer"
+              type: "tel",
+              autocomplete: "off",
+              required: "required",
+              placeholder: "Введите ваш номер"
             }
-          })
+          }),
+          _vm._v(" "),
+          _c("button", { staticClass: "form-button" }, [_vm._v("Записаться")])
         ])
       ])
     ])
