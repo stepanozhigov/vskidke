@@ -13,7 +13,8 @@
 
 <body class="antialiased">
     <div id="app">
-        <App environment="{{env('APP_ENV')}}"/>
+        <router-view></router-view>
+        {{-- <App environment="{{env('APP_ENV')}}"/> --}}
     </div>
 
     {{-- VUE-CLI JS --}}

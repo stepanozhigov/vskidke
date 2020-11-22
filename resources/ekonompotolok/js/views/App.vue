@@ -9,9 +9,9 @@
 <script>
 	import axios from "axios";
 	import { mapGetters, mapActions } from "vuex";
-	import Header from "./components/Header";
-	import Calculator from "./components/Calculator";
-	import Footer from "./components/Footer";
+	import Header from "../components/Header";
+	import Calculator from "../components/Calculator";
+	import Footer from "../components/Footer";
 	export default {
 		name: "App",
 		data: () => ({
@@ -127,8 +127,11 @@
 		props: {
 			environment: {
 				type: String,
-				default: "",
+				default: "local",
 			},
+			citycode: {
+				type: String
+			}
 		},
 	};
 </script>
