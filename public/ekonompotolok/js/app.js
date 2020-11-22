@@ -1927,6 +1927,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Header */ "./resources/ekonompotolok/js/components/Header.vue");
 /* harmony import */ var _components_Calculator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Calculator */ "./resources/ekonompotolok/js/components/Calculator.vue");
+/* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Footer */ "./resources/ekonompotolok/js/components/Footer.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -1946,6 +1947,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+
 
 
 
@@ -1964,7 +1967,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   components: {
     "app-header": _components_Header__WEBPACK_IMPORTED_MODULE_3__["default"],
-    "app-calculator": _components_Calculator__WEBPACK_IMPORTED_MODULE_4__["default"]
+    "app-calculator": _components_Calculator__WEBPACK_IMPORTED_MODULE_4__["default"],
+    "app-footer": _components_Footer__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   created: function created() {
     this.setEnv(this.environment);
@@ -2189,13 +2193,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Calculator",
   data: function data() {
     return {
       area: 20,
-      selected: false,
       contactBy: false
     };
   },
@@ -2214,6 +2227,47 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     VueSlider: vue_slider_component__WEBPACK_IMPORTED_MODULE_0___default.a
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/ekonompotolok/js/components/Footer.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/ekonompotolok/js/components/Footer.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Footer",
+  data: function data() {
+    return {};
+  },
+  methods: {},
+  components: {}
 });
 
 /***/ }),
@@ -3659,7 +3713,17 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("app-header"), _vm._v(" "), _c("app-calculator")], 1)
+  return _c(
+    "div",
+    [
+      _c("app-header"),
+      _vm._v(" "),
+      _c("app-calculator"),
+      _vm._v(" "),
+      _c("app-footer")
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -3768,7 +3832,9 @@ var render = function() {
           _c("span", { staticClass: "checkbox-checkmark" }),
           _vm._v("\n\t\t\t\tПо телефону\n\t\t\t")
         ])
-      ])
+      ]),
+      _vm._v(" "),
+      _vm._m(3)
     ])
   ])
 }
@@ -3802,6 +3868,88 @@ var staticRenderFns = [
       _vm._v("\n\t\t\tКак вам удобнее получить расчёт"),
       _c("br"),
       _vm._v("и консультацию?\n\t\t")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "calculator--content-form" }, [
+      _c("input", {
+        staticClass: "form-phone",
+        attrs: { type: "tel", placeholder: "Введите ваш номер" }
+      }),
+      _vm._v(" "),
+      _c("button", { staticClass: "form-submit", attrs: { type: "submit" } }, [
+        _vm._v("\n\t\t\t\tПолучить расчёт и подарок\n\t\t\t")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "form-agreement" }, [
+        _vm._v(
+          "\n\t\t\t\tОставляя контактную информацию, вы соглашаетесь на обработку\n\t\t\t\tперсональных данных\n\t\t\t"
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/ekonompotolok/js/components/Footer.vue?vue&type=template&id=5b65baec&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/ekonompotolok/js/components/Footer.vue?vue&type=template&id=5b65baec& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "footer" }, [
+      _c("div", { staticClass: "footer--content" }, [
+        _c("div", { staticClass: "footer--content-logo" }, [
+          _c("img", {
+            attrs: { src: "ekonompotolok/images/logo_footer.png", alt: "logo" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "footer--content-box city" }, [
+          _c("p", [_vm._v("Москва и МО")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "footer--content-box phone" }, [
+          _c("a", { attrs: { href: "tel:88005119715" } }, [
+            _vm._v("8 800 511-97-15")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "footer--content-redirect" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Перейти на полную версию сайта")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "footer--content-rights" }, [
+          _c("p", [
+            _vm._v("2003-2020 © ООО «Эконом Потолок». Все права защищены.")
+          ])
+        ])
+      ])
     ])
   }
 ]
@@ -18441,6 +18589,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Calculator_vue_vue_type_template_id_291908f1___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Calculator_vue_vue_type_template_id_291908f1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/ekonompotolok/js/components/Footer.vue":
+/*!**********************************************************!*\
+  !*** ./resources/ekonompotolok/js/components/Footer.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Footer_vue_vue_type_template_id_5b65baec___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Footer.vue?vue&type=template&id=5b65baec& */ "./resources/ekonompotolok/js/components/Footer.vue?vue&type=template&id=5b65baec&");
+/* harmony import */ var _Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Footer.vue?vue&type=script&lang=js& */ "./resources/ekonompotolok/js/components/Footer.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Footer_vue_vue_type_template_id_5b65baec___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Footer_vue_vue_type_template_id_5b65baec___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/ekonompotolok/js/components/Footer.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/ekonompotolok/js/components/Footer.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/ekonompotolok/js/components/Footer.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Footer.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/ekonompotolok/js/components/Footer.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/ekonompotolok/js/components/Footer.vue?vue&type=template&id=5b65baec&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/ekonompotolok/js/components/Footer.vue?vue&type=template&id=5b65baec& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_template_id_5b65baec___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Footer.vue?vue&type=template&id=5b65baec& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/ekonompotolok/js/components/Footer.vue?vue&type=template&id=5b65baec&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_template_id_5b65baec___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_template_id_5b65baec___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

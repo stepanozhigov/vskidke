@@ -2,6 +2,7 @@
 	<div>
 		<app-header></app-header>
 		<app-calculator></app-calculator>
+		<app-footer></app-footer>
 	</div>
 </template>
 
@@ -10,6 +11,7 @@
 	import { mapGetters, mapActions } from "vuex";
 	import Header from "./components/Header";
 	import Calculator from "./components/Calculator";
+	import Footer from "./components/Footer";
 	export default {
 		name: "App",
 		data: () => ({
@@ -23,6 +25,7 @@
 		components: {
 			"app-header": Header,
 			"app-calculator": Calculator,
+			"app-footer": Footer,
 		},
 		created: function () {
 			this.setEnv(this.environment);

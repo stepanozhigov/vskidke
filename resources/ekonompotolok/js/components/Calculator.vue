@@ -8,7 +8,6 @@
 				Укажите общую площадь ваших<br />потолков, перемещая ползунок
 			</p>
 
-			<!-- slider here-->
 			<div class="calculator--content-slider">
 				<vue-slider
 					class="slider"
@@ -50,6 +49,17 @@
 					По телефону
 				</label>
 			</div>
+
+			<div class="calculator--content-form">
+				<input type="tel" placeholder="Введите ваш номер" class="form-phone" />
+				<button type="submit" class="form-submit">
+					Получить расчёт и подарок
+				</button>
+				<p class="form-agreement">
+					Оставляя контактную информацию, вы соглашаетесь на обработку
+					персональных данных
+				</p>
+			</div>
 		</div>
 	</section>
 </template>
@@ -60,7 +70,6 @@
 		data() {
 			return {
 				area: 20,
-				selected: false,
 				contactBy: false,
 			};
 		},

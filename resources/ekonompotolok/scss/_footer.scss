@@ -1,0 +1,84 @@
+.footer {
+    font-family: $jost;
+    background-color:$orange;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    &--content {
+        max-width: rem(324);
+        margin: 0 auto;
+        padding: rem(45) 0 rem(20);
+
+        &-logo {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        &-box {
+
+            width:100%;
+            height: rem(45);
+            border-radius: rem(45/2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: rem(18);
+            font-weight: 400;
+            font-style: normal;
+            letter-spacing: rem(-0.3);
+            line-height: rem(27);
+
+            &.city {
+                margin-top: rem(27);
+
+                color: $footerwhite;
+                background-color: $orange;
+                box-shadow: 4px 4px 8px rgba(192, 64, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5), inset -1px -1px 0 rgba(255, 255, 255, 0.2);
+            }
+
+            &.phone {
+                margin-top: rem(18);
+
+                color: $grey;
+                background-color: $greybg;
+                box-shadow: 4px 4px 8px rgba(192, 64, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5), inset -1px -1px 0 rgba(255, 255, 255, 0.2);
+            }
+        }
+
+        &-redirect {
+            margin-top: rem(18);
+
+            color: $footerwhite;
+            font-size: rem(18);
+            font-weight: 400;
+            font-style: normal;
+            letter-spacing: rem(-0.3);
+            line-height: rem(27);
+            text-align: center;
+
+            a {
+                border-bottom: 1px solid $footerwhite;
+
+                &:hover {
+                    opacity: .5;
+                }
+            }
+            
+        }
+
+        &-rights {
+            margin-top: rem(45);
+
+            color: $footergrey;
+            font-size: rem(12);
+            font-weight: 300;
+            font-style: normal;
+            letter-spacing: normal;
+            line-height: rem(18);
+            text-align: center;
+        }
+    }
+}

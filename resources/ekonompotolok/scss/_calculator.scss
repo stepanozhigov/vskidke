@@ -3,11 +3,13 @@
     background-color:$darkgrey;
     width: 100%;
     overflow: hidden;
+    position: relative;
 
     &--content {
 
         max-width: rem(324);
         margin: 0 auto;
+        padding-bottom: rem(20);
 
         &-title {
             margin-top: rem(56);
@@ -164,6 +166,100 @@
                 }
             }
 
+        }
+
+        &-form {
+            font-size: rem(18);
+            font-weight: 400;
+            font-style: normal;
+            letter-spacing: rem(-0.3);
+
+            border: none;
+            background: transparent;
+
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            margin-top: rem(53);
+            
+
+            &::placeholder {
+                color: $grey;
+            }
+
+            input:focus {
+                border: none;
+                outline: none;
+            }
+            button:active:focus {
+                outline: none;
+                opacity: .5;
+                box-shadow: none;
+            }
+
+            .form-phone {
+                width: 100%;
+                height: rem(56);
+                border-radius: rem(56/2);
+                padding-left: rem(18);
+
+                position: relative;
+                text-align: left;
+                
+                letter-spacing: inherit;
+
+                background-color: $darkgrey;
+                box-shadow: inset 4px 4px 8px rgba(88, 84, 82, 0.1), inset -4px -4px 8px #ffffff;
+                border-radius: 28px;
+
+            }
+
+            .form-submit:before {
+                background: #fff;
+                content: "";
+                height: 155px;
+                left: -75px;
+                position: absolute;
+                top: -50px;
+                transform: rotate(35deg);
+                width: 50px;
+                z-index: 1;
+                transition: all .55s cubic-bezier(.19,1,.22,1);
+                animation-delay: .01s;
+                animation-timing-function: ease-in-out;
+                animation-name: radiance;
+                animation-duration: 2s;
+                animation-iteration-count: infinite;
+                opacity: .2;
+            }
+
+            .form-submit {
+                position: relative;
+                overflow: hidden;
+                width: 100%;
+                height: rem(56);
+                border-radius: rem(56/2);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $white;
+                margin: rem(18) 0 0 0;
+                background-color: $orange;
+                box-shadow: 4px 4px 8px rgba(192, 64, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5), inset -1px -1px 0 rgba(255, 255, 255, 0.2);
+            }
+
+            .form-agreement {
+                margin-top: rem(45);
+                color: $checkboxtext;
+                font-size: rem(12);
+                font-weight: 400;
+                font-style: normal;
+                letter-spacing: normal;
+                line-height: rem(18);
+            }
         }
     }
 }

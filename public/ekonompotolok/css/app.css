@@ -18603,11 +18603,13 @@ input {
   background-color: #f2f1f0;
   width: 100%;
   overflow: hidden;
+  position: relative;
 }
 
 .calculator--content {
   max-width: 20.25rem;
   margin: 0 auto;
+  padding-bottom: 1.25rem;
 }
 
 .calculator--content-title {
@@ -18761,6 +18763,171 @@ input {
 
 .calculator--content-contactby .checkbox-container input[type=radio]:checked ~ .checkbox-checkmark::after {
   display: block;
+}
+
+.calculator--content-form {
+  font-size: 1.125rem;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.01875rem;
+  border: none;
+  background: transparent;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3.3125rem;
+}
+
+.calculator--content-form::placeholder {
+  color: #807773;
+}
+
+.calculator--content-form input:focus {
+  border: none;
+  outline: none;
+}
+
+.calculator--content-form button:active:focus {
+  outline: none;
+  opacity: 0.5;
+  box-shadow: none;
+}
+
+.calculator--content-form .form-phone {
+  width: 100%;
+  height: 3.5rem;
+  border-radius: 1.75rem;
+  padding-left: 1.125rem;
+  position: relative;
+  text-align: left;
+  letter-spacing: inherit;
+  background-color: #f2f1f0;
+  box-shadow: inset 4px 4px 8px rgba(88, 84, 82, 0.1), inset -4px -4px 8px #ffffff;
+  border-radius: 28px;
+}
+
+.calculator--content-form .form-submit:before {
+  background: #fff;
+  content: "";
+  height: 155px;
+  left: -75px;
+  position: absolute;
+  top: -50px;
+  transform: rotate(35deg);
+  width: 50px;
+  z-index: 1;
+  transition: all 0.55s cubic-bezier(0.19, 1, 0.22, 1);
+  animation-delay: 0.01s;
+  animation-timing-function: ease-in-out;
+  animation-name: radiance;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  opacity: 0.2;
+}
+
+.calculator--content-form .form-submit {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 3.5rem;
+  border-radius: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #faf9f8;
+  margin: 1.125rem 0 0 0;
+  background-color: #fe9800;
+  box-shadow: 4px 4px 8px rgba(192, 64, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5), inset -1px -1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.calculator--content-form .form-agreement {
+  margin-top: 2.8125rem;
+  color: #a89e90;
+  font-size: 0.75rem;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: normal;
+  line-height: 1.125rem;
+}
+
+.footer {
+  font-family: "Jost", sans-serif;
+  background-color: #fe9800;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.footer--content {
+  max-width: 20.25rem;
+  margin: 0 auto;
+  padding: 2.8125rem 0 1.25rem;
+}
+
+.footer--content-logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.footer--content-box {
+  width: 100%;
+  height: 2.8125rem;
+  border-radius: 1.40625rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.125rem;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.01875rem;
+  line-height: 1.6875rem;
+}
+
+.footer--content-box.city {
+  margin-top: 1.6875rem;
+  color: #faf9f8;
+  background-color: #fe9800;
+  box-shadow: 4px 4px 8px rgba(192, 64, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5), inset -1px -1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.footer--content-box.phone {
+  margin-top: 1.125rem;
+  color: #807773;
+  background-color: #e2e0dc;
+  box-shadow: 4px 4px 8px rgba(192, 64, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5), inset -1px -1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.footer--content-redirect {
+  margin-top: 1.125rem;
+  color: #faf9f8;
+  font-size: 1.125rem;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.01875rem;
+  line-height: 1.6875rem;
+  text-align: center;
+}
+
+.footer--content-redirect a {
+  border-bottom: 1px solid #faf9f8;
+}
+
+.footer--content-redirect a:hover {
+  opacity: 0.5;
+}
+
+.footer--content-rights {
+  margin-top: 2.8125rem;
+  color: #ffcc80;
+  font-size: 0.75rem;
+  font-weight: 300;
+  font-style: normal;
+  letter-spacing: normal;
+  line-height: 1.125rem;
+  text-align: center;
 }
 
 @media (min-width: 375px) {
