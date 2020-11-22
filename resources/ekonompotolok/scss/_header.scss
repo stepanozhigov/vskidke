@@ -142,9 +142,13 @@
                 border: none;
                 outline: none;
             }
-            button:active:focus {
+            button:active {
                 outline: none;
                 opacity: .5;
+                box-shadow: none;
+            }
+            button:focus {
+                outline: none;
             }
 
             .form-input {

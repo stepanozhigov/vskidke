@@ -194,10 +194,13 @@
                 border: none;
                 outline: none;
             }
-            button:active:focus {
+            button:active {
                 outline: none;
                 opacity: .5;
                 box-shadow: none;
+            }
+            button:focus {
+                outline: none;
             }
 
             .form-phone {
@@ -250,6 +253,9 @@
                 margin: rem(18) 0 0 0;
                 background-color: $orange;
                 box-shadow: 4px 4px 8px rgba(192, 64, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5), inset -1px -1px 0 rgba(255, 255, 255, 0.2);
+                &:disabled {
+                    cursor: not-allowed;
+                }
             }
 
             .form-agreement {

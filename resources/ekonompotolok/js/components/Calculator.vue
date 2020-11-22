@@ -50,21 +50,13 @@
 				</label>
 			</div>
 
-			<div class="calculator--content-form">
-				<input type="tel" placeholder="Введите ваш номер" class="form-phone" />
-				<button type="submit" class="form-submit">
-					Получить расчёт и подарок
-				</button>
-				<p class="form-agreement">
-					Оставляя контактную информацию, вы соглашаетесь на обработку
-					персональных данных
-				</p>
-			</div>
+			<calculator-form></calculator-form>
 		</div>
 	</section>
 </template>
 <script>
 	import VueSlider from "vue-slider-component";
+	import CalculatorForm from "./CalculatorForm";
 	export default {
 		name: "Calculator",
 		data() {
@@ -87,6 +79,7 @@
 		},
 		components: {
 			VueSlider,
+			CalculatorForm,
 		},
 	};
 </script>

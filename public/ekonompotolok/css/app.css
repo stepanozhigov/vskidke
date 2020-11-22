@@ -18547,9 +18547,14 @@ input {
   outline: none;
 }
 
-.header--content-form button:active:focus {
+.header--content-form button:active {
   outline: none;
   opacity: 0.5;
+  box-shadow: none;
+}
+
+.header--content-form button:focus {
+  outline: none;
 }
 
 .header--content-form .form-input {
@@ -18794,10 +18799,14 @@ input {
   outline: none;
 }
 
-.calculator--content-form button:active:focus {
+.calculator--content-form button:active {
   outline: none;
   opacity: 0.5;
   box-shadow: none;
+}
+
+.calculator--content-form button:focus {
+  outline: none;
 }
 
 .calculator--content-form .form-phone {
@@ -18846,6 +18855,10 @@ input {
   margin: 1.125rem 0 0 0;
   background-color: #fe9800;
   box-shadow: 4px 4px 8px rgba(192, 64, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5), inset -1px -1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.calculator--content-form .form-submit:disabled {
+  cursor: not-allowed;
 }
 
 .calculator--content-form .form-agreement {
