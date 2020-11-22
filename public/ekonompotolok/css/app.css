@@ -18553,6 +18553,7 @@ input {
 }
 
 .header--content-form .form-input {
+  color: #807773;
   width: 100%;
   height: 100%;
   flex-grow: 1;
@@ -18802,6 +18803,7 @@ input {
   padding-left: 1.125rem;
   position: relative;
   text-align: left;
+  color: #807773;
   letter-spacing: inherit;
   background-color: #f2f1f0;
   box-shadow: inset 4px 4px 8px rgba(88, 84, 82, 0.1), inset -4px -4px 8px #ffffff;
