@@ -20,10 +20,14 @@
 	</section>
 </template>
 <script>
+	import vuex, { mapGetters } from "vuex";
 	export default {
 		name: "Footer",
 		data() {
 			return {};
+		},
+		computed: {
+			...mapGetters(["currentCity", "defaultCity"]),
 		},
 		methods: {},
 		components: {},

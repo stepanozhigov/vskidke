@@ -29,8 +29,9 @@
 		},
 		created: function () {
 			this.setEnv(this.environment);
-			this.getAddress();
-			this.getCities().then((res) => this.resolveCurrentCity());
+			this.getAddress().then(() =>
+				this.getCities().then((res) => this.resolveCurrentCity())
+			);
 		},
 		mounted: function () {
 			this.setViewHeight();
@@ -49,7 +50,7 @@
 				"defaultCity",
 			]),
 			addressUrl() {
-				return `https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=${this.apiKey}&at=${this.latitude},${this.longitude}&lang=ru`;
+				return `https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=${this.apiKey}&at=${this.latitude},${this.longitude}&lang=en-US`;
 			},
 			geoCountryName() {
 				return this.geoLocation.address.countryName;
@@ -130,17 +131,31 @@
 				//CITY IN URL
 				if (this.citycode) {
 					let city = this.cities.filter((city) => {
-						city.code == this.citycode;
+						return city.code == this.citycode;
 					});
 					if (city.length > 0) {
-						this.setCurrentCity(city)[0];
+						this.setCurrentCity(city[0]);
 					} else {
 						this.setCurrentCity(this.defaultCity);
 					}
 				}
 				//NO CITY IN URL (use location)
 				else {
-					console.log("USE LOCATION");
+					//GEO WORKS
+					if (!this.geoError) {
+						let city = this.cities.filter((city) => {
+							return city.code == this.geoCityName;
+						});
+						if (city.length > 0) {
+							this.setCurrentCity(city[0]);
+						} else {
+							this.setCurrentCity(this.defaultCity);
+						}
+					}
+					//GEO NOT AVAILABLE
+					else {
+						this.setCurrentCity(this.defaultCity);
+					}
 				}
 			},
 		},

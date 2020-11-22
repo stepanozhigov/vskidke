@@ -5,10 +5,15 @@
 				<img src="ekonompotolok/images/logo.svg" alt="logo" class="" />
 			</div>
 			<div class="header--content-city">
-				<div class="header--content-city-name">{{ defaultCity.name }}</div>
-				<a class="header--content-city-phone" href="tel:88005119715">{{
-					defaultCity.phone
-				}}</a>
+				<div class="header--content-city-name" v-if="currentCity">
+					{{ currentCity.name }}
+				</div>
+				<a
+					class="header--content-city-phone"
+					:href="hrefPhone"
+					v-if="currentCity"
+					>{{ currentCity.phone }}</a
+				>
 			</div>
 
 			<div class="header--content-offer">
@@ -41,7 +46,13 @@
 			"header-form": Form,
 		},
 		computed: {
-			...mapGetters(["defaultCity"]),
+			...mapGetters(["defaultCity", "currentCity"]),
+			hrefPhone() {
+				return (
+					"tel:" + this.currentCity.phone.replace(/\s/g, "").replace(/\-/g, "")
+				);
+				//return this.currentCity.phone;
+			},
 		},
 	};
 </script>
