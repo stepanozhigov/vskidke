@@ -4,12 +4,11 @@
 			<div class="header--content-logo">
 				<img src="ekonompotolok/images/logo.svg" alt="logo" class="" />
 			</div>
-
 			<div class="header--content-city">
-				<div class="header--content-city-name">Город</div>
-				<a class="header--content-city-phone" href="tel:88005119715"
-					>8 800 511-97-15</a
-				>
+				<div class="header--content-city-name">{{ defaultCity.name }}</div>
+				<a class="header--content-city-phone" href="tel:88005119715">{{
+					defaultCity.phone
+				}}</a>
 			</div>
 
 			<div class="header--content-offer">
@@ -34,11 +33,15 @@
 </template>
 <script>
 	import Form from "./Form";
+	import vuex, { mapGetters } from "vuex";
 	export default {
 		name: "Header",
 		data: () => ({}),
 		components: {
 			"header-form": Form,
+		},
+		computed: {
+			...mapGetters(["defaultCity"]),
 		},
 	};
 </script>

@@ -9,6 +9,7 @@ const routes =[
         path: '/:citycode?',
         name: 'App',
         component: App,
+        props: true
     }
 ]
 

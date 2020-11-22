@@ -30,7 +30,7 @@
 		created: function () {
 			this.setEnv(this.environment);
 			this.getAddress();
-			this.getCities();
+			this.getCities().then((res) => this.resolveCurrentCity());
 		},
 		mounted: function () {
 			this.setViewHeight();
@@ -40,7 +40,14 @@
 			window.addEventListener("orientationchange", () => this.setViewHeight());
 		},
 		computed: {
-			...mapGetters(["isModal", "isSuccess", "env", "geoLocation", "cities"]),
+			...mapGetters([
+				"isModal",
+				"isSuccess",
+				"env",
+				"geoLocation",
+				"cities",
+				"defaultCity",
+			]),
 			addressUrl() {
 				return `https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=${this.apiKey}&at=${this.latitude},${this.longitude}&lang=ru`;
 			},
@@ -49,12 +56,6 @@
 			},
 			geoCityName() {
 				return this.geoLocation.address.city;
-			},
-			selectedCity() {
-				const city = this.cities.filter((city) => city.name == this.geoCityName);
-				return city.length > 0
-					? city
-					: this.cities.filter((city) => city.bx_code == 792);
 			},
 		},
 		methods: {
@@ -67,6 +68,7 @@
 				"setGeoLocation",
 				"setIpLocation",
 				"setCities",
+				"setCurrentCity",
 			]),
 			setViewHeight: function () {
 				let vh = window.innerHeight * 0.01;
@@ -123,6 +125,24 @@
 					this.errorStr = e.message;
 				}
 			},
+			//
+			resolveCurrentCity() {
+				//CITY IN URL
+				if (this.citycode) {
+					let city = this.cities.filter((city) => {
+						city.code == this.citycode;
+					});
+					if (city.length > 0) {
+						this.setCurrentCity(city)[0];
+					} else {
+						this.setCurrentCity(this.defaultCity);
+					}
+				}
+				//NO CITY IN URL (use location)
+				else {
+					console.log("USE LOCATION");
+				}
+			},
 		},
 		props: {
 			environment: {
@@ -130,8 +150,8 @@
 				default: "local",
 			},
 			citycode: {
-				type: String
-			}
+				// type: String,
+			},
 		},
 	};
 </script>

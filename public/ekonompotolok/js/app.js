@@ -2309,7 +2309,13 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["helpe
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Form */ "./resources/ekonompotolok/js/components/Form.vue");
-//
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2344,6 +2350,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
   data: function data() {
@@ -2351,7 +2358,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     "header-form": _Form__WEBPACK_IMPORTED_MODULE_0__["default"]
-  }
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(["defaultCity"]))
 });
 
 /***/ }),
@@ -2416,22 +2424,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "app-footer": _components_Footer__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   created: function created() {
+    var _this = this;
+
     this.setEnv(this.environment);
     this.getAddress();
-    this.getCities();
+    this.getCities().then(function (res) {
+      return _this.resolveCurrentCity();
+    });
   },
   mounted: function mounted() {
-    var _this = this;
+    var _this2 = this;
 
     this.setViewHeight();
     window.addEventListener("resize", function () {
-      _this.setViewHeight();
+      _this2.setViewHeight();
     });
     window.addEventListener("orientationchange", function () {
-      return _this.setViewHeight();
+      return _this2.setViewHeight();
     });
   },
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])(["isModal", "isSuccess", "env", "geoLocation", "cities"])), {}, {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])(["isModal", "isSuccess", "env", "geoLocation", "cities", "defaultCity"])), {}, {
     addressUrl: function addressUrl() {
       return "https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=".concat(this.apiKey, "&at=").concat(this.latitude, ",").concat(this.longitude, "&lang=ru");
     },
@@ -2440,19 +2452,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     geoCityName: function geoCityName() {
       return this.geoLocation.address.city;
-    },
-    selectedCity: function selectedCity() {
-      var _this2 = this;
-
-      var city = this.cities.filter(function (city) {
-        return city.name == _this2.geoCityName;
-      });
-      return city.length > 0 ? city : this.cities.filter(function (city) {
-        return city.bx_code == 792;
-      });
     }
   }),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess", "setEnv", "setGeoLocation", "setIpLocation", "setCities"])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess", "setEnv", "setGeoLocation", "setIpLocation", "setCities", "setCurrentCity"])), {}, {
     setViewHeight: function setViewHeight() {
       var vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty("--vh", "".concat(vh, "px")); //console.log(vh);
@@ -2560,6 +2562,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           }
         }, _callee3, null, [[1, 15]]);
       }))();
+    },
+    //
+    resolveCurrentCity: function resolveCurrentCity() {
+      var _this6 = this;
+
+      //CITY IN URL
+      if (this.citycode) {
+        var city = this.cities.filter(function (city) {
+          city.code == _this6.citycode;
+        });
+
+        if (city.length > 0) {
+          this.setCurrentCity(city)[0];
+        } else {
+          this.setCurrentCity(this.defaultCity);
+        }
+      } //NO CITY IN URL (use location)
+      else {
+          console.log("USE LOCATION");
+        }
     }
   }),
   props: {
@@ -2567,8 +2589,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       type: String,
       "default": "local"
     },
-    citycode: {
-      type: String
+    citycode: {// type: String,
     }
   }
 });
@@ -5017,9 +5038,22 @@ var render = function() {
       [
         _vm._m(0),
         _vm._v(" "),
-        _vm._m(1),
+        _c("div", { staticClass: "header--content-city" }, [
+          _c("div", { staticClass: "header--content-city-name" }, [
+            _vm._v(_vm._s(_vm.defaultCity.name))
+          ]),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "header--content-city-phone",
+              attrs: { href: "tel:88005119715" }
+            },
+            [_vm._v(_vm._s(_vm.defaultCity.phone))]
+          )
+        ]),
         _vm._v(" "),
-        _vm._m(2),
+        _vm._m(1),
         _vm._v(" "),
         _c("header-form")
       ],
@@ -5036,25 +5070,6 @@ var staticRenderFns = [
       _c("img", {
         attrs: { src: "ekonompotolok/images/logo.svg", alt: "logo" }
       })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "header--content-city" }, [
-      _c("div", { staticClass: "header--content-city-name" }, [
-        _vm._v("Город")
-      ]),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "header--content-city-phone",
-          attrs: { href: "tel:88005119715" }
-        },
-        [_vm._v("8 800 511-97-15")]
-      )
     ])
   },
   function() {
@@ -24365,7 +24380,8 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [{
   path: '/:citycode?',
   name: 'App',
-  component: _views_App__WEBPACK_IMPORTED_MODULE_2__["default"]
+  component: _views_App__WEBPACK_IMPORTED_MODULE_2__["default"],
+  props: true
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
@@ -24398,7 +24414,15 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     ipLocation: null,
     geoLocation: null,
     redirectTo: 'https://xn----stbbddfgbcabi4bzk.xn--p1acf/',
-    cities: []
+    cities: null,
+    currentCity: null,
+    defaultCity: {
+      bx_code: 792,
+      code: "russia",
+      name: "Россия",
+      phone: "8 800 511-97-15",
+      sort: 0
+    }
   },
   getters: {
     isModal: function isModal(state) {
@@ -24421,6 +24445,12 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     cities: function cities(state) {
       return state.cities;
+    },
+    currentCity: function currentCity(state) {
+      return state.currentCity;
+    },
+    defaultCity: function defaultCity(state) {
+      return state.defaultCity;
     }
   },
   mutations: {
@@ -24447,6 +24477,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     SET_CITIES: function SET_CITIES(state, payload) {
       return state.cities = payload;
+    },
+    SET_CURRENT_CITY: function SET_CURRENT_CITY(state, payload) {
+      return state.currentCity = payload;
     }
   },
   actions: {
@@ -24475,11 +24508,15 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
       var otherCity = {
         'bx_code': 792,
         'name': 'Другой',
+        'citycode': 'drugoy',
         'phone': '8 800 511-97-15',
         'sort': 0
       };
       payload.push(otherCity);
       context.commit("SET_CITIES", payload);
+    },
+    setCurrentCity: function setCurrentCity(context, payload) {
+      return context.commit("SET_CURRENT_CITY", payload);
     }
   }
 }));
