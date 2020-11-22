@@ -195,6 +195,9 @@
                 border-radius: rem(38/2);
                 background-color: $orange;
                 box-shadow: 4px 4px 8px rgba(192, 64, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5), inset -1px -1px 0 rgba(255, 255, 255, 0.2);
+                &:disabled {
+                    cursor: not-allowed;
+                }
             }
         }
     }

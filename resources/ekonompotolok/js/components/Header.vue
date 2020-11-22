@@ -28,22 +28,17 @@
 					Осталось 7 замеров.<br />Успейте записаться!
 				</p>
 			</div>
-			<form class="header--content-form">
-				<input
-					type="tel"
-					autocomplete="off"
-					required="required"
-					placeholder="Введите ваш номер"
-					class="form-input"
-				/>
-				<button class="form-button">Записаться</button>
-			</form>
+			<header-form></header-form>
 		</div>
 	</section>
 </template>
 <script>
+	import Form from "./Form";
 	export default {
 		name: "Header",
 		data: () => ({}),
+		components: {
+			"header-form": Form,
+		},
 	};
 </script>

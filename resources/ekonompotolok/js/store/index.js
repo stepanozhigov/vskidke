@@ -10,7 +10,7 @@ export default new Vuex.Store({
         success: false,
         ipLocation: null,
         geoLocation: null,
-        redirectTo: '',
+        redirectTo: 'https://xn----stbbddfgbcabi4bzk.xn--p1acf/',
         cities: []
     },
     getters: {

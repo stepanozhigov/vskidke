@@ -1,158 +1,99 @@
 <template>
 	<!-- {{--FORM--}} -->
-	<form @submit.prevent="submitForm" class="flex flex-col items-center">
+	<form @submit.prevent="submitTest" class="header--content-form">
 		<!-- {{--PHONE INPUT--}} -->
-		<label for="phone" class="relative block label-phone">
-			<vue-tel-input
-				v-model="phone"
-				v-bind="settings"
-				@validate="onCountryValidate"
-				@onInput="onCountryInput"
-				@country-changed="onCountryChange"
-				placeholder="Ваш телефон *"
-				autocomplete="off"
-			></vue-tel-input>
-			<span v-if="phoneIsValid" class="flex items-center absolute svg-valid">
-				<svg
-					fill="currentColor"
-					xmlns="http://www.w3.org/2000/svg"
-					height="24"
-					viewBox="0 0 24 24"
-					width="24"
-				>
-					<path d="M0 0h24v24H0z" fill="none" />
-					<path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-				</svg>
-			</span>
-		</label>
+		<input
+			v-model="$v.phone.$model"
+			type="tel"
+			autocomplete="off"
+			required="required"
+			class="form-input"
+			:placeholder="placeholderText"
+			v-mask="{ mask: '\+7 (999) 999-99-99', greedy: true }"
+			v-on:change="maskCheck"
+		/>
 
 		<!-- {{--SUBMIT PHONE--}} -->
-		<button
-			class="flex justify-center items-center w-full button-pulse"
-			:class="{ disabled: !formValid }"
-			:disabled="!formValid"
-		>
-			<span>{{ btnText }}</span>
+		<button class="form-button" type="submit" :disabled="disabled">
+			{{ btnText }}
 		</button>
 	</form>
 </template>
 
 <script>
-	import { VueTelInput } from "vue-tel-input";
+	import VueCookies from "vue-cookies";
+	import MaskedInput from "vue-masked-input";
+	import { required, helpers } from "vuelidate/lib/validators";
 	import axios from "axios";
 	import { mapActions, mapGetters } from "vuex";
 
+	//валидация телефона по регулярному вырожению
+	const phoneValidate = helpers.regex(
+		"phoneValidate",
+		/^(\+)?(\(\d{2,3}\) ?\d|\d)(([ \-]?\d)|( ?\(\d{2,3}\) ?)){5,12}\d$/
+	);
+
 	export default {
-		components: { VueTelInput },
 		data: () => ({
 			phone: "",
-			phoneIsValid: false,
-			onFocus: false,
-			settings: {
-				placeholder: "Ваш телефон *",
-				disabledFormatting: false,
-				enabledCountryCode: true,
-				mode: "international",
-				preferredCountries: ["fr", "us", "gb"],
-				validCharactersOnly: true,
-				dynamicPlaceholder: true,
-				inputOptions: {
-					showDialCode: false,
-					tabindex: 0,
-				},
-			},
 		}),
 		props: {
 			btnText: {
 				type: String,
-				default: "Отправить заявку",
+				default: "Записаться",
 			},
-			actionType: {
+			placeholderText: {
 				type: String,
-				default: "form",
+				default: "Введите ваш номер",
 			},
 		},
+		validations: {
+			phone: {
+				required,
+				phoneValidate,
+			},
+		},
+		mounted: function () {},
 		computed: {
-			...mapGetters([
-				"isModal",
-				"isSuccess",
-				"redirectTo",
-				"env",
-				"geoLocation",
-				"ipLocation",
-			]),
-			formValid: function () {
-				return this.phoneIsValid;
-			},
-			geoAddress() {
-				if (this.geoLocation) {
-					return (
-						this.geoLocation.address.countryName +
-						", " +
-						this.geoLocation.address.city
-					);
-				}
-				return "";
-			},
-			ipAddress() {
-				return this.ipLocation;
+			...mapGetters(["isModal", "isSuccess", "redirectTo", "env"]),
+			disabled() {
+				return this.$v.phone.$invalid;
 			},
 		},
 		methods: {
-			...mapActions([
-				"setModal",
-				"unsetModal",
-				"setSuccess",
-				"unsetSuccess",
-				"setIpLocation",
-			]),
+			...mapActions(["setModal", "unsetModal", "setSuccess", "unsetSuccess"]),
+			submitTest() {
+				console.log(this.isValid);
+			},
 			submitForm() {
-				if (this.formValid) {
+				if (this.$v.phone.$invalid) {
+					this.isValid = false;
+				} else {
+					this.isValid = true;
 					axios
-						.post("/ammoconnect", {
-							phone: this.phone,
-							url: "upperlicense.vskidke.ru",
-							geoLocation: this.geoAddress,
-							ipLocation: this.ipAddress,
-						})
+						// .post("/bx24", {
+						// 	phone: this.phone,
+						// })
 						.then((response) => {
-							fbq("track", "Lead");
-							if (this.actionType == "form") {
-								ym(62231704, "reachGoal", "leadmagnit-form-medlicense");
-								ga.getAll()[0].send(
-									"event",
-									"leadmagnit-form-medlicense",
-									"send"
-								);
-							} else if (this.actionType == "callback") {
-								ym(62231704, "reachGoal", "leadmagnit-callback-medlicense");
-								ga.getAll()[0].send(
-									"event",
-									"leadmagnit-callback-medlicense",
-									"send"
-								);
-							}
-							if (this.env == "production") {
+							// fbq("track", "Lead");
+							// ga.getAll()[0].send("event", "lead", this.actionType);
+							// ym(68586496, "reachGoal", "send form");
+							if (this.env != "local") {
 								window.location.replace(this.redirectTo);
 							}
-							//this.setSuccess();
-							//this.setModal();
+							// this.setSuccess();
+							// this.setModal();
 						});
 				}
 			},
-
-			onCountryValidate({ number, isValid, country }) {
-				//console.log(number);
-			},
-			onCountryInput(input) {
-				//console.log(input);
-				this.phoneIsValid = input.isValid;
-			},
-			onCountryChange(country) {
-				if (this.ipLocation == null) this.setIpLocation(country.name);
-				//console.log(country);
-				this.phone = "";
+			maskCheck: function (field) {
+				if (field.target.inputmask.isComplete()) {
+					this.isValid = true;
+				} else {
+					this.isValid = false;
+				}
 			},
 		},
+		components: { MaskedInput, VueCookies },
 	};
 </script>
