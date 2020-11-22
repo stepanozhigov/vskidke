@@ -18,7 +18,8 @@
 			latitude: null,
 			longitude: null,
 			gettingLocation: false,
-			geoError: false,
+			noGeoLocation: false,
+			geoDenied: false,
 			geoErrorStr: null,
 			apiKey: "izLr3tzed9tqFm2ArDXT5J0FPBZHbfuztoWv7-WwU4Q",
 		}),
@@ -29,9 +30,11 @@
 		},
 		created: function () {
 			this.setEnv(this.environment);
-			this.getAddress().then(() =>
-				this.getCities().then((res) => this.resolveCurrentCity())
-			);
+			this.getAddress()
+				.then(() => this.getCities().then((res) => this.resolveCurrentCity()))
+				.catch((error) => {
+					this.geoDenied = true;
+				});
 		},
 		mounted: function () {
 			this.setViewHeight();
@@ -53,10 +56,16 @@
 				return `https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=${this.apiKey}&at=${this.latitude},${this.longitude}&lang=en-US`;
 			},
 			geoCountryName() {
-				return this.geoLocation.address.countryName;
+				if (!this.geoDenied) {
+					return this.geoLocation.address.countryName;
+				}
+				return false;
 			},
 			geoCityName() {
-				return this.geoLocation.address.city;
+				if (!this.geoDenied) {
+					return this.geoLocation.address.city;
+				}
+				return false;
 			},
 		},
 		methods: {
@@ -92,7 +101,8 @@
 			async getCoords() {
 				return new Promise((resolve, reject) => {
 					if (!("geolocation" in navigator)) {
-						this.geoError = true;
+						console.log("NO GEOLOCATION");
+						this.noGeoLocation = true;
 						reject(new Error("Geolocation is not available."));
 					}
 
@@ -142,7 +152,7 @@
 				//NO CITY IN URL (use location)
 				else {
 					//GEO WORKS
-					if (!this.geoError) {
+					if (!this.geoDenied) {
 						let city = this.cities.filter((city) => {
 							return city.code == this.geoCityName;
 						});

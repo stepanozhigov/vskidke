@@ -2431,7 +2431,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       latitude: null,
       longitude: null,
       gettingLocation: false,
-      geoError: false,
+      noGeoLocation: false,
+      geoDenied: false,
       geoErrorStr: null,
       apiKey: "izLr3tzed9tqFm2ArDXT5J0FPBZHbfuztoWv7-WwU4Q"
     };
@@ -2449,6 +2450,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return _this.getCities().then(function (res) {
         return _this.resolveCurrentCity();
       });
+    })["catch"](function (error) {
+      _this.geoDenied = true;
     });
   },
   mounted: function mounted() {
@@ -2467,10 +2470,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return "https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=".concat(this.apiKey, "&at=").concat(this.latitude, ",").concat(this.longitude, "&lang=en-US");
     },
     geoCountryName: function geoCountryName() {
-      return this.geoLocation.address.countryName;
+      if (!this.geoDenied) {
+        return this.geoLocation.address.countryName;
+      }
+
+      return false;
     },
     geoCityName: function geoCityName() {
-      return this.geoLocation.address.city;
+      if (!this.geoDenied) {
+        return this.geoLocation.address.city;
+      }
+
+      return false;
     }
   }),
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess", "setEnv", "setGeoLocation", "setIpLocation", "setCities", "setCurrentCity"])), {}, {
@@ -2514,7 +2525,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               case 0:
                 return _context2.abrupt("return", new Promise(function (resolve, reject) {
                   if (!("geolocation" in navigator)) {
-                    _this4.geoError = true;
+                    console.log("NO GEOLOCATION");
+                    _this4.noGeoLocation = true;
                     reject(new Error("Geolocation is not available."));
                   }
 
@@ -2600,7 +2612,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       } //NO CITY IN URL (use location)
       else {
           //GEO WORKS
-          if (!this.geoError) {
+          if (!this.geoDenied) {
             var _city = this.cities.filter(function (city) {
               return city.code == _this6.geoCityName;
             });
