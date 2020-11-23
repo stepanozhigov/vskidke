@@ -2739,30 +2739,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   console.log("USE DEFAULT LOCATION");
                   this.setCurrentCity(this.defaultCity);
                 }
-            } // //GEO WORKS
-          // if (!this.geoDenied) {
-          // 	// alert(this.geoCityName);
-          // 	let city = this.cities.filter((city) => {
-          // 		return city.name == this.geoCityName;
-          // 	});
-          // 	if (city.length > 0) {
-          // 		//route to geo city
-          // 		this.$router.push({
-          // 			name: "App",
-          // 			params: { citycode: city[0].code },
-          // 		});
-          // 	} else {
-          // 		this.setCurrentCity(this.defaultCity);
-          // 	}
-          // }
-          // //GEO NOT AVAILABLE
-          // else {
-          // 	//try IP
-          // 	this.getIp();
-          // 	//use default
-          // 	this.setCurrentCity(this.defaultCity);
-          // }
-
+            }
         }
     }
   }),
