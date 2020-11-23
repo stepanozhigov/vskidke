@@ -11,7 +11,8 @@ export default new Vuex.Store({
         ipLocation: null,
         geoCoordinates: null,
         geoLocation: null,
-        redirectTo: 'https://xn----stbbddfgbcabi4bzk.xn--p1acf/',
+        redirectTo: 'https://xn----stbbddfgbcabi4bzk.xn--p1acf',
+        apiService: 'https://potolki-ts.ru/api/',
         cities: null,
         currentCity: null,
         defaultCity: {
@@ -32,7 +33,8 @@ export default new Vuex.Store({
         env:state =>state.env,
         cities: state =>state.cities,
         currentCity: state=>state.currentCity,
-        defaultCity: state=>state.defaultCity
+        defaultCity: state=>state.defaultCity,
+        apiService: state=>state.apiService
     },
     mutations: {
         SET_ENV: (state,payload) => (state.env = payload),

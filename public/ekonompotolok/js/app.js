@@ -2261,9 +2261,16 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["helpe
     }
   },
   mounted: function mounted() {},
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapGetters"])(["isModal", "isSuccess", "redirectTo", "env"])), {}, {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapGetters"])(["isModal", "isSuccess", "redirectTo", "env", "apiService", "currentCity"])), {}, {
     disabled: function disabled() {
       return this.$v.phone.$invalid;
+    },
+    status: function status() {
+      if (this.env != "local") {
+        return "Не обработан";
+      }
+
+      return "JUNK";
     }
   }),
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess"])), {}, {
@@ -2277,10 +2284,12 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["helpe
         this.isValid = false;
       } else {
         this.isValid = true;
-        axios__WEBPACK_IMPORTED_MODULE_3___default.a // .post("/bx24", {
-        // 	phone: this.phone,
-        // })
-        .then(function (response) {
+        console.log("SEND FORM");
+        axios__WEBPACK_IMPORTED_MODULE_3___default.a.post("bx24", {
+          phone: this.phone,
+          city: this.currentCity.bx_code,
+          comments: false
+        }).then(function (response) {
           // fbq("track", "Lead");
           // ga.getAll()[0].send("event", "lead", this.actionType);
           // ym(68586496, "reachGoal", "send form");
@@ -5118,7 +5127,7 @@ var render = function() {
       on: {
         submit: function($event) {
           $event.preventDefault()
-          return _vm.submitTest($event)
+          return _vm.submitForm($event)
         }
       }
     },
@@ -24577,7 +24586,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     ipLocation: null,
     geoCoordinates: null,
     geoLocation: null,
-    redirectTo: 'https://xn----stbbddfgbcabi4bzk.xn--p1acf/',
+    redirectTo: 'https://xn----stbbddfgbcabi4bzk.xn--p1acf',
+    apiService: 'https://potolki-ts.ru/api/',
     cities: null,
     currentCity: null,
     defaultCity: {
@@ -24618,6 +24628,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     defaultCity: function defaultCity(state) {
       return state.defaultCity;
+    },
+    apiService: function apiService(state) {
+      return state.apiService;
     }
   },
   mutations: {

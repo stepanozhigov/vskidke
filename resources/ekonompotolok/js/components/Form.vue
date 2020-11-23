@@ -1,6 +1,6 @@
 <template>
 	<!-- {{--FORM--}} -->
-	<form @submit.prevent="submitTest" class="header--content-form">
+	<form @submit.prevent="submitForm" class="header--content-form">
 		<!-- {{--PHONE INPUT--}} -->
 		<input
 			v-model="$v.phone.$model"
@@ -55,9 +55,22 @@
 		},
 		mounted: function () {},
 		computed: {
-			...mapGetters(["isModal", "isSuccess", "redirectTo", "env"]),
+			...mapGetters([
+				"isModal",
+				"isSuccess",
+				"redirectTo",
+				"env",
+				"apiService",
+				"currentCity",
+			]),
 			disabled() {
 				return this.$v.phone.$invalid;
+			},
+			status() {
+				if (this.env != "local") {
+					return "Не обработан";
+				}
+				return "JUNK";
 			},
 		},
 		methods: {
@@ -70,10 +83,13 @@
 					this.isValid = false;
 				} else {
 					this.isValid = true;
+					console.log("SEND FORM");
 					axios
-						// .post("/bx24", {
-						// 	phone: this.phone,
-						// })
+						.post("bx24", {
+							phone: this.phone,
+							city: this.currentCity.bx_code,
+							comments: false,
+						})
 						.then((response) => {
 							// fbq("track", "Lead");
 							// ga.getAll()[0].send("event", "lead", this.actionType);
