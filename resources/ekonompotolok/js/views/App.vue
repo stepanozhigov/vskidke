@@ -74,8 +74,8 @@
 			},
 			//INIT APP
 			async initApp() {
-				await this.getIp();
-				await this.getIpCity();
+				// await this.getIp();
+				// await this.getIpCity();
 				await this.getGeoLocation();
 				await this.getCities();
 			},
@@ -149,7 +149,7 @@
 			async getIpCity(ip) {
 				return await new Promise((resolve, reject) => {
 					const response = axios
-						.get("https://ip-api.com/json/" + this.ip + "?lang=ru")
+						.get("http://ip-api.com/json/" + this.ip + "?lang=ru")
 						.then((res) => {
 							console.log(res.data.city);
 							this.setIpLocation(res.data.city);
@@ -185,18 +185,17 @@
 						let city = this.cities.filter((city) => {
 							return city.name == this.ipLocation;
 						});
+						//LOCATION IN THE LIST
 						if (city.length > 0) {
 							this.setCurrentCity(city[0]);
 							this.$router.push({
 								name: "App",
 								params: { citycode: city[0].code },
 							});
-						} else {
-							this.setCurrentCity(false);
-							this.$router.push({
-								name: "App",
-								params: { citycode: "" },
-							});
+						}
+						//LOCATION NOT IN THE LIST
+						else {
+							this.setCurrentCity(this.defaultCity);
 						}
 					}
 					//NO IP LOCATION
@@ -223,6 +222,7 @@
 						//NO GEO LOCATION
 						else {
 							console.log("USE DEFAULT LOCATION");
+							this.setCurrentCity(this.defaultCity);
 						}
 					}
 
