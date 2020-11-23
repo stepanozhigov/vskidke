@@ -149,7 +149,7 @@
 			async getIpCity(ip) {
 				return await new Promise((resolve, reject) => {
 					const response = axios
-						.get("http://ip-api.com/json/" + this.ip + "?lang=ru")
+						.get("https://ip-api.com/json/" + this.ip + "?lang=ru")
 						.then((res) => {
 							console.log(res.data.city);
 							this.setIpLocation(res.data.city);
