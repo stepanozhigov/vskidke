@@ -31,8 +31,7 @@
 		created: function () {
 			this.setEnv(this.environment);
 			this.getAddress()
-				.then(() => this.getCities()
-				.then((res) => this.resolveCurrentCity()))
+				.then(() => this.getCities().then((res) => this.resolveCurrentCity()))
 				.catch((error) => {
 					this.geoDenied = true;
 				});
@@ -154,6 +153,7 @@
 				else {
 					//GEO WORKS
 					if (!this.geoDenied) {
+						alert(this.geoCityName);
 						let city = this.cities.filter((city) => {
 							return city.name == this.geoCityName;
 						});

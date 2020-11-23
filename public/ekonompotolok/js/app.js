@@ -2613,6 +2613,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       else {
           //GEO WORKS
           if (!this.geoDenied) {
+            alert(this.geoCityName);
+
             var _city = this.cities.filter(function (city) {
               return city.name == _this6.geoCityName;
             });
