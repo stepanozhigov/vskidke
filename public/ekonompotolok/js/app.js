@@ -2618,6 +2618,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             });
 
             if (_city.length > 0) {
+              //route to page /:city?
               this.setCurrentCity(_city[0]);
             } else {
               this.setCurrentCity(this.defaultCity);

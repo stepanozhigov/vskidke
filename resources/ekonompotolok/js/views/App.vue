@@ -157,6 +157,7 @@
 							return city.code == this.geoCityName;
 						});
 						if (city.length > 0) {
+							//route to page /:city?
 							this.setCurrentCity(city[0]);
 						} else {
 							this.setCurrentCity(this.defaultCity);
