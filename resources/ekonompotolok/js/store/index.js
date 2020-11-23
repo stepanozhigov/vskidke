@@ -9,6 +9,7 @@ export default new Vuex.Store({
         modal: false,
         success: false,
         ipLocation: null,
+        geoCoordinates: null,
         geoLocation: null,
         redirectTo: 'https://xn----stbbddfgbcabi4bzk.xn--p1acf/',
         cities: null,
@@ -25,6 +26,7 @@ export default new Vuex.Store({
         isModal: state => state.modal,
         isSuccess: state => state.success,
         ipLocation: state => state.ipLocation,
+        geoCoordinates: state => state.geoCoordinates,
         geoLocation: state => state.geoLocation,
         redirectTo:state =>state.redirectTo,
         env:state =>state.env,
@@ -39,6 +41,7 @@ export default new Vuex.Store({
         SET_SUCCESS: state => (state.success = true),
         UNSET_SUCCESS: state => (state.success = false),
         SET_IP_LOCATION: (state, ipLocation) => (state.ipLocation = ipLocation),
+        SET_GEO_COORDINATES: (state, geoCoordinates) => (state.geoCoordinates = geoCoordinates),
         SET_GEO_LOCATION: (state, geoLocation) =>
             (state.geoLocation = geoLocation),
         SET_CITIES: (state,payload) => (state.cities = payload),
@@ -54,6 +57,8 @@ export default new Vuex.Store({
             context.commit("SET_IP_LOCATION", payload),
         setGeoLocation: (context, payload) =>
             context.commit("SET_GEO_LOCATION", payload),
+        setGeoCoordinates: (context, payload) =>
+            context.commit("SET_GEO_COORDINATES", payload),
         setCities: (context,payload) => {
             const otherCity = {
                 'bx_code': 792,

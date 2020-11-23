@@ -31,12 +31,7 @@
 		},
 		created: function () {
 			this.setEnv(this.environment);
-			this.getAddress()
-				.then(() => this.getCities())
-				.then(() => this.resolveCurrentCity())
-				.catch((error) => {
-					this.geoDenied = true;
-				});
+			this.initApp().then(() => this.resolveCurrentCity());
 		},
 		mounted: function () {
 			this.setViewHeight();
@@ -53,21 +48,10 @@
 				"geoLocation",
 				"cities",
 				"defaultCity",
+				"ipLocation",
 			]),
 			addressUrl() {
 				return `https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=${this.apiKey}&at=${this.latitude},${this.longitude}&lang=ru`;
-			},
-			geoCountryName() {
-				if (!this.geoDenied) {
-					return this.geoLocation.address.countryName;
-				}
-				return false;
-			},
-			geoCityName() {
-				if (!this.geoDenied) {
-					return this.geoLocation.address.city;
-				}
-				return false;
 			},
 		},
 		methods: {
@@ -81,12 +65,21 @@
 				"setIpLocation",
 				"setCities",
 				"setCurrentCity",
+				"setGeoCoordinates",
 			]),
 			setViewHeight: function () {
 				let vh = window.innerHeight * 0.01;
 				document.documentElement.style.setProperty("--vh", `${vh}px`);
 				//console.log(vh);
 			},
+			//INIT APP
+			async initApp() {
+				await this.getIp();
+				await this.getIpCity();
+				await this.getGeoLocation();
+				await this.getCities();
+			},
+			//
 			async getCities() {
 				return new Promise((resolve, reject) => {
 					const response = axios
@@ -118,33 +111,49 @@
 					);
 				});
 			},
-			async getAddress() {
+			async getGeoLocation() {
 				this.gettingLocation = true;
 				try {
 					this.gettingLocation = false;
 					const location = await this.getCoords();
-					this.setIpLocation({
+					this.setGeoCoordinates({
 						latitude: location.coords.latitude,
 						longitude: location.coords.longitude,
 					});
-					//console.log(location);
 					this.latitude = location.coords.latitude;
 					this.longitude = location.coords.longitude;
 					const address_data = await axios(this.addressUrl);
 					if (address_data.data.items.length > 0)
-						this.setGeoLocation(address_data.data.items[0]);
+						console.log(address_data.data.items[0].address.city);
+					this.setGeoLocation(address_data.data.items[0].address.city);
 				} catch (e) {
 					this.gettingLocation = false;
 					this.errorStr = e.message;
 				}
 			},
 			async getIp() {
-				return new Promise((resolve, reject) => {
+				return await new Promise((resolve, reject) => {
 					const response = axios
 						.get("https://api.ipify.org?format=json")
 						.then((res) => {
-							console.log(res.json());
-							resolve(res);
+							console.log(res.data.ip);
+							this.ip = res.data.ip;
+							resolve(res.data.ip);
+						})
+						.catch((error) => {
+							reject(error);
+						});
+				});
+			},
+			//http://ip-api.com/json/193.42.108.94?lang=ru
+			async getIpCity(ip) {
+				return await new Promise((resolve, reject) => {
+					const response = axios
+						.get("http://ip-api.com/json/" + this.ip + "?lang=ru")
+						.then((res) => {
+							console.log(res.data.city);
+							this.setIpLocation(res.data.city);
+							resolve(res.data.city);
 						})
 						.catch((error) => {
 							reject(error);
@@ -162,34 +171,85 @@
 						this.setCurrentCity(city[0]);
 					} else {
 						this.setCurrentCity(this.defaultCity);
+						this.$router.push({
+							name: "App",
+							params: { citycode: "" },
+						});
 					}
 				}
 				//NO CITY IN URL (use location)
 				else {
-					//GEO WORKS
-					if (!this.geoDenied) {
-						// alert(this.geoCityName);
+					//IP LOCATION RECEIVED
+					if (this.ipLocation) {
+						console.log("USE IP LOCATION");
 						let city = this.cities.filter((city) => {
-							return city.name == this.geoCityName;
+							return city.name == this.ipLocation;
 						});
 						if (city.length > 0) {
-							//route to geo city
+							this.setCurrentCity(city[0]);
 							this.$router.push({
 								name: "App",
 								params: { citycode: city[0].code },
 							});
 						} else {
-							this.setCurrentCity(this.defaultCity);
+							this.setCurrentCity(false);
+							this.$router.push({
+								name: "App",
+								params: { citycode: "" },
+							});
 						}
 					}
-					//GEO NOT AVAILABLE
+					//NO IP LOCATION
+					//use geo location
 					else {
-						//try IP
-						this.getIp();
-
-						//use default
-						this.setCurrentCity(this.defaultCity);
+						console.log("USE GEO LOCATION");
+						//IF GEO LOCATED
+						if (this.geoLocation) {
+							console.log("USE GEO LOCATION");
+							//
+							let city = this.cities.filter((city) => {
+								return city.name == this.geoLocation;
+							});
+							if (city.length > 0) {
+								//route to geo city
+								this.$router.push({
+									name: "App",
+									params: { citycode: city[0].code },
+								});
+							} else {
+								this.setCurrentCity(this.defaultCity);
+							}
+						}
+						//NO GEO LOCATION
+						else {
+							console.log("USE DEFAULT LOCATION");
+						}
 					}
+
+					// //GEO WORKS
+					// if (!this.geoDenied) {
+					// 	// alert(this.geoCityName);
+					// 	let city = this.cities.filter((city) => {
+					// 		return city.name == this.geoCityName;
+					// 	});
+					// 	if (city.length > 0) {
+					// 		//route to geo city
+					// 		this.$router.push({
+					// 			name: "App",
+					// 			params: { citycode: city[0].code },
+					// 		});
+					// 	} else {
+					// 		this.setCurrentCity(this.defaultCity);
+					// 	}
+					// }
+					// //GEO NOT AVAILABLE
+					// else {
+					// 	//try IP
+					// 	this.getIp();
+
+					// 	//use default
+					// 	this.setCurrentCity(this.defaultCity);
+					// }
 				}
 			},
 		},
