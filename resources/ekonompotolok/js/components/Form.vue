@@ -86,6 +86,7 @@
 					console.log("SEND FORM");
 					axios
 						.post("bx24", {
+							title: "Лидмагнит",
 							phone: this.phone,
 							city: this.currentCity.bx_code,
 							comments: false,

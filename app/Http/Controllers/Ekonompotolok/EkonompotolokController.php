@@ -18,15 +18,14 @@ class EkonompotolokController extends Controller
     public function bitrix24(Request $request)
     {
         if($request->input('comments')) {
-            $comments ="Площадь: ".$request->type."; ";
-            $comments.="Когда: ".$request->when."; ";
-            $comments.="Подарок: ".$request->gift;
+            $comments ="Площадь: ".$request->area."; ";
+            $comments.="Cвязаться: " .($request->contactBy ? $request->contactBy : '--').";";
         }
 
         $data = [
             'fields'=>[
                 //Лид (стр1)
-                'TITLE'=> 'Лидмагнит',
+                'TITLE'=> $request->input('title'),
                 //СТАТУС
                 'STATUS_ID'=>env('APP_ENV') == 'local' ? 'Хлам' : '',
                 //Лид (стр2)

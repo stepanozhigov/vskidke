@@ -12,7 +12,6 @@ export default new Vuex.Store({
         geoCoordinates: null,
         geoLocation: null,
         redirectTo: 'https://xn----stbbddfgbcabi4bzk.xn--p1acf',
-        apiService: 'https://potolki-ts.ru/api/',
         cities: null,
         currentCity: null,
         defaultCity: {
@@ -21,7 +20,9 @@ export default new Vuex.Store({
             name:"Россия",
             phone:"8 800 511-97-15",
             sort:0
-        }
+        },
+        area: 20,
+        contactBy: false
     },
     getters: {
         isModal: state => state.modal,
@@ -34,7 +35,8 @@ export default new Vuex.Store({
         cities: state =>state.cities,
         currentCity: state=>state.currentCity,
         defaultCity: state=>state.defaultCity,
-        apiService: state=>state.apiService
+        area: state=>state.area,
+        contactBy: state=>state.contactBy,
     },
     mutations: {
         SET_ENV: (state,payload) => (state.env = payload),
@@ -47,7 +49,9 @@ export default new Vuex.Store({
         SET_GEO_LOCATION: (state, geoLocation) =>
             (state.geoLocation = geoLocation),
         SET_CITIES: (state,payload) => (state.cities = payload),
-        SET_CURRENT_CITY: (state,payload) => (state.currentCity = payload)
+        SET_CURRENT_CITY: (state,payload) => (state.currentCity = payload),
+        SET_AREA: (state,payload) => (state.area = payload),
+        SET_CONTACTBY: (state,payload) => (state.contactBy = payload)
     },
     actions: {
         setEnv: (context,payload) => context.commit("SET_ENV",payload),
@@ -72,7 +76,18 @@ export default new Vuex.Store({
             payload.push(otherCity);
             context.commit("SET_CITIES",payload)
         },
-        setCurrentCity: (context, payload) =>
-            context.commit("SET_CURRENT_CITY", payload),
+        setCurrentCity: (context, payload) => {
+            context.commit("SET_CURRENT_CITY", payload)
+        },
+        setArea: (context, payload) => {
+            context.commit("SET_AREA", payload)
+        },
+        setContactBy: (context, payload) => {
+            if (payload != context.getters.contactBy) {
+                context.commit('SET_CONTACTBY',payload);
+            } else {
+                context.commit('SET_CONTACTBY',false);
+            }
+        }
     }
 });
