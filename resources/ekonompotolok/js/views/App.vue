@@ -15,6 +15,7 @@
 	export default {
 		name: "App",
 		data: () => ({
+			ip: null,
 			latitude: null,
 			longitude: null,
 			gettingLocation: false,
@@ -31,7 +32,8 @@
 		created: function () {
 			this.setEnv(this.environment);
 			this.getAddress()
-				.then(() => this.getCities().then((res) => this.resolveCurrentCity()))
+				.then(() => this.getCities())
+				.then(() => this.resolveCurrentCity())
 				.catch((error) => {
 					this.geoDenied = true;
 				});
@@ -101,7 +103,7 @@
 			async getCoords() {
 				return new Promise((resolve, reject) => {
 					if (!("geolocation" in navigator)) {
-						console.log("NO GEOLOCATION");
+						//console.log("NO GEOLOCATION");
 						this.noGeoLocation = true;
 						reject(new Error("Geolocation is not available."));
 					}
@@ -136,6 +138,19 @@
 					this.errorStr = e.message;
 				}
 			},
+			async getIp() {
+				return new Promise((resolve, reject) => {
+					const response = axios
+						.get("https://api.ipify.org?format=json")
+						.then((res) => {
+							console.log(res.json());
+							resolve(res);
+						})
+						.catch((error) => {
+							reject(error);
+						});
+				});
+			},
 			//
 			resolveCurrentCity() {
 				//CITY IN URL
@@ -153,7 +168,7 @@
 				else {
 					//GEO WORKS
 					if (!this.geoDenied) {
-						alert(this.geoCityName);
+						// alert(this.geoCityName);
 						let city = this.cities.filter((city) => {
 							return city.name == this.geoCityName;
 						});
@@ -169,6 +184,10 @@
 					}
 					//GEO NOT AVAILABLE
 					else {
+						//try IP
+						this.getIp();
+
+						//use default
 						this.setCurrentCity(this.defaultCity);
 					}
 				}
