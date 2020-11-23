@@ -31,7 +31,8 @@
 		created: function () {
 			this.setEnv(this.environment);
 			this.getAddress()
-				.then(() => this.getCities().then((res) => this.resolveCurrentCity()))
+				.then(() => this.getCities()
+				.then((res) => this.resolveCurrentCity()))
 				.catch((error) => {
 					this.geoDenied = true;
 				});
