@@ -53,7 +53,7 @@
 				"defaultCity",
 			]),
 			addressUrl() {
-				return `https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=${this.apiKey}&at=${this.latitude},${this.longitude}&lang=en-US`;
+				return `https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=${this.apiKey}&at=${this.latitude},${this.longitude}&lang=ru`;
 			},
 			geoCountryName() {
 				if (!this.geoDenied) {
@@ -154,7 +154,7 @@
 					//GEO WORKS
 					if (!this.geoDenied) {
 						let city = this.cities.filter((city) => {
-							return city.code == this.geoCityName;
+							return city.name == this.geoCityName;
 						});
 						if (city.length > 0) {
 							//route to geo city
