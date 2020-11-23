@@ -157,8 +157,11 @@
 							return city.code == this.geoCityName;
 						});
 						if (city.length > 0) {
-							//route to page /:city?
-							this.setCurrentCity(city[0]);
+							//route to geo city
+							this.$router.push({
+								name: "App",
+								params: { citycode: city[0].code },
+							});
 						} else {
 							this.setCurrentCity(this.defaultCity);
 						}
