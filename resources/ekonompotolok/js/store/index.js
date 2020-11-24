@@ -17,7 +17,7 @@ export default new Vuex.Store({
         defaultCity: {
             bx_code:792,
             code:"russia",
-            name:"Другой",
+            name:"Россия",
             phone:"8 800 511-97-15",
             sort:0
         },
