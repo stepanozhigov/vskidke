@@ -69,11 +69,9 @@ require("laravel-mix-purgecss");
 mix
 // .copy("resources/ekonompotolok/images/", "public/ekonompotolok/images/")
 .js("resources/ekonompotolok/js/app.js", "public/ekonompotolok/js")
-.sass("resources/ekonompotolok/scss/app.scss", "public/ekonompotolok/css",
-{},[tailwindcss("./tailwind.ekonompotolok.config.js")])
+.sass("resources/ekonompotolok/scss/app.scss", "public/ekonompotolok/css")
 
 .options({
-    autoprefixer: false,
     processCssUrls: false,
     autoprefixer: {
         browsers: ["last 9 versions"]
