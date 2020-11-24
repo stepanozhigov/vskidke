@@ -67,7 +67,8 @@
 				"env",
 				"currentCity",
 				"area",
-				"contactBy",
+				"contactByWhatsapp",
+				"contactByPhone",
 			]),
 			disabled() {
 				return this.$v.phone.$invalid;
@@ -89,7 +90,8 @@
 							phone: this.phone,
 							city: this.currentCity.bx_code,
 							area: this.area,
-							contactBy: this.contactBy,
+							contactByWhatsapp: this.contactByWhatsapp,
+							contactByPhone: this.contactByPhone,
 							comments: true,
 						})
 						.then((response) => {

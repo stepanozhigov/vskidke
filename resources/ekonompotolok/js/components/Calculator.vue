@@ -28,22 +28,20 @@
 			<div class="calculator--content-contactby">
 				<label class="checkbox-container">
 					<input
-						type="radio"
-						name="radio"
+						type="checkbox"
+						name="whatsapp"
 						value="whatsapp"
-						v-model="contactBy"
-						@click="setContactBy('через whatsapp')"
+						v-model="contactByWhatsapp"
 					/>
 					<span class="checkbox-checkmark"></span>
 					На WhatsApp
 				</label>
 				<label class="checkbox-container">
 					<input
-						type="radio"
+						type="checkbox"
+						name="phone"
 						value="phone"
-						v-model="contactBy"
-						name="radio"
-						@click="setContactBy('по телефону')"
+						v-model="contactByPhone"
 					/>
 					<span class="checkbox-checkmark"></span>
 					По телефону
@@ -55,19 +53,20 @@
 	</section>
 </template>
 <script>
-	import { mapGetters, mapActions } from "vuex";
+	import { mapGetters, mapActions, mapMutations } from "vuex";
 	import VueSlider from "vue-slider-component";
 	import CalculatorForm from "./CalculatorForm";
 	export default {
 		name: "Calculator",
 		data() {
 			return {
-				contactBy: false,
+				// contactByWhatsapp: false,
+				// contactByPhone: false,
 				//lengthTooltip: "{value}%",
 			};
 		},
 		methods: {
-			...mapActions(["setArea", "setContactBy"]),
+			...mapActions(["setArea"]),
 			lengthTooltip: function (value) {
 				return value + " кв.м";
 			},
@@ -79,6 +78,22 @@
 				},
 				set(value) {
 					this.$store.dispatch("setArea", value);
+				},
+			},
+			contactByWhatsapp: {
+				get() {
+					return this.$store.getters.contactByWhatsapp;
+				},
+				set(value) {
+					this.$store.commit("SET_CONTACTBY_WHATSAPP", value);
+				},
+			},
+			contactByPhone: {
+				get() {
+					return this.$store.getters.contactByPhone;
+				},
+				set(value) {
+					this.$store.commit("SET_CONTACTBY_PHONE", value);
 				},
 			},
 		},

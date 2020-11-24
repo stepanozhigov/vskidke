@@ -23,7 +23,8 @@ export default new Vuex.Store({
         },
         showCityModal:false,
         area: 20,
-        contactBy: false
+        contactByWhatsapp: false,
+        contactByPhone: false
     },
     getters: {
         isModal: state => state.modal,
@@ -37,7 +38,8 @@ export default new Vuex.Store({
         currentCity: state=>state.currentCity,
         defaultCity: state=>state.defaultCity,
         area: state=>state.area,
-        contactBy: state=>state.contactBy,
+        contactByWhatsapp: state=>state.contactByWhatsapp,
+        contactByPhone: state=>state.contactByPhone,
         showCityModal: state=>state.showCityModal,
     },
     mutations: {
@@ -53,7 +55,8 @@ export default new Vuex.Store({
         SET_CITIES: (state,payload) => (state.cities = payload),
         SET_CURRENT_CITY: (state,payload) => (state.currentCity = payload),
         SET_AREA: (state,payload) => (state.area = payload),
-        SET_CONTACTBY: (state,payload) => (state.contactBy = payload),
+        SET_CONTACTBY_WHATSAPP: (state,payload) => (state.contactByWhatsapp = payload),
+        SET_CONTACTBY_PHONE: (state,payload) => (state.contactByPhone = payload),
         SHOW_CITY_MODAL: (state,payload) => (state.showCityModal = payload)
     },
     actions: {
@@ -84,13 +87,6 @@ export default new Vuex.Store({
         },
         setArea: (context, payload) => {
             context.commit("SET_AREA", payload)
-        },
-        setContactBy: (context, payload) => {
-            if (payload != context.getters.contactBy) {
-                context.commit('SET_CONTACTBY',payload);
-            } else {
-                context.commit('SET_CONTACTBY',false);
-            }
         },
         showCityModal: (context) => {
             context.commit('SHOW_CITY_MODAL',!context.getters.showCityModal);

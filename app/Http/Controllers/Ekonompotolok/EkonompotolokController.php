@@ -19,7 +19,8 @@ class EkonompotolokController extends Controller
     {
         if($request->input('comments')) {
             $comments ="Площадь: ".$request->area."; ";
-            $comments.="Cвязаться: " .($request->contactBy ? $request->contactBy : '--').";";
+            $comments.="Cвязаться по Whatsapp: " .($request->contactByWhatsapp ? "Да" : 'Нет')."; ";
+            $comments.="Cвязаться по телефону: " .($request->contactByPhone ? "Да" : 'Нет').";";
         }
 
         $data = [

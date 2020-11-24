@@ -133,6 +133,7 @@
 
             .checkbox-container {
 
+                position: relative;
                 color: $checkboxtext;
                 cursor: pointer;
                 user-select: none;
@@ -141,34 +142,45 @@
                 justify-content: space-between;
                 align-items: center;
 
+
                 .checkbox-checkmark {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 1rem;
-                    width: 1rem;
-                    border-radius: .5rem;
+                    position: flex;
+                    height: 25px;
+                    width: 25px;
                     border: 1px solid $orange;
-                    margin-right: rem(8);
-                }
-                .checkbox-checkmark::after {
-                    content: "";
-                    display: none;
-                    width: rem(10);
-                    height: rem(10);
-                    border-radius: 50%;
-                    background-color: $orange;
+                    margin-right: .5rem;
+                    background-color: $white;
                 }
 
-                input[type="radio"] {
+                .checkbox-checkmark::after {
+
+                    content: "";
+                    position: absolute;
+                    display: none;
+
+                    left: 9px;
+                    top: 5px;
+                    width: 7px;
+                    height: 12px;
+                    border: solid $white;
+                    border-width: 0 3px 3px 0;
+                    transform: rotate(45deg);
+                }
+
+                input[type="checkbox"] {
                     opacity: 0;
                     cursor: pointer;
                     height: 0;
                     width: 0;
 
+                    &:checked ~ .checkbox-checkmark {
+                        background-color: $orange;
+                    }
+
                     &:checked ~ .checkbox-checkmark::after {
                         display: block;
                     }
+
                 }
             }
 

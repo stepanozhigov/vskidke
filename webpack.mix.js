@@ -70,7 +70,6 @@ mix
 // .copy("resources/ekonompotolok/images/", "public/ekonompotolok/images/")
 .js("resources/ekonompotolok/js/app.js", "public/ekonompotolok/js")
 .sass("resources/ekonompotolok/scss/app.scss", "public/ekonompotolok/css")
-
 .options({
     processCssUrls: false,
     autoprefixer: {
@@ -84,6 +83,6 @@ mix.browserSync({
 });
 
 
-if (mix.inProduction()) {
-    mix.version();
-}
+// if (mix.inProduction()) {
+//     mix.version();
+// }
