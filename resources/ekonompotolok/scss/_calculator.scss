@@ -7,9 +7,15 @@
 
     &--content {
 
-        max-width: rem(324);
+        width: 100%;
         margin: 0 auto;
-        padding-bottom: rem(20);
+        padding: 0 1rem rem(20);
+
+        @include mobile-lanscape() {
+            padding-left: 0;
+            padding-right: 0;
+            width: rem(414);
+        }
 
         &-title {
             margin-top: rem(56);
