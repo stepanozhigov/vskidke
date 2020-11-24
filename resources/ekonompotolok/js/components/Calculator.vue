@@ -63,12 +63,13 @@
 		data() {
 			return {
 				contactBy: false,
+				//lengthTooltip: "{value}%",
 			};
 		},
 		methods: {
 			...mapActions(["setArea", "setContactBy"]),
 			lengthTooltip: function (value) {
-				return value + " ";
+				return value + " кв.м";
 			},
 		},
 		computed: {
