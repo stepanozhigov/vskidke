@@ -30,6 +30,7 @@ class RomattiController extends Controller
     }
 
     public function roistat(Request $request) {
+        $title = ['title'=>'СВЕТИЛЬНИКИ'];
         $data = $request->only(['phone','roistat']);
         $key = ['key'=>"M2YwNTQ5MzRmNmZiZDlmMjhiZDE4ZjNhMDUyODY2YWI6MTcxNzI5"];
         $response = Http::get('https://cloud.roistat.com/api/proxy/1.0/leads/add',array_merge($data,$key));
