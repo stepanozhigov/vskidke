@@ -5,7 +5,11 @@
 				<img src="ekonompotolok/images/logo.svg" alt="logo" class="" />
 			</div>
 			<div class="header--content-city">
-				<div class="header--content-city-name" v-if="currentCity">
+				<div
+					class="header--content-city-name"
+					v-if="currentCity"
+					@click="showCityModal"
+				>
 					{{ currentCity.name }}
 				</div>
 				<a
@@ -38,7 +42,7 @@
 </template>
 <script>
 	import Form from "./Form";
-	import vuex, { mapGetters } from "vuex";
+	import vuex, { mapGetters, mapActions } from "vuex";
 	export default {
 		name: "Header",
 		data: () => ({}),
@@ -51,8 +55,10 @@
 				return (
 					"tel:" + this.currentCity.phone.replace(/\s/g, "").replace(/\-/g, "")
 				);
-				//return this.currentCity.phone;
 			},
+		},
+		methods: {
+			...mapActions(["showCityModal"]),
 		},
 	};
 </script>

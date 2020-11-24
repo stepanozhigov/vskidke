@@ -1,17 +1,23 @@
 <template>
 	<div>
-		<app-header></app-header>
-		<app-calculator></app-calculator>
+		<div v-if="!showCityModal">
+			<app-header></app-header>
+			<app-calculator></app-calculator>
+		</div>
+		<div v-else>
+			<city-modal></city-modal>
+		</div>
 		<app-footer></app-footer>
 	</div>
 </template>
 
 <script>
 	import axios from "axios";
-	import { mapGetters, mapActions } from "vuex";
+	import { mapGetters, mapActions, mapMutations } from "vuex";
 	import Header from "../components/Header";
 	import Calculator from "../components/Calculator";
 	import Footer from "../components/Footer";
+	import CityModal from "../components/CityModal";
 	export default {
 		name: "App",
 		data: () => ({
@@ -28,6 +34,7 @@
 			"app-header": Header,
 			"app-calculator": Calculator,
 			"app-footer": Footer,
+			CityModal,
 		},
 		created: function () {
 			this.setEnv(this.environment);
@@ -49,6 +56,7 @@
 				"cities",
 				"defaultCity",
 				"ipLocation",
+				"showCityModal",
 			]),
 			addressUrl() {
 				return `https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=${this.apiKey}&at=${this.latitude},${this.longitude}&lang=ru`;
@@ -201,10 +209,10 @@
 					//NO IP LOCATION
 					//use geo location
 					else {
-						console.log("USE GEO LOCATION");
+						console.log("NO IP/USE GEO LOCATION");
 						//IF GEO LOCATED
 						if (this.geoLocation) {
-							console.log("USE GEO LOCATION");
+							console.log("GEO LOCATED");
 							//
 							let city = this.cities.filter((city) => {
 								return city.name == this.geoLocation;
@@ -216,12 +224,13 @@
 									params: { citycode: city[0].code },
 								});
 							} else {
+								console.log("GEO LOCATION NOT AVAILABLE");
 								this.setCurrentCity(this.defaultCity);
 							}
 						}
 						//NO GEO LOCATION
 						else {
-							console.log("USE DEFAULT LOCATION");
+							console.log("GEO NOT LOCATED");
 							this.setCurrentCity(this.defaultCity);
 						}
 					}

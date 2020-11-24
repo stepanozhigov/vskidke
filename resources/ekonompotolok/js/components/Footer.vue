@@ -4,14 +4,14 @@
 			<div class="footer--content-logo">
 				<img src="ekonompotolok/images/logo_footer.png" alt="logo" class="" />
 			</div>
-			<div class="footer--content-box city">
-				<p>Москва и МО</p>
+			<div class="footer--content-box city" v-if="currentCity">
+				<p>{{ currentCity.name }}</p>
 			</div>
-			<div class="footer--content-box phone">
-				<a href="tel:88005119715">8 800 511-97-15</a>
+			<div class="footer--content-box phone" v-if="currentCity">
+				<a :href="hrefPhone">{{ currentCity.phone }}</a>
 			</div>
 			<div class="footer--content-redirect">
-				<a href="#">Перейти на полную версию сайта</a>
+				<a :href="redirectTo">Перейти на полную версию сайта</a>
 			</div>
 			<div class="footer--content-rights">
 				<p>2003-2020 © ООО «Эконом Потолок». Все права защищены.</p>
@@ -27,9 +27,15 @@
 			return {};
 		},
 		computed: {
-			...mapGetters(["currentCity", "defaultCity"]),
+			...mapGetters(["currentCity", "defaultCity", "redirectTo"]),
 		},
-		methods: {},
+		methods: {
+			hrefPhone() {
+				return (
+					"tel:" + this.currentCity.phone.replace(/\s/g, "").replace(/\-/g, "")
+				);
+			},
+		},
 		components: {},
 	};
 </script>

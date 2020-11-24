@@ -33,6 +33,10 @@
                 height: rem(45);
                 border-radius: rem(22.5);
                 box-shadow: 4px 4px 8px rgba(88, 84, 82, 0.15), -4px -4px 8px rgba(255, 255, 255, 0.5), inset -1px -1px 0 rgba(255, 255, 255, 0.2);
+                
+                &:hover {
+                    cursor: pointer;
+                }
             }
 
             &-phone {

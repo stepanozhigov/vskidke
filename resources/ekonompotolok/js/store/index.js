@@ -17,10 +17,11 @@ export default new Vuex.Store({
         defaultCity: {
             bx_code:792,
             code:"russia",
-            name:"Россия",
+            name:"Другой",
             phone:"8 800 511-97-15",
             sort:0
         },
+        showCityModal:false,
         area: 20,
         contactBy: false
     },
@@ -37,6 +38,7 @@ export default new Vuex.Store({
         defaultCity: state=>state.defaultCity,
         area: state=>state.area,
         contactBy: state=>state.contactBy,
+        showCityModal: state=>state.showCityModal,
     },
     mutations: {
         SET_ENV: (state,payload) => (state.env = payload),
@@ -51,7 +53,8 @@ export default new Vuex.Store({
         SET_CITIES: (state,payload) => (state.cities = payload),
         SET_CURRENT_CITY: (state,payload) => (state.currentCity = payload),
         SET_AREA: (state,payload) => (state.area = payload),
-        SET_CONTACTBY: (state,payload) => (state.contactBy = payload)
+        SET_CONTACTBY: (state,payload) => (state.contactBy = payload),
+        SHOW_CITY_MODAL: (state,payload) => (state.showCityModal = payload)
     },
     actions: {
         setEnv: (context,payload) => context.commit("SET_ENV",payload),
@@ -88,6 +91,10 @@ export default new Vuex.Store({
             } else {
                 context.commit('SET_CONTACTBY',false);
             }
+        },
+        showCityModal: (context) => {
+            context.commit('SHOW_CITY_MODAL',!context.getters.showCityModal);
         }
+
     }
 });
