@@ -7,9 +7,13 @@
     box-shadow: 0 8px 16px rgba(88, 84, 82, 0.2), 0 -8px 16px rgba(255, 255, 255, 0.75), inset -1px -1px 0 rgba(255, 255, 255, 0.2);
 
     &--content {
-        max-width: rem(324);
+        width: 100%;
         margin: 0 auto;
-        padding: rem(9) 0 rem(18);
+        padding: rem(9) 1rem rem(18);
+
+        @include tablet() {
+            width: rem(414);
+        }
         
 
         &-logo {
