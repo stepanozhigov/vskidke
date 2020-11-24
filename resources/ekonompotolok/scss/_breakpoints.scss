@@ -10,6 +10,13 @@
     }
 }
 
+// mobile-landscape
+@mixin mobile-lanscape() {
+    @media screen and (min-width: 415px) {
+        @content;
+    }
+}
+
 // tablet
 @mixin tablet() {
     @media screen and (min-width: 768px) {

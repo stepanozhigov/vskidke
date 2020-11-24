@@ -11,7 +11,7 @@
         margin: 0 auto;
         padding: rem(9) 1rem rem(18);
 
-        @include tablet() {
+        @include mobile-lanscape() {
             width: rem(414);
         }
         
@@ -127,7 +127,7 @@
             }
         }
         &-form {
-            font-size: rem(18);
+            font-size: rem(16);
             font-weight: 400;
             font-style: normal;
             letter-spacing: rem(-0.3);
@@ -142,6 +142,10 @@
             background-color: $brightblue;
             box-shadow: inset 4px 4px 8px rgba(88, 84, 82, 0.15),
                 inset -4px -4px 8px rgba(255, 255, 255, 0.5);
+
+            @include mobile() {
+                font-size: rem(18);
+            }
 
             &::placeholder {
                 color: $grey;
@@ -165,7 +169,10 @@
                 
                 width: 100%;
                 height: 100%;
-                flex-grow:1;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 border: none;
                 background: transparent;
                 position: relative;
