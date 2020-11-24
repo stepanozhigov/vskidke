@@ -33,7 +33,7 @@ class RomattiController extends Controller
         $title = ['title'=>'СВЕТИЛЬНИКИ'];
         $data = $request->only(['phone','roistat']);
         $key = ['key'=>"M2YwNTQ5MzRmNmZiZDlmMjhiZDE4ZjNhMDUyODY2YWI6MTcxNzI5"];
-        $response = Http::get('https://cloud.roistat.com/api/proxy/1.0/leads/add',array_merge($data,$key));
+        $response = Http::get('https://cloud.roistat.com/api/proxy/1.0/leads/add',array_merge($data,$key,$title));
         if ($response->successful()) {
             return response()->json($response->json(),201);
         } elseif ($response->failed() || $response->clientError() || $response->serverError()) {
