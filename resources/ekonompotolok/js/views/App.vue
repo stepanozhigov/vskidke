@@ -1,10 +1,10 @@
 <template>
-	<div>
-		<div v-if="!showCityModal">
+	<div class="view-app">
+		<div v-if="!showCityModal" class="view-app--no-modal">
 			<app-header></app-header>
 			<app-calculator></app-calculator>
 		</div>
-		<div v-else>
+		<div v-else class="view-app--modal">
 			<city-modal></city-modal>
 		</div>
 		<app-footer></app-footer>

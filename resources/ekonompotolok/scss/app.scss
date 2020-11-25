@@ -9,3 +9,11 @@
 @import "calculator";
 @import "footer";
 @import "citymodal";
+
+.view-app {
+    &--no-modal {
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+    }
+}
