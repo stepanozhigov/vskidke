@@ -13,9 +13,7 @@
         padding: 0 1rem rem(20);
 
         @include mobile-lanscape() {
-            padding-left: 0;
-            padding-right: 0;
-            width: rem(414);
+            width: rem(446);
         }
 
         &-title {

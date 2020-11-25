@@ -4,7 +4,7 @@
     font-family: $jost !important;
     background-color:$lightblue;
     width: 100%;
-    overflow: hidden;
+    
     box-shadow: 0 8px 16px rgba(88, 84, 82, 0.2), 0 -8px 16px rgba(255, 255, 255, 0.75), inset -1px -1px 0 rgba(255, 255, 255, 0.2);
 
     &--content {
@@ -12,11 +12,10 @@
         width: 100%;
         margin: 0 auto;
         padding: rem(9) 1rem rem(18);
+        overflow: hidden;
 
         @include mobile-lanscape() {
-            padding-left: 0;
-            padding-right: 0;
-            width: rem(414);
+            width: rem(446);
         }
         
         &-logo {
@@ -83,7 +82,7 @@
             position: relative;
             font-family: $jost;
             color: $grey;
-            // overflow: hidden;
+            overflow: hidden;
             margin-top: rem(18);
             padding-top: rem(17);
 
