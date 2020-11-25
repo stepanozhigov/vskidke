@@ -2,7 +2,7 @@
 	<section class="footer">
 		<div class="footer--content">
 			<div class="footer--content-logo">
-				<img src="ekonompotolok/images/logo_footer.png" alt="logo" class="" />
+				<img src="ekonompotolok/images/logo_footer.webp" alt="logo" class="" />
 			</div>
 			<div class="footer--content-box city" v-if="currentCity">
 				<p>{{ currentCity.name }}</p>
@@ -39,3 +39,28 @@
 		components: {},
 	};
 </script>
+<style lang="scss" scoped>
+	//
+	// Avenir Next Cyr Medium
+	//
+	@font-face {
+		font-family: "Avenir Next Cyr Medium";
+		font-display: swap;
+		font-style: normal;
+		font-weight: 500;
+		src: url("../../../_webfonts/AvenirNextCyr-Medium.eot");
+		src: url("../../../_webfonts/AvenirNextCyr-Medium.ttf") format("truetype"),
+			url("../../../_webfonts/AvenirNextCyr-Medium.woff") format("woff");
+	}
+	//
+	// Jost*
+	//
+	@font-face {
+		font-family: "Jost *";
+		font-display: swap;
+		font-style: normal;
+		font-weight: 500;
+		src: url("../../../_webfonts/Jost-500-Medium.otf") format("opentype"),
+			url("../../../_webfonts/Jost-500-Medium.ttf") format("truetype");
+	}
+</style>
