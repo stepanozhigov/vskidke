@@ -10,7 +10,7 @@
         display: relative;
         max-width: rem(324);
         margin: 0 auto;
-        padding: rem(9) 0 rem(18);
+        padding: rem(9) 0 2rem;
         color: $grey;
 
         &-close {
@@ -18,9 +18,11 @@
             top:.25rem;
             right:.25rem;
 
-            &:hover {
-                cursor: pointer;
-                opacity: .75;
+            @include laptop {
+                &:hover {
+                    cursor: pointer;
+                    opacity: .75;
+                }
             }
 
             svg {

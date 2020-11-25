@@ -2,7 +2,7 @@
 	<section class="footer">
 		<div class="footer--content">
 			<div class="footer--content-logo">
-				<img src="ekonompotolok/images/logo_footer.webp" alt="logo" class="" />
+				<img src="ekonompotolok/images/logo_footer.svg" alt="logo" class="" />
 			</div>
 			<div class="footer--content-box city" v-if="currentCity">
 				<p>{{ currentCity.name }}</p>
