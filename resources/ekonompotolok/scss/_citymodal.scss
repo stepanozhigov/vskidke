@@ -17,12 +17,9 @@
             position: absolute;
             top:.25rem;
             right:.25rem;
-
-            @include laptop {
-                &:hover {
-                    cursor: pointer;
-                    opacity: .75;
-                }
+            &:hover {
+                cursor: pointer;
+                opacity: .75;
             }
 
             svg {
