@@ -16,14 +16,14 @@
 			</div>
 			<h1>Ваш город</h1>
 			<div class="city-modal--content-cities">
-				<div
+				<button
 					class="city-modal--content-cities-city"
 					v-for="city in cityList"
 					:key="city.code"
 					@click="goToCityPage(city)"
 				>
 					{{ city.name }}
-				</div>
+				</button>
 			</div>
 		</div>
 	</section>

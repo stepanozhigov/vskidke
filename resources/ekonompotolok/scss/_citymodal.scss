@@ -10,7 +10,7 @@
         display: relative;
         max-width: rem(324);
         margin: 0 auto;
-        padding: rem(9) 0 2rem;
+        padding: rem(9) 1rem 2rem;
         color: $grey;
 
         &-close {
@@ -56,6 +56,15 @@
                 height: rem(45);
                 border-radius: rem(22.5);
                 box-shadow: 4px 4px 8px rgba(88, 84, 82, 0.15), -4px -4px 8px rgba(255, 255, 255, 0.5), inset -1px -1px 0 rgba(255, 255, 255, 0.2);
+
+                &:active {
+                    cursor: pointer;
+                    color: $white;
+                    opacity: .75;
+                    background-color: $orange;
+                    box-shadow: none;
+                    outline: none;
+                }
 
                 @include laptop {
                     &:hover {
