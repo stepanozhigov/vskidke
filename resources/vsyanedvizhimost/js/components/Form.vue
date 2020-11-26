@@ -77,9 +77,9 @@
 							phone: this.phone,
 						})
 						.then((response) => {
-							// fbq("track", "Lead");
+							fbq("track", "Lead");
 							// ga.getAll()[0].send("event", "lead", this.actionType);
-							// ym(68586496, "reachGoal", "send form");
+							// ym(48259676, "reachGoal", "send_form");
 							this.setSuccess();
 							this.setModal();
 							if (this.env == "production") {
