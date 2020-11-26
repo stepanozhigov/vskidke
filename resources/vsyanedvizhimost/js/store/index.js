@@ -30,11 +30,11 @@ export default new Vuex.Store({
         setSuccess: context => context.commit("SET_SUCCESS"),
         unsetSuccess: context => context.commit("UNSET_SUCCESS"),
         dropFbPixel: (context) => {
-            new Promise((resolve,reject) => {
+            new Promise((resolve) => {
                 try {
                     fbq("track", "Lead");
-                    console.log("FB resolved");
                     resolve(true);
+                    
                 } catch (err) {
                     console.log("FB error");
                     setTimeout(() => {
@@ -43,6 +43,5 @@ export default new Vuex.Store({
                 }
             })
         }
-
     }
 });
