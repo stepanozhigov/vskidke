@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <link rel="shortcut icon" href="{{ asset('ekonompotolok/images/favicon-32x32.ico')}}">
-    <link href="{{ asset('/ekonompotolok/css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('/ekonompotolok/css/app.css') }}" rel="stylesheet">
 
 </head>
 
@@ -18,7 +18,7 @@
     </div>
 
     {{-- VUE-CLI JS --}}
-    <script src="{{ asset('ekonompotolok/js/app.js') }}" defer></script>
+    <script src="{{ mix('ekonompotolok/js/app.js') }}" defer></script>
 
     @yield('yandex.metrika')
     @yield('gtag.js')

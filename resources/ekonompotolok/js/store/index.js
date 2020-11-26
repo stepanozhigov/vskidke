@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        env: 'local',
+        env: 'production',
         modal: false,
         success: false,
         ipLocation: null,
