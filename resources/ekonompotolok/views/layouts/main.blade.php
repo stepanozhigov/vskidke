@@ -18,7 +18,7 @@
     </div>
 
     {{-- VUE-CLI JS --}}
-    <script src="{{ mix('ekonompotolok/js/app.js') }}" defer></script>
+    <script src="{{ asset('ekonompotolok/js/app.js') }}" defer></script>
 
     @yield('yandex.metrika')
     @yield('gtag.js')

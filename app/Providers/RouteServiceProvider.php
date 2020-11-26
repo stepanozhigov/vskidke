@@ -89,15 +89,15 @@ class RouteServiceProvider extends ServiceProvider
 
             //Ekonompotolok
             Route::middleware('web')
-            ->name('ekonompotolok.')
+            ->name('econom.')
             ->namespace($this->namespace . '\Ekonompotolok')
             ->group(base_path('routes/ekonompotolok.php'));
 
             //localhost
-            Route::middleware('web')
-            ->name('ekonompotolok.')
-            ->namespace($this->namespace . '\Ekonompotolok')
-            ->group(base_path('routes/localhost.php'));
+            // Route::middleware('web')
+            // ->name('ekonompotolok.')
+            // ->namespace($this->namespace . '\Ekonompotolok')
+            // ->group(base_path('routes/localhost.php'));
         });
     }
 

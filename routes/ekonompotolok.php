@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::pattern('econom', '(econom.|www.econom.)');
-Route::domain('{econom}' . (env('APP_ENV') == 'local' ? env('APP_ENV') : env('APP_URL')))
+Route::domain('{econom}' .env('APP_URL'))
     ->group(function () {
         // Route::get('/', 'EkonompotolokController@index')->name('home');
         Route::get('/{city}', function () {
