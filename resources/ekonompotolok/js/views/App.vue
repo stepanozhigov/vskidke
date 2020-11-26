@@ -37,7 +37,7 @@
 			CityModal,
 		},
 		created: function () {
-			this.setEnv(this.environment);
+			this.setEnv(this.env);
 			this.initApp().then(() => this.resolveCurrentCity());
 		},
 		mounted: function () {
@@ -238,10 +238,6 @@
 			},
 		},
 		props: {
-			environment: {
-				type: String,
-				default: "local",
-			},
 			citycode: {
 				// type: String,
 			},
