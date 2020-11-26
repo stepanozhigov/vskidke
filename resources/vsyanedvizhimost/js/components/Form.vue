@@ -87,7 +87,7 @@
 									if (this.env == "production") {
 										setTimeout(() => {
 											window.location.replace(this.redirectTo);
-										}, 2000);
+										}, 3000);
 									}
 								})
 								.catch((err) => console.log(err));

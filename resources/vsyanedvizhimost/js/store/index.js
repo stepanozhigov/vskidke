@@ -8,7 +8,7 @@ export default new Vuex.Store({
         modal: false,
         success: false,
         redirectTo: 'https://knam.io/',
-        env: 'local'
+        env: false
     },
     getters: {
         isModal: state => state.modal,
