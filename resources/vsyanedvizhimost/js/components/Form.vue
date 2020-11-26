@@ -77,16 +77,20 @@
 							phone: this.phone,
 						})
 						.then((response) => {
-							fbq("track", "Lead");
-							// ga.getAll()[0].send("event", "lead", this.actionType);
-							// ym(48259676, "reachGoal", "send_form");
-							this.setSuccess();
-							this.setModal();
-							if (this.env == "production") {
-								setTimeout(() => {
-									window.location.replace(this.redirectTo);
-								}, 2000);
-							}
+							this.$store
+								.dispatch("dropFbPixel")
+								.then(() => {
+									this.setSuccess();
+									this.setModal();
+									// ga.getAll()[0].send("event", "lead", this.actionType);
+									// ym(48259676, "reachGoal", "send_form");
+									if (this.env == "production") {
+										setTimeout(() => {
+											window.location.replace(this.redirectTo);
+										}, 2000);
+									}
+								})
+								.catch((err) => console.log(err));
 						});
 				}
 			},

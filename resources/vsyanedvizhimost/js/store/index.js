@@ -28,6 +28,21 @@ export default new Vuex.Store({
         setModal: context => context.commit("SET_MODAL"),
         unsetModal: context => context.commit("UNSET_MODAL"),
         setSuccess: context => context.commit("SET_SUCCESS"),
-        unsetSuccess: context => context.commit("UNSET_SUCCESS")
+        unsetSuccess: context => context.commit("UNSET_SUCCESS"),
+        dropFbPixel: (context) => {
+            new Promise((resolve,reject) => {
+                try {
+                    fbq("track", "Lead");
+                    console.log("FB resolved");
+                    resolve(true);
+                } catch (err) {
+                    console.log("FB error");
+                    setTimeout(() => {
+                        context.dispatch('dropFbPixel')
+                    },3000)
+                }
+            })
+        }
+
     }
 });
