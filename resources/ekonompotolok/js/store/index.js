@@ -7,11 +7,15 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         env: 'local',
+        hereapiKey: "izLr3tzed9tqFm2ArDXT5J0FPBZHbfuztoWv7-WwU4Q",
         modal: false,
         success: false,
         ip:false,
         ipLocation: null,
-        geoCoordinates: null,
+        geoCoordinates: {
+            latitude: null,
+            longitude:null
+        },
         geoLocation: null,
         redirectTo: 'https://xn----stbbddfgbcabi4bzk.xn--p1acf',
         cities: null,
@@ -44,6 +48,7 @@ export default new Vuex.Store({
         contactByWhatsapp: state=>state.contactByWhatsapp,
         contactByPhone: state=>state.contactByPhone,
         showCityModal: state=>state.showCityModal,
+        hereapiUrl: state=>`https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=${state.hereapiKey}&at=${state.geoCoordinates.latitude},${state.geoCoordinates.longitude}&lang=ru`
     },
     mutations: {
         SET_ENV: (state,payload) => (state.env = payload),
@@ -69,13 +74,6 @@ export default new Vuex.Store({
         unsetModal: context => context.commit("UNSET_MODAL"),
         setSuccess: context => context.commit("SET_SUCCESS"),
         unsetSuccess: context => context.commit("UNSET_SUCCESS"),
-        setIpLocation: (context, payload) =>
-            context.commit("SET_IP_LOCATION", payload),
-        setGeoLocation: (context, payload) =>
-            context.commit("SET_GEO_LOCATION", payload),
-        setGeoCoordinates: (context, payload) =>
-            context.commit("SET_GEO_COORDINATES", payload),
-
 
         //get IP from https://api.ipify.org?format=jso
         setIp: async (context) => {
@@ -97,7 +95,7 @@ export default new Vuex.Store({
                 const response = axios
                     .get("http://ip-api.com/json/" + context.getters.ip + "?lang=ru")
                     .then((res) => {
-                        console.log(res.data);
+                        // console.log(res.data);
                         context.commit("SET_IP_LOCATION",res.data.city);
                         resolve(res.data.city);
                     })
@@ -106,17 +104,68 @@ export default new Vuex.Store({
                     });
             });
         },
-        setCities: (context,payload) => {
-            const otherCity = {
-                'bx_code': 792,
-                'name' : 'Другой',
-                'code': 'drugoy',
-                'phone' : '8 800 511-97-15',
-                'sort' : 0
-            }
-            payload.push(otherCity);
-            context.commit("SET_CITIES",payload)
+
+        //Coords
+         getCoords: async (context) => {
+            return await new Promise((resolve, reject) => {
+                if (!("geolocation" in navigator)) {
+                    console.log("NO GEOLOCATION");
+                    this.noGeoLocation = true;
+                    reject(new Error("Geolocation is not available."));
+                }
+
+                navigator.geolocation.getCurrentPosition(
+                    (pos) => {
+                        context.commit('SET_GEO_COORDINATES',{
+                            latitude: pos.coords.latitude,
+                            longitude: pos.coords.longitude,
+                        });
+                        resolve(pos);
+                    },
+                    (err) => {
+                        reject(err);
+                    }
+                );
+            });
         },
+
+        //GeoLocation
+        getGeoLocation: async (context) => {
+            console.log("inside getGeoLocation");
+            const location = await context.dispatch('getCoords');
+            const address = await axios(context.getters.hereapiUrl);
+
+            if (address.data.items.length > 0) {
+                console.log(address.data.items[0].address.city);
+                context.commit('SET_GEO_LOCATION',address.data.items[0].address.city);
+            }
+
+        },
+
+        //GET CITIES
+        getCities: async (context) => {
+            return await new Promise((resolve, reject) => {
+                const response = axios
+                    .get("https://potolki-ts.ru/api/cities")
+                    .then((res) => {
+                        const otherCity = {
+                            'bx_code': 792,
+                            'name' : 'Другой',
+                            'code': 'drugoy',
+                            'phone' : '8 800 511-97-15',
+                            'sort' : 0
+                        };
+                        let cities = res.data;
+                        cities.push(otherCity);
+                        context.commit("SET_CITIES",cities);
+                        resolve(res);
+                    })
+                    .catch((error) => {
+                        reject(error);
+                    });
+            });
+        },
+
         setCurrentCity: (context, payload) => {
             context.commit("SET_CURRENT_CITY", payload)
         },

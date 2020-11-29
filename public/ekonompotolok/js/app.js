@@ -2534,15 +2534,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_CityModal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/CityModal */ "./resources/ekonompotolok/js/components/CityModal.vue");
 
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 //
 //
@@ -2566,16 +2566,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
   data: function data() {
-    return {
-      ip: null,
-      latitude: null,
-      longitude: null,
-      gettingLocation: false,
-      noGeoLocation: false,
-      geoDenied: false,
-      geoErrorStr: null,
-      apiKey: "izLr3tzed9tqFm2ArDXT5J0FPBZHbfuztoWv7-WwU4Q"
-    };
+    return {};
   },
   components: {
     "app-header": _components_Header__WEBPACK_IMPORTED_MODULE_3__["default"],
@@ -2583,23 +2574,42 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "app-footer": _components_Footer__WEBPACK_IMPORTED_MODULE_5__["default"],
     CityModal: _components_CityModal__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
-  created: function created() {
-    var _this = this;
+  created: function () {
+    var _created = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              this.setEnv(this.env);
+              _context.next = 3;
+              return this.initApp();
 
-    this.setEnv(this.env);
-    this.initApp().then(function () {
-      return _this.resolveCurrentCity();
-    });
-  },
+            case 3:
+              this.resolveCurrentCity();
+
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this);
+    }));
+
+    function created() {
+      return _created.apply(this, arguments);
+    }
+
+    return created;
+  }(),
   mounted: function mounted() {
-    var _this2 = this;
+    var _this = this;
 
     this.setViewHeight();
     window.addEventListener("resize", function () {
-      _this2.setViewHeight();
+      _this.setViewHeight();
     });
     window.addEventListener("orientationchange", function () {
-      return _this2.setViewHeight();
+      return _this.setViewHeight();
     });
   },
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])(["isModal", "isSuccess", "env", "geoLocation", "cities", "defaultCity", "ipLocation", "showCityModal"])), {}, {
@@ -2607,46 +2617,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return "https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=".concat(this.apiKey, "&at=").concat(this.latitude, ",").concat(this.longitude, "&lang=ru");
     }
   }),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess", "setEnv", "setGeoLocation", "setIpLocation", "setCities", "setCurrentCity", "setGeoCoordinates", "setIp", "setIpCity"])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess", "setEnv", "setGeoLocation", "setIpLocation", "setCities", "setCurrentCity", "setGeoCoordinates", "setIp", "setIpCity", "getGeoLocation", "getCities"])), {}, {
     setViewHeight: function setViewHeight() {
       var vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty("--vh", "".concat(vh, "px")); //console.log(vh);
     },
     //INIT APP
     initApp: function initApp() {
-      var _this3 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return _this3.setIp();
-
-              case 2:
-                _context.next = 4;
-                return _this3.setIpCity();
-
-              case 4:
-                _context.next = 6;
-                return _this3.getGeoLocation();
-
-              case 6:
-                _context.next = 8;
-                return _this3.getCities();
-
-              case 8:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
-    },
-    //
-    getCities: function getCities() {
-      var _this4 = this;
+      var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
@@ -2654,20 +2632,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return new Promise(function (resolve, reject) {
-                  var response = axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("https://potolki-ts.ru/api/cities").then(function (res) {
-                    _this4.setCities(res.data);
-
-                    resolve(res);
-                  })["catch"](function (error) {
-                    reject(error);
-                  });
-                });
+                return _this2.setIp();
 
               case 2:
-                return _context2.abrupt("return", _context2.sent);
+                _context2.next = 4;
+                return _this2.setIpCity();
 
-              case 3:
+              case 4:
+                _context2.next = 6;
+                return _this2.getGeoLocation();
+
+              case 6:
+                _context2.next = 8;
+                return _this2.getCities();
+
+              case 8:
               case "end":
                 return _context2.stop();
             }
@@ -2675,132 +2654,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee2);
       }))();
     },
-    getCoords: function getCoords() {
-      var _this5 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                _context3.next = 2;
-                return new Promise(function (resolve, reject) {
-                  if (!("geolocation" in navigator)) {
-                    //console.log("NO GEOLOCATION");
-                    _this5.noGeoLocation = true;
-                    reject(new Error("Geolocation is not available."));
-                  }
-
-                  navigator.geolocation.getCurrentPosition(function (pos) {
-                    resolve(pos);
-                  }, function (err) {
-                    reject(err);
-                  });
-                });
-
-              case 2:
-                return _context3.abrupt("return", _context3.sent);
-
-              case 3:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3);
-      }))();
-    },
-    getGeoLocation: function getGeoLocation() {
-      var _this6 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
-        var location, address_data;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
-          while (1) {
-            switch (_context4.prev = _context4.next) {
-              case 0:
-                _this6.gettingLocation = true;
-                _context4.prev = 1;
-                _this6.gettingLocation = false;
-                _context4.next = 5;
-                return _this6.getCoords();
-
-              case 5:
-                location = _context4.sent;
-
-                _this6.setGeoCoordinates({
-                  latitude: location.coords.latitude,
-                  longitude: location.coords.longitude
-                });
-
-                _this6.latitude = location.coords.latitude;
-                _this6.longitude = location.coords.longitude;
-                _context4.next = 11;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default()(_this6.addressUrl);
-
-              case 11:
-                address_data = _context4.sent;
-                if (address_data.data.items.length > 0) console.log(address_data.data.items[0].address.city);
-
-                _this6.setGeoLocation(address_data.data.items[0].address.city);
-
-                _context4.next = 20;
-                break;
-
-              case 16:
-                _context4.prev = 16;
-                _context4.t0 = _context4["catch"](1);
-                _this6.gettingLocation = false;
-                _this6.errorStr = _context4.t0.message;
-
-              case 20:
-              case "end":
-                return _context4.stop();
-            }
-          }
-        }, _callee4, null, [[1, 16]]);
-      }))();
-    },
-    //http://ip-api.com/json/193.42.108.94?lang=ru
-    getIpCity: function getIpCity(ip) {
-      var _this7 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
-          while (1) {
-            switch (_context5.prev = _context5.next) {
-              case 0:
-                _context5.next = 2;
-                return new Promise(function (resolve, reject) {
-                  var response = axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://ip-api.com/json/" + _this7.ip + "?lang=ru").then(function (res) {
-                    console.log(res.data.city);
-
-                    _this7.setIpLocation(res.data.city);
-
-                    resolve(res.data.city);
-                  })["catch"](function (error) {
-                    reject(error);
-                  });
-                });
-
-              case 2:
-                return _context5.abrupt("return", _context5.sent);
-
-              case 3:
-              case "end":
-                return _context5.stop();
-            }
-          }
-        }, _callee5);
-      }))();
-    },
-    //
     resolveCurrentCity: function resolveCurrentCity() {
-      var _this8 = this;
+      var _this3 = this;
 
       //CITY IN URL
       if (this.citycode) {
         var city = this.cities.filter(function (city) {
-          return city.code == _this8.citycode;
+          return city.code == _this3.citycode;
         });
 
         if (city.length > 0) {
@@ -2821,7 +2681,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             console.log("USE IP LOCATION");
 
             var _city = this.cities.filter(function (city) {
-              return city.name == _this8.ipLocation;
+              return city.name == _this3.ipLocation;
             }); //LOCATION IN THE LIST
 
 
@@ -2846,7 +2706,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 console.log("GEO LOCATED"); //
 
                 var _city2 = this.cities.filter(function (city) {
-                  return city.name == _this8.geoLocation;
+                  return city.name == _this3.geoLocation;
                 });
 
                 if (_city2.length > 0) {
@@ -25649,6 +25509,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 
 
+var _this = undefined;
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -25660,11 +25522,15 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
   state: {
     env: 'local',
+    hereapiKey: "izLr3tzed9tqFm2ArDXT5J0FPBZHbfuztoWv7-WwU4Q",
     modal: false,
     success: false,
     ip: false,
     ipLocation: null,
-    geoCoordinates: null,
+    geoCoordinates: {
+      latitude: null,
+      longitude: null
+    },
     geoLocation: null,
     redirectTo: 'https://xn----stbbddfgbcabi4bzk.xn--p1acf',
     cities: null,
@@ -25726,6 +25592,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     },
     showCityModal: function showCityModal(state) {
       return state.showCityModal;
+    },
+    hereapiUrl: function hereapiUrl(state) {
+      return "https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=".concat(state.hereapiKey, "&at=").concat(state.geoCoordinates.latitude, ",").concat(state.geoCoordinates.longitude, "&lang=ru");
     }
   },
   mutations: {
@@ -25791,15 +25660,6 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     unsetSuccess: function unsetSuccess(context) {
       return context.commit("UNSET_SUCCESS");
     },
-    setIpLocation: function setIpLocation(context, payload) {
-      return context.commit("SET_IP_LOCATION", payload);
-    },
-    setGeoLocation: function setGeoLocation(context, payload) {
-      return context.commit("SET_GEO_LOCATION", payload);
-    },
-    setGeoCoordinates: function setGeoCoordinates(context, payload) {
-      return context.commit("SET_GEO_COORDINATES", payload);
-    },
     //get IP from https://api.ipify.org?format=jso
     setIp: function () {
       var _setIp = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context) {
@@ -25844,7 +25704,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
                 _context2.next = 2;
                 return new Promise(function (resolve, reject) {
                   var response = axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("http://ip-api.com/json/" + context.getters.ip + "?lang=ru").then(function (res) {
-                    console.log(res.data);
+                    // console.log(res.data);
                     context.commit("SET_IP_LOCATION", res.data.city);
                     resolve(res.data.city);
                   })["catch"](function (error) {
@@ -25869,17 +25729,131 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
 
       return setIpCity;
     }(),
-    setCities: function setCities(context, payload) {
-      var otherCity = {
-        'bx_code': 792,
-        'name': 'Другой',
-        'code': 'drugoy',
-        'phone': '8 800 511-97-15',
-        'sort': 0
-      };
-      payload.push(otherCity);
-      context.commit("SET_CITIES", payload);
-    },
+    //Coords
+    getCoords: function () {
+      var _getCoords = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(context) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return new Promise(function (resolve, reject) {
+                  if (!("geolocation" in navigator)) {
+                    console.log("NO GEOLOCATION");
+                    _this.noGeoLocation = true;
+                    reject(new Error("Geolocation is not available."));
+                  }
+
+                  navigator.geolocation.getCurrentPosition(function (pos) {
+                    context.commit('SET_GEO_COORDINATES', {
+                      latitude: pos.coords.latitude,
+                      longitude: pos.coords.longitude
+                    });
+                    resolve(pos);
+                  }, function (err) {
+                    reject(err);
+                  });
+                });
+
+              case 2:
+                return _context3.abrupt("return", _context3.sent);
+
+              case 3:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }));
+
+      function getCoords(_x3) {
+        return _getCoords.apply(this, arguments);
+      }
+
+      return getCoords;
+    }(),
+    //GeoLocation
+    getGeoLocation: function () {
+      var _getGeoLocation = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(context) {
+        var location, address;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                console.log("inside getGeoLocation");
+                _context4.next = 3;
+                return context.dispatch('getCoords');
+
+              case 3:
+                location = _context4.sent;
+                _context4.next = 6;
+                return axios__WEBPACK_IMPORTED_MODULE_3___default()(context.getters.hereapiUrl);
+
+              case 6:
+                address = _context4.sent;
+
+                if (address.data.items.length > 0) {
+                  console.log(address.data.items[0].address.city);
+                  context.commit('SET_GEO_LOCATION', address.data.items[0].address.city);
+                }
+
+              case 8:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }));
+
+      function getGeoLocation(_x4) {
+        return _getGeoLocation.apply(this, arguments);
+      }
+
+      return getGeoLocation;
+    }(),
+    //GET CITIES
+    getCities: function () {
+      var _getCities = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(context) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.next = 2;
+                return new Promise(function (resolve, reject) {
+                  var response = axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("https://potolki-ts.ru/api/cities").then(function (res) {
+                    var otherCity = {
+                      'bx_code': 792,
+                      'name': 'Другой',
+                      'code': 'drugoy',
+                      'phone': '8 800 511-97-15',
+                      'sort': 0
+                    };
+                    var cities = res.data;
+                    cities.push(otherCity);
+                    context.commit("SET_CITIES", cities);
+                    resolve(res);
+                  })["catch"](function (error) {
+                    reject(error);
+                  });
+                });
+
+              case 2:
+                return _context5.abrupt("return", _context5.sent);
+
+              case 3:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
+      }));
+
+      function getCities(_x5) {
+        return _getCities.apply(this, arguments);
+      }
+
+      return getCities;
+    }(),
     setCurrentCity: function setCurrentCity(context, payload) {
       context.commit("SET_CURRENT_CITY", payload);
     },

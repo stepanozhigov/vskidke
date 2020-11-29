@@ -20,25 +20,17 @@
 	import CityModal from "../components/CityModal";
 	export default {
 		name: "App",
-		data: () => ({
-			ip: null,
-			latitude: null,
-			longitude: null,
-			gettingLocation: false,
-			noGeoLocation: false,
-			geoDenied: false,
-			geoErrorStr: null,
-			apiKey: "izLr3tzed9tqFm2ArDXT5J0FPBZHbfuztoWv7-WwU4Q",
-		}),
+		data: () => ({}),
 		components: {
 			"app-header": Header,
 			"app-calculator": Calculator,
 			"app-footer": Footer,
 			CityModal,
 		},
-		created: function () {
+		created: async function () {
 			this.setEnv(this.env);
-			this.initApp().then(() => this.resolveCurrentCity());
+			await this.initApp();
+			this.resolveCurrentCity();
 		},
 		mounted: function () {
 			this.setViewHeight();
@@ -76,6 +68,8 @@
 				"setGeoCoordinates",
 				"setIp",
 				"setIpCity",
+				"getGeoLocation",
+				"getCities",
 			]),
 			setViewHeight: function () {
 				let vh = window.innerHeight * 0.01;
@@ -89,74 +83,7 @@
 				await this.getGeoLocation();
 				await this.getCities();
 			},
-			//
-			async getCities() {
-				return await new Promise((resolve, reject) => {
-					const response = axios
-						.get("https://potolki-ts.ru/api/cities")
-						.then((res) => {
-							this.setCities(res.data);
-							resolve(res);
-						})
-						.catch((error) => {
-							reject(error);
-						});
-				});
-			},
-			async getCoords() {
-				return await new Promise((resolve, reject) => {
-					if (!("geolocation" in navigator)) {
-						//console.log("NO GEOLOCATION");
-						this.noGeoLocation = true;
-						reject(new Error("Geolocation is not available."));
-					}
 
-					navigator.geolocation.getCurrentPosition(
-						(pos) => {
-							resolve(pos);
-						},
-						(err) => {
-							reject(err);
-						}
-					);
-				});
-			},
-			async getGeoLocation() {
-				this.gettingLocation = true;
-				try {
-					this.gettingLocation = false;
-					const location = await this.getCoords();
-					this.setGeoCoordinates({
-						latitude: location.coords.latitude,
-						longitude: location.coords.longitude,
-					});
-					this.latitude = location.coords.latitude;
-					this.longitude = location.coords.longitude;
-					const address_data = await axios(this.addressUrl);
-					if (address_data.data.items.length > 0)
-						console.log(address_data.data.items[0].address.city);
-					this.setGeoLocation(address_data.data.items[0].address.city);
-				} catch (e) {
-					this.gettingLocation = false;
-					this.errorStr = e.message;
-				}
-			},
-			//http://ip-api.com/json/193.42.108.94?lang=ru
-			async getIpCity(ip) {
-				return await new Promise((resolve, reject) => {
-					const response = axios
-						.get("http://ip-api.com/json/" + this.ip + "?lang=ru")
-						.then((res) => {
-							console.log(res.data.city);
-							this.setIpLocation(res.data.city);
-							resolve(res.data.city);
-						})
-						.catch((error) => {
-							reject(error);
-						});
-				});
-			},
-			//
 			resolveCurrentCity() {
 				//CITY IN URL
 				if (this.citycode) {
