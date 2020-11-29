@@ -131,7 +131,6 @@ export default new Vuex.Store({
 
         //GeoLocation
         getGeoLocation: async (context) => {
-            console.log("inside getGeoLocation");
             const location = await context.dispatch('getCoords');
             const address = await axios(context.getters.hereapiUrl);
 

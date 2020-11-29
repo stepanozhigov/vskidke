@@ -25780,16 +25780,15 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                console.log("inside getGeoLocation");
-                _context4.next = 3;
+                _context4.next = 2;
                 return context.dispatch('getCoords');
 
-              case 3:
+              case 2:
                 location = _context4.sent;
-                _context4.next = 6;
+                _context4.next = 5;
                 return axios__WEBPACK_IMPORTED_MODULE_3___default()(context.getters.hereapiUrl);
 
-              case 6:
+              case 5:
                 address = _context4.sent;
 
                 if (address.data.items.length > 0) {
@@ -25797,7 +25796,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
                   context.commit('SET_GEO_LOCATION', address.data.items[0].address.city);
                 }
 
-              case 8:
+              case 7:
               case "end":
                 return _context4.stop();
             }
