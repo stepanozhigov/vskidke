@@ -1,13 +1,15 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import axios from 'axios';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        env: 'production',
+        env: 'local',
         modal: false,
         success: false,
+        ip:false,
         ipLocation: null,
         geoCoordinates: null,
         geoLocation: null,
@@ -29,6 +31,7 @@ export default new Vuex.Store({
     getters: {
         isModal: state => state.modal,
         isSuccess: state => state.success,
+        ip: state => state.ip,
         ipLocation: state => state.ipLocation,
         geoCoordinates: state => state.geoCoordinates,
         geoLocation: state => state.geoLocation,
@@ -48,6 +51,7 @@ export default new Vuex.Store({
         UNSET_MODAL: state => (state.modal = false),
         SET_SUCCESS: state => (state.success = true),
         UNSET_SUCCESS: state => (state.success = false),
+        SET_IP: (state,payload) => (state.ip = payload),
         SET_IP_LOCATION: (state, ipLocation) => (state.ipLocation = ipLocation),
         SET_GEO_COORDINATES: (state, geoCoordinates) => (state.geoCoordinates = geoCoordinates),
         SET_GEO_LOCATION: (state, geoLocation) =>
@@ -71,6 +75,37 @@ export default new Vuex.Store({
             context.commit("SET_GEO_LOCATION", payload),
         setGeoCoordinates: (context, payload) =>
             context.commit("SET_GEO_COORDINATES", payload),
+
+
+        //get IP from https://api.ipify.org?format=jso
+        setIp: async (context) => {
+            return await new Promise((resolve, reject) => {
+                const response = axios
+                    .get("https://api.ipify.org?format=json")
+                    .then((res) => {
+                        context.commit('SET_IP',res.data.ip);
+                        resolve(res.data.ip);
+                    })
+                    .catch((error) => {
+                        reject(error);
+                    });
+            });
+        },
+        //http://ip-api.com/json/193.42.108.94?lang=ru
+        setIpCity: async (context) => {
+            return await new Promise((resolve, reject) => {
+                const response = axios
+                    .get("http://ip-api.com/json/" + context.getters.ip + "?lang=ru")
+                    .then((res) => {
+                        console.log(res.data);
+                        context.commit("SET_IP_LOCATION",res.data.city);
+                        resolve(res.data.city);
+                    })
+                    .catch((error) => {
+                        reject(error);
+                    });
+            });
+        },
         setCities: (context,payload) => {
             const otherCity = {
                 'bx_code': 792,

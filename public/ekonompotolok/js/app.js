@@ -2607,7 +2607,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return "https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=".concat(this.apiKey, "&at=").concat(this.latitude, ",").concat(this.longitude, "&lang=ru");
     }
   }),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess", "setEnv", "setGeoLocation", "setIpLocation", "setCities", "setCurrentCity", "setGeoCoordinates"])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess", "setEnv", "setGeoLocation", "setIpLocation", "setCities", "setCurrentCity", "setGeoCoordinates", "setIp", "setIpCity"])), {}, {
     setViewHeight: function setViewHeight() {
       var vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty("--vh", "".concat(vh, "px")); //console.log(vh);
@@ -2622,13 +2622,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this3.getGeoLocation();
+                return _this3.setIp();
 
               case 2:
                 _context.next = 4;
-                return _this3.getCities();
+                return _this3.setIpCity();
 
               case 4:
+                _context.next = 6;
+                return _this3.getGeoLocation();
+
+              case 6:
+                _context.next = 8;
+                return _this3.getCities();
+
+              case 8:
               case "end":
                 return _context.stop();
             }
@@ -2645,7 +2653,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                return _context2.abrupt("return", new Promise(function (resolve, reject) {
+                _context2.next = 2;
+                return new Promise(function (resolve, reject) {
                   var response = axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("https://potolki-ts.ru/api/cities").then(function (res) {
                     _this4.setCities(res.data);
 
@@ -2653,9 +2662,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   })["catch"](function (error) {
                     reject(error);
                   });
-                }));
+                });
 
-              case 1:
+              case 2:
+                return _context2.abrupt("return", _context2.sent);
+
+              case 3:
               case "end":
                 return _context2.stop();
             }
@@ -2671,7 +2683,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                return _context3.abrupt("return", new Promise(function (resolve, reject) {
+                _context3.next = 2;
+                return new Promise(function (resolve, reject) {
                   if (!("geolocation" in navigator)) {
                     //console.log("NO GEOLOCATION");
                     _this5.noGeoLocation = true;
@@ -2683,9 +2696,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   }, function (err) {
                     reject(err);
                   });
-                }));
+                });
 
-              case 1:
+              case 2:
+                return _context3.abrupt("return", _context3.sent);
+
+              case 3:
               case "end":
                 return _context3.stop();
             }
@@ -2744,7 +2760,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee4, null, [[1, 16]]);
       }))();
     },
-    getIp: function getIp() {
+    //http://ip-api.com/json/193.42.108.94?lang=ru
+    getIpCity: function getIpCity(ip) {
       var _this7 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
@@ -2754,10 +2771,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               case 0:
                 _context5.next = 2;
                 return new Promise(function (resolve, reject) {
-                  var response = axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("https://api.ipify.org?format=json").then(function (res) {
-                    console.log(res.data.ip);
-                    _this7.ip = res.data.ip;
-                    resolve(res.data.ip);
+                  var response = axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://ip-api.com/json/" + _this7.ip + "?lang=ru").then(function (res) {
+                    console.log(res.data.city);
+
+                    _this7.setIpLocation(res.data.city);
+
+                    resolve(res.data.city);
                   })["catch"](function (error) {
                     reject(error);
                   });
@@ -2774,47 +2793,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee5);
       }))();
     },
-    //http://ip-api.com/json/193.42.108.94?lang=ru
-    getIpCity: function getIpCity(ip) {
-      var _this8 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
-          while (1) {
-            switch (_context6.prev = _context6.next) {
-              case 0:
-                _context6.next = 2;
-                return new Promise(function (resolve, reject) {
-                  var response = axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://ip-api.com/json/" + _this8.ip + "?lang=ru").then(function (res) {
-                    console.log(res.data.city);
-
-                    _this8.setIpLocation(res.data.city);
-
-                    resolve(res.data.city);
-                  })["catch"](function (error) {
-                    reject(error);
-                  });
-                });
-
-              case 2:
-                return _context6.abrupt("return", _context6.sent);
-
-              case 3:
-              case "end":
-                return _context6.stop();
-            }
-          }
-        }, _callee6);
-      }))();
-    },
     //
     resolveCurrentCity: function resolveCurrentCity() {
-      var _this9 = this;
+      var _this8 = this;
 
       //CITY IN URL
       if (this.citycode) {
         var city = this.cities.filter(function (city) {
-          return city.code == _this9.citycode;
+          return city.code == _this8.citycode;
         });
 
         if (city.length > 0) {
@@ -2835,7 +2821,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             console.log("USE IP LOCATION");
 
             var _city = this.cities.filter(function (city) {
-              return city.name == _this9.ipLocation;
+              return city.name == _this8.ipLocation;
             }); //LOCATION IN THE LIST
 
 
@@ -2860,7 +2846,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 console.log("GEO LOCATED"); //
 
                 var _city2 = this.cities.filter(function (city) {
-                  return city.name == _this9.geoLocation;
+                  return city.name == _this8.geoLocation;
                 });
 
                 if (_city2.length > 0) {
@@ -25654,17 +25640,29 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
-/* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
   state: {
-    env: 'production',
+    env: 'local',
     modal: false,
     success: false,
+    ip: false,
     ipLocation: null,
     geoCoordinates: null,
     geoLocation: null,
@@ -25689,6 +25687,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     isSuccess: function isSuccess(state) {
       return state.success;
+    },
+    ip: function ip(state) {
+      return state.ip;
     },
     ipLocation: function ipLocation(state) {
       return state.ipLocation;
@@ -25743,6 +25744,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     UNSET_SUCCESS: function UNSET_SUCCESS(state) {
       return state.success = false;
     },
+    SET_IP: function SET_IP(state, payload) {
+      return state.ip = payload;
+    },
     SET_IP_LOCATION: function SET_IP_LOCATION(state, ipLocation) {
       return state.ipLocation = ipLocation;
     },
@@ -25796,6 +25800,75 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     setGeoCoordinates: function setGeoCoordinates(context, payload) {
       return context.commit("SET_GEO_COORDINATES", payload);
     },
+    //get IP from https://api.ipify.org?format=jso
+    setIp: function () {
+      var _setIp = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(context) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return new Promise(function (resolve, reject) {
+                  var response = axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("https://api.ipify.org?format=json").then(function (res) {
+                    context.commit('SET_IP', res.data.ip);
+                    resolve(res.data.ip);
+                  })["catch"](function (error) {
+                    reject(error);
+                  });
+                });
+
+              case 2:
+                return _context.abrupt("return", _context.sent);
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      function setIp(_x) {
+        return _setIp.apply(this, arguments);
+      }
+
+      return setIp;
+    }(),
+    //http://ip-api.com/json/193.42.108.94?lang=ru
+    setIpCity: function () {
+      var _setIpCity = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(context) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return new Promise(function (resolve, reject) {
+                  var response = axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("http://ip-api.com/json/" + context.getters.ip + "?lang=ru").then(function (res) {
+                    console.log(res.data);
+                    context.commit("SET_IP_LOCATION", res.data.city);
+                    resolve(res.data.city);
+                  })["catch"](function (error) {
+                    reject(error);
+                  });
+                });
+
+              case 2:
+                return _context2.abrupt("return", _context2.sent);
+
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      function setIpCity(_x2) {
+        return _setIpCity.apply(this, arguments);
+      }
+
+      return setIpCity;
+    }(),
     setCities: function setCities(context, payload) {
       var otherCity = {
         'bx_code': 792,

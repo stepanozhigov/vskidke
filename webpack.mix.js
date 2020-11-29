@@ -78,7 +78,7 @@ mix
 });
 
 mix.browserSync({
-    proxy: "econom.vskidke.local",
+    proxy: "localhost",
     open: false
 });
 

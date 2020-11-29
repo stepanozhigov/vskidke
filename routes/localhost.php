@@ -6,6 +6,7 @@ Route::pattern('localhost', '(localhost)');
 Route::domain('{localhost}')
     ->group(function () {
         Route::get('/{city}', function () {
+            // dd('HERE');
             return view('app');
            })->where('city', '[\/\w\.-]*');
         Route::post('/bx24', 'EkonompotolokController@bitrix24')->name('bitrix24');

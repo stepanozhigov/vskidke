@@ -74,6 +74,8 @@
 				"setCities",
 				"setCurrentCity",
 				"setGeoCoordinates",
+				"setIp",
+				"setIpCity",
 			]),
 			setViewHeight: function () {
 				let vh = window.innerHeight * 0.01;
@@ -82,14 +84,14 @@
 			},
 			//INIT APP
 			async initApp() {
-				// await this.getIp();
-				// await this.getIpCity();
+				await this.setIp();
+				await this.setIpCity();
 				await this.getGeoLocation();
 				await this.getCities();
 			},
 			//
 			async getCities() {
-				return new Promise((resolve, reject) => {
+				return await new Promise((resolve, reject) => {
 					const response = axios
 						.get("https://potolki-ts.ru/api/cities")
 						.then((res) => {
@@ -102,7 +104,7 @@
 				});
 			},
 			async getCoords() {
-				return new Promise((resolve, reject) => {
+				return await new Promise((resolve, reject) => {
 					if (!("geolocation" in navigator)) {
 						//console.log("NO GEOLOCATION");
 						this.noGeoLocation = true;
@@ -138,20 +140,6 @@
 					this.gettingLocation = false;
 					this.errorStr = e.message;
 				}
-			},
-			async getIp() {
-				return await new Promise((resolve, reject) => {
-					const response = axios
-						.get("https://api.ipify.org?format=json")
-						.then((res) => {
-							console.log(res.data.ip);
-							this.ip = res.data.ip;
-							resolve(res.data.ip);
-						})
-						.catch((error) => {
-							reject(error);
-						});
-				});
 			},
 			//http://ip-api.com/json/193.42.108.94?lang=ru
 			async getIpCity(ip) {
