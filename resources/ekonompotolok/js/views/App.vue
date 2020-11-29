@@ -50,9 +50,6 @@
 				"ipLocation",
 				"showCityModal",
 			]),
-			addressUrl() {
-				return `https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=${this.apiKey}&at=${this.latitude},${this.longitude}&lang=ru`;
-			},
 		},
 		methods: {
 			...mapActions([
@@ -66,8 +63,8 @@
 				"setCities",
 				"setCurrentCity",
 				"setGeoCoordinates",
-				"setIp",
-				"setIpCity",
+				"getIp",
+				"getIpCity",
 				"getGeoLocation",
 				"getCities",
 			]),
@@ -78,8 +75,8 @@
 			},
 			//INIT APP
 			async initApp() {
-				await this.setIp();
-				await this.setIpCity();
+				await this.getIp();
+				await this.getIpCity();
 				await this.getGeoLocation();
 				await this.getCities();
 			},

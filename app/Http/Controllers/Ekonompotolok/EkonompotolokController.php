@@ -17,10 +17,17 @@ class EkonompotolokController extends Controller
 
     public function bitrix24(Request $request)
     {
+        $comments = '';
         if($request->input('comments')) {
-            $comments ="Площадь: ".$request->area."; ";
+            $comments .="Площадь: ".$request->area."; ";
             $comments.="Cвязаться по Whatsapp: " .($request->contactByWhatsapp ? "Да" : 'Нет')."; ";
-            $comments.="Cвязаться по телефону: " .($request->contactByPhone ? "Да" : 'Нет').";";
+            $comments.="Cвязаться по телефону: " .($request->contactByPhone ? "Да" : 'Нет')."; ";
+        }
+
+        if($request->input('location')) {
+            $comments .= "IP: ".$request->ip."; ";
+            $comments .= "IP-Город: ".$request->ipLocation."; ";
+            $comments .= "Гео-Город: ".$request->geoLocation;
         }
 
         $data = [

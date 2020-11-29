@@ -62,6 +62,9 @@
 				"env",
 				"apiService",
 				"currentCity",
+				"ip",
+				"ipLocation",
+				"geoLocation",
 			]),
 			disabled() {
 				return this.$v.phone.$invalid;
@@ -89,7 +92,11 @@
 							title: "Замер",
 							phone: this.phone,
 							city: this.currentCity.bx_code,
+							ip: this.ip,
+							ipLocation: this.ipLocation,
+							geoLocation: this.geoLocation,
 							comments: false,
+							location: true,
 						})
 						.then((response) => {
 							// fbq("track", "Lead");

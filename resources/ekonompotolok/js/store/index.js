@@ -76,7 +76,7 @@ export default new Vuex.Store({
         unsetSuccess: context => context.commit("UNSET_SUCCESS"),
 
         //get IP from https://api.ipify.org?format=jso
-        setIp: async (context) => {
+        getIp: async (context) => {
             return await new Promise((resolve, reject) => {
                 const response = axios
                     .get("https://api.ipify.org?format=json")
@@ -90,7 +90,7 @@ export default new Vuex.Store({
             });
         },
         //http://ip-api.com/json/193.42.108.94?lang=ru
-        setIpCity: async (context) => {
+        getIpCity: async (context) => {
             return await new Promise((resolve, reject) => {
                 const response = axios
                     .get("http://ip-api.com/json/" + context.getters.ip + "?lang=ru")
@@ -110,7 +110,6 @@ export default new Vuex.Store({
             return await new Promise((resolve, reject) => {
                 if (!("geolocation" in navigator)) {
                     console.log("NO GEOLOCATION");
-                    this.noGeoLocation = true;
                     reject(new Error("Geolocation is not available."));
                 }
 
@@ -123,7 +122,7 @@ export default new Vuex.Store({
                         resolve(pos);
                     },
                     (err) => {
-                        reject(err);
+                        resolve(false);
                     }
                 );
             });
@@ -131,14 +130,19 @@ export default new Vuex.Store({
 
         //GeoLocation
         getGeoLocation: async (context) => {
+            
             const location = await context.dispatch('getCoords');
-            const address = await axios(context.getters.hereapiUrl);
-
-            if (address.data.items.length > 0) {
-                console.log(address.data.items[0].address.city);
-                context.commit('SET_GEO_LOCATION',address.data.items[0].address.city);
+            console.log(location);
+            if(location) {
+                console.log('no location');
+                const queryStr = new URLSearchParams({
+                    latitude : context.getters.geoCoordinates.latitude,
+                    longitude : context.getters.geoCoordinates.longitude,
+                });
+                const address = await axios.get('/api/hereapi?'+queryStr.toString());
+                context.commit('SET_GEO_LOCATION',address.data.address.city);
             }
-
+            
         },
 
         //GET CITIES

@@ -11,8 +11,6 @@ use Illuminate\Support\Facades\Http;
 class LocationController extends Controller
 {
     //GET CITY BY COORD
-    //(latitude,longitude)
-    //`https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=${state.hereapiKey}&at=${state.geoCoordinates.latitude},${state.geoCoordinates.longitude}&lang=ru`
     public function hereapi(HereapiGetRequest $request) {
         $hereapiKey = "izLr3tzed9tqFm2ArDXT5J0FPBZHbfuztoWv7-WwU4Q";
         $response = Http::get("https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=$hereapiKey&at=$request->latitude,$request->longitude&lang=ru");

@@ -69,6 +69,9 @@
 				"area",
 				"contactByWhatsapp",
 				"contactByPhone",
+				"ip",
+				"ipLocation",
+				"geoLocation",
 			]),
 			disabled() {
 				return this.$v.phone.$invalid;
@@ -92,7 +95,11 @@
 							area: this.area,
 							contactByWhatsapp: this.contactByWhatsapp,
 							contactByPhone: this.contactByPhone,
+							ip: this.ip,
+							ipLocation: this.ipLocation,
+							geoLocation: this.geoLocation,
 							comments: true,
+							location: true,
 						})
 						.then((response) => {
 							// fbq("track", "Lead");
