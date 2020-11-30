@@ -1,6 +1,6 @@
 <template>
 	<div class="flex flex-col flex-grow home-view">
-		<div class="home-view-content tablet:flex-grow tablet:flex tablet:flex-col">
+		<div class="home-view-content phone:flex-grow phone:flex phone:flex-col">
 			<h1>
 				Продажа квартир в&nbsp;лучших&nbsp;ЖК&nbsp;Москвы
 				от&nbsp;7,9&nbsp;млн.&nbsp;рублей
@@ -15,13 +15,13 @@
 			<div>
 				<a :href="redirectTo">Перейти на сайт</a>
 			</div>
-		</div>
 
-		<!-- AGREEMENT -->
-		<p>
-			Оставляя контактную информацию, вы <span>соглашаетесь</span> на обработку
-			персональных&nbsp;данных
-		</p>
+			<!-- AGREEMENT -->
+			<p>
+				Оставляя контактную информацию, вы <span>соглашаетесь</span> на
+				обработку персональных&nbsp;данных
+			</p>
+		</div>
 	</div>
 </template>
 <script>

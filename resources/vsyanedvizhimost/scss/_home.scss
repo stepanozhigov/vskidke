@@ -34,6 +34,7 @@
 
         @screen monitor {
             @apply mx-auto;
+            padding-top: 3rem;
             max-width: rem(720);
             display: flex;
             justify-content:center;
@@ -118,6 +119,7 @@
         form {
             margin-top: rem(24);
             @apply mx-auto;
+            width: 100%;
 
             @screen phone {
                 margin-top: rem(24);
@@ -212,7 +214,11 @@
                 @apply text-left;
                 @apply ml-0;
                 @apply mr-0;
-                @apply mt-6;
+                @apply mt-4;
+            }
+
+            @screen monitor {
+                margin-top:rem(24);
             }
         }
     }
