@@ -58,18 +58,18 @@ require("laravel-mix-purgecss");
 
 //vsya-nedvizhimost (local: vsyanedvizhimost.local)
 
-// mix
+mix
 //.copy("resources/vsyanedvizhimost/images/", "public/vsyanedvizhimost/images/")
-// .js("resources/vsyanedvizhimost/js/app.js", "public/vsyanedvizhimost/js")
-// .sass("resources/vsyanedvizhimost/scss/app.scss", "public/vsyanedvizhimost/css",
-// {},[tailwindcss("./tailwind.vsyanedvizhimost.config.js")])
+.js("resources/vsyanedvizhimost/js/app.js", "public/vsyanedvizhimost/js")
+.sass("resources/vsyanedvizhimost/scss/app.scss", "public/vsyanedvizhimost/css",
+{},[tailwindcss("./tailwind.vsyanedvizhimost.config.js")])
 
 //ekonompotolok (local: econom.vskidke.local)
 
 mix
 // .copy("resources/ekonompotolok/images/", "public/ekonompotolok/images/")
-.js("resources/ekonompotolok/js/app.js", "public/ekonompotolok/js")
-.sass("resources/ekonompotolok/scss/app.scss", "public/ekonompotolok/css")
+//.js("resources/ekonompotolok/js/app.js", "public/ekonompotolok/js")
+//.sass("resources/ekonompotolok/scss/app.scss", "public/ekonompotolok/css")
 .options({
     processCssUrls: false,
     autoprefixer: {
@@ -78,7 +78,7 @@ mix
 });
 
 mix.browserSync({
-    proxy: "localhost",
+    proxy: "www.vsyanedvizhimost.local",
     open: false
 });
 

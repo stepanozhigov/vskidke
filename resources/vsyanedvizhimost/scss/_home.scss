@@ -35,39 +35,42 @@
         @screen monitor {
             @apply mx-auto;
             max-width: rem(720);
+            display: flex;
+            justify-content:center;
         }
 
         h1 {
-            @apply font-bold;
-            // max-width: rem(624);
-            font-size: rem(20);
-            line-height: rem(25);
+            max-width: rem(288);
+            @apply font-medium;
+            font-size: rem(26);
+            line-height: rem(32);
             color: theme('colors.whitetext');
-            letter-spacing: rem(-0.2);
+            letter-spacing: rem(0);
             text-align: left;
             margin-top: rem(80);
     
             @screen phone {
                 max-width: rem(343);
-                font-size: rem(24);
-                line-height: rem(30);
+                font-size: rem(32);
+                line-height: rem(40);
             }
     
             @screen tablet {
             
                 max-width: rem(624);
 
-                font-size: rem(44);
-                line-height: rem(56);
+                font-size: rem(58);
+                line-height: rem(72);
                 letter-spacing: (-0.8);
 
                 margin: rem(208) auto 0;
             }
     
             @screen monitor {
+                margin:0;
                 max-width: rem(551);
-                font-size: rem(32);
-                line-height: rem(40);
+                font-size: rem(40);
+                line-height: rem(48);
                 letter-spacing: rem(-0.3)
             }
         }
@@ -82,26 +85,30 @@
             line-height: rem(20);
             letter-spacing: rem(0);
 
-            margin-top: rem(13);
+            margin-top: rem(16);
 
             @screen phone {
-
+                max-width: rem(290);
+                font-size: rem(16);
+                line-height: rem(24);
+                margin-top: rem(16);
             }
 
             @screen tablet {
 
-                max-width: rem(402);
+                max-width: rem(420);
 
 
-                font-size: rem(16);
-                line-height: rem(24);
+                font-size: rem(18);
+                line-height: rem(26);
                 letter-spacing: rem(0);
 
-                margin-top:rem(16);
+                margin-top:rem(32);
             }
 
             @screen monitor {
-                margin-top:rem(8);
+                max-width: rem(370);
+                margin-top:rem(16);
                 font-size: rem(16);
                 line-height: rem(24);
                 letter-spacing: rem(0);
@@ -109,8 +116,12 @@
         }
 
         form {
-            margin-top: rem(34);
+            margin-top: rem(24);
             @apply mx-auto;
+
+            @screen phone {
+                margin-top: rem(24);
+            }
 
             @screen tablet {
                 margin-top: rem(50);

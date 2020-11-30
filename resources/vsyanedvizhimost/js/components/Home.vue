@@ -2,12 +2,12 @@
 	<div class="flex flex-col flex-grow home-view">
 		<div class="home-view-content tablet:flex-grow tablet:flex tablet:flex-col">
 			<h1>
-				Продажа жилых комплексов комфорт и бизнес-класса
-				от&nbsp;7,9&nbsp;млн.&nbsp;руб. в&nbsp;Москве
+				Продажа квартир в&nbsp;лучших&nbsp;ЖК&nbsp;Москвы
+				от&nbsp;7,9&nbsp;млн.&nbsp;рублей
 			</h1>
 			<h3>
-				Оставьте ваш WhatsApp номер и получите ценное предложение от&nbsp;ЖК с
-				лучшими ценами в&nbsp;течении&nbsp;5&nbsp;минут!
+				Оставьте ваш номер телефона и мы вышлем вам на WhatsApp лучшие
+				предложения в&nbsp;течение&nbsp;5&nbsp;минут
 			</h3>
 			<Form />
 
