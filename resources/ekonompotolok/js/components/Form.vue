@@ -90,7 +90,7 @@
 					axios
 						.post("bx24", {
 							title: "Замер",
-							phone: this.phone,
+							phone: this.phWone,
 							city: this.currentCity.bx_code,
 							ip: this.ip,
 							ipLocation: this.ipLocation,
@@ -99,14 +99,12 @@
 							location: true,
 						})
 						.then((response) => {
-							// fbq("track", "Lead");
+							fbq("track", "Lead");
 							// ga.getAll()[0].send("event", "lead", this.actionType);
 							// ym(68586496, "reachGoal", "send form");
 							if (this.env != "local") {
 								window.location.replace(this.redirectTo);
 							}
-							// this.setSuccess();
-							// this.setModal();
 						});
 				}
 			},
