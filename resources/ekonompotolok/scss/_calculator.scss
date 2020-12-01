@@ -236,8 +236,9 @@
     
                     background-color: $darkgrey;
                     box-shadow: inset 4px 4px 8px rgba(88, 84, 82, 0.1), inset -4px -4px 8px #ffffff;
-                    -webkit-box-shadow: inset 4px 4px 8px rgba(88, 84, 82, 0.1), inset -4px -4px 8px #ffffff;
                     border-radius: 28px;
+
+                    -webkit-appearance: none;
     
                 }
             };
