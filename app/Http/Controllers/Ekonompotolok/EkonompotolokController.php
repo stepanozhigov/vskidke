@@ -27,7 +27,7 @@ class EkonompotolokController extends Controller
         if($request->input('location')) {
             $comments .= "IP: ".$request->ip."; ";
             $comments .= "IP-Город: ".$request->ipLocation."; ";
-            $comments .= "Гео-Город: ".$request->geoLocation ? $request->geoLocation : 'нет';
+            $comments .= $request->geoLocation ? "Гео-Город: ".$request->geoLocation : 'нет';
         }
 
         $data = [
