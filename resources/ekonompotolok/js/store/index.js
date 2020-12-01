@@ -7,7 +7,6 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         env: 'production',
-        hereapiKey: "izLr3tzed9tqFm2ArDXT5J0FPBZHbfuztoWv7-WwU4Q",
         modal: false,
         success: false,
         ip:false,
