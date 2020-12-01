@@ -17,4 +17,16 @@ class LocationController extends Controller
         $data = $response->json();
         return response()->json($data['items'][0],200);
     }
+
+    //GET CITY BY IP
+    public function ipapi(Request $request) {
+        
+        $query = [
+            'api-key' => "0075d631068f9ce6f45736561dd4b0b18eb4b4c83ffac03f3c523bae",
+            'lang'=>'ru',
+        ];
+        $response = Http::get("http://ip-api.com/json/".$request->ip."?".http_build_query($query));
+        $data = $response->json();
+        return response()->json($data['regionName'],200);
+    }
 }
