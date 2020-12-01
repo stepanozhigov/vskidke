@@ -90,7 +90,7 @@
 					axios
 						.post("bx24", {
 							title: "Замер",
-							phone: this.phWone,
+							phone: this.phone,
 							city: this.currentCity.bx_code,
 							ip: this.ip,
 							ipLocation: this.ipLocation,
