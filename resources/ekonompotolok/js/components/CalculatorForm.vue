@@ -2,16 +2,18 @@
 	<!-- {{--FORM--}} -->
 	<form @submit.prevent="submitForm" class="calculator--content-form">
 		<!-- {{--PHONE INPUT--}} -->
-		<input
-			v-model="$v.phone.$model"
-			type="tel"
-			autocomplete="off"
-			required="required"
-			class="form-phone"
-			:placeholder="placeholderText"
-			v-mask="{ mask: '\+7 (999) 999-99-99', greedy: true }"
-			v-on:change="maskCheck"
-		/>
+		<span>
+			<input
+				v-model="$v.phone.$model"
+				type="tel"
+				autocomplete="off"
+				required="required"
+				class="form-phone"
+				:placeholder="placeholderText"
+				v-mask="{ mask: '\+7 (999) 999-99-99', greedy: true }"
+				v-on:change="maskCheck"
+			/>
+		</span>
 
 		<!-- {{--SUBMIT PHONE--}} -->
 		<button class="form-submit" type="submit" :disabled="disabled">

@@ -220,23 +220,27 @@
                 outline: none;
             }
 
-            .form-phone {
+            span {
                 width: 100%;
-                height: rem(56);
-                border-radius: rem(56/2);
-                padding-left: rem(18);
-
-                position: relative;
-                text-align: left;
-                
-                color:$formgrey;
-                letter-spacing: inherit;
-
-                background-color: $darkgrey;
-                box-shadow: inset 4px 4px 8px rgba(88, 84, 82, 0.1), inset -4px -4px 8px #ffffff;
-                border-radius: 28px;
-
-            }
+                .form-phone {
+                    width: 100%;
+                    height: rem(56);
+                    border-radius: rem(56/2);
+                    padding-left: rem(18);
+    
+                    position: relative;
+                    text-align: left;
+                    
+                    color:$formgrey;
+                    letter-spacing: inherit;
+    
+                    background-color: $darkgrey;
+                    box-shadow: inset 4px 4px 8px rgba(88, 84, 82, 0.1), inset -4px -4px 8px #ffffff;
+                    -webkit-box-shadow: inset 4px 4px 8px rgba(88, 84, 82, 0.1), inset -4px -4px 8px #ffffff;
+                    border-radius: 28px;
+    
+                }
+            };
 
             .form-submit:before {
                 background: #fff;

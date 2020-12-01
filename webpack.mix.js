@@ -73,9 +73,9 @@ mix
 .options({
     processCssUrls: false,
     autoprefixer: {
-        browsers: ["last 9 versions"]
+        browsers: ["last 20 versions"]
     }
-});
+})
 
 mix.browserSync({
     proxy: "localhost",
