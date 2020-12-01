@@ -37,7 +37,7 @@ class EkonompotolokController extends Controller
                 //СТАТУС
                 'STATUS_ID'=>env('APP_ENV') == 'local' ? 'Хлам' : '',
                 //Лид (стр2)
-                'SOURCE_ID'	=>env('APP_ENV') == 'local' ? 'Тест' : 'эконом-потолок.рус',
+                'SOURCE_ID'	=>env('APP_ENV') == 'local' ? 'Тест' : 'econom.vskidke.ru',
                 //Ответственный (ID)
                 'ASSIGNED_BY_ID'    =>  551,
                 //Город (ID)
