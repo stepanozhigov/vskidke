@@ -93,10 +93,10 @@ export default new Vuex.Store({
         getIpCity: async (context) => {
             return await new Promise((resolve, reject) => {
                 const response = axios
-                    .get("http://ip-api.com/json/" + context.getters.ip + "?lang=ru")
+                    .get("/api/ipapi?ip=" + context.getters.ip)
                     .then((res) => {
-                        // console.log(res.data);
-                        context.commit("SET_IP_LOCATION",res.data.city);
+                        console.log(res.data);
+                        context.commit("SET_IP_LOCATION",res.data);
                         resolve(res.data.city);
                     })
                     .catch((error) => {
