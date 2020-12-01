@@ -37,7 +37,7 @@ class EkonompotolokController extends Controller
                 //СТАТУС
                 'STATUS_ID'=>env('APP_ENV') == 'local' ? 'Хлам' : '',
                 //Лид (стр2)
-                'SOURCE_ID'	=>env('APP_ENV') == 'local' ? 'Тест' : request()->getHttpHost(),
+                'SOURCE_ID'	=>$request->input('utm_source') ?? env('APP_ENV') == 'local' ? 'Тест' : 'Веб-сайт',
                 //Ответственный (ID)
                 'ASSIGNED_BY_ID'    =>  551,
                 //Город (ID)
@@ -63,19 +63,19 @@ class EkonompotolokController extends Controller
                 // 
                 
                 //utm_medium
-                'UF_CRM_1532512297'=>$utm['utm_medium'] ?? '',
+                'UF_CRM_1532512297'=>$request->input('utm_medium') ?? '-',
                 //utm_campaign
-                'UF_CRM_1532512307'=>$utm['utm_campaign'] ?? '',
+                'UF_CRM_1532512307'=>$request->input('utm_campaign') ?? '-',
                 //type
                 //?
                 //utm_source
-                'UF_CRM_1532512285'=>$utm['utm_source'] ?? '',
+                'UF_CRM_1532512285'=>$request->input('utm_source') ?? '-',
                 //block
                 //?
                 //position
                 //?
                 //utm_term
-                'UF_CRM_1533820976'=>$utm['utm_term'] ?? '',
+                'UF_CRM_1533820976'=>$request->input('utm_term') ?? '-',
     
                 // 
                 // ROISTAT

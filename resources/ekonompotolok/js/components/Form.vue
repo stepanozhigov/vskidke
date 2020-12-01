@@ -65,6 +65,7 @@
 				"ip",
 				"ipLocation",
 				"geoLocation",
+				"utm",
 			]),
 			disabled() {
 				return this.$v.phone.$invalid;
@@ -97,6 +98,10 @@
 							geoLocation: this.geoLocation,
 							comments: false,
 							location: true,
+							utm_source: this.utm.utm_source ? this.utm.utm_source : "",
+							utm_campaign: this.utm.utm_campaign ? this.utm.utm_campaign : "",
+							utm_medium: this.utm.utm_medium ? this.utm.utm_medium : "",
+							utm_term: this.utm.utm_term ? this.utm.utm_term : "",
 						})
 						.then((response) => {
 							fbq("track", "Lead");

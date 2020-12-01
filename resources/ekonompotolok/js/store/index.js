@@ -30,7 +30,13 @@ export default new Vuex.Store({
         showCityModal:false,
         area: 20,
         contactByWhatsapp: false,
-        contactByPhone: false
+        contactByPhone: false,
+        utm: {
+            utm_source: false,
+            utm_campaign: false,
+            utm_medium: false,
+            utm_term: false
+        }
     },
     getters: {
         isModal: state => state.modal,
@@ -48,7 +54,8 @@ export default new Vuex.Store({
         contactByWhatsapp: state=>state.contactByWhatsapp,
         contactByPhone: state=>state.contactByPhone,
         showCityModal: state=>state.showCityModal,
-        hereapiUrl: state=>`https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=${state.hereapiKey}&at=${state.geoCoordinates.latitude},${state.geoCoordinates.longitude}&lang=ru`
+        hereapiUrl: state=>`https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=${state.hereapiKey}&at=${state.geoCoordinates.latitude},${state.geoCoordinates.longitude}&lang=ru`,
+        utm : state=>state.utm
     },
     mutations: {
         SET_ENV: (state,payload) => (state.env = payload),
@@ -66,7 +73,13 @@ export default new Vuex.Store({
         SET_AREA: (state,payload) => (state.area = payload),
         SET_CONTACTBY_WHATSAPP: (state,payload) => (state.contactByWhatsapp = payload),
         SET_CONTACTBY_PHONE: (state,payload) => (state.contactByPhone = payload),
-        SHOW_CITY_MODAL: (state,payload) => (state.showCityModal = payload)
+        SHOW_CITY_MODAL: (state,payload) => (state.showCityModal = payload),
+        SET_UTM: (state,payload) => {
+            state.utm.utm_source = payload.utm_source,
+            state.utm.utm_campaign = payload.utm_campaign,
+            state.utm.utm_medium = payload.utm_medium,
+            state.utm.utm_term = payload.utm_term
+        }
     },
     actions: {
         setEnv: (context,payload) => context.commit("SET_ENV",payload),
@@ -177,6 +190,9 @@ export default new Vuex.Store({
         },
         showCityModal: (context) => {
             context.commit('SHOW_CITY_MODAL',!context.getters.showCityModal);
+        },
+        setUtm: (context,utm) => {
+            context.commit('SET_UTM',utm);
         }
 
     }

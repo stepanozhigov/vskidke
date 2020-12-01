@@ -29,6 +29,15 @@
 		},
 		created: async function () {
 			this.setEnv(this.env);
+			//set utms
+			console.log(this.utm);
+			this.setUtm({
+				utm_source: this.utm_source,
+				utm_campaign: this.utm_campaign,
+				utm_medium: this.utm_medium,
+				utm_term: this.utm_term,
+			});
+			//
 			await this.initApp();
 			this.resolveCurrentCity();
 		},
@@ -67,6 +76,7 @@
 				"getIpCity",
 				"getGeoLocation",
 				"getCities",
+				"setUtm",
 			]),
 			setViewHeight: function () {
 				let vh = window.innerHeight * 0.01;
@@ -150,9 +160,11 @@
 			},
 		},
 		props: {
-			citycode: {
-				// type: String,
-			},
+			citycode: {},
+			utm_source: {},
+			utm_campaign: {},
+			utm_medium: {},
+			utm_term: {},
 		},
 	};
 </script>
