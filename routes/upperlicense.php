@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::pattern('upperlicense', '(upperlicense.|www.upperlicense.)');
+Route::pattern('upperlicense', '(med.|www.med.)');
 Route::domain('{upperlicense}' . env('APP_URL'))
     ->group(function () {
         Route::get('/', 'UpperlicenseController@index')->name('home');

@@ -6,8 +6,13 @@ $subdomain_folder = $host_parts[0] == 'www' ? $host_parts[1] : $host_parts[0];
 
 //vsyanedvizhimost (xn----ctbbheinb0bds0ako4m9a)
 if($subdomain_folder == 'xn----ctbbheinb0bds0ako4m9a') $subdomain_folder = 'vsyanedvizhimost';
+
 //econom (папка ekonompotolok)
 if(in_array($subdomain_folder,['econom','localhost'])) $subdomain_folder = 'ekonompotolok';
+
+//https://med.license.kz/
+if(in_array($subdomain_folder,['med'])) $subdomain_folder = 'upperlicense';
+
 //localhost (папка ekonompotolok)
 
 return [
