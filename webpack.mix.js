@@ -67,15 +67,17 @@ require("laravel-mix-purgecss");
 //ekonompotolok (local: econom.vskidke.local)
 
 mix
-// .copy("resources/ekonompotolok/images/", "public/ekonompotolok/images/")
-.js("resources/ekonompotolok/js/app.js", "public/ekonompotolok/js")
-.sass("resources/ekonompotolok/scss/app.scss", "public/ekonompotolok/css")
 .options({
     processCssUrls: false,
     autoprefixer: {
         browsers: ["last 20 versions"]
     }
 })
+.sourceMaps()
+.webpackConfig({devtool: 'source-map'})
+// .copy("resources/ekonompotolok/images/", "public/ekonompotolok/images/")
+.js("resources/ekonompotolok/js/app.js", "public/ekonompotolok/js")
+.sass("resources/ekonompotolok/scss/app.scss", "public/ekonompotolok/css")
 
 mix.browserSync({
     proxy: "localhost",
