@@ -28,7 +28,7 @@
 					ваша скидка
 				</p>
 				<div class="header--content-offer-calendar">
-					<span class="calendar-day">Понедельник</span>
+					<span class="calendar-day">{{ day }}</span>
 					<img
 						src="ekonompotolok/images/monday_01.png"
 						alt="monday"
@@ -45,6 +45,7 @@
 </template>
 <script>
 	import Form from "./Form";
+	import moment from "moment";
 	import vuex, { mapGetters, mapActions } from "vuex";
 	export default {
 		name: "Header",
@@ -58,6 +59,9 @@
 				return (
 					"tel:" + this.currentCity.phone.replace(/\s/g, "").replace(/\-/g, "")
 				);
+			},
+			day() {
+				return moment().locale("ru").format("dddd");
 			},
 		},
 		methods: {

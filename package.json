@@ -27,6 +27,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "moment": "^2.29.1",
         "tailwindcss": "^1.8.10",
         "vue-cookies": "^1.7.4",
         "vue-country-code": "^1.1.1",
