@@ -27,11 +27,14 @@
 					Только сегодня<br />
 					ваша скидка
 				</p>
-				<img
-					src="ekonompotolok/images/monday.png"
-					alt="monday"
-					class="header--content-offer-monday"
-				/>
+				<div class="header--content-offer-calendar">
+					<span class="calendar-day">Понедельник</span>
+					<img
+						src="ekonompotolok/images/monday_01.png"
+						alt="monday"
+						class="calendar-image"
+					/>
+				</div>
 				<p class="header--content-offer-rush">
 					Осталось 7 замеров.<br />Успейте записаться!
 				</p>

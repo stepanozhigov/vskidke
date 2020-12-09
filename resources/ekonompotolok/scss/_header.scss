@@ -119,10 +119,28 @@
                 margin-top: rem(16);
             }
 
-            &-monday {
-                width: rem(72);
+            &-calendar {
+
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 6rem;
                 margin-left: rem(-6);
                 margin-top: rem(5);
+
+                .calendar-day {
+                    z-index: 10;
+                    font-weight: 500;
+                    color:$footerwhite;
+                    text-transform: uppercase;
+                    font-size: rem(8);
+
+                }
+
+                .calendar-image {
+                    margin-top: rem(-29);
+                }
             }
             &-rush {
                 font-size: rem(12);
