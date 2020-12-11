@@ -1,7 +1,12 @@
 <template>
 	<header class="app-header" :class="{ modal: !isHome }">
 		<logo></logo>
-		<img v-if="isHome" src="/beflight/images/Christmas_Balls.png" alt="" />
+		<img
+			class="app-header-image"
+			v-if="isHome"
+			src="/beflight/images/Christmas_Balls.png"
+			alt=""
+		/>
 		<phone></phone>
 	</header>
 </template>

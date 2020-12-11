@@ -1,6 +1,6 @@
 .app-header {
-    font-size: rem(10);
-    font-weight: 600;
+    font-size: rem(12);
+    font-weight: 500;
 
     z-index: 99;
     position: relative;
@@ -21,7 +21,6 @@
 
     @include mobile {
         font-size: rem(12);
-        font-weight: 500;
     }
 
     &.modal {
@@ -35,6 +34,14 @@
             height: 100%;
         }
         
+    }
+
+    &-image {
+        display: none;
+
+        @include mobile {
+            display: block;
+        }
     }
 
     .app-call {
