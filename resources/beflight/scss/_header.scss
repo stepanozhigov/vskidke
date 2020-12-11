@@ -19,8 +19,8 @@
     padding-left: rem(16);
     padding-right: rem(16);
 
-    @include tablet {
-        height: rem(80);
+    &.modal {
+        box-shadow: inset 0 -1px 0 #dcdbda;
     }
 
     .app-header-logo {
@@ -40,13 +40,14 @@
         text-align: center;
 
         .app-call-number {
-            font-weight: 300;
+            font-weight: 400;
             color: theme("colors.blacktext");
         }
         .app-call-book {
-            color: theme("colors.bluetext");
+            color: $textmain;
             line-height: 1rem;
-            border-bottom: 2px dotted theme("colors.yellowtext");
+            border-bottom: 2px dotted $textmain;
+            letter-spacing: rem(-0.2)
         }
     }
 }

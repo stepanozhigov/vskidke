@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Beflight;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Beflight\SendBeflightmostMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
@@ -15,6 +16,12 @@ class BeflightController extends Controller
 
     {
         return view('app');
+    }
+
+    public function mail(Request $request)
+    {
+        $to = env('APP_ENV') == 'local' ? env('MAIL_TO_TEST') : 'trendpro@beflight.ru';
+        Mail::to($to)->send(new SendBeflightmostMail($request->phone, $request->title));
     }
 
     public function ammoconnect(Request $request)

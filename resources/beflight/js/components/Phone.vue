@@ -3,7 +3,7 @@
 		<!-- {{-- Make call --}} -->
 		<a href="tel:+74992292212" class="app-call-number">8 499 229-22-12</a>
 		<!-- {{-- Book call --}} -->
-		<span @click="toggleModal" class="app-call-book"> Заказать звонок </span>
+		<span @click="toggleCallback" class="app-call-book"> Заказать звонок </span>
 	</div>
 </template>
 <script>
@@ -12,17 +12,42 @@
 		name: "Phone",
 		data: () => ({}),
 		computed: {
-			...mapGetters(["isModal", "isSuccess"]),
+			...mapGetters([
+				"isModal",
+				"isSuccess",
+				"env",
+				"isCallback",
+				"isSignup",
+				"isHome",
+			]),
 		},
 		methods: {
-			...mapActions(["setModal", "unsetModal", "setSuccess", "unsetSuccess"]),
-			toggleModal() {
-				if (this.isModal) {
-					this.unsetModal();
+			...mapActions([
+				"setEnv",
+				"setModal",
+				"unsetModal",
+				"setSuccess",
+				"unsetSuccess",
+				"setCallback",
+				"unsetCallback",
+				"setSuccess",
+				"setSignup",
+				"unsetSignup",
+				"setHome",
+				"unsetHome",
+			]),
+			toggleCallback() {
+				if (this.isCallback) {
+					this.unsetSignup();
+					this.unsetSuccess();
+					this.unsetCallback();
+					this.setHome();
 				} else {
-					this.setModal();
+					this.unsetHome();
+					this.unsetSignup();
+					this.unsetSuccess();
+					this.setCallback();
 				}
-				this.unsetSuccess();
 			},
 		},
 	};

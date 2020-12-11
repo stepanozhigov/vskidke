@@ -2,7 +2,10 @@
 	<!-- {{--FORM--}} -->
 	<form
 		@submit.prevent="submitForm"
-		class="flex flex-col items-center tablet:items-start"
+		:class="{
+			'form-invalid': !formValid,
+			'form-modal': isCallback || isSignup,
+		}"
 	>
 		<!-- {{--PHONE INPUT--}} -->
 
@@ -17,7 +20,7 @@
 		/>
 
 		<!-- {{--SUBMIT PHONE--}} -->
-		<button class="flex justify-center items-center w-full button-pulse">
+		<button class="button-pulse">
 			{{ btnText }}
 		</button>
 	</form>
@@ -37,7 +40,6 @@
 	export default {
 		data: () => ({
 			phone: "",
-			isValid: true,
 			onFocus: false,
 		}),
 		props: {
@@ -53,6 +55,10 @@
 				type: String,
 				default: "Ваш телефон",
 			},
+			leadTitle: {
+				type: String,
+				default: "Получить прайс-лист",
+			},
 		},
 		validations: {
 			phone: {
@@ -62,33 +68,44 @@
 		},
 		mounted: function () {},
 		computed: {
-			...mapGetters(["isModal", "isSuccess", "redirectTo", "env"]),
+			...mapGetters(["isSuccess", "env", "isCallback", "isSignup", "isHome"]),
+			formClass() {
+				if (this.isCallback || this.isSignup) {
+					return "form-modal";
+				}
+				return "";
+			},
+			formValid() {
+				return !this.$v.phone.$invalid;
+			},
 		},
 		methods: {
-			...mapActions(["setModal", "unsetModal", "setSuccess", "unsetSuccess"]),
+			...mapActions([
+				"setEnv",
+				"setSuccess",
+				"unsetSuccess",
+				"setCallback",
+				"unsetCallback",
+				"setSuccess",
+				"setSignup",
+				"unsetSignup",
+				"setHome",
+				"unsetHome",
+			]),
 			submitForm() {
-				if (this.$v.phone.$invalid) {
-					this.isValid = false;
-				} else {
-					this.isValid = true;
+				if (this.formValid) {
 					axios
 						.post("/mail", {
 							phone: this.phone,
 						})
 						.then((response) => {
-							this.$store
-								.dispatch("dropFbPixel")
-								.then(() => {
-									this.setSuccess();
-									this.setModal();
-									fbq("track", "Lead");
-									if (this.env == "production") {
-										setTimeout(() => {
-											window.location.replace(this.redirectTo);
-										}, 5000);
-									}
-								})
-								.catch((err) => console.log(err));
+							this.setSuccess();
+							fbq("track", "Lead");
+							if (this.env == "local") {
+								setTimeout(() => {
+									window.location.replace(this.redirectTo);
+								}, 1500);
+							}
 						});
 				}
 			},

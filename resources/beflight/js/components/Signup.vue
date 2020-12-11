@@ -1,8 +1,13 @@
 <template>
-	<div class="modal-view">
-		<div class="modal-view-content">
-			<h5>{{ this.title }}</h5>
-			<div @click="closeModal" class="modal-view-content-close">
+	<div class="modal-view mx-auto flex-grow flex flex-col">
+		<div
+			class="modal-view-content relative w-full flex flex-col flex-grow items-center"
+		>
+			<h5>Заказать звонок</h5>
+			<div
+				@click="toggleModal"
+				class="absolute modal-view-close cursor-pointer"
+			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="16"
@@ -30,12 +35,11 @@
 				</svg>
 			</div>
 			<Form
-				:leadTitle="title"
 				actionType="callback"
 				btnText="Отправить заявку"
-				placeholderText="Ваш телефон"
+				placeholderText="Ваш телефон*"
 			/>
-			<a href="#" @click.prevent="closeModal">Закрыть</a>
+			<a href="#" @click.prevent="toggleModal">Закрыть</a>
 		</div>
 	</div>
 </template>
@@ -49,33 +53,18 @@
 			Form,
 		},
 		methods: {
-			...mapActions([
-				"setEnv",
-				"setSuccess",
-				"unsetSuccess",
-				"setCallback",
-				"unsetCallback",
-				"setSuccess",
-				"setSignup",
-				"unsetSignup",
-				"setHome",
-				"unsetHome",
-			]),
-			closeModal() {
-				this.unsetSignup();
-				this.unsetCallback();
-				this.setHome();
+			...mapActions(["setModal", "unsetModal", "setSuccess", "unsetSuccess"]),
+			toggleModal() {
+				if (this.isModal) {
+					this.unsetModal();
+				} else {
+					this.setModal();
+				}
+				this.unsetSuccess();
 			},
 		},
 		computed: {
-			...mapGetters(["isSuccess", "env", "isCallback", "isSignup", "isHome"]),
-			title() {
-				if (this.isCallback) {
-					return "Заказать звонок";
-				} else if (this.isSignup) {
-					return "Записаться к мастеру";
-				}
-			},
+			...mapGetters(["isModal", "isSuccess"]),
 		},
 	};
 </script>

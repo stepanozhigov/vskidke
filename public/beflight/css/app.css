@@ -779,10 +779,8 @@ video {
   padding-left: 1rem;
   padding-right: 1rem;
 }
-@media screen and (min-width: 768px) {
-  .app-header {
-    height: 5rem;
-  }
+.app-header.modal {
+  box-shadow: inset 0 -1px 0 #dcdbda;
 }
 .app-header .app-header-logo {
   height: 2.5rem;
@@ -796,13 +794,14 @@ video {
   text-align: center;
 }
 .app-header .app-call .app-call-number {
-  font-weight: 300;
+  font-weight: 400;
   color: theme("colors.blacktext");
 }
 .app-header .app-call .app-call-book {
-  color: theme("colors.bluetext");
+  color: #de90bd;
   line-height: 1rem;
-  border-bottom: 2px dotted theme("colors.yellowtext");
+  border-bottom: 2px dotted #de90bd;
+  letter-spacing: -0.0125rem;
 }
 
 .home-view {
@@ -856,50 +855,6 @@ video {
   letter-spacing: 0rem;
   margin-top: 0.75rem;
 }
-.home-view .home-view-content form {
-  font-weight: 400;
-  margin: 1.625rem auto 0;
-  width: 100%;
-  text-align: left;
-}
-.home-view .home-view-content form input {
-  appearance: none;
-  color: #756c6d;
-  font-size: 1.125rem;
-  padding-left: 1rem;
-  border: none;
-  border-radius: 0.375rem;
-  background-color: #ffffff;
-  box-shadow: inset 0 -1px 0 #d9d7d7;
-  width: 100%;
-  height: 3.5rem;
-}
-.home-view .home-view-content form input::placeholder {
-  color: #b3adae;
-}
-.home-view .home-view-content form input:focus {
-  outline: none;
-}
-.home-view .home-view-content form button {
-  margin-top: 1rem;
-  color: #ffffff;
-  font-size: 1.125rem;
-  letter-spacing: -0.025rem;
-  text-align: center;
-  width: 100%;
-  height: 3.5rem;
-  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16);
-  border-radius: 0.375rem;
-  border: none;
-  background: radial-gradient(circle 225px at 25% 0%, #f5c8ab 0%, #de90bd 58%, #de90bd 63%, #de90bd 69%, #48b4cb 100%);
-}
-.home-view .home-view-content form button:active {
-  outline: none;
-  background: none;
-}
-.home-view .home-view-content form button:focus {
-  outline: none;
-}
 .home-view .home-view-content .signup {
   margin-top: 1rem;
 }
@@ -918,5 +873,132 @@ video {
 }
 .home-view p span {
   text-decoration: underline;
+}
+
+.modal-view {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.modal-view-content {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+}
+.modal-view-content-close {
+  position: absolute;
+  cursor: pointer;
+  top: 1rem;
+  right: 1rem;
+}
+.modal-view-content h5 {
+  margin: 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  line-height: 1rem;
+  letter-spacing: 0.5rem;
+}
+.modal-view-content a {
+  font-size: 1rem;
+  color: #de90bd;
+  margin: 1.625rem auto 0;
+  border-bottom: 2px dotted #de90bd;
+}
+
+form {
+  font-weight: 400;
+  margin: 1.625rem auto 0;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+form input {
+  appearance: none;
+  color: #756c6d;
+  font-size: 1.125rem;
+  padding-left: 1rem;
+  border: none;
+  border-radius: 0.375rem;
+  background-color: #ffffff;
+  box-shadow: inset 0 -1px 0 #d9d7d7;
+  width: 100%;
+  height: 3.5rem;
+}
+form input::placeholder {
+  color: #b3adae;
+}
+form input:focus {
+  outline: none;
+}
+form button {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-size: 1.125rem;
+  letter-spacing: -0.025rem;
+  text-align: center;
+  width: 100%;
+  height: 3.5rem;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16);
+  border-radius: 0.375rem;
+  border: none;
+  background: radial-gradient(circle 225px at 25% 0%, #f5c8ab 0%, #de90bd 58%, #de90bd 63%, #de90bd 69%, #48b4cb 100%);
+}
+form button:active {
+  outline: none;
+  background: none;
+}
+form button:focus {
+  outline: none;
+}
+form.form-modal input {
+  border-radius: 0rem;
+}
+form.form-modal input:focus {
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 0.375rem;
+}
+form.form-invalid button {
+  cursor: not-allowed;
+}
+
+.success-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+.success-view-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+}
+.success-view-content h5 {
+  margin: 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  line-height: 1rem;
+  letter-spacing: 0.5rem;
+}
+.success-view-content h6 {
+  margin: 1rem 0 0;
+  font-weight: 400;
+  font-size: 1.5rem;
+  letter-spacing: -0.2;
 }
 /*# sourceMappingURL=app.css.map*/

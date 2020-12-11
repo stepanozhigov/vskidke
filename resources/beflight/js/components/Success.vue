@@ -1,10 +1,10 @@
 <template>
-	<div class="success-view flex-grow flex flex-col justify-center">
+	<div class="success-view">
 		<div
 			class="success-view-content flex flex-col flex-grow tablet:justify-center"
 		>
-			<h2>Спасибо!</h2>
-			<h4>Ваша заявка принята</h4>
+			<h5>Спасибо!</h5>
+			<h6>Ваша заявка принята</h6>
 		</div>
 	</div>
 </template>

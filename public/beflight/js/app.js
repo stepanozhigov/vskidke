@@ -1942,10 +1942,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -1974,9 +1970,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     var _this = this;
 
-    this.setEnv(this.environment); //
-
-    this.setSuccess(); //this.setModal();
+    this.setEnv(this.environment);
+    this.setHome(); // this.setSuccess();
+    //this.setModal();
     //
 
     this.setViewHeight();
@@ -1987,8 +1983,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return _this.setViewHeight();
     });
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(["isModal", "isSuccess", "env", "isCallback", "isSignup", "isHome"])),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(["setEnv", "setModal", "unsetModal", "setSuccess", "unsetSuccess", "setCallback", "unsetCallback", "setSuccess", "setSignup", "unsetSignup", "setHome", "unsetHome"])), {}, {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(["isSuccess", "env", "isCallback", "isSignup", "isHome"])),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(["setEnv", "setSuccess", "unsetSuccess", "setCallback", "unsetCallback", "setSuccess", "setSignup", "unsetSignup", "setHome", "unsetHome"])), {}, {
     setViewHeight: function setViewHeight() {
       var vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty("--vh", "".concat(vh, "px")); //console.log(vh);
@@ -2043,6 +2039,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
  //валидация телефона по регулярному вырожению
@@ -2052,7 +2051,6 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["helpe
   data: function data() {
     return {
       phone: "",
-      isValid: true,
       onFocus: false
     };
   },
@@ -2068,6 +2066,10 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["helpe
     placeholderText: {
       type: String,
       "default": "Ваш телефон"
+    },
+    leadTitle: {
+      type: String,
+      "default": "Получить прайс-лист"
     }
   },
   validations: {
@@ -2077,33 +2079,35 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["helpe
     }
   },
   mounted: function mounted() {},
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])(["isModal", "isSuccess", "redirectTo", "env"])),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess"])), {}, {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])(["isSuccess", "env", "isCallback", "isSignup", "isHome"])), {}, {
+    formClass: function formClass() {
+      if (this.isCallback || this.isSignup) {
+        return "form-modal";
+      }
+
+      return "";
+    },
+    formValid: function formValid() {
+      return !this.$v.phone.$invalid;
+    }
+  }),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(["setEnv", "setSuccess", "unsetSuccess", "setCallback", "unsetCallback", "setSuccess", "setSignup", "unsetSignup", "setHome", "unsetHome"])), {}, {
     submitForm: function submitForm() {
       var _this = this;
 
-      if (this.$v.phone.$invalid) {
-        this.isValid = false;
-      } else {
-        this.isValid = true;
+      if (this.formValid) {
         axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/mail", {
           phone: this.phone
         }).then(function (response) {
-          _this.$store.dispatch("dropFbPixel").then(function () {
-            _this.setSuccess();
+          _this.setSuccess();
 
-            _this.setModal();
+          fbq("track", "Lead");
 
-            fbq("track", "Lead");
-
-            if (_this.env == "production") {
-              setTimeout(function () {
-                window.location.replace(_this.redirectTo);
-              }, 5000);
-            }
-          })["catch"](function (err) {
-            return console.log(err);
-          });
+          if (_this.env == "local") {
+            setTimeout(function () {
+              window.location.replace(_this.redirectTo);
+            }, 1500);
+          }
         });
       }
     },
@@ -2129,8 +2133,15 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["helpe
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Logo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Logo */ "./resources/beflight/js/components/Logo.vue");
-/* harmony import */ var _Phone__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Phone */ "./resources/beflight/js/components/Phone.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _Logo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Logo */ "./resources/beflight/js/components/Logo.vue");
+/* harmony import */ var _Phone__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Phone */ "./resources/beflight/js/components/Phone.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2138,6 +2149,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2146,9 +2158,11 @@ __webpack_require__.r(__webpack_exports__);
     return {};
   },
   components: {
-    Logo: _Logo__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Phone: _Phone__WEBPACK_IMPORTED_MODULE_1__["default"]
-  }
+    Logo: _Logo__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Phone: _Phone__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["isModal", "isSuccess", "env", "isCallback", "isSignup", "isHome"])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["setEnv", "setModal", "unsetModal", "setSuccess", "unsetSuccess", "setCallback", "unsetCallback", "setSuccess", "setSignup", "unsetSignup", "setHome", "unsetHome"]))
 });
 
 /***/ }),
@@ -2209,7 +2223,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {};
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["redirectTo"])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["isSuccess", "env", "isCallback", "isSignup", "isHome"])),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["setEnv", "setSuccess", "unsetSuccess", "setCallback", "unsetCallback", "setSuccess", "setSignup", "unsetSignup", "setHome", "unsetHome"])), {}, {
+    openModalSignup: function openModalSignup() {
+      this.unsetHome();
+      this.setSignup();
+    }
+  }),
   components: {
     Form: _Form__WEBPACK_IMPORTED_MODULE_1__["default"],
     Service: _Service_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
@@ -2391,10 +2411,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2405,18 +2421,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   components: {
     Form: _Form__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess"])), {}, {
-    toggleModal: function toggleModal() {
-      if (this.isModal) {
-        this.unsetModal();
-      } else {
-        this.setModal();
-      }
-
-      this.unsetSuccess();
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["setEnv", "setSuccess", "unsetSuccess", "setCallback", "unsetCallback", "setSuccess", "setSignup", "unsetSignup", "setHome", "unsetHome"])), {}, {
+    closeModal: function closeModal() {
+      this.unsetSignup();
+      this.unsetCallback();
+      this.setHome();
     }
   }),
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["isModal", "isSuccess"]))
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["isSuccess", "env", "isCallback", "isSignup", "isHome"])), {}, {
+    title: function title() {
+      if (this.isCallback) {
+        return "Заказать звонок";
+      } else if (this.isSignup) {
+        return "Записаться к мастеру";
+      }
+    }
+  })
 });
 
 /***/ }),
@@ -2451,16 +2471,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {};
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["isModal", "isSuccess"])),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess"])), {}, {
-    toggleModal: function toggleModal() {
-      if (this.isModal) {
-        this.unsetModal();
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["isModal", "isSuccess", "env", "isCallback", "isSignup", "isHome"])),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["setEnv", "setModal", "unsetModal", "setSuccess", "unsetSuccess", "setCallback", "unsetCallback", "setSuccess", "setSignup", "unsetSignup", "setHome", "unsetHome"])), {}, {
+    toggleCallback: function toggleCallback() {
+      if (this.isCallback) {
+        this.unsetSignup();
+        this.unsetSuccess();
+        this.unsetCallback();
+        this.setHome();
       } else {
-        this.setModal();
+        this.unsetHome();
+        this.unsetSignup();
+        this.unsetSuccess();
+        this.setCallback();
       }
-
-      this.unsetSuccess();
     }
   })
 });
@@ -3404,13 +3428,11 @@ var render = function() {
     "div",
     { staticClass: "app-template" },
     [
-      _c("app-header"),
+      !_vm.isSuccess ? _c("app-header") : _vm._e(),
       _vm._v(" "),
-      !_vm.isHome ? _c("home") : _vm._e(),
+      _vm.isHome ? _c("home") : _vm._e(),
       _vm._v(" "),
-      _vm.isSignup ? _c("modal") : _vm._e(),
-      _vm._v(" "),
-      _vm.isCallback ? _c("modal") : _vm._e(),
+      _vm.isSignup || _vm.isCallback ? _c("modal") : _vm._e(),
       _vm._v(" "),
       _vm.isSuccess ? _c("success") : _vm._e()
     ],
@@ -3442,7 +3464,10 @@ var render = function() {
   return _c(
     "form",
     {
-      staticClass: "flex flex-col items-center tablet:items-start",
+      class: {
+        "form-invalid": !_vm.formValid,
+        "form-modal": _vm.isCallback || _vm.isSignup
+      },
       on: {
         submit: function($event) {
           $event.preventDefault()
@@ -3484,11 +3509,9 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "flex justify-center items-center w-full button-pulse" },
-        [_vm._v("\n\t\t" + _vm._s(_vm.btnText) + "\n\t")]
-      )
+      _c("button", { staticClass: "button-pulse" }, [
+        _vm._v("\n\t\t" + _vm._s(_vm.btnText) + "\n\t")
+      ])
     ]
   )
 }
@@ -3516,13 +3539,15 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "header",
-    { staticClass: "app-header" },
+    { staticClass: "app-header", class: { modal: !_vm.isHome } },
     [
       _c("logo"),
       _vm._v(" "),
-      _c("img", {
-        attrs: { src: "/beflight/images/Christmas_Balls.png", alt: "" }
-      }),
+      _vm.isHome
+        ? _c("img", {
+            attrs: { src: "/beflight/images/Christmas_Balls.png", alt: "" }
+          })
+        : _vm._e(),
       _vm._v(" "),
       _c("phone")
     ],
@@ -3568,12 +3593,26 @@ var render = function() {
             _vm._v(" "),
             _c("Form"),
             _vm._v(" "),
-            _vm._m(2)
+            _c("div", { staticClass: "signup" }, [
+              _c(
+                "a",
+                {
+                  attrs: { href: "#" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.openModalSignup($event)
+                    }
+                  }
+                },
+                [_vm._v("Записаться к мастеру")]
+              )
+            ])
           ],
           1
         ),
         _vm._v(" "),
-        _vm._m(3)
+        _vm._m(2)
       ],
       1
     )
@@ -3600,14 +3639,6 @@ var staticRenderFns = [
       _vm._v("\n\t\t\t\tОставьте номер телефона и мы вышлем"),
       _c("br"),
       _vm._v("на WhatsApp прайс-лист наших\n\t\t\t\tуслуг\n\t\t\t")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "signup" }, [
-      _c("a", { attrs: { href: "#" } }, [_vm._v("Записаться к мастеру")])
     ])
   },
   function() {
@@ -3844,91 +3875,85 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "modal-view mx-auto flex-grow flex flex-col" },
-    [
-      _c(
-        "div",
-        {
-          staticClass:
-            "modal-view-content relative w-full flex flex-col flex-grow items-center"
-        },
-        [
-          _c("h1", [_vm._v("Заказать звонок")]),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "absolute modal-view-close cursor-pointer",
-              on: { click: _vm.toggleModal }
-            },
-            [
-              _c(
-                "svg",
-                {
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    width: "16",
-                    height: "16",
-                    viewBox: "0 0 18 18"
-                  }
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      fill: "none",
-                      stroke: "#d9d7d7",
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round",
-                      "stroke-miterlimit": "20",
-                      "stroke-width": "1.5",
-                      d: "M1 1l16 16"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("path", {
-                    attrs: {
-                      fill: "none",
-                      stroke: "#d9d7d7",
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round",
-                      "stroke-miterlimit": "20",
-                      "stroke-width": "1.5",
-                      d: "M17 1L1 17"
-                    }
-                  })
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c("Form", {
-            attrs: {
-              actionType: "callback",
-              btnText: "Отправить заявку",
-              placeholderText: "Ваш телефон*"
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              attrs: { href: "#" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.toggleModal($event)
+  return _c("div", { staticClass: "modal-view" }, [
+    _c(
+      "div",
+      { staticClass: "modal-view-content" },
+      [
+        _c("h5", [_vm._v(_vm._s(this.title))]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "modal-view-content-close",
+            on: { click: _vm.closeModal }
+          },
+          [
+            _c(
+              "svg",
+              {
+                attrs: {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  width: "16",
+                  height: "16",
+                  viewBox: "0 0 18 18"
                 }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    fill: "none",
+                    stroke: "#d9d7d7",
+                    "stroke-linecap": "round",
+                    "stroke-linejoin": "round",
+                    "stroke-miterlimit": "20",
+                    "stroke-width": "1.5",
+                    d: "M1 1l16 16"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  attrs: {
+                    fill: "none",
+                    stroke: "#d9d7d7",
+                    "stroke-linecap": "round",
+                    "stroke-linejoin": "round",
+                    "stroke-miterlimit": "20",
+                    "stroke-width": "1.5",
+                    d: "M17 1L1 17"
+                  }
+                })
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c("Form", {
+          attrs: {
+            leadTitle: _vm.title,
+            actionType: "callback",
+            btnText: "Отправить заявку",
+            placeholderText: "Ваш телефон"
+          }
+        }),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            attrs: { href: "#" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.closeModal($event)
               }
-            },
-            [_vm._v("Закрыть")]
-          )
-        ],
-        1
-      )
-    ]
-  )
+            }
+          },
+          [_vm._v("Закрыть")]
+        )
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -3961,7 +3986,7 @@ var render = function() {
     _vm._v(" "),
     _c(
       "span",
-      { staticClass: "app-call-book", on: { click: _vm.toggleModal } },
+      { staticClass: "app-call-book", on: { click: _vm.toggleCallback } },
       [_vm._v(" Заказать звонок ")]
     )
   ])
@@ -4383,24 +4408,20 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "success-view flex-grow flex flex-col justify-center" },
-      [
-        _c(
-          "div",
-          {
-            staticClass:
-              "success-view-content flex flex-col flex-grow tablet:justify-center"
-          },
-          [
-            _c("h2", [_vm._v("Спасибо!")]),
-            _vm._v(" "),
-            _c("h4", [_vm._v("Ваша заявка принята")])
-          ]
-        )
-      ]
-    )
+    return _c("div", { staticClass: "success-view" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "success-view-content flex flex-col flex-grow tablet:justify-center"
+        },
+        [
+          _c("h5", [_vm._v("Спасибо!")]),
+          _vm._v(" "),
+          _c("h6", [_vm._v("Ваша заявка принята")])
+        ]
+      )
+    ])
   }
 ]
 render._withStripped = true

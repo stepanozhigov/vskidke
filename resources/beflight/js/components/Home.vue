@@ -16,7 +16,7 @@
 
 				<!--  -->
 				<div class="signup">
-					<a href="#">Записаться к мастеру</a>
+					<a href="#" @click.prevent="openModalSignup">Записаться к мастеру</a>
 				</div>
 			</div>
 
@@ -29,14 +29,32 @@
 	</div>
 </template>
 <script>
-	import { mapGetters } from "vuex";
+	import { mapGetters, mapActions } from "vuex";
 	import Form from "./Form";
 	import Service from "./Service.vue";
 	export default {
 		name: "Home",
 		data: () => ({}),
 		computed: {
-			...mapGetters(["redirectTo"]),
+			...mapGetters(["isSuccess", "env", "isCallback", "isSignup", "isHome"]),
+		},
+		methods: {
+			...mapActions([
+				"setEnv",
+				"setSuccess",
+				"unsetSuccess",
+				"setCallback",
+				"unsetCallback",
+				"setSuccess",
+				"setSignup",
+				"unsetSignup",
+				"setHome",
+				"unsetHome",
+			]),
+			openModalSignup() {
+				this.unsetHome();
+				this.setSignup();
+			},
 		},
 		components: {
 			Form,
