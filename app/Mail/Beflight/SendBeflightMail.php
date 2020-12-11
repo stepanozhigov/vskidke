@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class SendBeflightmostMail extends Mailable
+class SendBeflightMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -34,7 +34,7 @@ class SendBeflightmostMail extends Mailable
     public function build()
     {
         return $this
-            ->from('support@trend-p.ru', 'Лидмагнит')
+            ->from('support@trend-p.ru', 'Лидмагнит Beflight')
             ->subject("Новая Заявка")
             ->view('emails.email');
     }

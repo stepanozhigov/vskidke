@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <link rel="shortcut icon" href="{{ asset('beflight/images/favicon.ico')}}">
-    <link href="{{ asset('/beflight/css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('/beflight/css/app.css') }}" rel="stylesheet">
 
 </head>
 
@@ -17,7 +17,7 @@
     </div>
 
     {{-- VUE-CLI JS --}}
-    <script src="{{ asset('beflight/js/app.js') }}" defer></script>
+    <script src="{{ mix('beflight/js/app.js') }}" defer></script>
 
     @yield('pixel')
     @yield('yandex.metrika')

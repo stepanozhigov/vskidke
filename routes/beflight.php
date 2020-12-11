@@ -9,6 +9,7 @@ Route::domain('{beflight}' . env('APP_URL'))
         //     return 'Test';
         // });
         Route::get('/', 'BeflightController@index')->name('home');
+        Route::post('/mail', 'BeflightController@mail')->name('mail');
         Route::post('/ammoconnect', 'BeflightController@ammoconnect')->name('ammoconnect');
     });
 

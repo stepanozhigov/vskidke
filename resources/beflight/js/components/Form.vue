@@ -96,12 +96,16 @@
 				if (this.formValid) {
 					axios
 						.post("/mail", {
+							title: this.leadTitle,
 							phone: this.phone,
 						})
 						.then((response) => {
+							this.unsetHome();
+							this.unsetSignup();
+							this.unsetCallback();
 							this.setSuccess();
 							fbq("track", "Lead");
-							if (this.env == "local") {
+							if (this.env == "production") {
 								setTimeout(() => {
 									window.location.replace(this.redirectTo);
 								}, 1500);
