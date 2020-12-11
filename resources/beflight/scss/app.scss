@@ -1,0 +1,16 @@
+/* purgecss start ignore */
+@tailwind base;
+
+@tailwind components;
+/* purgecss start ignore */
+
+@tailwind utilities;
+
+@import "../../_webfonts";
+@import "mixins";
+@import "header";
+@import "home";
+@import "modal";
+@import "success";
+@import "custom";
+@import "animation";

@@ -15,6 +15,8 @@ if(in_array($subdomain_folder,['med'])) $subdomain_folder = 'upperlicense';
 
 //localhost (папка ekonompotolok)
 
+// dd(resource_path($subdomain_folder) . '/views');
+
 return [
 
     /*

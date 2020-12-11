@@ -1,0 +1,57 @@
+server {
+        root /var/www/vskidke/public;
+        index index.php index.html index.htm index.nginx-debian.html;
+        server_name beflight.vskidke.ru www.beflight.vskidke.ru;
+        
+        location / {
+                try_files $uri $uri/ /index.php?$query_string;
+        }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
+        }
+
+        location ~ /\.ht {
+                deny all;
+        }
+        
+        #client side optimize
+
+                gzip on;
+                gzip_disable "msie6";
+                gzip_comp_level 5;
+                gzip_types text/plain text/css application/json application/x-javascript text/xml image/svg+xml application/xml application/xml+rss text/javascript application/javascript;
+
+                location ~*  \.(jpg|jpeg|png|gif|ico|svg|css|js|woff|woff2|webp)$ {
+                        expires 365d;
+                        access_log off;
+                        add_header Pragma public;
+                        add_header Cache-Control "public";
+                        break;
+         
+                }
+
+        #end optimize
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/autoschool.vskidke.ru/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/autoschool.vskidke.ru/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # manadged by Certbot
+
+}server {
+    if ($host = www.beflight.vskidke.ru) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    if ($host = beflight.vskidke.ru) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+        listen 80;
+        server_name www.beflight.vskidke.ru beflight.vskidke.ru
+    return 404; # managed by Certbot
+}
