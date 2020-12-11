@@ -21,7 +21,7 @@ class BeflightController extends Controller
     public function mail(Request $request)
     {
         $to = env('APP_ENV') == 'local' ? env('MAIL_TO_TEST') : 'trendpro@beflight.ru';
-        Mail::to($to)->send(new SendBeflightMail($request->title,$request->phone,));
+        Mail::to($to)->send(new SendBeflightMail($request->title,$request->phone));
     }
 
     public function ammoconnect(Request $request)

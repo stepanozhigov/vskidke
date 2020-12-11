@@ -59,6 +59,10 @@
 				type: String,
 				default: "Получить прайс-лист",
 			},
+			redirectTo: {
+				type: String,
+				default: "",
+			},
 		},
 		validations: {
 			phone: {
@@ -107,7 +111,7 @@
 							fbq("track", "Lead");
 							if (this.env == "production") {
 								setTimeout(() => {
-									window.location.replace(this.redirectTo);
+									window.location.replace(this.$store.getters.redirectTo);
 								}, 1500);
 							}
 						});
