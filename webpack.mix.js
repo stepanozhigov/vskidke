@@ -65,7 +65,29 @@ require("laravel-mix-purgecss");
 // {},[tailwindcss("./tailwind.vsyanedvizhimost.config.js")])
 
 //ekonompotolok (local: econom.vskidke.local)
+// mix
+// .options({
+//     processCssUrls: false,
+//     autoprefixer: {
+//         browsers: ["last 20 versions"]
+//     }
+// })
+// .sourceMaps()
+// .webpackConfig({devtool: 'source-map'})
+// .copy("resources/ekonompotolok/images/", "public/ekonompotolok/images/")
+// .js("resources/ekonompotolok/js/app.js", "public/ekonompotolok/js")
+// .sass("resources/ekonompotolok/scss/app.scss", "public/ekonompotolok/css")
 
+// mix.browserSync({
+//     proxy: "localhost",
+//     open: false
+// });
+
+// if (mix.inProduction()) {
+//     mix.version();
+// }
+
+//beflight (local: beflight.vskidke.local)
 mix
 .options({
     processCssUrls: false,
@@ -75,9 +97,8 @@ mix
 })
 .sourceMaps()
 .webpackConfig({devtool: 'source-map'})
-// .copy("resources/ekonompotolok/images/", "public/ekonompotolok/images/")
-.js("resources/ekonompotolok/js/app.js", "public/ekonompotolok/js")
-.sass("resources/ekonompotolok/scss/app.scss", "public/ekonompotolok/css")
+.js("resources/beflight/js/app.js", "public/beflight/js")
+.sass("resources/beflight/scss/app.scss", "public/beflight/css")
 
 mix.browserSync({
     proxy: "localhost",
