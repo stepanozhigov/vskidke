@@ -1,5 +1,5 @@
 <template>
-	<div class="flex flex-col app-call tablet:flex-row">
+	<div class="app-call">
 		<!-- {{-- Make call --}} -->
 		<a href="tel:+79697771253" class="app-call-number">8 969 777-12-53</a>
 		<!-- {{-- Book call --}} -->

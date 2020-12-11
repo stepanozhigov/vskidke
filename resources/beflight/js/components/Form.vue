@@ -82,8 +82,7 @@
 								.then(() => {
 									this.setSuccess();
 									this.setModal();
-									// ga.getAll()[0].send("event", "lead", this.actionType);
-									// ym(48259676, "reachGoal", "send_form");
+									fbq("track", "Lead");
 									if (this.env == "production") {
 										setTimeout(() => {
 											window.location.replace(this.redirectTo);

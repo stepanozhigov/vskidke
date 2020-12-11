@@ -101,7 +101,7 @@ mix
 .sass("resources/beflight/scss/app.scss", "public/beflight/css")
 
 mix.browserSync({
-    proxy: "localhost",
+    proxy: "beflight.vskidke.local",
     open: false
 });
 

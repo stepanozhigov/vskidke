@@ -20,6 +20,7 @@
     <script src="{{ asset('beflight/js/app.js') }}" defer></script>
 
     @yield('pixel')
+    @yield('yandex.metrika')
 
 </body>
 

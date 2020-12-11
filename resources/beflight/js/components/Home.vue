@@ -1,6 +1,6 @@
 <template>
-	<div class="flex flex-col flex-grow home-view">
-		<div class="home-view-content phone:flex-grow phone:flex phone:flex-col">
+	<div class="home-view">
+		<div class="home-view-content">
 			<h1>
 				Продажа квартир в&nbsp;лучших&nbsp;ЖК&nbsp;Москвы
 				от&nbsp;7,9&nbsp;млн.&nbsp;рублей
