@@ -1942,6 +1942,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -1971,8 +1975,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var _this = this;
 
     this.setEnv(this.environment); //
-    //this.setSuccess();
-    //this.setModal();
+
+    this.setSuccess(); //this.setModal();
     //
 
     this.setViewHeight();
@@ -1983,8 +1987,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return _this.setViewHeight();
     });
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(["isModal", "isSuccess", "env"])),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess", "setEnv"])), {}, {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(["isModal", "isSuccess", "env", "isCallback", "isSignup", "isHome"])),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(["setEnv", "setModal", "unsetModal", "setSuccess", "unsetSuccess", "setCallback", "unsetCallback", "setSuccess", "setSignup", "unsetSignup", "setHome", "unsetHome"])), {}, {
     setViewHeight: function setViewHeight() {
       var vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty("--vh", "".concat(vh, "px")); //console.log(vh);
@@ -2003,12 +2007,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_masked_input__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-masked-input */ "./node_modules/vue-masked-input/dist/maskedInput.js");
-/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
-/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2042,10 +2045,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 
 
-
  //валидация телефона по регулярному вырожению
 
-var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["helpers"].regex("phoneValidate", /^(\+)?(\(\d{2,3}\) ?\d|\d)(([ \-]?\d)|( ?\(\d{2,3}\) ?)){5,12}\d$/);
+var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["helpers"].regex("phoneValidate", /^(\+)?(\(\d{2,3}\) ?\d|\d)(([ \-]?\d)|( ?\(\d{2,3}\) ?)){5,12}\d$/);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2061,22 +2063,22 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["helpe
     },
     btnText: {
       type: String,
-      "default": "Получить предложение"
+      "default": "Получить прайс-лист"
     },
     placeholderText: {
       type: String,
-      "default": "Введите ваш номер*"
+      "default": "Ваш телефон"
     }
   },
   validations: {
     phone: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"],
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
       phoneValidate: phoneValidate
     }
   },
   mounted: function mounted() {},
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapGetters"])(["isModal", "isSuccess", "redirectTo", "env"])),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess"])), {}, {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])(["isModal", "isSuccess", "redirectTo", "env"])),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess"])), {}, {
     submitForm: function submitForm() {
       var _this = this;
 
@@ -2084,7 +2086,7 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["helpe
         this.isValid = false;
       } else {
         this.isValid = true;
-        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/mail", {
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/mail", {
           phone: this.phone
         }).then(function (response) {
           _this.$store.dispatch("dropFbPixel").then(function () {
@@ -2113,9 +2115,7 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["helpe
       }
     }
   }),
-  components: {
-    MaskedInput: vue_masked_input__WEBPACK_IMPORTED_MODULE_0__["default"]
-  }
+  components: {}
 });
 
 /***/ }),
@@ -2164,6 +2164,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/beflight/js/components/Form.vue");
+/* harmony import */ var _Service_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Service.vue */ "./resources/beflight/js/components/Service.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2196,6 +2197,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2205,7 +2211,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["redirectTo"])),
   components: {
-    Form: _Form__WEBPACK_IMPORTED_MODULE_1__["default"]
+    Form: _Form__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Service: _Service_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 });
 
@@ -2460,6 +2467,281 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/beflight/js/components/Service.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/beflight/js/components/Service.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/beflight/js/components/Success.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/beflight/js/components/Success.vue?vue&type=script&lang=js& ***!
@@ -2494,535 +2776,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["redirectTo"]))
 });
-
-/***/ }),
-
-/***/ "./node_modules/inputmask-core/lib/index.js":
-/*!**************************************************!*\
-  !*** ./node_modules/inputmask-core/lib/index.js ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-function extend(dest, src) {
-  if (src) {
-    var props = Object.keys(src)
-    for (var i = 0, l = props.length; i < l ; i++) {
-      dest[props[i]] = src[props[i]]
-    }
-  }
-  return dest
-}
-
-function copy(obj) {
-  return extend({}, obj)
-}
-
-/**
- * Merge an object defining format characters into the defaults.
- * Passing null/undefined for en existing format character removes it.
- * Passing a definition for an existing format character overrides it.
- * @param {?Object} formatCharacters.
- */
-function mergeFormatCharacters(formatCharacters) {
-  var merged = copy(DEFAULT_FORMAT_CHARACTERS)
-  if (formatCharacters) {
-    var chars = Object.keys(formatCharacters)
-    for (var i = 0, l = chars.length; i < l ; i++) {
-      var char = chars[i]
-      if (formatCharacters[char] == null) {
-        delete merged[char]
-      }
-      else {
-        merged[char] = formatCharacters[char]
-      }
-    }
-  }
-  return merged
-}
-
-var ESCAPE_CHAR = '\\'
-
-var DIGIT_RE = /^\d$/
-var LETTER_RE = /^[A-Za-z]$/
-var ALPHANNUMERIC_RE = /^[\dA-Za-z]$/
-
-var DEFAULT_PLACEHOLDER_CHAR = '_'
-var DEFAULT_FORMAT_CHARACTERS = {
-  '*': {
-    validate: function(char) { return ALPHANNUMERIC_RE.test(char) }
-  },
-  '1': {
-    validate: function(char) { return DIGIT_RE.test(char) }
-  },
-  'a': {
-    validate: function(char) { return LETTER_RE.test(char) }
-  },
-  'A': {
-    validate: function(char) { return LETTER_RE.test(char) },
-    transform: function(char) { return char.toUpperCase() }
-  },
-  '#': {
-    validate: function(char) { return ALPHANNUMERIC_RE.test(char) },
-    transform: function(char) { return char.toUpperCase() }
-  }
-}
-
-/**
- * @param {string} source
- * @patam {?Object} formatCharacters
- */
-function Pattern(source, formatCharacters, placeholderChar, isRevealingMask) {
-  if (!(this instanceof Pattern)) {
-    return new Pattern(source, formatCharacters, placeholderChar)
-  }
-
-  /** Placeholder character */
-  this.placeholderChar = placeholderChar || DEFAULT_PLACEHOLDER_CHAR
-  /** Format character definitions. */
-  this.formatCharacters = formatCharacters || DEFAULT_FORMAT_CHARACTERS
-  /** Pattern definition string with escape characters. */
-  this.source = source
-  /** Pattern characters after escape characters have been processed. */
-  this.pattern = []
-  /** Length of the pattern after escape characters have been processed. */
-  this.length = 0
-  /** Index of the first editable character. */
-  this.firstEditableIndex = null
-  /** Index of the last editable character. */
-  this.lastEditableIndex = null
-  /** Lookup for indices of editable characters in the pattern. */
-  this._editableIndices = {}
-  /** If true, only the pattern before the last valid value character shows. */
-  this.isRevealingMask = isRevealingMask || false
-
-  this._parse()
-}
-
-Pattern.prototype._parse = function parse() {
-  var sourceChars = this.source.split('')
-  var patternIndex = 0
-  var pattern = []
-
-  for (var i = 0, l = sourceChars.length; i < l; i++) {
-    var char = sourceChars[i]
-    if (char === ESCAPE_CHAR) {
-      if (i === l - 1) {
-        throw new Error('InputMask: pattern ends with a raw ' + ESCAPE_CHAR)
-      }
-      char = sourceChars[++i]
-    }
-    else if (char in this.formatCharacters) {
-      if (this.firstEditableIndex === null) {
-        this.firstEditableIndex = patternIndex
-      }
-      this.lastEditableIndex = patternIndex
-      this._editableIndices[patternIndex] = true
-    }
-
-    pattern.push(char)
-    patternIndex++
-  }
-
-  if (this.firstEditableIndex === null) {
-    throw new Error(
-      'InputMask: pattern "' + this.source + '" does not contain any editable characters.'
-    )
-  }
-
-  this.pattern = pattern
-  this.length = pattern.length
-}
-
-/**
- * @param {Array<string>} value
- * @return {Array<string>}
- */
-Pattern.prototype.formatValue = function format(value) {
-  var valueBuffer = new Array(this.length)
-  var valueIndex = 0
-
-  for (var i = 0, l = this.length; i < l ; i++) {
-    if (this.isEditableIndex(i)) {
-      if (this.isRevealingMask &&
-          value.length <= valueIndex &&
-          !this.isValidAtIndex(value[valueIndex], i)) {
-        break
-      }
-      valueBuffer[i] = (value.length > valueIndex && this.isValidAtIndex(value[valueIndex], i)
-                        ? this.transform(value[valueIndex], i)
-                        : this.placeholderChar)
-      valueIndex++
-    }
-    else {
-      valueBuffer[i] = this.pattern[i]
-      // Also allow the value to contain static values from the pattern by
-      // advancing its index.
-      if (value.length > valueIndex && value[valueIndex] === this.pattern[i]) {
-        valueIndex++
-      }
-    }
-  }
-
-  return valueBuffer
-}
-
-/**
- * @param {number} index
- * @return {boolean}
- */
-Pattern.prototype.isEditableIndex = function isEditableIndex(index) {
-  return !!this._editableIndices[index]
-}
-
-/**
- * @param {string} char
- * @param {number} index
- * @return {boolean}
- */
-Pattern.prototype.isValidAtIndex = function isValidAtIndex(char, index) {
-  return this.formatCharacters[this.pattern[index]].validate(char)
-}
-
-Pattern.prototype.transform = function transform(char, index) {
-  var format = this.formatCharacters[this.pattern[index]]
-  return typeof format.transform == 'function' ? format.transform(char) : char
-}
-
-function InputMask(options) {
-  if (!(this instanceof InputMask)) { return new InputMask(options) }
-  options = extend({
-    formatCharacters: null,
-    pattern: null,
-    isRevealingMask: false,
-    placeholderChar: DEFAULT_PLACEHOLDER_CHAR,
-    selection: {start: 0, end: 0},
-    value: ''
-  }, options)
-
-  if (options.pattern == null) {
-    throw new Error('InputMask: you must provide a pattern.')
-  }
-
-  if (typeof options.placeholderChar !== 'string' || options.placeholderChar.length > 1) {
-    throw new Error('InputMask: placeholderChar should be a single character or an empty string.')
-  }
-
-  this.placeholderChar = options.placeholderChar
-  this.formatCharacters = mergeFormatCharacters(options.formatCharacters)
-  this.setPattern(options.pattern, {
-    value: options.value,
-    selection: options.selection,
-    isRevealingMask: options.isRevealingMask
-  })
-}
-
-// Editing
-
-/**
- * Applies a single character of input based on the current selection.
- * @param {string} char
- * @return {boolean} true if a change has been made to value or selection as a
- *   result of the input, false otherwise.
- */
-InputMask.prototype.input = function input(char) {
-  // Ignore additional input if the cursor's at the end of the pattern
-  if (this.selection.start === this.selection.end &&
-      this.selection.start === this.pattern.length) {
-    return false
-  }
-
-  var selectionBefore = copy(this.selection)
-  var valueBefore = this.getValue()
-
-  var inputIndex = this.selection.start
-
-  // If the cursor or selection is prior to the first editable character, make
-  // sure any input given is applied to it.
-  if (inputIndex < this.pattern.firstEditableIndex) {
-    inputIndex = this.pattern.firstEditableIndex
-  }
-
-  // Bail out or add the character to input
-  if (this.pattern.isEditableIndex(inputIndex)) {
-    if (!this.pattern.isValidAtIndex(char, inputIndex)) {
-      return false
-    }
-    this.value[inputIndex] = this.pattern.transform(char, inputIndex)
-  }
-
-  // If multiple characters were selected, blank the remainder out based on the
-  // pattern.
-  var end = this.selection.end - 1
-  while (end > inputIndex) {
-    if (this.pattern.isEditableIndex(end)) {
-      this.value[end] = this.placeholderChar
-    }
-    end--
-  }
-
-  // Advance the cursor to the next character
-  this.selection.start = this.selection.end = inputIndex + 1
-
-  // Skip over any subsequent static characters
-  while (this.pattern.length > this.selection.start &&
-         !this.pattern.isEditableIndex(this.selection.start)) {
-    this.selection.start++
-    this.selection.end++
-  }
-
-  // History
-  if (this._historyIndex != null) {
-    // Took more input after undoing, so blow any subsequent history away
-    this._history.splice(this._historyIndex, this._history.length - this._historyIndex)
-    this._historyIndex = null
-  }
-  if (this._lastOp !== 'input' ||
-      selectionBefore.start !== selectionBefore.end ||
-      this._lastSelection !== null && selectionBefore.start !== this._lastSelection.start) {
-    this._history.push({value: valueBefore, selection: selectionBefore, lastOp: this._lastOp})
-  }
-  this._lastOp = 'input'
-  this._lastSelection = copy(this.selection)
-
-  return true
-}
-
-/**
- * Attempts to delete from the value based on the current cursor position or
- * selection.
- * @return {boolean} true if the value or selection changed as the result of
- *   backspacing, false otherwise.
- */
-InputMask.prototype.backspace = function backspace() {
-  // If the cursor is at the start there's nothing to do
-  if (this.selection.start === 0 && this.selection.end === 0) {
-    return false
-  }
-
-  var selectionBefore = copy(this.selection)
-  var valueBefore = this.getValue()
-
-  // No range selected - work on the character preceding the cursor
-  if (this.selection.start === this.selection.end) {
-    if (this.pattern.isEditableIndex(this.selection.start - 1)) {
-      this.value[this.selection.start - 1] = this.placeholderChar
-    }
-    this.selection.start--
-    this.selection.end--
-  }
-  // Range selected - delete characters and leave the cursor at the start of the selection
-  else {
-    var end = this.selection.end - 1
-    while (end >= this.selection.start) {
-      if (this.pattern.isEditableIndex(end)) {
-        this.value[end] = this.placeholderChar
-      }
-      end--
-    }
-    this.selection.end = this.selection.start
-  }
-
-  // History
-  if (this._historyIndex != null) {
-    // Took more input after undoing, so blow any subsequent history away
-    this._history.splice(this._historyIndex, this._history.length - this._historyIndex)
-  }
-  if (this._lastOp !== 'backspace' ||
-      selectionBefore.start !== selectionBefore.end ||
-      this._lastSelection !== null && selectionBefore.start !== this._lastSelection.start) {
-    this._history.push({value: valueBefore, selection: selectionBefore, lastOp: this._lastOp})
-  }
-  this._lastOp = 'backspace'
-  this._lastSelection = copy(this.selection)
-
-  return true
-}
-
-/**
- * Attempts to paste a string of input at the current cursor position or over
- * the top of the current selection.
- * Invalid content at any position will cause the paste to be rejected, and it
- * may contain static parts of the mask's pattern.
- * @param {string} input
- * @return {boolean} true if the paste was successful, false otherwise.
- */
-InputMask.prototype.paste = function paste(input) {
-  // This is necessary because we're just calling input() with each character
-  // and rolling back if any were invalid, rather than checking up-front.
-  var initialState = {
-    value: this.value.slice(),
-    selection: copy(this.selection),
-    _lastOp: this._lastOp,
-    _history: this._history.slice(),
-    _historyIndex: this._historyIndex,
-    _lastSelection: copy(this._lastSelection)
-  }
-
-  // If there are static characters at the start of the pattern and the cursor
-  // or selection is within them, the static characters must match for a valid
-  // paste.
-  if (this.selection.start < this.pattern.firstEditableIndex) {
-    for (var i = 0, l = this.pattern.firstEditableIndex - this.selection.start; i < l; i++) {
-      if (input.charAt(i) !== this.pattern.pattern[i]) {
-        return false
-      }
-    }
-
-    // Continue as if the selection and input started from the editable part of
-    // the pattern.
-    input = input.substring(this.pattern.firstEditableIndex - this.selection.start)
-    this.selection.start = this.pattern.firstEditableIndex
-  }
-
-  for (i = 0, l = input.length;
-       i < l && this.selection.start <= this.pattern.lastEditableIndex;
-       i++) {
-    var valid = this.input(input.charAt(i))
-    // Allow static parts of the pattern to appear in pasted input - they will
-    // already have been stepped over by input(), so verify that the value
-    // deemed invalid by input() was the expected static character.
-    if (!valid) {
-      if (this.selection.start > 0) {
-        // XXX This only allows for one static character to be skipped
-        var patternIndex = this.selection.start - 1
-        if (!this.pattern.isEditableIndex(patternIndex) &&
-            input.charAt(i) === this.pattern.pattern[patternIndex]) {
-          continue
-        }
-      }
-      extend(this, initialState)
-      return false
-    }
-  }
-
-  return true
-}
-
-// History
-
-InputMask.prototype.undo = function undo() {
-  // If there is no history, or nothing more on the history stack, we can't undo
-  if (this._history.length === 0 || this._historyIndex === 0) {
-    return false
-  }
-
-  var historyItem
-  if (this._historyIndex == null) {
-    // Not currently undoing, set up the initial history index
-    this._historyIndex = this._history.length - 1
-    historyItem = this._history[this._historyIndex]
-    // Add a new history entry if anything has changed since the last one, so we
-    // can redo back to the initial state we started undoing from.
-    var value = this.getValue()
-    if (historyItem.value !== value ||
-        historyItem.selection.start !== this.selection.start ||
-        historyItem.selection.end !== this.selection.end) {
-      this._history.push({value: value, selection: copy(this.selection), lastOp: this._lastOp, startUndo: true})
-    }
-  }
-  else {
-    historyItem = this._history[--this._historyIndex]
-  }
-
-  this.value = historyItem.value.split('')
-  this.selection = historyItem.selection
-  this._lastOp = historyItem.lastOp
-  return true
-}
-
-InputMask.prototype.redo = function redo() {
-  if (this._history.length === 0 || this._historyIndex == null) {
-    return false
-  }
-  var historyItem = this._history[++this._historyIndex]
-  // If this is the last history item, we're done redoing
-  if (this._historyIndex === this._history.length - 1) {
-    this._historyIndex = null
-    // If the last history item was only added to start undoing, remove it
-    if (historyItem.startUndo) {
-      this._history.pop()
-    }
-  }
-  this.value = historyItem.value.split('')
-  this.selection = historyItem.selection
-  this._lastOp = historyItem.lastOp
-  return true
-}
-
-// Getters & setters
-
-InputMask.prototype.setPattern = function setPattern(pattern, options) {
-  options = extend({
-    selection: {start: 0, end: 0},
-    value: ''
-  }, options)
-  this.pattern = new Pattern(pattern, this.formatCharacters, this.placeholderChar, options.isRevealingMask)
-  this.setValue(options.value)
-  this.emptyValue = this.pattern.formatValue([]).join('')
-  this.selection = options.selection
-  this._resetHistory()
-}
-
-InputMask.prototype.setSelection = function setSelection(selection) {
-  this.selection = copy(selection)
-  if (this.selection.start === this.selection.end) {
-    if (this.selection.start < this.pattern.firstEditableIndex) {
-      this.selection.start = this.selection.end = this.pattern.firstEditableIndex
-      return true
-    }
-    // Set selection to the first editable, non-placeholder character before the selection
-    // OR to the beginning of the pattern
-    var index = this.selection.start
-    while (index >= this.pattern.firstEditableIndex) {
-      if (this.pattern.isEditableIndex(index - 1) &&
-          this.value[index - 1] !== this.placeholderChar ||
-          index === this.pattern.firstEditableIndex) {
-        this.selection.start = this.selection.end = index
-        break
-      }
-      index--
-    }
-    return true
-  }
-  return false
-}
-
-InputMask.prototype.setValue = function setValue(value) {
-  if (value == null) {
-    value = ''
-  }
-  this.value = this.pattern.formatValue(value.split(''))
-}
-
-InputMask.prototype.getValue = function getValue() {
-  return this.value.join('')
-}
-
-InputMask.prototype.getRawValue = function getRawValue() {
-  var rawValue = []
-  for (var i = 0; i < this.value.length; i++) {
-    if (this.pattern._editableIndices[i] === true) {
-      rawValue.push(this.value[i])
-    }
-  }
-  return rawValue.join('')
-}
-
-InputMask.prototype._resetHistory = function _resetHistory() {
-  this._history = []
-  this._historyIndex = null
-  this._lastOp = null
-  this._lastSelection = copy(this.selection)
-}
-
-InputMask.Pattern = Pattern
-
-module.exports = InputMask
-
 
 /***/ }),
 
@@ -3653,11 +3406,13 @@ var render = function() {
     [
       _c("app-header"),
       _vm._v(" "),
-      !_vm.isSuccess && !_vm.isModal ? _c("home") : _vm._e(),
+      !_vm.isHome ? _c("home") : _vm._e(),
       _vm._v(" "),
-      _vm.isSuccess && _vm.isModal ? _c("success") : _vm._e(),
+      _vm.isSignup ? _c("modal") : _vm._e(),
       _vm._v(" "),
-      !_vm.isSuccess && _vm.isModal ? _c("modal") : _vm._e()
+      _vm.isCallback ? _c("modal") : _vm._e(),
+      _vm._v(" "),
+      _vm.isSuccess ? _c("success") : _vm._e()
     ],
     1
   )
@@ -3801,33 +3556,60 @@ var render = function() {
       "div",
       { staticClass: "home-view-content" },
       [
-        _c("h1", [
-          _vm._v(
-            "\n\t\t\tПродажа квартир в лучших ЖК Москвы\n\t\t\tот 7,9 млн. рублей\n\t\t"
-          )
-        ]),
+        _c("service"),
         _vm._v(" "),
-        _c("h3", [
-          _vm._v(
-            "\n\t\t\tОставьте ваш номер телефона и мы вышлем вам на WhatsApp лучшие\n\t\t\tпредложения в течение 5 минут\n\t\t"
-          )
-        ]),
+        _c(
+          "div",
+          { staticClass: "home-view-content-center" },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("Form"),
+            _vm._v(" "),
+            _vm._m(2)
+          ],
+          1
+        ),
         _vm._v(" "),
-        _c("Form"),
-        _vm._v(" "),
-        _c("div", [
-          _c("a", { attrs: { href: _vm.redirectTo } }, [
-            _vm._v("Перейти на сайт")
-          ])
-        ]),
-        _vm._v(" "),
-        _vm._m(0)
+        _vm._m(3)
       ],
       1
     )
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h1", [
+      _vm._v("\n\t\t\t\tУслуги салона красоты"),
+      _c("br"),
+      _vm._v("с бесплатным выездом"),
+      _c("br"),
+      _vm._v("на дом в Москве и\n\t\t\t\tМО\n\t\t\t")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", [
+      _vm._v("\n\t\t\t\tОставьте номер телефона и мы вышлем"),
+      _c("br"),
+      _vm._v("на WhatsApp прайс-лист наших\n\t\t\t\tуслуг\n\t\t\t")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "signup" }, [
+      _c("a", { attrs: { href: "#" } }, [_vm._v("Записаться к мастеру")])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -4173,8 +3955,8 @@ var render = function() {
   return _c("div", { staticClass: "app-call" }, [
     _c(
       "a",
-      { staticClass: "app-call-number", attrs: { href: "tel:+79697771253" } },
-      [_vm._v("8 969 777-12-53")]
+      { staticClass: "app-call-number", attrs: { href: "tel:+74992292212" } },
+      [_vm._v("8 499 229-22-12")]
     ),
     _vm._v(" "),
     _c(
@@ -4182,6 +3964,394 @@ var render = function() {
       { staticClass: "app-call-book", on: { click: _vm.toggleModal } },
       [_vm._v(" Заказать звонок ")]
     )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/beflight/js/components/Service.vue?vue&type=template&id=7da7e984&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/beflight/js/components/Service.vue?vue&type=template&id=7da7e984& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "home-service" }, [
+    _c("div", { staticClass: "home-service-grid" }, [
+      _c("div", { staticClass: "home-service-grid-item" }, [
+        _c("span", { staticClass: "home-service-grid-item-svg" }, [
+          _c(
+            "svg",
+            {
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "34",
+                height: "34",
+                viewBox: "0 0 34 34"
+              }
+            },
+            [
+              _c("g", [
+                _c("g", [
+                  _c("g", [
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#fff",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        d:
+                          "M1 16.43v0s10.473 8.613 18.433 8.613C27.393 25.043 33 16.43 33 16.43v0"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#fff",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        d:
+                          "M1 22.243v0s10.153-8.953 17.413-8.953C26.687 13.29 33 22.243 33 22.243v0"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#fff",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        d: "M28.16 24.66a8.293 8.293 0 0 0 2.087 2.707"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#fff",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        d: "M22.92 26.87a17.4 17.4 0 0 0 1.9 4.493"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#fff",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        d: "M17.503 27.21v5.793"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#fff",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        d: "M11.733 25.85A16.253 16.253 0 0 1 9 30.243"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#fff",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        d: "M7.483 23.4a13.247 13.247 0 0 1-3.553 3.493"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#fff",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        d:
+                          "M2.58 4.793v0S7 1 12.293 1C17.587 1 31.42 3.887 31.42 7.987S20.493 3.733 10.793 3.733"
+                      }
+                    })
+                  ])
+                ])
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("span", { staticClass: "home-service-grid-item-text" }, [
+          _vm._v("Ресницы от 2 700 ₽")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "home-service-grid-item" }, [
+        _c("span", { staticClass: "home-service-grid-item-svg" }, [
+          _c(
+            "svg",
+            {
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "33",
+                height: "34",
+                viewBox: "0 0 33 34"
+              }
+            },
+            [
+              _c("g", [
+                _c("g", [
+                  _c("g", [
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#fff",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        d:
+                          "M21.293 1a19.44 19.44 0 0 1-3.926 6.107c-2.807 2.96-4.407 4.366-4.407 4.366v0"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#fff",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        d:
+                          "M9.253 11.47v0S1 17.597 1 25.45a14.667 14.667 0 0 0 2.087 7.547"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#fff",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        d:
+                          "M7.217 18.33a12.5 12.5 0 0 0-2.127 6.88 24.554 24.554 0 0 0 1.44 7.787"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#fff",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        d:
+                          "M26.167 1C21.4 11.033 9.38 15 9.38 25.973A15.46 15.46 0 0 0 11.18 33"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#fff",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        d:
+                          "M29.969 1c-4.307 9.707-16.453 14.54-16.587 24.453-.066 4.967 1.4 7.547 1.4 7.547v0s-.2-2.46-.2-4.46c0-4.333 2.88-8.873 7.574-8.873 3.566 0 3.186.44 5.066.44 2.32 0 1.107-2.794 1.107-2.794a3.96 3.96 0 0 0 1.64-.78l-1.053-1.12v0l1.386-.666v0l-.666-1.5v0l2.086-1.234v0s-3.053-1.426-3.053-3.546A23.54 23.54 0 0 1 29.969 1z"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#fff",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        d:
+                          "M11.563 4.05a1.48 1.48 0 1 1 2.527 1.046l-2.527 2.52v0l-2.52-2.52a1.48 1.48 0 0 1 1.044-2.526c.391 0 .767.156 1.043.433.277.275.433.65.433 1.04"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#fff",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        d:
+                          "M28.503 26.81a1.48 1.48 0 1 1 2.96 0c-.007.394-.173.769-.46 1.04l-2.526 2.526v0l-2.52-2.527a1.467 1.467 0 0 1-.434-1.04 1.48 1.48 0 1 1 2.954 0"
+                      }
+                    })
+                  ])
+                ])
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("span", { staticClass: "home-service-grid-item-text" }, [
+          _vm._v("Волосы от 4 000 ₽")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "home-service-grid-item" }, [
+        _c("span", { staticClass: "home-service-grid-item-svg" }, [
+          _c(
+            "svg",
+            {
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "32",
+                height: "33",
+                viewBox: "0 0 32 33"
+              }
+            },
+            [
+              _c("g", [
+                _c("g", [
+                  _c("g", [
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#fff",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        d: "M24.67 31.997v0-16a7.947 7.947 0 0 0-2-5.247"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#fff",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        d: "M11.237 10.14A8 8 0 0 0 8.67 16v16"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#fff",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        d:
+                          "M6.563 3.667v0l-1 1.666v0L4.557 3.667v0l-1.667-1v0l1.667-1v0L5.563 0v0l1 1.667v0l1.667 1v0l-1.667 1v0z"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#fff",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        d:
+                          "M3.667 20.997v0l-1 1.666v0l-1-1.666v0l-1.667-1v0l1.667-1v0l1-1.667v0l1 1.667v0l1.666 1v0l-1.666 1v0z"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#fff",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        d:
+                          "M29.527 7.737v0l-1 1.666v0l-1-1.666v0l-1.667-1v0l1.667-1v0l1-1.667v0l1 1.667v0l1.666 1v0l-1.666 1v0z"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("path", {
+                      attrs: {
+                        fill: "none",
+                        stroke: "#fff",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "20",
+                        d:
+                          "M12.373 18.36a5.607 5.607 0 0 1-.94-2.88l-.3-7.847a4 4 0 0 1 4-4.153h3.687a4 4 0 0 1 4 4.153l-.3 7.847a5.54 5.54 0 0 1-5.54 5.333v0"
+                      }
+                    })
+                  ])
+                ])
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("span", { staticClass: "home-service-grid-item-text" }, [
+          _vm._v("Ногти от 2 500 ₽")
+        ])
+      ])
+    ])
   ])
 }
 var staticRenderFns = []
@@ -4347,410 +4517,6 @@ function normalizeComponent (
     options: options
   }
 }
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-masked-input/dist/ff-polyfill.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/vue-masked-input/dist/ff-polyfill.js ***!
-  \***********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// Copy paste from https://gist.github.com/nuxodin/9250e56a3ce6c0446efa
-/* harmony default export */ __webpack_exports__["default"] = (function () {
-  var w = window,
-      d = w.document;
-
-  if (w.onfocusin === undefined) {
-    d.addEventListener('focus', addPolyfill, true);
-    d.addEventListener('blur', addPolyfill, true);
-    d.addEventListener('focusin', removePolyfill, true);
-    d.addEventListener('focusout', removePolyfill, true);
-  }
-
-  function addPolyfill(e) {
-    var type = e.type === 'focus' ? 'focusin' : 'focusout';
-    var event = new CustomEvent(type, {
-      bubbles: true,
-      cancelable: false
-    });
-    event.c1Generated = true;
-    e.target.dispatchEvent(event);
-  }
-
-  function removePolyfill(e) {
-    if (!e.c1Generated) {
-      // focus after focusin, so chrome will the first time trigger tow times focusin
-      d.removeEventListener('focus', addPolyfill, true);
-      d.removeEventListener('blur', addPolyfill, true);
-      d.removeEventListener('focusin', removePolyfill, true);
-      d.removeEventListener('focusout', removePolyfill, true);
-    }
-    setTimeout(function () {
-      d.removeEventListener('focusin', removePolyfill, true);
-      d.removeEventListener('focusout', removePolyfill, true);
-    });
-  }
-});;
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-masked-input/dist/maskedInput.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/vue-masked-input/dist/maskedInput.js ***!
-  \***********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var inputmask_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! inputmask-core */ "./node_modules/inputmask-core/lib/index.js");
-/* harmony import */ var inputmask_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(inputmask_core__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _ff_polyfill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ff-polyfill */ "./node_modules/vue-masked-input/dist/ff-polyfill.js");
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-
- // Firefox Polyfill for focus events
-
-Object(_ff_polyfill__WEBPACK_IMPORTED_MODULE_1__["default"])();
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'MaskedInput',
-  render: function render(h) {
-    return h('input', {
-      ref: 'input',
-      attrs: {
-        disabled: this.maskCore === null || this.disabled
-      },
-      domProps: {
-        value: this.value
-      },
-      on: {
-        keydown: this.keyDown,
-        keypress: this.keyPress,
-        keyup: this.keyUp,
-        textInput: this.textInput,
-        mouseup: this.mouseUp,
-        focusout: this.focusOut,
-        cut: this.cut,
-        copy: this.copy,
-        paste: this.paste
-      }
-    });
-  },
-
-
-  data: function data() {
-    return {
-      marginLeft: 0,
-      maskCore: null,
-      updateAfterAll: false
-    };
-  },
-
-  props: {
-    value: {
-      type: String
-    },
-    mask: {
-      required: true,
-      validator: function validator(value) {
-        return !!(value && value.length >= 1 || value instanceof Object);
-      }
-    },
-    placeholderChar: {
-      type: String,
-      default: '_',
-      validator: function validator(value) {
-        return !!(value && value.length === 1);
-      }
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    }
-  },
-
-  watch: {
-    mask: function mask(newValue, oldValue) {
-      if (JSON.stringify(newValue) !== JSON.stringify(oldValue)) {
-        this.initMask();
-      }
-    },
-    value: function value(newValue) {
-      if (this.maskCore) this.maskCore.setValue(newValue); // For multiple inputs support
-    }
-  },
-
-  mounted: function mounted() {
-    this.initMask();
-  },
-
-
-  methods: {
-    initMask: function initMask() {
-      var _this = this;
-
-      try {
-        if (this.mask instanceof Object) {
-          this.maskCore = new inputmask_core__WEBPACK_IMPORTED_MODULE_0___default.a(this.mask);
-        } else {
-          this.maskCore = new inputmask_core__WEBPACK_IMPORTED_MODULE_0___default.a({
-            pattern: this.mask,
-            value: '',
-            placeholderChar: this.placeholderChar,
-            /* eslint-disable quote-props */
-            formatCharacters: {
-              'a': {
-                validate: function validate(char) {
-                  return (/^[A-Za-zА-Яа-я]$/.test(char)
-                  );
-                }
-              },
-              'A': {
-                validate: function validate(char) {
-                  return (/^[A-Za-zА-Яа-я]$/.test(char)
-                  );
-                },
-                transform: function transform(char) {
-                  return char.toUpperCase();
-                }
-              },
-              '*': {
-                validate: function validate(char) {
-                  return (/^[\dA-Za-zА-Яа-я]$/.test(char)
-                  );
-                }
-              },
-              '#': {
-                validate: function validate(char) {
-                  return (/^[\dA-Za-zА-Яа-я]$/.test(char)
-                  );
-                },
-                transform: function transform(char) {
-                  return char.toUpperCase();
-                }
-              },
-              '+': {
-                validate: function validate() {
-                  return true;
-                }
-              }
-            }
-          });
-        }
-        [].concat(_toConsumableArray(this.$refs.input.value)).reduce(function (memo, item) {
-          return _this.maskCore.input(item);
-        }, null);
-        this.maskCore.setSelection({
-          start: 0,
-          end: 0
-        });
-        if (this.$refs.input.value === '') {
-          this.$emit('input', '', '');
-        } else {
-          this.updateToCoreState();
-        }
-      } catch (e) {
-        this.maskCore = null;
-        this.$refs.input.value = 'Error';
-        this.$emit('input', this.$refs.input.value, '');
-      }
-    },
-    getValue: function getValue() {
-      return this.maskCore ? this.maskCore.getValue() : '';
-    },
-    keyDown: function keyDown(e) {
-      // Always
-      if (this.maskCore === null) {
-        e.preventDefault();
-        return;
-      }
-      this.setNativeSelection();
-      switch (e.keyCode) {
-        // backspace
-        case 8:
-          e.preventDefault();
-          if (this.maskCore.selection.start > this.marginLeft || this.maskCore.selection.start !== this.maskCore.selection.end) {
-            this.maskCore.backspace();
-            this.updateToCoreState();
-          }
-          break;
-
-        // left arrow
-        case 37:
-          e.preventDefault();
-          if (this.$refs.input.selectionStart === this.$refs.input.selectionEnd) {
-            // this.$refs.input.selectionEnd = this.$refs.input.selectionStart - 1; @TODO
-            this.$refs.input.selectionStart -= 1;
-          }
-          this.maskCore.selection = {
-            start: this.$refs.input.selectionStart,
-            end: this.$refs.input.selectionStart
-          };
-          this.updateToCoreState();
-          break;
-
-        // right arrow
-        case 39:
-          e.preventDefault();
-          if (this.$refs.input.selectionStart === this.$refs.input.selectionEnd) {
-            this.$refs.input.selectionEnd += 1;
-          }
-          this.maskCore.selection = {
-            start: this.$refs.input.selectionEnd,
-            end: this.$refs.input.selectionEnd
-          };
-          this.updateToCoreState();
-          break;
-
-        // end
-        case 35:
-          e.preventDefault();
-          this.$refs.input.selectionStart = this.$refs.input.value.length;
-          this.$refs.input.selectionEnd = this.$refs.input.value.length;
-          this.maskCore.selection = {
-            start: this.$refs.input.selectionEnd,
-            end: this.$refs.input.selectionEnd
-          };
-          this.updateToCoreState();
-          break;
-
-        // home
-        case 36:
-          e.preventDefault();
-          this.$refs.input.selectionStart = 0;
-          this.$refs.input.selectionEnd = 0;
-          this.maskCore.selection = {
-            start: this.$refs.input.selectionStart,
-            end: this.$refs.input.selectionStart
-          };
-          this.updateToCoreState();
-          break;
-
-        // delete
-        case 46:
-          e.preventDefault();
-          if (this.$refs.input.selectionStart === this.$refs.input.selectionEnd) {
-            this.maskCore.setValue('');
-            this.maskCore.setSelection({
-              start: 0,
-              end: 0
-            });
-            this.$refs.input.selectionStart = this.maskCore.selection.start;
-            this.$refs.input.selectionEnd = this.maskCore.selection.start;
-          } else {
-            this.maskCore.backspace();
-          }
-          this.updateToCoreState();
-          break;
-
-        default:
-          break;
-      }
-    },
-    keyPress: function keyPress(e) {
-      // works only on Desktop
-      if (e.ctrlKey) return; // Fix FF copy/paste issue
-      // IE & FF are not trigger textInput event, so we have to force it
-      /* eslint-disable */
-      var isIE = /*@cc_on!@*/ false || !!document.documentMode; //by http://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser
-      /* eslint-enable */
-      var isFirefox = typeof InstallTrigger !== 'undefined';
-      if (isIE || isFirefox) {
-        e.preventDefault();
-        e.data = e.key;
-        this.textInput(e);
-      }
-    },
-    textInput: function textInput(e) {
-      if (e.preventDefault) e.preventDefault();
-      if (this.maskCore.input(e.data)) {
-        this.updateAfterAll = true;
-      }
-      this.updateToCoreState();
-    },
-    keyUp: function keyUp(e) {
-      if (e.keyCode === 9) {
-        // Preven change selection for Tab in
-        return;
-      }
-      this.updateToCoreState();
-      this.updateAfterAll = false;
-    },
-    cut: function cut(e) {
-      e.preventDefault();
-      if (this.$refs.input.selectionStart !== this.$refs.input.selectionEnd) {
-        try {
-          document.execCommand('copy');
-        } catch (err) {} // eslint-disable-line no-empty
-        this.maskCore.backspace();
-        this.updateToCoreState();
-      }
-    },
-    copy: function copy() {},
-    paste: function paste(e) {
-      var _this2 = this;
-
-      e.preventDefault();
-      var text = e.clipboardData.getData('text');
-      [].concat(_toConsumableArray(text)).reduce(function (memo, item) {
-        return _this2.maskCore.input(item);
-      }, null);
-      this.updateToCoreState();
-    },
-    updateToCoreState: function updateToCoreState() {
-      if (this.maskCore === null) {
-        return;
-      }
-      if (this.$refs.input.value !== this.maskCore.getValue()) {
-        this.$refs.input.value = this.maskCore.getValue();
-        this.$emit('input', this.$refs.input.value, this.maskCore.getRawValue());
-      }
-      this.$refs.input.selectionStart = this.maskCore.selection.start;
-      this.$refs.input.selectionEnd = this.maskCore.selection.end;
-    },
-    isEmpty: function isEmpty() {
-      if (this.maskCore === null) return true;
-      return this.maskCore.getValue() === this.maskCore.emptyValue;
-    },
-    focusOut: function focusOut() {
-      if (this.isEmpty()) {
-        this.$refs.input.value = '';
-        this.maskCore.setSelection({
-          start: 0,
-          end: 0
-        });
-        this.$emit('input', '', '');
-      }
-    },
-    setNativeSelection: function setNativeSelection() {
-      this.maskCore.selection = {
-        start: this.$refs.input.selectionStart,
-        end: this.$refs.input.selectionEnd
-      };
-    },
-    mouseUp: function mouseUp() {
-      if (this.isEmpty() && this.$refs.input.selectionStart === this.$refs.input.selectionEnd) {
-        this.maskCore.setSelection({
-          start: 0,
-          end: 0
-        });
-        this.$refs.input.selectionStart = this.maskCore.selection.start;
-        this.$refs.input.selectionEnd = this.maskCore.selection.start;
-        this.marginLeft = this.maskCore.selection.start;
-        this.updateToCoreState();
-      } else {
-        this.setNativeSelection();
-      }
-    }
-  }
-});
 
 
 /***/ }),
@@ -20489,6 +20255,78 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/beflight/js/components/Service.vue":
+/*!******************************************************!*\
+  !*** ./resources/beflight/js/components/Service.vue ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Service_vue_vue_type_template_id_7da7e984___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Service.vue?vue&type=template&id=7da7e984& */ "./resources/beflight/js/components/Service.vue?vue&type=template&id=7da7e984&");
+/* harmony import */ var _Service_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Service.vue?vue&type=script&lang=js& */ "./resources/beflight/js/components/Service.vue?vue&type=script&lang=js&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Service_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Service_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Service_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Service_vue_vue_type_template_id_7da7e984___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Service_vue_vue_type_template_id_7da7e984___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/beflight/js/components/Service.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/beflight/js/components/Service.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/beflight/js/components/Service.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Service_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Service.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/beflight/js/components/Service.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Service_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Service_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Service_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Service_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Service_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/beflight/js/components/Service.vue?vue&type=template&id=7da7e984&":
+/*!*************************************************************************************!*\
+  !*** ./resources/beflight/js/components/Service.vue?vue&type=template&id=7da7e984& ***!
+  \*************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Service_vue_vue_type_template_id_7da7e984___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Service.vue?vue&type=template&id=7da7e984& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/beflight/js/components/Service.vue?vue&type=template&id=7da7e984&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Service_vue_vue_type_template_id_7da7e984___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Service_vue_vue_type_template_id_7da7e984___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/beflight/js/components/Success.vue":
 /*!******************************************************!*\
   !*** ./resources/beflight/js/components/Success.vue ***!
@@ -20575,14 +20413,26 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
+    home: false,
     modal: false,
+    signup: false,
+    callback: false,
     success: false,
-    redirectTo: 'https://knam.io/',
+    redirectTo: 'https://www.instagram.com/beflight.ru/',
     env: false
   },
   getters: {
+    isHome: function isHome(state) {
+      return state.home;
+    },
     isModal: function isModal(state) {
       return state.modal;
+    },
+    isCallback: function isCallback(state) {
+      return state.callback;
+    },
+    isSignup: function isSignup(state) {
+      return state.signup;
     },
     isSuccess: function isSuccess(state) {
       return state.success;
@@ -20595,6 +20445,12 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     }
   },
   mutations: {
+    SET_HOME: function SET_HOME(state) {
+      return state.home = true;
+    },
+    UNSET_HOME: function UNSET_HOME(state) {
+      return state.home = false;
+    },
     SET_MODAL: function SET_MODAL(state) {
       return state.modal = true;
     },
@@ -20606,6 +20462,18 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     UNSET_SUCCESS: function UNSET_SUCCESS(state) {
       return state.success = false;
+    },
+    SET_CALLBACK: function SET_CALLBACK(state) {
+      return state.callback = true;
+    },
+    UNSET_CALLBACK: function UNSET_CALLBACK(state) {
+      return state.callback = false;
+    },
+    SET_SIGNUP: function SET_SIGNUP(state) {
+      return state.signup = true;
+    },
+    UNSET_SIGNUP: function UNSET_SIGNUP(state) {
+      return state.signup = false;
     },
     SET_ENV: function SET_ENV(state, payload) {
       return state.env = payload;
@@ -20625,7 +20493,25 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
       return context.commit("SET_SUCCESS");
     },
     unsetSuccess: function unsetSuccess(context) {
-      return context.commit("UNSET_SUCCESS");
+      return context.commit("UNSET_CALLBACK");
+    },
+    setHome: function setHome(context) {
+      return context.commit("SET_HOME");
+    },
+    unsetHome: function unsetHome(context) {
+      return context.commit("UNSET_HOME");
+    },
+    setCallback: function setCallback(context) {
+      return context.commit("SET_CALLBACK");
+    },
+    unsetCallback: function unsetCallback(context) {
+      return context.commit("UNSET_CALLBACK");
+    },
+    setSignup: function setSignup(context) {
+      return context.commit("SET_SIGNUP");
+    },
+    unsetSignup: function unsetSignup(context) {
+      return context.commit("UNSET_SIGNUP");
     },
     dropFbPixel: function dropFbPixel(context) {
       new Promise(function (resolve) {

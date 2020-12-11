@@ -1,19 +1,23 @@
 <template>
 	<div class="home-view">
 		<div class="home-view-content">
-			<h1>
-				Продажа квартир в&nbsp;лучших&nbsp;ЖК&nbsp;Москвы
-				от&nbsp;7,9&nbsp;млн.&nbsp;рублей
-			</h1>
-			<h3>
-				Оставьте ваш номер телефона и мы вышлем вам на WhatsApp лучшие
-				предложения в&nbsp;течение&nbsp;5&nbsp;минут
-			</h3>
-			<Form />
+			<service></service>
 
-			<!-- GOTO WEBSITE -->
-			<div>
-				<a :href="redirectTo">Перейти на сайт</a>
+			<div class="home-view-content-center">
+				<h1>
+					Услуги салона красоты<br />с бесплатным выездом<br />на дом в Москве и
+					МО
+				</h1>
+				<h3>
+					Оставьте номер телефона и мы вышлем<br />на WhatsApp прайс-лист наших
+					услуг
+				</h3>
+				<Form />
+
+				<!--  -->
+				<div class="signup">
+					<a href="#">Записаться к мастеру</a>
+				</div>
 			</div>
 
 			<!-- AGREEMENT -->
@@ -27,6 +31,7 @@
 <script>
 	import { mapGetters } from "vuex";
 	import Form from "./Form";
+	import Service from "./Service.vue";
 	export default {
 		name: "Home",
 		data: () => ({}),
@@ -35,6 +40,7 @@
 		},
 		components: {
 			Form,
+			Service,
 		},
 	};
 </script>

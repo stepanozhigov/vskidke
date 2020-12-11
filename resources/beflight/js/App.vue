@@ -5,16 +5,20 @@
 		<!-- /HEADER -->
 
 		<!-- HOME VIEW -->
-		<home v-if="!isSuccess && !isModal"></home>
+		<home v-if="!isHome"></home>
 		<!-- /HOME VIEW -->
 
-		<!-- SUCCESS VIEW -->
-		<success v-if="isSuccess && isModal"></success>
-		<!-- /SUCCESS VIEW -->
-
-		<!-- MODAL VIEW -->
-		<modal v-if="!isSuccess && isModal"></modal>
+		<!-- SIGNUP VIEW -->
+		<modal v-if="isSignup"></modal>
 		<!-- /MODAL VIEW -->
+
+		<!-- CALLBACK VIEW -->
+		<modal v-if="isCallback"></modal>
+		<!-- /MODAL VIEW -->
+
+		<!-- SUCCESS VIEW -->
+		<success v-if="isSuccess"></success>
+		<!-- /SUCCESS VIEW -->
 	</div>
 </template>
 
@@ -45,7 +49,7 @@
 		mounted: function () {
 			this.setEnv(this.environment);
 			//
-			//this.setSuccess();
+			this.setSuccess();
 			//this.setModal();
 			//
 			this.setViewHeight();
@@ -55,15 +59,29 @@
 			window.addEventListener("orientationchange", () => this.setViewHeight());
 		},
 		computed: {
-			...mapGetters(["isModal", "isSuccess", "env"]),
+			...mapGetters([
+				"isModal",
+				"isSuccess",
+				"env",
+				"isCallback",
+				"isSignup",
+				"isHome",
+			]),
 		},
 		methods: {
 			...mapActions([
+				"setEnv",
 				"setModal",
 				"unsetModal",
 				"setSuccess",
 				"unsetSuccess",
-				"setEnv",
+				"setCallback",
+				"unsetCallback",
+				"setSuccess",
+				"setSignup",
+				"unsetSignup",
+				"setHome",
+				"unsetHome",
 			]),
 			setViewHeight: function () {
 				let vh = window.innerHeight * 0.01;

@@ -810,180 +810,88 @@ video {
   flex-direction: column;
   flex-grow: 1;
   flex-shrink: 1;
-  background-image: url("../images/realty_bkg-414@2x.jpg");
-  @apply bg-top;
-  @apply bg-no-repeat;
-  @apply bg-cover;
-  @apply px-4;
-  @apply pb-4;
-}
-@screen tablet {
-  .home-view {
-    background-image: url("../images/realty_bkg-768@2x.jpg");
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-  }
-}
-@screen monitor {
-  .home-view {
-    min-height: 34rem;
-    @apply bg-right-top;
-    background-image: url("../images/realty_bkg-1440@2x.jpg");
-  }
+  background-image: url("../images/belight_bkg-414@2x.png");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .home-view .home-view-content {
-  min-width: 18rem;
+  color: #f3f2f2;
+  max-width: 25.875rem;
   margin: 0 auto;
-  @apply font-roboto;
-  @apply relative;
-  @apply text-left;
-  color: theme("colors.whitetext");
+  padding: 0 1rem;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: space-between;
 }
-@media screen and (min-width: 375px) {
-  .home-view .home-view-content {
-    display: flex;
-    flex-grow: 1;
-    flex-direction: column;
-  }
-}
-@screen monitor {
-  .home-view .home-view-content {
-    @apply mx-auto;
-    padding-top: 3rem;
-    max-width: 45rem;
-    display: flex;
-    justify-content: center;
-  }
-}
-.home-view .home-view-content h1 {
-  max-width: 18rem;
-  @apply font-medium;
-  font-size: 1.625rem;
-  line-height: 2rem;
-  color: theme("colors.whitetext");
-  letter-spacing: 0rem;
-  text-align: left;
-  margin-top: 5rem;
-}
-@screen phone {
-  .home-view .home-view-content h1 {
-    max-width: 21.4375rem;
-    font-size: 2rem;
-    line-height: 2.5rem;
-  }
-}
-@screen tablet {
-  .home-view .home-view-content h1 {
-    max-width: 39rem;
-    font-size: 3.625rem;
-    line-height: 4.5rem;
-    letter-spacing: -0.8;
-    margin: 13rem auto 0;
-  }
-}
-@screen monitor {
-  .home-view .home-view-content h1 {
-    margin: 0;
-    max-width: 34.4375rem;
-    font-size: 2.5rem;
-    line-height: 3rem;
-    letter-spacing: -0.01875rem;
-  }
-}
-.home-view .home-view-content h3 {
-  max-width: 21.4375rem;
-  @apply font-lato;
-  @apply font-normal;
-  color: theme("colors.whitetext");
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  letter-spacing: 0rem;
-  margin-top: 1rem;
-}
-@screen phone {
-  .home-view .home-view-content h3 {
-    max-width: 18.125rem;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    margin-top: 1rem;
-  }
-}
-@screen tablet {
-  .home-view .home-view-content h3 {
-    max-width: 26.25rem;
-    font-size: 1.125rem;
-    line-height: 1.625rem;
-    letter-spacing: 0rem;
-    margin-top: 2rem;
-  }
-}
-@screen monitor {
-  .home-view .home-view-content h3 {
-    max-width: 23.125rem;
-    margin-top: 1rem;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    letter-spacing: 0rem;
-  }
-}
-.home-view .home-view-content form {
+.home-view .home-view-content .home-service {
   margin-top: 1.5rem;
-  @apply mx-auto;
+  font-size: 0.75rem;
   width: 100%;
 }
-@screen phone {
-  .home-view .home-view-content form {
-    margin-top: 1.5rem;
-  }
+.home-view .home-view-content .home-service-grid {
+  display: flex;
+  justify-content: space-between;
 }
-@screen tablet {
-  .home-view .home-view-content form {
-    margin-top: 3.125rem;
-    width: 20.5rem;
-    margin-left: 0;
-    margin-right: auto;
-  }
+.home-view .home-view-content .home-service-grid-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-@screen monitor {
-  .home-view .home-view-content form {
-    margin-top: 1rem;
-  }
+.home-view .home-view-content .home-service-grid-item-text {
+  margin-top: 0.5rem;
+}
+.home-view .home-view-content h1 {
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 2.1875rem;
+  letter-spacing: -0.0125rem;
+  text-align: left;
+}
+.home-view .home-view-content h3 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  letter-spacing: 0rem;
+  margin-top: 0.75rem;
+}
+.home-view .home-view-content form {
+  font-weight: 400;
+  margin: 1.625rem auto 0;
+  width: 100%;
+  text-align: left;
 }
 .home-view .home-view-content form input {
-  @apply font-roboto;
-  @apply font-light;
-  @apply text-left;
-  color: theme("colors.whitetext");
+  appearance: none;
+  color: #756c6d;
   font-size: 1.125rem;
-  border: 1px solid theme("colors.whitetext");
-  border-radius: 1px;
-  background-color: transparent;
+  padding-left: 1rem;
+  border: none;
+  border-radius: 0.375rem;
+  background-color: #ffffff;
+  box-shadow: inset 0 -1px 0 #d9d7d7;
+  width: 100%;
   height: 3.5rem;
-  @apply p-4;
-  @apply mx-auto;
 }
 .home-view .home-view-content form input::placeholder {
-  color: theme("colors.placeholder");
+  color: #b3adae;
 }
 .home-view .home-view-content form input:focus {
-  color: theme("colors.whitetext");
   outline: none;
 }
-@screen tablet {}
 .home-view .home-view-content form button {
-  @apply font-raleway;
-  @apply font-bold;
-  @apply uppercase;
-  color: theme("colors.blacktext");
-  font-size: 0.875rem;
+  margin-top: 1rem;
+  color: #ffffff;
+  font-size: 1.125rem;
+  letter-spacing: -0.025rem;
   text-align: center;
+  width: 100%;
   height: 3.5rem;
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16);
-  border-radius: 1px;
+  border-radius: 0.375rem;
   border: none;
-  background-color: theme("colors.bluetext");
-  @apply mt-4;
-  @apply mx-auto;
+  background: radial-gradient(circle 225px at 25% 0%, #f5c8ab 0%, #de90bd 58%, #de90bd 63%, #de90bd 69%, #48b4cb 100%);
 }
 .home-view .home-view-content form button:active {
   outline: none;
@@ -992,58 +900,23 @@ video {
 .home-view .home-view-content form button:focus {
   outline: none;
 }
-@screen tablet {}
-.home-view .home-view-content a {
-  @apply inline-block;
-  @apply mx-auto;
-  @apply font-bold;
-  @apply text-left;
-  @apply uppercase;
-  font-size: 0.875rem;
-  border-bottom: 1px solid theme("colors.whitetext");
-  margin-top: 1.5625rem;
+.home-view .home-view-content .signup {
+  margin-top: 1rem;
 }
-@screen tablet {
-  .home-view .home-view-content a {
-    @apply text-left;
-    @apply ml-0;
-    @apply mr-0;
-    @apply mt-4;
-  }
-}
-@screen monitor {
-  .home-view .home-view-content a {
-    margin-top: 1.5rem;
-  }
+.home-view .home-view-content .signup a {
+  display: inline;
+  font-weight: 300;
+  font-size: 1.125rem;
+  border-bottom: 1px solid #ffffff;
 }
 .home-view p {
-  @apply block;
   @apply font-light;
-  @apply text-left;
-  color: theme("colors.whitetext");
-  font-size: 0.4375rem;
-  min-width: 18rem;
-  margin-right: auto;
-  margin-top: 1.1875rem;
-}
-@screen phone {
-  .home-view p {
-    margin-top: auto;
-  }
-}
-@screen tablet {
-  .home-view p {
-    font-size: 0.75rem;
-  }
-}
-@screen monitor {
-  .home-view p {
-    @apply mx-auto;
-    width: 45.125rem;
-    max-width: 45.125rem;
-  }
+  text-align: left;
+  color: #b3adae;
+  font-size: 0.75rem;
+  line-height: 0.875rem;
 }
 .home-view p span {
-  @apply underline;
+  text-decoration: underline;
 }
 /*# sourceMappingURL=app.css.map*/

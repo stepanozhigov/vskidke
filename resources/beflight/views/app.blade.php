@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    КНАМ Недвижимость - Федеральная система бронирования
+    Салое красоты Beflight
 @endsection
 
 @section('pixel')
