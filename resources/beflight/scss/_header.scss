@@ -1,5 +1,5 @@
 .app-header {
-    font-size: rem(12);
+    font-size: rem(10);
 
     z-index: 99;
     position: relative;
@@ -18,6 +18,11 @@
 
     padding-left: rem(16);
     padding-right: rem(16);
+
+    @include mobile {
+        font-size: rem(12);
+        font-weight: 600;
+    }
 
     &.modal {
         box-shadow: inset 0 -1px 0 #dcdbda;
@@ -47,7 +52,7 @@
             color: $textmain;
             line-height: 1rem;
             border-bottom: 2px dotted $textmain;
-            letter-spacing: rem(-0.2)
+            letter-spacing: rem(-0.2);
         }
     }
 }
