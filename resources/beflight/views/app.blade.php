@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    Салое красоты Beflight
+    Салон красоты Beflight
 @endsection
 
 @section('pixel')
