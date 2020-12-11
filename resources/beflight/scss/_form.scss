@@ -10,6 +10,9 @@ form {
 
     input {
         appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
         color: darken($textgrey,25%);
         font-size: rem(18);
 
