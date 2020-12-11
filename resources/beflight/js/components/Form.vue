@@ -111,7 +111,7 @@
 							fbq("track", "Lead");
 							if (this.env == "production") {
 								setTimeout(() => {
-									window.location.href(this.$store.getters.redirectTo);
+									location.href(this.$store.getters.redirectTo);
 								}, 1500);
 							}
 						});
