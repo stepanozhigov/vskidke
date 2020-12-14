@@ -28,7 +28,7 @@
     }
 
     .app-header-logo {
-        height: rem(40);
+        height: rem(32);
 
         svg {
             height: 100%;
@@ -58,7 +58,7 @@
         .app-call-book {
             color: $textmain;
             line-height: 1rem;
-            border-bottom: 2px dotted $textmain;
+            border-bottom: 1px dotted $textmain;
             letter-spacing: rem(-0.2);
         }
     }
