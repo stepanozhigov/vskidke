@@ -42,7 +42,6 @@
 			phone: "",
 			isValid: true,
 			onFocus: false,
-			roistatVisit: VueCookies.get("roistat_visit") || "nocookie",
 		}),
 		props: {
 			actionType: {
@@ -67,6 +66,9 @@
 		mounted: function () {},
 		computed: {
 			...mapGetters(["isModal", "isSuccess", "redirectTo", "env"]),
+			roistatVisit() {
+				return VueCookies.get("roistat_visit") || "nocookie";
+			},
 		},
 		methods: {
 			...mapActions(["setModal", "unsetModal", "setSuccess", "unsetSuccess"]),

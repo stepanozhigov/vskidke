@@ -22,10 +22,10 @@ require("laravel-mix-purgecss");
 
 //ROMATTI
 
-//mix
+mix
     //.copy("resources/romatti/images/", "public/romatti/images/")
     //.copy("resources/romatti/fonts/", "public/romatti/fonts/")
-    //.js("resources/romatti/js/app.js", "public/romatti/js");
+    .js("resources/romatti/js/app.js", "public/romatti/js");
     //.sass("resources/romatti/scss/app.scss", "public/romatti/css",
     //{},[tailwindcss("./tailwind.romatti.config.js")])
 
@@ -103,24 +103,24 @@ require("laravel-mix-purgecss");
 
 
 //mg (local: mg.vskidke.local)
-mix
-.options({
-    processCssUrls: false,
-    autoprefixer: {
-        browsers: ["last 20 versions"]
-    }
-})
+// mix
+// .options({
+//     processCssUrls: false,
+//     autoprefixer: {
+//         browsers: ["last 20 versions"]
+//     }
+// })
 
-.sourceMaps()
-.webpackConfig({devtool: 'source-map'})
-.js("resources/mg/js/app.js", "public/mg/js")
-.sass("resources/mg/scss/app.scss", "public/mg/css")
+// .sourceMaps()
+// .webpackConfig({devtool: 'source-map'})
+// .js("resources/mg/js/app.js", "public/mg/js")
+// .sass("resources/mg/scss/app.scss", "public/mg/css")
 
 
 
 
 mix.browserSync({
-    proxy: "mg.vskidke.local",
+    proxy: "romatti.vskidke.local",
     open: false
 });
 
