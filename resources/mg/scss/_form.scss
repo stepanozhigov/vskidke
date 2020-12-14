@@ -1,6 +1,6 @@
 form {
     font-weight: 400;
-    margin: rem(26) auto 0;
+    margin: rem(32) auto 0;
     width: 100%;
     text-align: left;
     
@@ -19,9 +19,9 @@ form {
         padding-left: rem(16);
 
         border: none;
-        border-radius: rem(6);
+        border-radius: rem(1);
         background-color: $bg;
-        box-shadow: inset 0 -1px 0 #d9d7d7;
+        box-shadow: inset 0 -1px 0 #d8d7d9;
 
         width: 100%;
         height: rem(56);
@@ -51,9 +51,9 @@ form {
         height: rem(56);
         box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16);
 
-        border-radius: rem(6);
+        border-radius: rem(1);
         border: none;
-        background: radial-gradient(circle 225px at 25% 0%, #f5c8ab 0%, #de90bd 58%, #de90bd 63%, #de90bd 69%, #48b4cb 100%);
+        background-color: $textmain;
 
         &:active {
             outline: none;

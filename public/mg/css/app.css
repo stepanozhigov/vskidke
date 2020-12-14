@@ -756,6 +756,75 @@ video {
   font-weight: 900;
   src: url("../../_webfonts/Roboto-Black.ttf") format("truetype");
 }
+.button-pulse {
+  transition: all ease-in 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.button-pulse:hover:after {
+  left: -120%;
+}
+.button-pulse:after {
+  background: #fff;
+  content: "";
+  height: 9.6875rem;
+  left: -4.6875rem;
+  opacity: 0.2;
+  position: absolute;
+  top: -50px;
+  transform: rotate(35deg);
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  width: 3.125rem;
+  z-index: 1;
+  animation-delay: 0.01s;
+  animation-timing-function: ease-in-out;
+  animation-name: radiance;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes radiance {
+  0% {
+    left: -30px;
+    margin-left: 0px;
+  }
+  30% {
+    left: 110%;
+    margin-left: 80px;
+  }
+  100% {
+    left: 110%;
+    margin-left: 80px;
+  }
+}
+.animated-numbers {
+  margin-left: 0.125rem;
+  margin-right: 0.125rem;
+}
+.animated-numbers .animated-number {
+  animation: float 0.3s ease-in-out infinite;
+}
+.animated-numbers .animated-number:nth-child(1) {
+  animation-delay: 0s;
+}
+.animated-numbers .animated-number:nth-child(2) {
+  animation-delay: 0.05s;
+}
+
+@keyframes float {
+  0% {
+    transform: none;
+  }
+  33% {
+    transform: translateY(-1px) rotate(-2deg);
+  }
+  66% {
+    transform: translateY(1px) rotate(2deg);
+  }
+  100% {
+    transform: none;
+  }
+}
 .app-template {
   font-family: "Manrope", sans-serif;
   display: flex;
@@ -844,14 +913,14 @@ video {
   font-weight: 300;
   width: 100%;
 }
-@media screen and (min-width: 375px) {
-  .home-view .home-view-content .home-service {
-    font-size: 0.75rem;
-  }
-}
 .home-view .home-view-content .home-service ul {
-  margin: 0 3.375rem 0 auto;
+  margin: 0;
   padding: 0;
+}
+@media screen and (min-width: 375px) {
+  .home-view .home-view-content .home-service ul {
+    margin: 0 3.375rem 0 auto;
+  }
 }
 .home-view .home-view-content .home-service ul li {
   list-style-type: none;
@@ -890,7 +959,12 @@ video {
   font-size: 0.875rem;
   line-height: 1.375rem;
   letter-spacing: 0rem;
-  margin: 0.75rem 0 0 auto;
+  margin: 0.75rem 0 0 0;
+}
+@media screen and (min-width: 375px) {
+  .home-view .home-view-content-center h3 {
+    margin: 0.75rem 0 0 auto;
+  }
 }
 .home-view .home-view-content-center .signup {
   margin-top: 1rem;
@@ -955,7 +1029,7 @@ video {
 
 form {
   font-weight: 400;
-  margin: 1.625rem auto 0;
+  margin: 2rem auto 0;
   width: 100%;
   text-align: left;
   display: flex;
@@ -971,9 +1045,9 @@ form input {
   font-size: 1.125rem;
   padding-left: 1rem;
   border: none;
-  border-radius: 0.375rem;
+  border-radius: 0.0625rem;
   background-color: #ffffff;
-  box-shadow: inset 0 -1px 0 #d9d7d7;
+  box-shadow: inset 0 -1px 0 #d8d7d9;
   width: 100%;
   height: 3.5rem;
 }
@@ -995,9 +1069,9 @@ form button {
   width: 100%;
   height: 3.5rem;
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16);
-  border-radius: 0.375rem;
+  border-radius: 0.0625rem;
   border: none;
-  background: radial-gradient(circle 225px at 25% 0%, #f5c8ab 0%, #de90bd 58%, #de90bd 63%, #de90bd 69%, #48b4cb 100%);
+  background-color: #555888;
 }
 form button:active {
   outline: none;
