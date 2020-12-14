@@ -25,72 +25,87 @@
         justify-content: space-between;
         
         .home-service {
-            margin-top: rem(24);
-            font-size: rem(10);
+            display: flex;
+            margin: rem(16) 0 0;
+            font-size: rem(14);
+            font-weight: 300;
             width: 100%;
 
             @include mobile {
                 font-size: rem(12);
             }
 
-            &-grid {
-                display: flex;
-                justify-content: space-between;
-                
-                &-item {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
+            ul {
 
-                    &-text {
-                        margin-top: rem(8);
+                margin: 0 rem(54) 0 auto;
+                padding: 0;
+
+                li {
+                    list-style-type: none;
+
+                    &:not(:nth-child(0)) {
+                        // margin-top: rem(8);
+                        line-height: rem(30);
+
+                        @include mobile {
+                            // margin-top: rem(14);
+                            font-size: rem(14);
+                            line-height: rem(34);
+                        }
                     }
                 }
             }
         }
 
-        h1 {
-            font-weight: 400;
-            font-size: rem(22);
-            line-height: rem(30);
-            letter-spacing: rem(-0.2);
+        &-center {
 
-            text-align: left;
-            margin: 1rem 0 0;
+            display: flex;
+            flex-direction: column;
 
-            @include mobile {
+            h1 {
+                font-weight: 400;
                 font-size: rem(24);
-                line-height: rem(35);
+                line-height: rem(30);
                 letter-spacing: rem(-0.2);
+    
+                text-align: left;
+                margin: 1rem 0 0;
+    
+                @include mobile {
+                    font-size: rem(24);
+                    line-height: rem(35);
+                    letter-spacing: rem(-0.2);
+                    margin: 0;
+                }
+    
             }
-
-        }
-
-        h3 {
-            font-weight: 400;
-            font-size: rem(12);
-            line-height: rem(20);
-            letter-spacing: rem(0);
-
-            margin: rem(12) 0 0;
-
-            @include mobile {
-                font-size: rem(14);
-                line-height: rem(24);
-                letter-spacing: rem(0);
-            }
-        }
-
-        .signup {
-            margin-top: rem(16);
-            a {
-                display: inline;
+    
+            h3 {
                 font-weight: 300;
-                font-size: rem(18);
-                border-bottom: 1px solid $bg;
+                font-size: rem(14);
+                line-height: rem(22);
+                letter-spacing: rem(0);
+    
+                margin: rem(12) 0 0 auto;
+    
+                @include mobile {
+                    
+                }
+            }
+    
+            .signup {
+                margin-top: rem(16);
+                a {
+                    display: inline;
+                    font-weight: 300;
+                    font-size: rem(18);
+                    border-bottom: 1px solid $bg;
+                }
             }
         }
+
     }
+
     p {
         @apply font-light;
         text-align: left;

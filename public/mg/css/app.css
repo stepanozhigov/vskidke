@@ -838,8 +838,10 @@ video {
   justify-content: space-between;
 }
 .home-view .home-view-content .home-service {
-  margin-top: 1.5rem;
-  font-size: 0.625rem;
+  display: flex;
+  margin: 1rem 0 0;
+  font-size: 0.875rem;
+  font-weight: 300;
   width: 100%;
 }
 @media screen and (min-width: 375px) {
@@ -847,51 +849,53 @@ video {
     font-size: 0.75rem;
   }
 }
-.home-view .home-view-content .home-service-grid {
-  display: flex;
-  justify-content: space-between;
+.home-view .home-view-content .home-service ul {
+  margin: 0 3.375rem 0 auto;
+  padding: 0;
 }
-.home-view .home-view-content .home-service-grid-item {
+.home-view .home-view-content .home-service ul li {
+  list-style-type: none;
+}
+.home-view .home-view-content .home-service ul li:not(:nth-child(0)) {
+  line-height: 1.875rem;
+}
+@media screen and (min-width: 375px) {
+  .home-view .home-view-content .home-service ul li:not(:nth-child(0)) {
+    font-size: 0.875rem;
+    line-height: 2.125rem;
+  }
+}
+.home-view .home-view-content-center {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
-.home-view .home-view-content .home-service-grid-item-text {
-  margin-top: 0.5rem;
-}
-.home-view .home-view-content h1 {
+.home-view .home-view-content-center h1 {
   font-weight: 400;
-  font-size: 1.375rem;
+  font-size: 1.5rem;
   line-height: 1.875rem;
   letter-spacing: -0.0125rem;
   text-align: left;
   margin: 1rem 0 0;
 }
 @media screen and (min-width: 375px) {
-  .home-view .home-view-content h1 {
+  .home-view .home-view-content-center h1 {
     font-size: 1.5rem;
     line-height: 2.1875rem;
     letter-spacing: -0.0125rem;
+    margin: 0;
   }
 }
-.home-view .home-view-content h3 {
-  font-weight: 400;
-  font-size: 0.75rem;
-  line-height: 1.25rem;
+.home-view .home-view-content-center h3 {
+  font-weight: 300;
+  font-size: 0.875rem;
+  line-height: 1.375rem;
   letter-spacing: 0rem;
-  margin: 0.75rem 0 0;
+  margin: 0.75rem 0 0 auto;
 }
-@media screen and (min-width: 375px) {
-  .home-view .home-view-content h3 {
-    font-size: 0.875rem;
-    line-height: 1.5rem;
-    letter-spacing: 0rem;
-  }
-}
-.home-view .home-view-content .signup {
+.home-view .home-view-content-center .signup {
   margin-top: 1rem;
 }
-.home-view .home-view-content .signup a {
+.home-view .home-view-content-center .signup a {
   display: inline;
   font-weight: 300;
   font-size: 1.125rem;
