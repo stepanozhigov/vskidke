@@ -10,7 +10,7 @@ export default new Vuex.Store({
         signup: false,
         callback: false,
         success: false,
-        redirectTo: 'https://www.instagram.com/beflight.ru/',
+        redirectTo: 'https://instagram.com/mg_beauty_spa',
         env: false
     },
     getters: {
