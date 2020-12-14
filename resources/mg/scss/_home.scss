@@ -1,0 +1,110 @@
+.home-view {
+
+    display: flex;
+    flex-direction: column;
+
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    background-image: url("../images/belight_bkg-414@2x.png");
+
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .home-view-content {
+        color: $textwhite;
+
+        max-width: rem(414);
+        margin: 0 auto;
+        padding: 0 1rem;
+
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        justify-content: space-between;
+        
+        .home-service {
+            margin-top: rem(24);
+            font-size: rem(10);
+            width: 100%;
+
+            @include mobile {
+                font-size: rem(12);
+            }
+
+            &-grid {
+                display: flex;
+                justify-content: space-between;
+                
+                &-item {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    &-text {
+                        margin-top: rem(8);
+                    }
+                }
+            }
+        }
+
+        h1 {
+            font-weight: 400;
+            font-size: rem(22);
+            line-height: rem(30);
+            letter-spacing: rem(-0.2);
+
+            text-align: left;
+            margin: 1rem 0 0;
+
+            @include mobile {
+                font-size: rem(24);
+                line-height: rem(35);
+                letter-spacing: rem(-0.2);
+            }
+
+        }
+
+        h3 {
+            font-weight: 400;
+            font-size: rem(12);
+            line-height: rem(20);
+            letter-spacing: rem(0);
+
+            margin: rem(12) 0 0;
+
+            @include mobile {
+                font-size: rem(14);
+                line-height: rem(24);
+                letter-spacing: rem(0);
+            }
+        }
+
+        .signup {
+            margin-top: rem(16);
+            a {
+                display: inline;
+                font-weight: 300;
+                font-size: rem(18);
+                border-bottom: 1px solid $bg;
+            }
+        }
+    }
+    p {
+        @apply font-light;
+        text-align: left;
+        color: $textgrey;
+        font-size: rem(8);
+        line-height: rem(14);
+
+        @include mobile {
+            font-size: rem(12);
+            line-height: rem(14);
+        }
+
+        span {
+            text-decoration: underline;
+        }
+    }
+}

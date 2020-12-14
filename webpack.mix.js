@@ -88,6 +88,21 @@ require("laravel-mix-purgecss");
 // }
 
 //beflight (local: beflight.vskidke.local)
+// mix
+// .options({
+//     processCssUrls: false,
+//     autoprefixer: {
+//         browsers: ["last 20 versions"]
+//     }
+// })
+
+// .sourceMaps()
+// .webpackConfig({devtool: 'source-map'})
+// .js("resources/beflight/js/app.js", "public/beflight/js")
+// .sass("resources/beflight/scss/app.scss", "public/beflight/css")
+
+
+//mg (local: mg.vskidke.local)
 mix
 .options({
     processCssUrls: false,
@@ -95,13 +110,17 @@ mix
         browsers: ["last 20 versions"]
     }
 })
+
 .sourceMaps()
 .webpackConfig({devtool: 'source-map'})
-.js("resources/beflight/js/app.js", "public/beflight/js")
-.sass("resources/beflight/scss/app.scss", "public/beflight/css")
+.js("resources/mg/js/app.js", "public/mg/js")
+.sass("resources/mg/scss/app.scss", "public/mg/css")
+
+
+
 
 mix.browserSync({
-    proxy: "beflight.vskidke.local",
+    proxy: "mg.vskidke.local",
     open: false
 });
 

@@ -1,0 +1,39 @@
+// =============================================================================
+// Медиа запросы
+// =============================================================================
+
+
+// large mobile
+@mixin mobile() {
+    @media screen and (min-width: 375px) {
+        @content;
+    }
+}
+
+// mobile-landscape
+@mixin mobile-lanscape() {
+    @media screen and (min-width: 415px) {
+        @content;
+    }
+}
+
+// tablet
+@mixin tablet() {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+//laptop, large tablet
+@mixin laptop() {
+    @media screen and (min-width: 1024px) {
+        @content;
+    }
+}
+
+//desktop
+@mixin desktop() {
+    @media screen and (min-width: 1366px) {
+        @content;
+    }
+}

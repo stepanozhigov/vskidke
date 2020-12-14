@@ -1,6 +1,6 @@
 {
-    "/beflight/js/app.js": "/beflight/js/app.js?id=a2bfe3301053c2cef932",
-    "/beflight/css/app.css": "/beflight/css/app.css?id=654bc4577ceea5037b34",
-    "/beflight/js/app.js.map": "/beflight/js/app.js.map?id=8eda31470880fd6479e4",
-    "/beflight/css/app.css.map": "/beflight/css/app.css.map?id=d5aadf8f6d12d72c5b7f"
+    "/mg/js/app.js": "/mg/js/app.js",
+    "/mg/css/app.css": "/mg/css/app.css",
+    "/mg/js/app.js.map": "/mg/js/app.js.map",
+    "/mg/css/app.css.map": "/mg/css/app.css.map"
 }

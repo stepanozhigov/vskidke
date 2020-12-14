@@ -99,6 +99,12 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace . '\Beflight')
                 ->group(base_path('routes/beflight.php'));
 
+            //Mg
+            Route::middleware('web')
+                ->name('mg.')
+                ->namespace($this->namespace . '\Mg')
+                ->group(base_path('routes/mg.php'));
+
             //localhost
             Route::middleware('web')
             ->name('ekonompotolok.')
