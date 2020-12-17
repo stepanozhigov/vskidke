@@ -4,7 +4,7 @@
 		@submit.prevent="submitForm"
 		:class="{
 			'form-invalid': !formValid,
-			'form-modal': isCallback || isSignup,
+			'form-modal': isCallback,
 		}"
 	>
 		<!-- {{--PHONE INPUT--}} -->
@@ -49,7 +49,7 @@
 			},
 			btnText: {
 				type: String,
-				default: "Получить прайс-лист",
+				default: "Получить каталог и скидку",
 			},
 			placeholderText: {
 				type: String,
@@ -72,7 +72,7 @@
 		},
 		mounted: function () {},
 		computed: {
-			...mapGetters(["isSuccess", "env", "isCallback", "isSignup", "isHome"]),
+			...mapGetters(["isSuccess", "env", "isCallback", "isHome"]),
 			formClass() {
 				if (this.isCallback || this.isSignup) {
 					return "form-modal";
@@ -91,8 +91,6 @@
 				"setCallback",
 				"unsetCallback",
 				"setSuccess",
-				"setSignup",
-				"unsetSignup",
 				"setHome",
 				"unsetHome",
 			]),
@@ -105,7 +103,6 @@
 						})
 						.then((response) => {
 							this.unsetHome();
-							this.unsetSignup();
 							this.unsetCallback();
 							this.setSuccess();
 							fbq("track", "Lead");

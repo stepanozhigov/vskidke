@@ -8,8 +8,12 @@
 		<home v-if="isHome"></home>
 		<!-- /HOME VIEW -->
 
-		<!-- MODAL VIEW -->
-		<modal v-if="isSignup || isCallback"></modal>
+		<!-- HOME VIEW -->
+		<home v-if="isMenu"></home>
+		<!-- /HOME VIEW -->
+
+		<!--VIEW -->
+		<modal v-if="isCallback"></modal>
 		<!-- /MODAL VIEW -->
 
 		<!-- SUCCESS VIEW -->
@@ -26,6 +30,7 @@
 	import Home from "./components/Home";
 	import Success from "./components/Success";
 	import Modal from "./components/Modal";
+	import Menu from "./components/Menu";
 	export default {
 		name: "App",
 		data: () => ({}),
@@ -55,7 +60,7 @@
 			window.addEventListener("orientationchange", () => this.setViewHeight());
 		},
 		computed: {
-			...mapGetters(["isSuccess", "env", "isCallback", "isSignup", "isHome"]),
+			...mapGetters(["isMenu", "isSuccess", "env", "isCallback", "isHome"]),
 		},
 		methods: {
 			...mapActions([
@@ -65,10 +70,10 @@
 				"setCallback",
 				"unsetCallback",
 				"setSuccess",
-				"setSignup",
-				"unsetSignup",
 				"setHome",
 				"unsetHome",
+				"setMenu",
+				"unsetMenu",
 			]),
 			setViewHeight: function () {
 				let vh = window.innerHeight * 0.01;

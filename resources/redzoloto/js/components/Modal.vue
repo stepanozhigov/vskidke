@@ -56,8 +56,6 @@
 				"setCallback",
 				"unsetCallback",
 				"setSuccess",
-				"setSignup",
-				"unsetSignup",
 				"setHome",
 				"unsetHome",
 			]),
@@ -68,13 +66,12 @@
 			},
 		},
 		computed: {
-			...mapGetters(["isSuccess", "env", "isCallback", "isSignup", "isHome"]),
+			...mapGetters(["isSuccess", "env", "isCallback", "isHome"]),
 			title() {
 				if (this.isCallback) {
 					return "Заказать звонок";
-				} else if (this.isSignup) {
-					return "Записаться к мастеру";
 				}
+				return "";
 			},
 		},
 	};
