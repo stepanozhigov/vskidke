@@ -105,6 +105,12 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace . '\Mg')
                 ->group(base_path('routes/mg.php'));
 
+            //Redzoloto
+            Route::middleware('web')
+                ->name('redzoloto.')
+                ->namespace($this->namespace . '\Redzoloto')
+                ->group(base_path('routes/redzoloto.php'));
+
             //localhost
             Route::middleware('web')
             ->name('ekonompotolok.')
