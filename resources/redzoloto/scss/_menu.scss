@@ -1,0 +1,80 @@
+.menu-view {
+    display: flex;
+    flex-direction: column;
+
+    flex-grow: 1;
+    flex-shrink: 1;
+    
+    &-content {
+        padding: 0 rem(40);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
+
+        &_list {
+            ul {
+                list-style-type: none;
+                padding: 0;
+                margin: rem(8) 0 0 0;
+
+                color: $textlist;
+                font-size: rem(16);
+                line-height: rem(24);
+                font-weight: 400;
+
+                li {
+                    border-bottom: 1px solid $listbordercolor;
+                    a {
+                        display: block;
+                        padding: 1rem 0;
+
+                        &:hover {
+                            color: lighten($textlist,50%);
+                        }
+                    }
+                }
+            }
+        }
+
+        &_footer {
+            //common
+            h3 {
+                padding: 0;
+                margin: 0;
+                font-weight: 700;
+                font-size: rem(14);
+                line-height: rem(20);
+            }
+            p {
+                padding: rem(8) 0 0 0;
+                margin: 0;
+                font-weight: 400;
+                font-size: rem(14);
+            }
+
+            margin: 0 0 2rem 0;
+
+            //blocks
+            .footer-socials {
+                margin: 2rem 0 0;
+
+                max-width: rem(140);
+                
+                &_icons {
+
+                    margin: 1rem 0 0 0;
+
+                    display: flex;
+                    justify-content: space-between;
+                    .icons-item {
+
+                    }
+                }
+            }
+
+            
+        }
+    }
+}

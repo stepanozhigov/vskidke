@@ -3,6 +3,7 @@ form {
     margin: rem(32) auto 0;
     width: 100%;
     text-align: left;
+    color: $textwhite;
     
     display: flex;
     flex-direction: column;
@@ -13,21 +14,19 @@ form {
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
-        color: darken($textgrey,25%);
         font-size: rem(18);
 
         padding-left: rem(16);
 
-        border: none;
+        border: 1px solid $bordercolor;
         border-radius: rem(1);
-        background-color: $bg;
-        box-shadow: inset 0 -1px 0 #d8d7d9;
+        background: transparent;
 
         width: 100%;
         height: rem(56);
 
         &::placeholder {
-            color: $textgrey;
+            color: $textplaceholder;
         }
         &:focus {
             outline: none;
@@ -42,10 +41,11 @@ form {
         justify-content: center;
         align-items: center;
 
-        color: $bg;
-        font-size: rem(18);
-        letter-spacing: rem(-0.4);
+        font-size: rem(14);
+        letter-spacing: rem(-0.2);
         text-align: center;
+        text-transform: uppercase;
+        font-weight: 600;
 
         width: 100%;
         height: rem(56);

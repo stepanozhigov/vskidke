@@ -985,6 +985,63 @@ video {
   border-bottom: 2px dotted #e60003;
 }
 
+.menu-view {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+.menu-view-content {
+  padding: 0 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+.menu-view-content_list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  color: #2a2928;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+.menu-view-content_list ul li {
+  border-bottom: 1px solid #dbd9d7;
+}
+.menu-view-content_list ul li a {
+  display: block;
+  padding: 1rem 0;
+}
+.menu-view-content_list ul li a:hover {
+  color: #aba9a6;
+}
+.menu-view-content_footer {
+  margin: 0 0 2rem 0;
+}
+.menu-view-content_footer h3 {
+  padding: 0;
+  margin: 0;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.menu-view-content_footer p {
+  padding: 0.5rem 0 0 0;
+  margin: 0;
+  font-weight: 400;
+  font-size: 0.875rem;
+}
+.menu-view-content_footer .footer-socials {
+  margin: 2rem 0 0;
+  max-width: 8.75rem;
+}
+.menu-view-content_footer .footer-socials_icons {
+  margin: 1rem 0 0 0;
+  display: flex;
+  justify-content: space-between;
+}
 .home-view {
   display: flex;
   flex-direction: column;
@@ -1109,6 +1166,7 @@ form {
   margin: 2rem auto 0;
   width: 100%;
   text-align: left;
+  color: #f8f7f6;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1118,18 +1176,16 @@ form input {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  color: #9f9494;
   font-size: 1.125rem;
   padding-left: 1rem;
-  border: none;
+  border: 1px solid #dbd7d7;
   border-radius: 0.0625rem;
-  background-color: #ffffff;
-  box-shadow: inset 0 -1px 0 #d8d7d9;
+  background: transparent;
   width: 100%;
   height: 3.5rem;
 }
 form input::placeholder {
-  color: #dbd7d7;
+  color: #a7a0a0;
 }
 form input:focus {
   outline: none;
@@ -1139,10 +1195,11 @@ form button {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
-  font-size: 1.125rem;
-  letter-spacing: -0.025rem;
+  font-size: 0.875rem;
+  letter-spacing: -0.0125rem;
   text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
   width: 100%;
   height: 3.5rem;
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16);

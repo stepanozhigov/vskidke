@@ -8,9 +8,9 @@
 		<home v-if="isHome"></home>
 		<!-- /HOME VIEW -->
 
-		<!-- HOME VIEW -->
-		<menu v-if="isMenu"></menu>
-		<!-- /HOME VIEW -->
+		<!-- MENU VIEW -->
+		<app-menu v-if="isMenu"></app-menu>
+		<!-- /MENU VIEW -->
 
 		<!--VIEW -->
 		<modal v-if="isCallback"></modal>
@@ -40,6 +40,7 @@
 			Success,
 			Modal,
 			Form,
+			"app-menu": Menu,
 		},
 		props: {
 			environment: {
@@ -49,7 +50,8 @@
 		},
 		mounted: function () {
 			this.setEnv(this.environment);
-			this.setHome();
+			// this.setHome();
+			this.setMenu();
 			// this.setSuccess();
 			//this.setModal();
 			//

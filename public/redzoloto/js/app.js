@@ -1965,7 +1965,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     Home: _components_Home__WEBPACK_IMPORTED_MODULE_4__["default"],
     Success: _components_Success__WEBPACK_IMPORTED_MODULE_5__["default"],
     Modal: _components_Modal__WEBPACK_IMPORTED_MODULE_6__["default"],
-    Form: _components_Form__WEBPACK_IMPORTED_MODULE_2__["default"]
+    Form: _components_Form__WEBPACK_IMPORTED_MODULE_2__["default"],
+    "app-menu": _components_Menu__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
   props: {
     environment: {
@@ -1976,8 +1977,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     var _this = this;
 
-    this.setEnv(this.environment);
-    this.setHome(); // this.setSuccess();
+    this.setEnv(this.environment); // this.setHome();
+
+    this.setMenu(); // this.setSuccess();
     //this.setModal();
     //
 
@@ -2071,7 +2073,7 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["helpe
     },
     placeholderText: {
       type: String,
-      "default": "Ваш телефон"
+      "default": "Введите ваш номер*"
     },
     leadTitle: {
       type: String,
@@ -2396,6 +2398,137 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3216,7 +3349,7 @@ var render = function() {
       _vm._v(" "),
       _vm.isHome ? _c("home") : _vm._e(),
       _vm._v(" "),
-      _vm.isMenu ? _c("menu") : _vm._e(),
+      _vm.isMenu ? _c("app-menu") : _vm._e(),
       _vm._v(" "),
       _vm.isCallback ? _c("modal") : _vm._e(),
       _vm._v(" "),
@@ -3629,15 +3762,240 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "menu-view" }, [
+    _c("div", { staticClass: "menu-view-content" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "menu-view-content_footer" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c("div", { staticClass: "footer-socials" }, [
+          _c("h3", [_vm._v("Социальные сети")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "footer-socials_icons" }, [
+            _c("div", { staticClass: "icons-item" }, [
+              _c(
+                "a",
+                { attrs: { href: "https://www.instagram.com/redzoloto/" } },
+                [
+                  _c(
+                    "svg",
+                    {
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "34",
+                        height: "34",
+                        viewBox: "0 0 34 34"
+                      }
+                    },
+                    [
+                      _c("g", [
+                        _c("g", [
+                          _c("g", [
+                            _c("path", {
+                              attrs: {
+                                fill: "none",
+                                stroke: "#a7a5a0",
+                                "stroke-miterlimit": "20",
+                                d:
+                                  "M17 33c8.837 0 16-7.163 16-16S25.837 1 17 1 1 8.163 1 17s7.163 16 16 16z"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("g", [
+                            _c("path", {
+                              attrs: {
+                                fill: "none",
+                                stroke: "#a7a5a0",
+                                "stroke-miterlimit": "20",
+                                d:
+                                  "M17 21c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4z"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("g", [
+                            _c("path", {
+                              attrs: {
+                                fill: "none",
+                                stroke: "#a7a5a0",
+                                "stroke-miterlimit": "20",
+                                d:
+                                  "M26 21.46A4.545 4.545 0 0 1 21.46 26h-8.92A4.545 4.545 0 0 1 8 21.46v-8.92A4.545 4.545 0 0 1 12.54 8h8.92A4.545 4.545 0 0 1 26 12.54z"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("g", [
+                            _c("path", {
+                              attrs: {
+                                fill: "none",
+                                stroke: "#a7a5a0",
+                                "stroke-miterlimit": "20",
+                                d:
+                                  "M22.25 13.5c-.69 0-1.25-.56-1.25-1.25S21.56 11 22.25 11s1.25.56 1.25 1.25-.56 1.25-1.25 1.25z"
+                              }
+                            })
+                          ])
+                        ])
+                      ])
+                    ]
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "icons-item" }, [
+              _c(
+                "a",
+                {
+                  attrs: {
+                    href: "https://api.whatsapp.com/send/?phone=79000163950"
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "34",
+                        height: "34",
+                        viewBox: "0 0 34 34"
+                      }
+                    },
+                    [
+                      _c("g", [
+                        _c("g", [
+                          _c("path", {
+                            attrs: {
+                              fill: "none",
+                              stroke: "#a7a5a0",
+                              "stroke-miterlimit": "20",
+                              d:
+                                "M11.131 9.96h.394c.129.002.253.004.37.01l.1.005c.256.018.531.095.794.666l.18.408.16.372.69 1.655.162.379.064.136c.08.18.12.384.001.614l-.053.106-.096.187a1.87 1.87 0 0 1-.247.356l-.121.14-.246.29a4.158 4.158 0 0 1-.27.29l-.077.08c-.147.165-.242.362-.057.673l.07.115.207.324.137.202.157.223.178.24c.377.496.872 1.072 1.462 1.586.524.457 1.02.805 1.46 1.072l.258.152.123.068.236.125.22.11.2.095.184.081.422.182.184.084c.344.148.558.102.772-.138l.053-.06.414-.476.2-.237.2-.24.093-.116.169-.215c.05-.066.094-.127.13-.179.23-.337.459-.333.753-.242l.141.047.06.023.17.072.36.16.597.279.63.298 1.311.63c.172.085.291.16.351.256.1.162.1.94-.232 1.847-.331.907-1.954 1.782-2.684 1.847a4.532 4.532 0 0 0-.046.004l-.386.042-.162.012-.178.006h-.129l-.14-.006-.15-.011-.251-.03a6.064 6.064 0 0 1-.091-.013l-.193-.032-.21-.042-.227-.05-.246-.062-.266-.073-.289-.085-.152-.047-.323-.104a23.394 23.394 0 0 1-.17-.058l-.36-.125-.387-.141-.414-.158c-1.732-.667-3.19-1.791-4.307-2.88l-.272-.27-.258-.268a18.376 18.376 0 0 1-.123-.132l-.235-.26a18.823 18.823 0 0 1-.113-.127l-.212-.248-.198-.237-.181-.226-.166-.212-.15-.197-.25-.341-.297-.424-.195-.264-.101-.143-.178-.266-.131-.208-.137-.232c-.439-.767-.911-1.847-.911-2.947 0-1.45.591-2.34 1.036-2.856l.117-.132.24-.252c.363-.39.793-.487 1.058-.487zm5.673-8.958C8.143 1.142 1.137 8.2 1.134 16.856l.003.335a15.767 15.767 0 0 0 1.96 7.302l.164.29L1 33l8.447-2.205.305.161a16.011 16.011 0 0 0 6.961 1.766l.348.004.267-.002c8.575-.138 15.526-7.058 15.67-15.594l.002-.262-.003-.303a15.711 15.711 0 0 0-4.452-10.704l-.208-.211-.216-.212a15.864 15.864 0 0 0-10.757-4.435L17.067 1z"
+                            }
+                          })
+                        ])
+                      ])
+                    ]
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "icons-item" }, [
+              _c("a", { attrs: { href: "https://vk.com/redzoloto" } }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      width: "34",
+                      height: "34",
+                      viewBox: "0 0 34 34"
+                    }
+                  },
+                  [
+                    _c("g", [
+                      _c("g", [
+                        _c("path", {
+                          attrs: {
+                            fill: "none",
+                            stroke: "#a7a5a0",
+                            "stroke-miterlimit": "20",
+                            d:
+                              "M1 17C1 8.163 8.163 1 17 1s16 7.163 16 16-7.163 16-16 16S1 25.837 1 17zm9.913-2.82c-.039-.003-2.367-.051-2.492-.003-.201.078-.26.303-.197.538.02.07.725 1.56.76 1.632.698 1.384 1.462 2.73 2.429 3.953.608.77 1.31 1.43 2.19 1.898 1.039.551 2.153.678 3.303.617.399-.022.625-.247.65-.6.005-.067.109-.856.229-1.157.14-.35.435-.4.736-.173.127.096.245.206.356.321.368.381.715.782 1.098 1.148.344.328.772.496 1.259.498.094 0 1.907.052 2.278 0 .59-.083.785-.549.47-1.043a8.008 8.008 0 0 0-.857-1.105c-.434-.47-.913-.899-1.36-1.357-.282-.287-.295-.481-.103-.827.054-.096.112-.19.178-.28.516-.696 1.044-1.385 1.548-2.09.314-.44.607-.897.729-1.435.052-.23-.036-.41-.26-.48a1.496 1.496 0 0 0-.437-.059c-.823-.002-1.646-.001-2.47 0-.438.002-.562.09-.723.493-.313.783-.676 1.541-1.162 2.233-.267.38-.552.755-.876 1.087-.254.262-.503.171-.584-.191a3.527 3.527 0 0 1-.074-.801c.008-.68.041-1.361.057-2.042.004-.159-.01-.32-.037-.476-.052-.304-.22-.522-.533-.59a3.61 3.61 0 0 0-.73-.073c-.6-.006-1.2-.032-1.8 0-.369.02-.71.069-.954.378-.117.15-.1.298.083.331.592.106.735.456.757.855.033.623.048 1.032.035 1.656-.004.239-.08.7-.162.927-.077.216-.258.262-.449.132a1.63 1.63 0 0 1-.353-.32c-.742-.922-1.306-1.95-1.75-3.038-.157-.383-.41-.538-.782-.558z"
+                          }
+                        })
+                      ])
+                    ])
+                  ]
+                )
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "menu-view" }, [
-      _c("div", { staticClass: "menu-view-content" })
+    return _c("div", { staticClass: "menu-view-content_list" }, [
+      _c("ul", [
+        _c("li", [
+          _c(
+            "a",
+            {
+              attrs: {
+                href:
+                  "https://redzoloto.ru/%D0%A5%D0%98%D0%A2-%D0%A6%D0%95%D0%9D%D0%AB-c49446184"
+              }
+            },
+            [_vm._v("ХИТ-ЦЕНЫ\n\t\t\t\t\t")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c(
+            "a",
+            {
+              attrs: {
+                href:
+                  "https://redzoloto.ru/%D0%A1%D0%95%D0%A0%D0%AC%D0%93%D0%98-c47783210"
+              }
+            },
+            [_vm._v("Серьги")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c(
+            "a",
+            {
+              attrs: {
+                href:
+                  "https://redzoloto.ru/%D0%9A%D0%9E%D0%9B%D0%AC%D0%A6%D0%90-c47783208"
+              }
+            },
+            [_vm._v("Кольца")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c(
+            "a",
+            {
+              attrs: {
+                href:
+                  "https://redzoloto.ru/%D0%9F%D0%9E%D0%94%D0%92%D0%95%D0%A1%D0%9A%D0%98-c47783207"
+              }
+            },
+            [_vm._v("Подвески")]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "footer-address" }, [
+      _c("h3", [_vm._v("Адрес")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("Москва, ТЦ Галерея Аэропорт,"),
+        _c("br"),
+        _vm._v("Ленинградский проспект, 62")
+      ]),
+      _vm._v(" "),
+      _c("p", [_vm._v("9:00 — 22:00, без выходных")])
     ])
   }
 ]
@@ -19907,7 +20265,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
       return context.commit("SET_ENV", payload);
     },
     goBack: function goBack(context) {
-      if (context.state.previousView == 'home') context.commit("SET_HOME");else if (context.state.previousView == 'callback') context.commit("SET_CALLBACK");else if (context.state.previousView == 'success') context.commit("SET_SUCCESS");else if (context.state.previousView == 'menu') context.commit("SET_MENU");
+      if (context.state.previousView == 'home') context.commit("SET_HOME");else if (context.state.previousView == 'callback') context.commit("SET_CALLBACK");else if (context.state.previousView == 'success') context.commit("SET_SUCCESS");else if (context.state.previousView == 'menu') context.commit("SET_MENU");else if (!context.state.previousView) context.commit("SET_HOME");
     },
     setSuccess: function setSuccess(context) {
       return context.commit("SET_SUCCESS");

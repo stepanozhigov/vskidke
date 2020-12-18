@@ -53,7 +53,7 @@
 			},
 			placeholderText: {
 				type: String,
-				default: "Ваш телефон",
+				default: "Введите ваш номер*",
 			},
 			leadTitle: {
 				type: String,

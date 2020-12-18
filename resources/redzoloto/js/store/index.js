@@ -71,6 +71,7 @@ export default new Vuex.Store({
             else if(context.state.previousView == 'callback') context.commit("SET_CALLBACK")
             else if(context.state.previousView == 'success') context.commit("SET_SUCCESS")
             else if(context.state.previousView == 'menu') context.commit("SET_MENU")
+            else if(!context.state.previousView) context.commit("SET_HOME")
         },
 
         setSuccess: context => context.commit("SET_SUCCESS"),
