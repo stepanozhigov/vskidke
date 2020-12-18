@@ -968,17 +968,37 @@ video {
     display: none;
   }
 }
-.app-header .app-header-logo {
+.app-header-menu .app-header-logo {
   height: 3.5rem;
   margin: 0 0 0 1rem;
 }
-.app-header .app-header-logo svg {
+.app-header-menu .app-header-logo svg {
   height: 100%;
 }
 @media screen and (min-width: 1280px) {
-  .app-header .app-header-logo {
+  .app-header-menu .app-header-logo {
     margin: 0;
     height: 4.5rem;
+  }
+}
+.app-header-links {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  display: none;
+}
+.app-header-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+}
+.app-header-links ul li {
+  padding: 0 0.5rem;
+}
+@media screen and (min-width: 1280px) {
+  .app-header-links {
+    display: block;
   }
 }
 .app-header-image {

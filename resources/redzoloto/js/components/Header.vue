@@ -46,6 +46,34 @@
 			</a>
 			<logo></logo>
 		</div>
+		<div class="app-header-links">
+			<ul>
+				<li>
+					<a
+						href="https://redzoloto.ru/%D0%A5%D0%98%D0%A2-%D0%A6%D0%95%D0%9D%D0%AB-c49446184"
+						>ХИТ-ЦЕНЫ
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://redzoloto.ru/%D0%A1%D0%95%D0%A0%D0%AC%D0%93%D0%98-c47783210"
+						>Серьги</a
+					>
+				</li>
+				<li>
+					<a
+						href="https://redzoloto.ru/%D0%9A%D0%9E%D0%9B%D0%AC%D0%A6%D0%90-c47783208"
+						>Кольца</a
+					>
+				</li>
+				<li>
+					<a
+						href="https://redzoloto.ru/%D0%9F%D0%9E%D0%94%D0%92%D0%95%D0%A1%D0%9A%D0%98-c47783207"
+						>Подвески</a
+					>
+				</li>
+			</ul>
+		</div>
 		<phone></phone>
 	</header>
 </template>

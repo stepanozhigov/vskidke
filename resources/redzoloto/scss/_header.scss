@@ -45,9 +45,8 @@
                 display: none;
             }
         }
-    }
 
-    .app-header-logo {
+        .app-header-logo {
         height: rem(56);
 
         margin: 0 0 0 1rem;
@@ -59,6 +58,33 @@
         @include laptop {
             margin: 0;
             height: rem(72);
+        }
+    }
+    }
+
+    &-links {
+        font-size: rem(16);
+        line-height: rem(24);
+
+        display: none;
+
+        ul {
+            list-style: none;
+
+            padding: 0;
+            margin:0;
+
+            display: flex;
+            flex-direction: row;
+
+            li {
+                padding: 0 rem(8);
+            }
+        }
+
+        @include laptop {
+            display: block;
+            
         }
     }
 

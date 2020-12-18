@@ -2210,6 +2210,34 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3542,12 +3570,75 @@ var render = function() {
         1
       ),
       _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
       _c("phone")
     ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "app-header-links" }, [
+      _c("ul", [
+        _c("li", [
+          _c(
+            "a",
+            {
+              attrs: {
+                href:
+                  "https://redzoloto.ru/%D0%A5%D0%98%D0%A2-%D0%A6%D0%95%D0%9D%D0%AB-c49446184"
+              }
+            },
+            [_vm._v("ХИТ-ЦЕНЫ\n\t\t\t\t")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c(
+            "a",
+            {
+              attrs: {
+                href:
+                  "https://redzoloto.ru/%D0%A1%D0%95%D0%A0%D0%AC%D0%93%D0%98-c47783210"
+              }
+            },
+            [_vm._v("Серьги")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c(
+            "a",
+            {
+              attrs: {
+                href:
+                  "https://redzoloto.ru/%D0%9A%D0%9E%D0%9B%D0%AC%D0%A6%D0%90-c47783208"
+              }
+            },
+            [_vm._v("Кольца")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c(
+            "a",
+            {
+              attrs: {
+                href:
+                  "https://redzoloto.ru/%D0%9F%D0%9E%D0%94%D0%92%D0%95%D0%A1%D0%9A%D0%98-c47783207"
+              }
+            },
+            [_vm._v("Подвески")]
+          )
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
