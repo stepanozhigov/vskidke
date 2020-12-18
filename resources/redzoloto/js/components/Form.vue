@@ -97,14 +97,13 @@
 			submitForm() {
 				if (this.formValid) {
 					axios
-						.post("/mail", {
+						.post("/bx24", {
 							title: this.leadTitle,
 							phone: this.phone,
+							comments: "",
 						})
 						.then((response) => {
-							this.unsetHome();
-							this.unsetCallback();
-							this.setSuccess();
+							this.setHome();
 							fbq("track", "Lead");
 							if (this.env == "production") {
 								setTimeout(() => {

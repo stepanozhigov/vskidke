@@ -9,6 +9,6 @@ Route::domain('{redzoloto}' . env('APP_URL'))
         //     return 'Test';
         // });
         Route::get('/', 'RedzolotoController@index')->name('home');
-        Route::post('/mail', 'RedzolotoController@mail')->name('mail');
+        Route::post('/bx24', 'RedzolotoController@bitrix24')->name('bitrix24');
     });
 
