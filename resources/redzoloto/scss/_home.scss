@@ -143,6 +143,7 @@
         color: $textgrey;
         font-size: rem(7);
         line-height: rem(10);
+        letter-spacing: rem(-0.1);
 
         text-align: left;
         margin: auto 0 1rem 0;
@@ -154,6 +155,10 @@
         }
 
         @include tablet {
+
+            font-size: rem(12);
+            letter-spacing: rem(-0.2);
+
             margin: 0 0 1rem 0;
 
             position: absolute;

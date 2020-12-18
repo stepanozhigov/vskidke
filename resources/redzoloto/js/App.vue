@@ -50,8 +50,8 @@
 		},
 		mounted: function () {
 			this.setEnv(this.environment);
-			this.setHome();
-			// this.setMenu();
+			// this.setHome();
+			this.setMenu();
 			// this.setSuccess();
 			//this.setModal();
 			//
