@@ -60,7 +60,6 @@
 				"unsetHome",
 			]),
 			closeModal() {
-				this.unsetSignup();
 				this.unsetCallback();
 				this.setHome();
 			},

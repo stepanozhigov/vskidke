@@ -61,37 +61,25 @@
 			Phone,
 		},
 		computed: {
-			...mapGetters([
-				"isModal",
-				"isSuccess",
-				"env",
-				"isCallback",
-				"isHome",
-				"isMenu",
-			]),
+			...mapGetters(["isSuccess", "env", "isCallback", "isHome", "isMenu"]),
 		},
 		methods: {
 			...mapActions([
 				"currentView",
 				"setEnv",
 				"setModal",
-				"unsetModal",
 				"setSuccess",
-				"unsetSuccess",
 				"setCallback",
-				"unsetCallback",
 				"setSuccess",
 				"setSignup",
-				"unsetSignup",
 				"setHome",
-				"unsetHome",
 				"setMenu",
-				"unsetMenu",
 				"setCurrentView",
+				"goBack",
 			]),
 			toggleMenu() {
 				if (this.isMenu) {
-					this.unsetMenu();
+					this.goBack();
 				} else this.setMenu();
 			},
 		},

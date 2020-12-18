@@ -5,6 +5,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
+        currentView:false,
+        previousView: false,
         home: false,
         callback: false,
         success: false,
@@ -14,10 +16,10 @@ export default new Vuex.Store({
     },
     getters: {
         currentView: state=>{
-            if(state.home) return 'home'
-            else if(state.callback) return 'modal'
-            else if(state.success) return 'success'
-            else if(state.menu) return 'menu'
+            return state.currentView
+        },
+        previousView: state=> {
+           return state.previousView
         },
         isHome: state => state.home,
         isCallback: state => state.callback,
@@ -28,49 +30,52 @@ export default new Vuex.Store({
     },
     mutations: {
         SET_HOME: state => {
+            state.previousView = state.currentView;
+            state.currentView = 'home';
             state.home = true;
+            state.callback = false;
+            state.success = false;
+            state.menu = false;
         },
-        UNSET_HOME: state => (state.home = false),
-        SET_MENU: state => (state.menu = true),
-        UNSET_MENU: state => (state.menu = false),
-        SET_SUCCESS: state => (state.success = true),
-        UNSET_SUCCESS: state => (state.success = false),
-        SET_CALLBACK: state => (state.callback = true),
-        UNSET_CALLBACK: state => (state.callback = false),
+        SET_MENU: state => {
+            state.previousView = state.currentView;
+            state.currentView = 'menu';
+            state.home = false;
+            state.callback = false;
+            state.success = false;
+            state.menu = true;
+        },
+        SET_SUCCESS: state => {
+            state.previousView = state.currentView;
+            state.currentView = 'success';
+            state.home = false;
+            state.callback = false;
+            state.success = true;
+            state.menu = false;
+        },
+        SET_CALLBACK: state => {
+            state.previousView = state.currentView;
+            state.currentView = 'callback';
+            state.home = false;
+            state.callback = true;
+            state.success = false;
+            state.menu = false;
+        },
         SET_ENV: (state,payload) => (state.env = payload),
     },
     actions: {
         setEnv: (context,payload) => context.commit("SET_ENV",payload),
 
-        setModal: context => context.commit("SET_MODAL"),
-        unsetModal: context => context.commit("UNSET_MODAL"),
+        goBack: (context) => {
+            if(context.state.previousView == 'home') context.commit("SET_HOME")
+            else if(context.state.previousView == 'callback') context.commit("SET_CALLBACK")
+            else if(context.state.previousView == 'success') context.commit("SET_SUCCESS")
+            else if(context.state.previousView == 'menu') context.commit("SET_MENU")
+        },
 
         setSuccess: context => context.commit("SET_SUCCESS"),
-        unsetSuccess: context => context.commit("UNSET_CALLBACK"),
-
-
         setHome: context => context.commit("SET_HOME"),
-        unsetHome: context => context.commit("UNSET_HOME"),
-
         setMenu: context => context.commit("SET_MENU"),
-        unsetMenu: context => context.commit("UNSET_MENU"),
-
         setCallback: context => context.commit("SET_CALLBACK"),
-        unsetCallback: context => context.commit("UNSET_CALLBACK"),
-
-        dropFbPixel: (context) => {
-            new Promise((resolve) => {
-                try {
-                    fbq("track", "Lead");
-                    resolve(true);
-                    
-                } catch (err) {
-                    console.log("FB error");
-                    setTimeout(() => {
-                        context.dispatch('dropFbPixel')
-                    },3000)
-                }
-            })
-        }
     }
 });

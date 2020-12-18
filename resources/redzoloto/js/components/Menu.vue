@@ -9,7 +9,7 @@
 		name: "Menu",
 		data: () => ({}),
 		methods: {
-			...mapActions(["setModal", "unsetModal", "setSuccess", "unsetSuccess"]),
+			...mapActions(["setModal", "setSuccess"]),
 		},
 		computed: {
 			...mapGetters(["isSuccess"]),

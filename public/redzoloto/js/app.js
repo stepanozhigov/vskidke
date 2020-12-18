@@ -2220,11 +2220,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     Logo: _Logo__WEBPACK_IMPORTED_MODULE_1__["default"],
     Phone: _Phone__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["isModal", "isSuccess", "env", "isCallback", "isHome", "isMenu"])),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["currentView", "setEnv", "setModal", "unsetModal", "setSuccess", "unsetSuccess", "setCallback", "unsetCallback", "setSuccess", "setSignup", "unsetSignup", "setHome", "unsetHome", "setMenu", "unsetMenu", "setCurrentView"])), {}, {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["isSuccess", "env", "isCallback", "isHome", "isMenu"])),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["currentView", "setEnv", "setModal", "setSuccess", "setCallback", "setSuccess", "setSignup", "setHome", "setMenu", "setCurrentView", "goBack"])), {}, {
     toggleMenu: function toggleMenu() {
       if (this.isMenu) {
-        this.unsetMenu();
+        this.goBack();
       } else this.setMenu();
     }
   })
@@ -2407,7 +2407,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {};
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["setModal", "unsetModal", "setSuccess", "unsetSuccess"])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["setModal", "setSuccess"])),
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["isSuccess"]))
 });
 
@@ -2483,7 +2483,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["setEnv", "setSuccess", "unsetSuccess", "setCallback", "unsetCallback", "setSuccess", "setHome", "unsetHome"])), {}, {
     closeModal: function closeModal() {
-      this.unsetSignup();
       this.unsetCallback();
       this.setHome();
     }
@@ -3217,7 +3216,7 @@ var render = function() {
       _vm._v(" "),
       _vm.isHome ? _c("home") : _vm._e(),
       _vm._v(" "),
-      _vm.isMenu ? _c("home") : _vm._e(),
+      _vm.isMenu ? _c("menu") : _vm._e(),
       _vm._v(" "),
       _vm.isCallback ? _c("modal") : _vm._e(),
       _vm._v(" "),
@@ -19831,6 +19830,8 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
+    currentView: false,
+    previousView: false,
     home: false,
     callback: false,
     success: false,
@@ -19840,7 +19841,10 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
   },
   getters: {
     currentView: function currentView(state) {
-      if (state.home) return 'home';else if (state.callback) return 'modal';else if (state.success) return 'success';else if (state.menu) return 'menu';
+      return state.currentView;
+    },
+    previousView: function previousView(state) {
+      return state.previousView;
     },
     isHome: function isHome(state) {
       return state.home;
@@ -19863,28 +19867,36 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
   },
   mutations: {
     SET_HOME: function SET_HOME(state) {
+      state.previousView = state.currentView;
+      state.currentView = 'home';
       state.home = true;
-    },
-    UNSET_HOME: function UNSET_HOME(state) {
-      return state.home = false;
+      state.callback = false;
+      state.success = false;
+      state.menu = false;
     },
     SET_MENU: function SET_MENU(state) {
-      return state.menu = true;
-    },
-    UNSET_MENU: function UNSET_MENU(state) {
-      return state.menu = false;
+      state.previousView = state.currentView;
+      state.currentView = 'menu';
+      state.home = false;
+      state.callback = false;
+      state.success = false;
+      state.menu = true;
     },
     SET_SUCCESS: function SET_SUCCESS(state) {
-      return state.success = true;
-    },
-    UNSET_SUCCESS: function UNSET_SUCCESS(state) {
-      return state.success = false;
+      state.previousView = state.currentView;
+      state.currentView = 'success';
+      state.home = false;
+      state.callback = false;
+      state.success = true;
+      state.menu = false;
     },
     SET_CALLBACK: function SET_CALLBACK(state) {
-      return state.callback = true;
-    },
-    UNSET_CALLBACK: function UNSET_CALLBACK(state) {
-      return state.callback = false;
+      state.previousView = state.currentView;
+      state.currentView = 'callback';
+      state.home = false;
+      state.callback = true;
+      state.success = false;
+      state.menu = false;
     },
     SET_ENV: function SET_ENV(state, payload) {
       return state.env = payload;
@@ -19894,48 +19906,20 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     setEnv: function setEnv(context, payload) {
       return context.commit("SET_ENV", payload);
     },
-    setModal: function setModal(context) {
-      return context.commit("SET_MODAL");
-    },
-    unsetModal: function unsetModal(context) {
-      return context.commit("UNSET_MODAL");
+    goBack: function goBack(context) {
+      if (context.state.previousView == 'home') context.commit("SET_HOME");else if (context.state.previousView == 'callback') context.commit("SET_CALLBACK");else if (context.state.previousView == 'success') context.commit("SET_SUCCESS");else if (context.state.previousView == 'menu') context.commit("SET_MENU");
     },
     setSuccess: function setSuccess(context) {
       return context.commit("SET_SUCCESS");
     },
-    unsetSuccess: function unsetSuccess(context) {
-      return context.commit("UNSET_CALLBACK");
-    },
     setHome: function setHome(context) {
       return context.commit("SET_HOME");
-    },
-    unsetHome: function unsetHome(context) {
-      return context.commit("UNSET_HOME");
     },
     setMenu: function setMenu(context) {
       return context.commit("SET_MENU");
     },
-    unsetMenu: function unsetMenu(context) {
-      return context.commit("UNSET_MENU");
-    },
     setCallback: function setCallback(context) {
       return context.commit("SET_CALLBACK");
-    },
-    unsetCallback: function unsetCallback(context) {
-      return context.commit("UNSET_CALLBACK");
-    },
-    dropFbPixel: function dropFbPixel(context) {
-      new Promise(function (resolve) {
-        try {
-          fbq("track", "Lead");
-          resolve(true);
-        } catch (err) {
-          console.log("FB error");
-          setTimeout(function () {
-            context.dispatch('dropFbPixel');
-          }, 3000);
-        }
-      });
     }
   }
 }));

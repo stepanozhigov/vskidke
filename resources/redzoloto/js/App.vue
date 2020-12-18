@@ -9,7 +9,7 @@
 		<!-- /HOME VIEW -->
 
 		<!-- HOME VIEW -->
-		<home v-if="isMenu"></home>
+		<menu v-if="isMenu"></menu>
 		<!-- /HOME VIEW -->
 
 		<!--VIEW -->
