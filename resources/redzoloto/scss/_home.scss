@@ -6,7 +6,15 @@
     flex-grow: 1;
     flex-shrink: 1;
 
-    background-image: url("../images/mg_bkg-414@2x.jpg");
+    background-image: url("../images/red-zoloto_bkg-414@2x.jpg");
+
+    @include tablet {
+        background-image: url("../images/zoloto_bkg-768@2x.jpg");
+    }
+
+    @include laptop {
+        background-image: url("../images/zoloto_bkg-1440@2x.jpg");
+    }
 
     background-position: top;
     background-repeat: no-repeat;

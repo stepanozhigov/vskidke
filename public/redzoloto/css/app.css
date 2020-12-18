@@ -990,10 +990,20 @@ video {
   flex-direction: column;
   flex-grow: 1;
   flex-shrink: 1;
-  background-image: url("../images/mg_bkg-414@2x.jpg");
+  background-image: url("../images/red-zoloto_bkg-414@2x.jpg");
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
+}
+@media screen and (min-width: 768px) {
+  .home-view {
+    background-image: url("../images/zoloto_bkg-768@2x.jpg");
+  }
+}
+@media screen and (min-width: 1024px) {
+  .home-view {
+    background-image: url("../images/zoloto_bkg-1440@2x.jpg");
+  }
 }
 .home-view .home-view-content {
   color: #f8f7f6;
