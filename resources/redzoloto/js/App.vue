@@ -1,7 +1,7 @@
 <template>
 	<div class="app-template">
 		<!-- HEADER -->
-		<app-header v-if="!isSuccess"></app-header>
+		<app-header></app-header>
 		<!-- /HEADER -->
 
 		<!-- HOME VIEW -->
@@ -50,10 +50,10 @@
 		},
 		mounted: function () {
 			this.setEnv(this.environment);
-			// this.setHome();
-			this.setMenu();
-			// this.setSuccess();
-			//this.setModal();
+			this.setHome();
+			// this.setMenu();
+			//this.setSuccess();
+			//this.setCallback();
 			//
 			this.setViewHeight();
 			window.addEventListener("resize", () => {

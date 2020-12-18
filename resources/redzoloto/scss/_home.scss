@@ -32,6 +32,10 @@
         flex-direction: column;
 
         max-width: rem(360);
+
+        @include mobile-lanscape {
+            min-height: rem(650);
+        }
         
         @include tablet {
 
@@ -42,6 +46,7 @@
 
         @include laptop {
             max-width: rem(640);
+            
         }
 
         &-center {

@@ -1977,10 +1977,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     var _this = this;
 
-    this.setEnv(this.environment); // this.setHome();
-
-    this.setMenu(); // this.setSuccess();
-    //this.setModal();
+    this.setEnv(this.environment);
+    this.setHome(); // this.setMenu();
+    //this.setSuccess();
+    //this.setCallback();
     //
 
     this.setViewHeight();
@@ -3347,7 +3347,7 @@ var render = function() {
     "div",
     { staticClass: "app-template" },
     [
-      !_vm.isSuccess ? _c("app-header") : _vm._e(),
+      _c("app-header"),
       _vm._v(" "),
       _vm.isHome ? _c("home") : _vm._e(),
       _vm._v(" "),
