@@ -26,14 +26,14 @@
 
 //laptop, large tablet
 @mixin laptop() {
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1280px) {
         @content;
     }
 }
 
 //desktop
 @mixin desktop() {
-    @media screen and (min-width: 1366px) {
+    @media screen and (min-width: 1920px) {
         @content;
     }
 }

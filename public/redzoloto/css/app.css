@@ -922,6 +922,16 @@ video {
   flex-direction: column;
   min-height: 100vh;
 }
+@media screen and (min-width: 768px) {
+  .app-template {
+    padding: 0 2rem 2rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .app-template {
+    padding: 0 8.125rem 6rem;
+  }
+}
 
 .app-header {
   font-size: 0.75rem;
@@ -940,9 +950,11 @@ video {
   padding-right: 1rem;
   box-shadow: inset 0 -1px 0 #dbd7d7;
 }
-@media screen and (min-width: 375px) {
+@media screen and (min-width: 768px) {
   .app-header {
-    font-size: 0.75rem;
+    height: 5rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
   }
 }
 .app-header-menu {
@@ -951,12 +963,22 @@ video {
   justify-content: center;
   align-items: center;
 }
+@media screen and (min-width: 1280px) {
+  .app-header-menu .menu-icon {
+    display: none;
+  }
+}
 .app-header .app-header-logo {
   height: 3.5rem;
   margin: 0 0 0 1rem;
 }
 .app-header .app-header-logo svg {
   height: 100%;
+}
+@media screen and (min-width: 1280px) {
+  .app-header .app-header-logo {
+    margin: 0;
+  }
 }
 .app-header-image {
   display: none;
@@ -971,9 +993,19 @@ video {
   flex-direction: column;
   text-align: center;
 }
+@media screen and (min-width: 768px) {
+  .app-header .app-call {
+    flex-direction: row;
+  }
+}
 .app-header .app-call .app-call-number {
   font-weight: 500;
   font-size: 0.8125rem;
+}
+@media screen and (min-width: 768px) {
+  .app-header .app-call .app-call-number {
+    font-size: 0.875rem;
+  }
 }
 .app-header .app-call .app-call-book {
   color: #e60003;
@@ -982,7 +1014,14 @@ video {
   font-weight: bold;
   font-size: 0.625rem;
   text-transform: uppercase;
+  cursor: pointer;
   border-bottom: 2px dotted #e60003;
+}
+@media screen and (min-width: 768px) {
+  .app-header .app-call .app-call-book {
+    font-size: 0.875rem;
+    margin: 0.125rem 0 0 0.5rem;
+  }
 }
 
 .menu-view {
@@ -1057,51 +1096,94 @@ video {
     background-image: url("../images/zoloto_bkg-768@2x.jpg");
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1280px) {
   .home-view {
     background-image: url("../images/zoloto_bkg-1440@2x.jpg");
   }
 }
 .home-view .home-view-content {
   color: #f8f7f6;
-  max-width: 25.875rem;
   margin: 0 auto;
   padding: 0 1rem;
+  position: relative;
   display: flex;
   flex-grow: 1;
   flex-direction: column;
+  max-width: 22.5rem;
+}
+@media screen and (min-width: 768px) {
+  .home-view .home-view-content {
+    max-width: 43rem;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .home-view .home-view-content {
+    max-width: 40rem;
+  }
 }
 .home-view .home-view-content-center {
   display: flex;
   flex-direction: column;
   margin: 3.875rem 0 0 0;
 }
+@media screen and (min-width: 768px) {
+  .home-view .home-view-content-center {
+    margin: 0 0 0 0;
+  }
+}
 .home-view .home-view-content-center h1 {
   font-weight: bold;
-  font-size: 1.5rem;
-  line-height: 1.875rem;
+  font-size: 1.375rem;
+  line-height: 1.75rem;
   letter-spacing: -0.0125rem;
   text-align: left;
   margin: 0;
 }
 @media screen and (min-width: 375px) {
   .home-view .home-view-content-center h1 {
+    font-weight: bold;
     font-size: 1.5rem;
-    line-height: 2.1875rem;
+    line-height: 1.875rem;
     letter-spacing: -0.0125rem;
-    margin: 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  .home-view .home-view-content-center h1 {
+    font-size: 3rem;
+    line-height: 3.5rem;
+    letter-spacing: -0.05rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .home-view .home-view-content-center h1 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    letter-spacing: -0.01875rem;
   }
 }
 .home-view .home-view-content-center h3 {
   font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.375rem;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
   letter-spacing: 0rem;
   margin: 0.6875rem 0 0 0;
 }
 @media screen and (min-width: 375px) {
   .home-view .home-view-content-center h3 {
-    margin: 0.75rem 0 0 auto;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    letter-spacing: 0rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .home-view .home-view-content-center h3 {
+    margin: 1.3125rem 0 0 0;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.625rem;
+    letter-spacing: 0rem;
   }
 }
 .home-view .home-view-content-center .redirect {
@@ -1121,6 +1203,14 @@ video {
   line-height: 0.625rem;
   text-align: left;
   margin: auto 0 1rem 0;
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  .home-view p {
+    margin: 0 0 1rem 0;
+    position: absolute;
+    bottom: 0;
+  }
 }
 .home-view p span {
   text-decoration: underline;

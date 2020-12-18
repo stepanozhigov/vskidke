@@ -1,7 +1,7 @@
 <template>
 	<header class="app-header" :class="{ modal: !isHome }">
 		<div class="app-header-menu">
-			<a href="#" @click.prevent="toggleMenu">
+			<a class="menu-icon" href="#" @click.prevent="toggleMenu">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="15"
