@@ -50,10 +50,10 @@
 		},
 		mounted: function () {
 			this.setEnv(this.environment);
-			this.setHome();
+			//this.setHome();
 			// this.setMenu();
 			//this.setSuccess();
-			//this.setCallback();
+			this.setCallback();
 			//
 			this.setViewHeight();
 			window.addEventListener("resize", () => {

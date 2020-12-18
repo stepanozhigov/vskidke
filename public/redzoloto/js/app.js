@@ -1977,11 +1977,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     var _this = this;
 
-    this.setEnv(this.environment);
-    this.setHome(); // this.setMenu();
+    this.setEnv(this.environment); //this.setHome();
+    // this.setMenu();
     //this.setSuccess();
-    //this.setCallback();
-    //
+
+    this.setCallback(); //
 
     this.setViewHeight();
     window.addEventListener("resize", function () {

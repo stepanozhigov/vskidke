@@ -21,7 +21,7 @@ form {
     @include tablet {
         margin-right: auto;
         margin-left: 0;
-        max-width: rem(328);
+        width: rem(328);
     }
 
     input {

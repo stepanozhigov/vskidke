@@ -32,5 +32,11 @@
             margin: rem(26) auto 0;
             border-bottom: 2px dotted $textmain;
         }
+
+        @include tablet {
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
 }
