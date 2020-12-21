@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
-    <link rel="shortcut icon" href="{{ asset('redzoloto/images/favicon.ico')}}">
-    <link href="{{ asset('/redzoloto/css/app.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ asset('romatti2/images/favicon.ico')}}">
+    <link href="{{ mix('/romatti2/css/app.css') }}" rel="stylesheet">
 
 </head>
 
@@ -22,7 +22,7 @@
     </div>
 
     {{-- VUE-CLI JS --}}
-    <script src="{{ asset('redzoloto/js/app.js') }}" defer></script>
+    <script src="{{ mix('romatti2/js/app.js') }}" defer></script>
 
     @yield('pixel')
     @yield('yandex.metrika')
