@@ -2317,6 +2317,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3694,6 +3698,12 @@ var staticRenderFns = [
             _vm._v("\n\t\t\t\tДизайнерские светильники, мебель"),
             _c("br"),
             _vm._v("и декор оптом и в розницу\n\t\t\t")
+          ]),
+          _vm._v(" "),
+          _c("h3", [
+            _vm._v("\n\t\t\t\tВыберите мессенджер, куда мы вышлем"),
+            _c("br"),
+            _vm._v("каталог и быстро поможем с\n\t\t\t\tвыбором\n\t\t\t")
           ])
         ]),
         _vm._v(" "),
