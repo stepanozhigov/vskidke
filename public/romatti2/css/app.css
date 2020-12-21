@@ -969,7 +969,7 @@ video {
   }
 }
 .app-header-menu .app-header-logo {
-  height: 3.5rem;
+  height: 1.5rem;
   margin: 0 0 0 1rem;
 }
 .app-header-menu .app-header-logo svg {
@@ -1132,19 +1132,19 @@ video {
   flex-direction: column;
   flex-grow: 1;
   flex-shrink: 1;
-  background-image: url("../images/red-zoloto_bkg-414@2x.jpg");
+  background-image: url("../images/romatti_bkg-414@2x.jpg");
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
 }
 @media screen and (min-width: 768px) {
   .home-view {
-    background-image: url("../images/zoloto_bkg-768@2x.jpg");
+    background-image: url("../images/romatti_bkg-768@2x.jpg");
   }
 }
 @media screen and (min-width: 1280px) {
   .home-view {
-    background-image: url("../images/zoloto_bkg-1440@2x.jpg");
+    background-image: url("../images/romatti_bkg-1440@2x.jpg");
   }
 }
 .home-view .home-view-content {
@@ -1155,22 +1155,10 @@ video {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  max-width: 22.5rem;
-}
-@media screen and (min-width: 415px) {
-  .home-view .home-view-content {
-    min-height: 40.625rem;
-  }
 }
 @media screen and (min-width: 768px) {
   .home-view .home-view-content {
-    max-width: 43rem;
     justify-content: center;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .home-view .home-view-content {
-    max-width: 40rem;
   }
 }
 .home-view .home-view-content-center {
@@ -1185,11 +1173,17 @@ video {
 }
 .home-view .home-view-content-center h1 {
   font-weight: bold;
-  font-size: 1.375rem;
+  font-size: 1.25rem;
   line-height: 1.75rem;
   letter-spacing: -0.0125rem;
   text-align: left;
   margin: 0;
+}
+.home-view .home-view-content-center h1.h1-tablet {
+  display: none;
+}
+.home-view .home-view-content-center h1.h1-laptop {
+  display: none;
 }
 @media screen and (min-width: 375px) {
   .home-view .home-view-content-center h1 {
@@ -1204,6 +1198,13 @@ video {
     font-size: 3rem;
     line-height: 3.5rem;
     letter-spacing: -0.05rem;
+    display: none;
+  }
+  .home-view .home-view-content-center h1.h1-tablet {
+    display: block;
+  }
+  .home-view .home-view-content-center h1.h1-laptop {
+    display: none;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -1211,6 +1212,12 @@ video {
     font-size: 2rem;
     line-height: 2.5rem;
     letter-spacing: -0.01875rem;
+  }
+  .home-view .home-view-content-center h1.h1-tablet {
+    display: none;
+  }
+  .home-view .home-view-content-center h1.h1-laptop {
+    display: block;
   }
 }
 .home-view .home-view-content-center h3 {

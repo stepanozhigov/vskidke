@@ -1,7 +1,7 @@
 <template>
 	<div class="app-call">
 		<!-- {{-- Make call --}} -->
-		<a href="tel:+79000163950" class="app-call-number">+7 (900) 016-39-50</a>
+		<a href="tel:+77471350000" class="app-call-number">+7 (747) 135-00-00</a>
 		<!-- {{-- Book call --}} -->
 		<span @click="toggleCallback" class="app-call-book"> Заказать звонок </span>
 	</div>
