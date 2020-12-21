@@ -47,17 +47,24 @@
         }
 
         .app-header-logo {
-        height: rem(24);
+        height: rem(18);
 
         margin: 0 0 0 1rem;
 
         svg {
             height: 100%;
         }
+
+        @include mobile {
+            height: rem(24);
+        }
+
+        @include tablet {
+            height: 2rem;
+        }
         
         @include laptop {
             margin: 0;
-            height: rem(72);
         }
     }
     }

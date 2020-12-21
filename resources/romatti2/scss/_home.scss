@@ -30,33 +30,53 @@
         display: flex;
         flex-grow: 1;
         flex-direction: column;
-
-        //max-width: rem(360);
+        justify-content: space-between;
 
         @include mobile-lanscape {
-            //min-height: rem(650);
+            
         }
         
         @include tablet {
 
-            //max-width: rem(688);
-
-            justify-content: center;
+            width: 100%;
+            margin: 0 0;
+            padding: 0 rem(40);
         }
 
         @include laptop {
-            //max-width: rem(640);
-            
+            width: auto;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        h5 {
+            margin: 0;
+            padding: 0;
+            font-size: rem(16);
+            line-height: rem(20);
+            text-transform: uppercase;
+            letter-spacing: rem(7);
+
+            margin-top: rem(15);
+
+            @include tablet {
+                margin-top: rem(24);
+            }
         }
 
         &-center {
 
             display: flex;
             flex-direction: column;
-            margin: rem(62) 0 0 0;
+            
+            margin: 2rem 0 0 0;
+
+            @include mobile {
+
+            }
 
             @include tablet {
-                margin: 0 0 0 0;
+                margin: 0;
             }
 
             h1 {
@@ -67,7 +87,7 @@
                 letter-spacing: rem(-0.2);
     
                 text-align: left;
-                margin: 0;
+                margin:0;
 
                 &.h1-tablet {
                     display: none;
@@ -121,7 +141,7 @@
                 line-height: rem(18);
                 letter-spacing: rem(0);
     
-                margin: rem(11) 0 0 0;
+                margin: rem(9) 0 0 0;
     
                 @include mobile {
                     font-weight: 400;
@@ -131,12 +151,17 @@
                 }
 
                 @include tablet {
-                    margin: rem(21) 0 0 0;
+                    margin: rem(17) 0 0 0;
 
                     font-weight: 400;
                     font-size: rem(16);
                     line-height: rem(26);
-                    letter-spacing: rem(0)
+                    letter-spacing: rem(0);
+
+                }
+
+                @include laptop {
+                    margin-top: rem(10);
                 }
             }
 
@@ -181,8 +206,8 @@
 
             margin: 0 0 1rem 0;
 
-            position: absolute;
-            bottom: 0;
+            // position: absolute;
+            // bottom: 0;
         }
 
         span {

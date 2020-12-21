@@ -1,6 +1,7 @@
 <template>
 	<div class="home-view">
 		<div class="home-view-content">
+			<h5>Скидки до 30%</h5>
 			<div class="home-view-content-center">
 				<h1>
 					Дизайнерские<br />светильники, мебель и<br />декор оптом и в розницу

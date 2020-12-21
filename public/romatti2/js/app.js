@@ -2321,6 +2321,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3675,6 +3676,8 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "home-view" }, [
       _c("div", { staticClass: "home-view-content" }, [
+        _c("h5", [_vm._v("Скидки до 30%")]),
+        _vm._v(" "),
         _c("div", { staticClass: "home-view-content-center" }, [
           _c("h1", [
             _vm._v("\n\t\t\t\tДизайнерские"),
