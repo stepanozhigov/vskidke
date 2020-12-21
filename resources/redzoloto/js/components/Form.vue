@@ -111,7 +111,6 @@
 							referer: this.referer,
 						})
 						.then((response) => {
-							this.setHome();
 							fbq("track", "Lead");
 							if (this.env == "production") {
 								setTimeout(() => {
