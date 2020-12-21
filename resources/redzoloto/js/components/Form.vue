@@ -72,7 +72,14 @@
 		},
 		mounted: function () {},
 		computed: {
-			...mapGetters(["isSuccess", "env", "isCallback", "isHome"]),
+			...mapGetters([
+				"isSuccess",
+				"env",
+				"isCallback",
+				"isHome",
+				"utm",
+				"referer",
+			]),
 			formClass() {
 				if (this.isCallback || this.isSignup) {
 					return "form-modal";
@@ -100,7 +107,8 @@
 						.post("/bx24", {
 							title: this.leadTitle,
 							phone: this.phone,
-							comments: "",
+							utm: this.utm,
+							referer: this.referer,
 						})
 						.then((response) => {
 							this.setHome();

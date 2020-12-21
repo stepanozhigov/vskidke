@@ -47,9 +47,15 @@
 				type: String,
 				default: "",
 			},
+			utm: {
+				type: Object,
+			},
+			referer: {},
 		},
 		mounted: function () {
 			this.setEnv(this.environment);
+			this.setReferer(this.referer);
+			this.setUtm(this.utm);
 			this.setHome();
 			// this.setMenu();
 			//this.setSuccess();
@@ -76,6 +82,8 @@
 				"unsetHome",
 				"setMenu",
 				"unsetMenu",
+				"setReferer",
+				"setUtm",
 			]),
 			setViewHeight: function () {
 				let vh = window.innerHeight * 0.01;

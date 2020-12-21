@@ -24,7 +24,7 @@
     <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
 
     {{-- VUE-CLI JS --}}
-    <script src="{{ mix('upperlicense/js/app.js') }}" defer></script>
+    <script src="{{ asset('upperlicense/js/app.js') }}" defer></script>
 
     <!-- Facebook Pixel Code -->
     <script>

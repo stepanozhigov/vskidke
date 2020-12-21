@@ -5,6 +5,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
+        utm: false,
+        referer: false,
         currentView:false,
         previousView: false,
         home: false,
@@ -26,7 +28,9 @@ export default new Vuex.Store({
         isSuccess: state => state.success,
         isMenu: state => state.menu,
         redirectTo:state =>state.redirectTo,
-        env:state =>state.env
+        env:state =>state.env,
+        utm:state =>state.utm,
+        referer:state =>state.referer,
     },
     mutations: {
         SET_HOME: state => {
@@ -62,9 +66,13 @@ export default new Vuex.Store({
             state.menu = false;
         },
         SET_ENV: (state,payload) => (state.env = payload),
+        SET_REFERER: (state,payload) => (state.referer = payload),
+        SET_UTM: (state,payload) => (state.utm = payload),
     },
     actions: {
         setEnv: (context,payload) => context.commit("SET_ENV",payload),
+        setReferer: (context,payload) => context.commit("SET_REFERER",payload),
+        setUtm: (context,payload) => context.commit("SET_UTM",payload),
 
         goBack: (context) => {
             if(context.state.previousView == 'home') context.commit("SET_HOME")

@@ -34,7 +34,7 @@ class RedzolotoController extends Controller
                 'STATUS_ID'=>env('APP_ENV') == 'local' ? 'Хлам' : '',
                 //Лид (стр2)
                 //'SOURCE_ID'	=>$request->input('utm_source') ?? env('APP_ENV') == 'local' ? 'Тест' : 'Веб-сайт',
-                'SOURCE_ID'	=>'trendPro',
+                'SOURCE_ID'	=>'веб-сайт',
                 //Телефон
                 "PHONE"=>[
                     "n0" => Array(
@@ -43,13 +43,21 @@ class RedzolotoController extends Controller
                     ),
                 ],
                 //Комментарии (ответы квиза)
-                'COMMENTS'=>$comments ?? '',
+                //'COMMENTS'=>$comments ?? '',
+
                 //referer (источник)
-                // 'UF_CRM_1532516558'=>$_SERVER['HTTP_REFERER'] ?? '',
+                'UF_CRM_1608543475'=>$request->input('referer') ?? '',
+
+                //UTM
+                'UTM_CAMPAIGN'=>$utm['utm_campaign'] ?? '',
+                'UTM_SOURCE'=>$utm['utm_source'] ?? '',
+                'UTM_CONTENT'=>$utm['utm_content'] ?? '',
+                'UTM_MEDIUM'=>$utm['utm_medium'] ?? '',
+                'UTM_TERM'=>$utm['utm_term'] ?? '',
             ]
         ];
 
-        $response = Http::post('https://redzoloto.bitrix24.ru/rest/8/wfx8nb781f7mj36y/crm.lead.add.json',$data);
+        $response = Http::post('https://redzoloto.bitrix24.ru/rest/6/x04kestbu8ul91qc/crm.lead.add.json',$data);
         return response()->json($response->json());
     }
 }
