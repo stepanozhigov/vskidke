@@ -79,6 +79,12 @@
 
             li {
                 padding: 0 rem(8);
+
+                a {
+                    &:hover {
+                        opacity: .7;
+                    }
+                }
             }
         }
 
@@ -111,6 +117,10 @@
         .app-call-number {
             font-weight: 500;
             font-size: rem(13);
+
+            &:hover {
+                opacity: .7;
+            }
 
             @include tablet {
                 font-size: rem(14);

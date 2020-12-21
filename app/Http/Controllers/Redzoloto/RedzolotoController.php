@@ -26,6 +26,7 @@ class RedzolotoController extends Controller
 
     public function bitrix24(Request $request)
     {
+        $utm = $request->input('utm');
         $data = [
             'fields'=>[
                 //Лид (стр1)
@@ -34,7 +35,7 @@ class RedzolotoController extends Controller
                 'STATUS_ID'=>env('APP_ENV') == 'local' ? 'Хлам' : '',
                 //Лид (стр2)
                 //'SOURCE_ID'	=>$request->input('utm_source') ?? env('APP_ENV') == 'local' ? 'Тест' : 'Веб-сайт',
-                'SOURCE_ID'	=>'веб-сайт',
+                'SOURCE_ID'	=>'WEB',
                 //Телефон
                 "PHONE"=>[
                     "n0" => Array(
@@ -59,5 +60,6 @@ class RedzolotoController extends Controller
 
         $response = Http::post('https://redzoloto.bitrix24.ru/rest/6/x04kestbu8ul91qc/crm.lead.add.json',$data);
         return response()->json($response->json());
+        //return response()->json($data['fields']);
     }
 }
