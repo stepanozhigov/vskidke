@@ -112,6 +112,7 @@
 						})
 						.then((response) => {
 							fbq("track", "Lead");
+							this.setSuccess();
 							if (this.env == "production") {
 								setTimeout(() => {
 									window.location = this.$store.getters.redirectTo;
