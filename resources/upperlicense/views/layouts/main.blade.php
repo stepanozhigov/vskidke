@@ -24,7 +24,7 @@
     <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
 
     {{-- VUE-CLI JS --}}
-    <script src="{{ asset('upperlicense/js/app.js') }}" defer></script>
+    <script src="{{ mix('upperlicense/js/app.js') }}" defer></script>
 
     <!-- Facebook Pixel Code -->
     <script>
@@ -45,7 +45,7 @@
     <!-- End Facebook Pixel Code -->
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-92968269-7"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-162968640-8"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
     
@@ -55,25 +55,9 @@
     
         gtag('js', new Date());
     
-        gtag('config', 'UA-92968269-7');
+        gtag('config', 'UA-162968640-8');
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-        ga('create', 'UA-92968269-7', 'auto');
-        ga('send', 'pageview');
-    </script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >

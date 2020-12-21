@@ -20,10 +20,10 @@ class UpperlicenseController extends Controller
             'url' => $request->url,
             'phone' => $request->phone,
             //'email' => $request->email,
-            // 'contact_fields' => [
-            //     'geo_location' => $request->geoLocation,
-            //     'ip_location' => $request->ipLocation
-            // ]
+            'contact_fields' => [
+                'geo_location' => $request->geoLocation,
+                'ip_location' => $request->ipLocation
+            ]
         ]);
         if ($response->successful()) {
             return response()->json($response->json());

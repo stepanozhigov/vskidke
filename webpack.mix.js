@@ -40,10 +40,10 @@ mix
 
 //UPPERLICENSE
 
-//mix
+mix
 //.copy("resources/zamania/images/", "public/zamania/images/")
 //.copy("resources/zamania/fonts/", "public/zamania/fonts/")
-// .js("resources/upperlicense/js/app.js", "public/upperlicense/js")
+.js("resources/upperlicense/js/app.js", "public/upperlicense/js")
 // .sass("resources/upperlicense/scss/app.scss", "public/upperlicense/css",
 // {},[tailwindcss("./tailwind.upperlicense.config.js")])
 
@@ -117,22 +117,22 @@ mix
 // .sass("resources/mg/scss/app.scss", "public/mg/css")
 
 //redzoloto.vskidke.ru (local: redzoloto.vskidke.local)
-mix
-.options({
-    processCssUrls: false,
-    autoprefixer: {
-        browsers: ["last 20 versions"]
-    }
-})
+// mix
+// .options({
+//     processCssUrls: false,
+//     autoprefixer: {
+//         browsers: ["last 20 versions"]
+//     }
+// })
 
-.sourceMaps()
-.webpackConfig({devtool: 'source-map'})
-.js("resources/redzoloto/js/app.js", "public/redzoloto/js")
-.sass("resources/redzoloto/scss/app.scss", "public/redzoloto/css")
+// .sourceMaps()
+// .webpackConfig({devtool: 'source-map'})
+// .js("resources/redzoloto/js/app.js", "public/redzoloto/js")
+// .sass("resources/redzoloto/scss/app.scss", "public/redzoloto/css")
 
 
 mix.browserSync({
-    proxy: "redzoloto.vskidke.local",
+    proxy: "upperlicense.vskidke.local",
     open: false
 });
 

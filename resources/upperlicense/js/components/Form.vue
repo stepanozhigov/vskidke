@@ -111,7 +111,7 @@
 					axios
 						.post("/ammoconnect", {
 							phone: this.phone,
-							url: "upperlicense.vskidke.ru",
+							url: "med.license.kz",
 							geoLocation: this.geoAddress,
 							ipLocation: this.ipAddress,
 						})
@@ -121,14 +121,14 @@
 								ym(62231704, "reachGoal", "leadmagnit-form-medlicense");
 								ga.getAll()[0].send(
 									"event",
-									"leadmagnit-form-medlicense",
+									"leadmagnit-forms-medlicense-in-KZ",
 									"send"
 								);
 							} else if (this.actionType == "callback") {
 								ym(62231704, "reachGoal", "leadmagnit-callback-medlicense");
 								ga.getAll()[0].send(
 									"event",
-									"leadmagnit-callback-medlicense",
+									"leadmagnit-forms-medlicense-in-KZ",
 									"send"
 								);
 							}
