@@ -23,12 +23,11 @@
 					Оставьте номер телефона и мы вышлем<br />на&nbsp;WhatsApp полный
 					каталог, а&nbsp;при&nbsp;заказе<br />вы&nbsp;получите подвеску в
 					подарок
-				</h3>
-				
+				</h3>-->
 
 				<div class="redirect">
 					<a :href="redirectTo">Перейти на сайт</a>
-				</div> -->
+				</div>
 			</div>
 
 			<!-- AGREEMENT -->

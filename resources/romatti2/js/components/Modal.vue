@@ -33,7 +33,7 @@
 				:leadTitle="title"
 				actionType="callback"
 				btnText="Отправить заявку"
-				placeholderText="Ваш телефон"
+				placeholderText="Ваш телефон*"
 			/>
 			<a href="#" @click.prevent="closeModal">Закрыть</a>
 		</div>

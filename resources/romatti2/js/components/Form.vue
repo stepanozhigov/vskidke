@@ -8,7 +8,7 @@
 		}"
 	>
 		<!-- CONTACTBY -->
-		<contactby></contactby>
+		<contactby v-if="!isCallback"></contactby>
 
 		<!-- {{--PHONE INPUT--}} -->
 
@@ -53,7 +53,7 @@
 			},
 			btnText: {
 				type: String,
-				default: "Получить каталог и скидку",
+				default: "Получить каталог и консультацию",
 			},
 			placeholderText: {
 				type: String,

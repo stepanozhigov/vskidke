@@ -1,4 +1,7 @@
 .success-view {
+
+    color: $textblack;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,6 +30,10 @@
             text-transform: uppercase;
             line-height: rem(16);
             letter-spacing: rem(6);
+
+            @include tablet {
+                font-size: rem(16);
+            }
        }
        h6 {
            margin: rem(8) 0 0;
@@ -35,6 +42,11 @@
            font-size: rem(32);
            line-height: rem(40);
            letter-spacing: (-0.3);
+
+           @include tablet {
+               margin-top: 1rem;
+            font-size: rem(48);
+        }
        }
     }
 }

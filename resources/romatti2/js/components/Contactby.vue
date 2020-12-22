@@ -229,6 +229,7 @@
 			@click="setContactBy('phone')"
 			:class="{ active: contactBy == 'phone' }"
 		>
+			<!-- phone not active -->
 			<svg
 				v-if="contactBy != 'phone'"
 				xmlns="http://www.w3.org/2000/svg"
@@ -274,6 +275,7 @@
 				</g>
 			</svg>
 
+			<!-- phone active -->
 			<svg
 				v-if="contactBy == 'phone'"
 				xmlns="http://www.w3.org/2000/svg"

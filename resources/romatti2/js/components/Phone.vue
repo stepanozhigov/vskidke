@@ -35,17 +35,13 @@
 				"unsetSignup",
 				"setHome",
 				"unsetHome",
+				"setContactBy",
 			]),
 			toggleCallback() {
+				this.setContactBy("phone");
 				if (this.isCallback) {
-					this.unsetSignup();
-					this.unsetSuccess();
-					this.unsetCallback();
 					this.setHome();
 				} else {
-					this.unsetHome();
-					this.unsetSignup();
-					this.unsetSuccess();
 					this.setCallback();
 				}
 			},

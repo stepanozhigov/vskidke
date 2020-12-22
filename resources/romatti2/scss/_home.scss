@@ -167,13 +167,15 @@
             }
 
             .redirect {
+                color: $textmain;
+
                 font-weight: 600;
                 font-size: rem(14);
                 line-height: rem(24);
                 text-transform: uppercase;
-                border-bottom: 1px solid $textgrey;
+                border-bottom: 1px solid $textmain;
                 
-                margin: rem(25) auto 0 0;
+                margin: rem(24) auto 0 0;
 
                 a {
                     display: block;

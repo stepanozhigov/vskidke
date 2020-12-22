@@ -20,17 +20,19 @@
             right: 1rem;
         }
         h5 {
-            margin: 0;
-            font-size: rem(12);
-            text-transform: uppercase;
-            line-height: rem(16);
-            letter-spacing: rem(8);
+            color: $textblack;
+            font-size: rem(32);
+            line-height: rem(40);
+            letter-spacing: rem(-0.3);
+            font-weight: 700;
+
+            margin: 0 auto 0 0 ;
         }
         a {
             font-size: rem(16);
-            color: $textmain;
-            margin: rem(26) auto 0;
-            border-bottom: 2px dotted $textmain;
+            color: #66605a;
+            margin: rem(24) auto 0 0;
+            border-bottom: 1px solid #66605a;
         }
 
         @include tablet {

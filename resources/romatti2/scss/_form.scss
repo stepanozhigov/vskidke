@@ -1,6 +1,6 @@
 form {
     font-weight: 400;
-    margin: rem(42) auto 0;
+    margin: 1.5rem auto 0;
     width: 100%;
     text-align: left;
     color: $textwhite;
@@ -10,6 +10,7 @@ form {
     // align-items: center;
 
     &.form-modal {
+        margin-top: rem(42);
         margin-left: auto;
         margin-right: auto;
         
@@ -52,7 +53,7 @@ form {
     button {
 
         color: $submitbtncolor;
-        font-size: rem(14);
+        font-size: rem(12);
         letter-spacing: rem(-0.2);
         text-align: center;
         text-transform: uppercase;
@@ -82,18 +83,34 @@ form {
            outline: none;
        }
 
+       @include mobile {
+        font-size: rem(14);
+       }
+
     }
 
     &.form-modal {
+
+
         input {
-            border-radius: rem(0);
+            border-radius: rem(1);
+            border: 1px solid #dbd9d7;
+
+            //#a7a5a0
+            &::placeholder {
+                color: $modalplaceholdercolor;
+            }
             
             &:focus {
-                border: 1px solid rgba(0, 0, 0, 0.16);
-                border-radius: rem(6);
             }
         }
+
+        button {
+            color: $textwhite;
+        }
+        
     }
+
     &.form-invalid {
         button {
             cursor:not-allowed;

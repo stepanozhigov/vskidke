@@ -14,7 +14,7 @@ export default new Vuex.Store({
         callback: false,
         success: false,
         menu: false,
-        redirectTo: 'https://redzoloto.ru/',
+        redirectTo: 'https://romatti.ru/',
         env: false
     },
     getters: {

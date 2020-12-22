@@ -56,9 +56,9 @@
 			this.setEnv(this.environment);
 			this.setReferer(this.referer);
 			this.setUtm(this.utm);
-			this.setHome();
+			//this.setHome();
 			// this.setMenu();
-			//this.setSuccess();
+			this.setSuccess();
 			//this.setCallback();
 			//
 			this.setViewHeight();

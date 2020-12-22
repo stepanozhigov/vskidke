@@ -1983,10 +1983,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     this.setEnv(this.environment);
     this.setReferer(this.referer);
-    this.setUtm(this.utm);
-    this.setHome(); // this.setMenu();
-    //this.setSuccess();
-    //this.setCallback();
+    this.setUtm(this.utm); //this.setHome();
+    // this.setMenu();
+
+    this.setSuccess(); //this.setCallback();
     //
 
     this.setViewHeight();
@@ -2024,6 +2024,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
 //
 //
 //
@@ -2427,7 +2429,7 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["helpe
     },
     btnText: {
       type: String,
-      "default": "Получить каталог и скидку"
+      "default": "Получить каталог и консультацию"
     },
     placeholderText: {
       type: String,
@@ -2692,7 +2694,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
 //
 //
 //
@@ -3123,17 +3124,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {};
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["isModal", "isSuccess", "env", "isCallback", "isSignup", "isHome"])),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["setEnv", "setModal", "unsetModal", "setSuccess", "unsetSuccess", "setCallback", "unsetCallback", "setSuccess", "setSignup", "unsetSignup", "setHome", "unsetHome"])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["setEnv", "setModal", "unsetModal", "setSuccess", "unsetSuccess", "setCallback", "unsetCallback", "setSuccess", "setSignup", "unsetSignup", "setHome", "unsetHome", "setContactBy"])), {}, {
     toggleCallback: function toggleCallback() {
+      this.setContactBy("phone");
+
       if (this.isCallback) {
-        this.unsetSignup();
-        this.unsetSuccess();
-        this.unsetCallback();
         this.setHome();
       } else {
-        this.unsetHome();
-        this.unsetSignup();
-        this.unsetSuccess();
         this.setCallback();
       }
     }
@@ -4520,7 +4517,7 @@ var render = function() {
       }
     },
     [
-      _c("contactby"),
+      !_vm.isCallback ? _c("contactby") : _vm._e(),
       _vm._v(" "),
       _c("input", {
         directives: [
@@ -4852,7 +4849,13 @@ var render = function() {
           _vm._v(" "),
           _vm._m(3),
           _vm._v(" "),
-          _c("Form")
+          _c("Form"),
+          _vm._v(" "),
+          _c("div", { staticClass: "redirect" }, [
+            _c("a", { attrs: { href: _vm.redirectTo } }, [
+              _vm._v("Перейти на сайт")
+            ])
+          ])
         ],
         1
       ),
@@ -5374,7 +5377,7 @@ var render = function() {
             leadTitle: _vm.title,
             actionType: "callback",
             btnText: "Отправить заявку",
-            placeholderText: "Ваш телефон"
+            placeholderText: "Ваш телефон*"
           }
         }),
         _vm._v(" "),
@@ -21562,7 +21565,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     callback: false,
     success: false,
     menu: false,
-    redirectTo: 'https://redzoloto.ru/',
+    redirectTo: 'https://romatti.ru/',
     env: false
   },
   getters: {
