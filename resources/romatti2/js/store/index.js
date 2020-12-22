@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         utm: false,
+        contactBy: 'phone',
         referer: false,
         currentView:false,
         previousView: false,
@@ -31,6 +32,7 @@ export default new Vuex.Store({
         env:state =>state.env,
         utm:state =>state.utm,
         referer:state =>state.referer,
+        contactBy: state=>state.contactBy
     },
     mutations: {
         SET_HOME: state => {
@@ -68,11 +70,14 @@ export default new Vuex.Store({
         SET_ENV: (state,payload) => (state.env = payload),
         SET_REFERER: (state,payload) => (state.referer = payload),
         SET_UTM: (state,payload) => (state.utm = payload),
+        SET_CONTACTBY: (state,payload) => (state.contactBy = payload),
     },
     actions: {
         setEnv: (context,payload) => context.commit("SET_ENV",payload),
         setReferer: (context,payload) => context.commit("SET_REFERER",payload),
         setUtm: (context,payload) => context.commit("SET_UTM",payload),
+
+        setContactBy: (context,payload) => context.commit("SET_CONTACTBY",payload),
 
         goBack: (context) => {
             if(context.state.previousView == 'home') context.commit("SET_HOME")

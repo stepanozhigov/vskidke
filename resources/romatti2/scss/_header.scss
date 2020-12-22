@@ -39,17 +39,25 @@
         align-items: center;
 
         .menu-icon {
+            display: flex;
+            align-items: center;
+
+            height: 1rem;
 
 
             @include laptop {
                 display: none;
+            }
+
+            svg {
+                width: rem(15);
             }
         }
 
         .app-header-logo {
         height: rem(18);
 
-        margin: 0 0 0 1rem;
+        margin: 0 0 0 rem(12);
 
         svg {
             height: 100%;

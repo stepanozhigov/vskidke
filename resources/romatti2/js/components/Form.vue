@@ -7,6 +7,9 @@
 			'form-modal': isCallback,
 		}"
 	>
+		<!-- CONTACTBY -->
+		<contactby></contactby>
+
 		<!-- {{--PHONE INPUT--}} -->
 
 		<input
@@ -30,6 +33,7 @@
 	import { required, helpers } from "vuelidate/lib/validators";
 	import axios from "axios";
 	import { mapActions, mapGetters } from "vuex";
+	import Contactby from "./Contactby";
 
 	//валидация телефона по регулярному вырожению
 	const phoneValidate = helpers.regex(
@@ -129,6 +133,6 @@
 				}
 			},
 		},
-		components: {},
+		components: { Contactby },
 	};
 </script>

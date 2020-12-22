@@ -944,7 +944,7 @@ video {
   align-items: center;
   flex-shrink: 0;
   flex-grow: 0;
-  background-color: #ffffff;
+  background-color: white;
   height: 4rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -963,14 +963,22 @@ video {
   justify-content: center;
   align-items: center;
 }
+.app-header-menu .menu-icon {
+  display: flex;
+  align-items: center;
+  height: 1rem;
+}
 @media screen and (min-width: 1280px) {
   .app-header-menu .menu-icon {
     display: none;
   }
 }
+.app-header-menu .menu-icon svg {
+  width: 0.9375rem;
+}
 .app-header-menu .app-header-logo {
   height: 1.125rem;
-  margin: 0 0 0 1rem;
+  margin: 0 0 0 0.75rem;
 }
 .app-header-menu .app-header-logo svg {
   height: 100%;
@@ -1123,19 +1131,18 @@ video {
 }
 .menu-view-content_footer .footer-socials {
   margin: 2rem 0 0;
-  max-width: 8.75rem;
-}
-.menu-view-content_footer .footer-socials_icons {
-  margin: 1rem 0 0 0;
-  display: flex;
-  justify-content: space-between;
+  width: 12.5rem;
 }
 @media screen and (min-width: 768px) {
   .menu-view-content_footer .footer-socials {
     margin-top: 0;
   }
 }
-
+.menu-view-content_footer .footer-socials_icons {
+  margin: 1rem 0 0 0;
+  display: flex;
+  justify-content: space-between;
+}
 .home-view {
   display: flex;
   flex-direction: column;
@@ -1153,6 +1160,7 @@ video {
 }
 @media screen and (min-width: 1280px) {
   .home-view {
+    background-position: top left;
     background-image: url("../images/romatti_bkg-1440@2x.jpg");
   }
 }
@@ -1363,7 +1371,6 @@ form {
   color: #f8f7f6;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 form.form-modal {
   margin-left: auto;
@@ -1386,28 +1393,30 @@ form input {
   appearance: none;
   font-size: 1.125rem;
   padding-left: 1rem;
-  border: 1px solid #dbd7d7;
+  border: none;
   border-radius: 0.0625rem;
-  background: transparent;
+  border-top-left-radius: 0;
+  background-color: rgba(255, 255, 255, 0.5);
   width: 100%;
   height: 3.5rem;
 }
 form input::placeholder {
-  color: #a7a0a0;
+  color: #dbd7d7;
 }
 form input:focus {
   outline: none;
 }
 form button {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  color: #2a2928;
   font-size: 0.875rem;
   letter-spacing: -0.0125rem;
   text-align: center;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 3.5rem;
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.16);
@@ -1431,6 +1440,33 @@ form.form-modal input:focus {
 }
 form.form-invalid button {
   cursor: not-allowed;
+}
+
+.contactby {
+  display: flex;
+  border: none;
+}
+.contactby button {
+  color: #dbd7d7;
+  box-shadow: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0.5rem;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+.contactby button.active {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.contactby button svg {
+  width: 100%;
+  height: 100%;
 }
 
 .success-view {

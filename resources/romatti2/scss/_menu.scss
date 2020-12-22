@@ -72,7 +72,11 @@
             .footer-socials {
                 margin: 2rem 0 0;
 
-                max-width: rem(140);
+                width: rem(200);
+
+                @include tablet {
+                    margin-top: 0;
+                }
                 
                 &_icons {
 
@@ -85,9 +89,6 @@
                     }
                 }
 
-                @include tablet {
-                    margin-top: 0;
-                }
             }
 
             

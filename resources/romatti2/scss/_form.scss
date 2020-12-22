@@ -7,7 +7,7 @@ form {
     
     display: flex;
     flex-direction: column;
-    align-items: center;
+    // align-items: center;
 
     &.form-modal {
         margin-left: auto;
@@ -33,15 +33,16 @@ form {
 
         padding-left: rem(16);
 
-        border: 1px solid $bordercolor;
+        border: none;
         border-radius: rem(1);
-        background: transparent;
+        border-top-left-radius: 0;
+        background-color: rgba($bg,.5);
 
         width: 100%;
         height: rem(56);
 
         &::placeholder {
-            color: $textplaceholder;
+            color: $textgrey;
         }
         &:focus {
             outline: none;
@@ -50,17 +51,20 @@ form {
 
     button {
 
+        color: $submitbtncolor;
+        font-size: rem(14);
+        letter-spacing: rem(-0.2);
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 700;
+
+
         margin-top: rem(16);
 
         display: flex;
         justify-content: center;
         align-items: center;
 
-        font-size: rem(14);
-        letter-spacing: rem(-0.2);
-        text-align: center;
-        text-transform: uppercase;
-        font-weight: 600;
 
         width: 100%;
         height: rem(56);

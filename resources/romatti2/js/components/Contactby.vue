@@ -1,0 +1,336 @@
+<template>
+	<div class="contactby">
+		<button
+			class="contactby-whatsapp"
+			@click="setContactBy('whatsapp')"
+			:class="{ active: contactBy == 'whatsapp' }"
+		>
+			<!-- whatsapp active -->
+			<svg
+				v-if="contactBy == 'whatsapp'"
+				xmlns="http://www.w3.org/2000/svg"
+				xmlns:xlink="http://www.w3.org/1999/xlink"
+				viewBox="0 0 40 40"
+			>
+				<defs>
+					<clipPath id="jm3ka">
+						<path
+							d="M0 1a1 1 0 0 1 1-1h38a1 1 0 0 1 1 1v38a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1z"
+						/>
+					</clipPath>
+				</defs>
+				<g>
+					<g>
+						<g>
+							<path
+								fill="#d8d8d8"
+								d="M0 1a1 1 0 0 1 1-1h38a1 1 0 0 1 1 1v38a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1z"
+							/>
+						</g>
+						<g clip-path="url(#jm3ka)">
+							<image
+								width="40"
+								height="40"
+								xlink:href="data:image/png;base64,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"
+							/>
+						</g>
+					</g>
+				</g>
+			</svg>
+
+			<!-- whatsapp not active -->
+			<svg
+				v-if="contactBy != 'whatsapp'"
+				viewBox="0 0 40 40"
+				version="1.1"
+				xmlns="http://www.w3.org/2000/svg"
+				xmlns:xlink="http://www.w3.org/1999/xlink"
+			>
+				<title>wa bw</title>
+				<defs>
+					<path
+						d="M1.2819426,-5.17920154e-17 L38.7180574,5.17920154e-17 C39.1638168,-3.00926524e-17 39.3254599,0.0464128056 39.4884229,0.133566352 C39.6513858,0.220719898 39.7792801,0.348614185 39.8664336,0.511577148 C39.9535872,0.674540111 40,0.83618323 40,1.2819426 L40,38.7180574 C40,39.1638168 39.9535872,39.3254599 39.8664336,39.4884229 C39.7792801,39.6513858 39.6513858,39.7792801 39.4884229,39.8664336 C39.3254599,39.9535872 39.1638168,40 38.7180574,40 L1.2819426,40 C0.83618323,40 0.674540111,39.9535872 0.511577148,39.8664336 C0.348614185,39.7792801 0.220719898,39.6513858 0.133566352,39.4884229 C0.0464128056,39.3254599 2.00617683e-17,39.1638168 -3.45280103e-17,38.7180574 L3.45280103e-17,1.2819426 C-2.00617683e-17,0.83618323 0.0464128056,0.674540111 0.133566352,0.511577148 C0.220719898,0.348614185 0.348614185,0.220719898 0.511577148,0.133566352 C0.674540111,0.0464128056 0.83618323,3.00926524e-17 1.2819426,-5.17920154e-17 Z"
+						id="path-1"
+					></path>
+					<linearGradient
+						x1="50%"
+						y1="0%"
+						x2="50%"
+						y2="100%"
+						id="linearGradient-3"
+					>
+						<stop stop-color="#90FB89" offset="0%"></stop>
+						<stop stop-color="#00DD34" offset="100%"></stop>
+					</linearGradient>
+				</defs>
+				<g
+					id="Symbols"
+					stroke="none"
+					stroke-width="1"
+					fill="none"
+					fill-rule="evenodd"
+				>
+					<g
+						id="UC_Sell-Quiz_GUI"
+						transform="translate(-1034.000000, -164.000000)"
+					>
+						<g id="wa-bw" transform="translate(1034.000000, 164.000000)">
+							<mask id="mask-2" fill="white">
+								<use xlink:href="#path-1"></use>
+							</mask>
+							<use id="Mask" fill="#D8D8D8" xlink:href="#path-1"></use>
+							<polygon
+								id="Fill-1"
+								fill="url(#linearGradient-3)"
+								mask="url(#mask-2)"
+								points="0 40 40 40 40 0 0 0"
+							></polygon>
+							<polygon
+								id="Fill-1"
+								fill="#848484"
+								style="mix-blend-mode: color"
+								mask="url(#mask-2)"
+								points="0 40 40 40 40 0 0 0"
+							></polygon>
+							<path
+								d="M20,6 C27.7204176,6 34,12.2725805 34,19.9843895 C34,27.6961986 27.7204176,33.9687791 20,33.9687791 C17.4971447,33.9687791 15.0547013,33.3044389 12.909684,32.0455145 L12.8136393,31.9871223 L6.26503326,34 L6.8142841,31.990035 L7.3080789,30.1917019 L8.10045902,27.3543921 L8.03588859,27.2506739 C6.8469363,25.3022865 6.15964177,23.1008045 6.02465281,20.8193872 L6.00582708,20.390727 L6,19.9843895 C6,12.2725805 12.2795824,6 20,6 Z M20,8.29252288 C13.5471212,8.29252288 8.29508197,13.5387059 8.29508197,19.9843895 C8.29508197,22.2548259 8.9450023,24.4519022 10.1855596,26.3586232 C10.4146222,26.7228843 10.5003174,27.1636632 10.4191333,27.573913 L10.3808209,27.7261166 L10.2667662,28.1259417 L9.58032787,30.5831813 L12.4082733,29.7140894 C12.4782115,29.6929475 12.549397,29.67621 12.6216748,29.6641381 L12.7308912,29.6495621 L12.8975334,29.6412483 C13.2117639,29.6412483 13.5204878,29.7303477 13.7885291,29.8969016 C15.6503826,31.0611379 17.7959914,31.6762562 20,31.6762562 C26.4528788,31.6762562 31.704918,26.4300732 31.704918,19.9843895 C31.704918,13.5387059 26.4528788,8.29252288 20,8.29252288 Z M15.5265282,13.5653255 C16.1159821,13.5653255 16.6760339,14.6926265 17.0069098,15.5824588 L17.1138483,15.8844347 L17.1138483,15.8844347 L17.199803,16.1533562 C17.2122717,16.1946812 17.2237848,16.2340733 17.2343016,16.2712548 L17.2851212,16.4655939 C17.2978589,16.5200495 17.3062862,16.5634403 17.3100776,16.5935441 L17.3093119,16.6351348 L17.3093119,16.6351348 L17.3011482,16.7251866 C17.2802323,16.8685428 17.2141865,17.0533776 17.0204731,17.3367286 L16.8715114,17.5408502 C16.7301056,17.7241572 16.5436352,17.9417825 16.2979477,18.2035062 C16.2108335,18.2938644 16.1638376,18.4178015 16.1638376,18.549065 C16.1638376,19.8547115 17.5118034,21.4188924 18.9505916,22.6371233 L19.3114533,22.9341239 C19.3716698,22.9823062 19.4318621,23.0298004 19.4919392,23.0765628 L19.8502927,23.3480061 C19.9095456,23.3916665 19.9685013,23.4345076 20.0270692,23.4764857 L20.3730932,23.7176492 L20.3730932,23.7176492 L20.7054412,23.9360024 L20.7054412,23.9360024 L21.019748,24.1294466 L21.019748,24.1294466 L21.3116486,24.2958827 C21.7305123,24.5242315 22.059023,24.6543444 22.2308858,24.6543444 C22.7510604,24.6543444 23.1914401,24.1314501 23.574613,23.583656 L24.0084068,22.9462229 C24.2471219,22.6045986 24.4622329,22.3483804 24.6614876,22.3483804 C24.8321137,22.3483804 25.1236329,22.5343796 25.4533824,22.780271 L25.9663465,23.1782641 L25.9663465,23.1782641 L26.224959,23.3813936 L26.224959,23.3813936 L26.7413586,23.7803104 C27.0934697,24.05986 27.3442623,24.2987354 27.3442623,24.5206388 C27.3442623,24.5690267 27.3379716,24.6260593 27.3250351,24.6900973 L27.2901955,24.8270276 L27.2901955,24.8270276 L27.2370022,24.9797237 C27.2265721,25.006325 27.2153509,25.0334617 27.2033255,25.0610731 L27.1214175,25.2319527 C26.6166882,26.1977792 25.2075244,27.548332 22.4211616,27.1013404 C19.0451983,26.5626158 16.5656075,23.853654 15.0972873,21.434809 L14.841489,20.9987636 C14.7191872,20.782887 14.6053006,20.5706405 14.4999154,20.3638724 L14.300506,19.9581886 C14.112483,19.5609049 13.9586962,19.1904644 13.8398361,18.8616553 C12.9354527,16.3597119 14.5476393,13.5653255 15.5265282,13.5653255 Z"
+								id="Shape"
+								fill="#FFFFFF"
+								fill-rule="nonzero"
+								mask="url(#mask-2)"
+							></path>
+						</g>
+					</g>
+				</g>
+			</svg>
+		</button>
+
+		<button
+			class="contactby-telegram"
+			@click="setContactBy('telegram')"
+			:class="{ active: contactBy == 'telegram' }"
+		>
+			<!-- telegram not active -->
+			<svg
+				v-if="contactBy != 'telegram'"
+				viewBox="0 0 40 40"
+				version="1.1"
+				xmlns="http://www.w3.org/2000/svg"
+				xmlns:xlink="http://www.w3.org/1999/xlink"
+			>
+				<title>tlg bw</title>
+				<defs>
+					<path
+						d="M1.2819426,-5.17920154e-17 L38.7180574,5.17920154e-17 C39.1638168,-3.00926524e-17 39.3254599,0.0464128056 39.4884229,0.133566352 C39.6513858,0.220719898 39.7792801,0.348614185 39.8664336,0.511577148 C39.9535872,0.674540111 40,0.83618323 40,1.2819426 L40,38.7180574 C40,39.1638168 39.9535872,39.3254599 39.8664336,39.4884229 C39.7792801,39.6513858 39.6513858,39.7792801 39.4884229,39.8664336 C39.3254599,39.9535872 39.1638168,40 38.7180574,40 L1.2819426,40 C0.83618323,40 0.674540111,39.9535872 0.511577148,39.8664336 C0.348614185,39.7792801 0.220719898,39.6513858 0.133566352,39.4884229 C0.0464128056,39.3254599 2.00617683e-17,39.1638168 -3.45280103e-17,38.7180574 L3.45280103e-17,1.2819426 C-2.00617683e-17,0.83618323 0.0464128056,0.674540111 0.133566352,0.511577148 C0.220719898,0.348614185 0.348614185,0.220719898 0.511577148,0.133566352 C0.674540111,0.0464128056 0.83618323,3.00926524e-17 1.2819426,-5.17920154e-17 Z"
+						id="path-1"
+					></path>
+					<linearGradient
+						x1="50%"
+						y1="0%"
+						x2="50%"
+						y2="100%"
+						id="linearGradient-3"
+					>
+						<stop stop-color="#90FB89" offset="0%"></stop>
+						<stop stop-color="#00DD34" offset="100%"></stop>
+					</linearGradient>
+				</defs>
+				<g
+					id="Symbols"
+					stroke="none"
+					stroke-width="1"
+					fill="none"
+					fill-rule="evenodd"
+				>
+					<g
+						id="UC_Sell-Quiz_GUI"
+						transform="translate(-976.000000, -164.000000)"
+					>
+						<g id="tlg-bw" transform="translate(976.000000, 164.000000)">
+							<mask id="mask-2" fill="white">
+								<use xlink:href="#path-1"></use>
+							</mask>
+							<use id="Mask" fill="#D8D8D8" xlink:href="#path-1"></use>
+							<polygon
+								id="Fill-1"
+								fill="url(#linearGradient-3)"
+								mask="url(#mask-2)"
+								points="0 40 40 40 40 0 0 0"
+							></polygon>
+							<polygon
+								id="Fill-1"
+								fill="#848484"
+								style="mix-blend-mode: color"
+								mask="url(#mask-2)"
+								points="0 40 40 40 40 0 0 0"
+							></polygon>
+							<path
+								d="M20,3 C29.3891,3 37,10.6109 37,20 C37,29.3891 29.3891,37 20,37 C10.6109,37 3,29.3891 3,20 C3,10.6109 10.6109,3 20,3 Z M27.034717,13 C26.3768828,13.0125771 25.3673873,13.3690197 20.5088622,15.4223425 C18.8074162,16.1414499 15.4062736,17.6303312 10.3054346,19.8880973 C9.4778932,20.2223178 9.04400259,20.5503161 9.00463751,20.8694256 C8.9285317,21.4845336 9.79893726,21.6765326 10.8950359,22.0383085 C11.787311,22.3334181 12.989258,22.6783052 13.6138505,22.6916385 C14.1815824,22.7040828 14.8131731,22.4667507 15.5112471,21.980531 C20.2770457,18.7112145 22.7369255,17.0587785 22.8917615,17.0232232 C23.0002341,16.9983344 23.151571,16.9672235 23.2539202,17.0587785 C23.3562694,17.1512225 23.345772,17.3263327 23.3352747,17.3734436 C23.2486715,17.7485528 18.772425,21.8863093 18.514365,22.1583079 C17.5302381,23.1974136 16.4105204,23.832077 18.1373351,24.9894044 C19.6323332,25.9902882 20.501864,26.6285071 22.0414758,27.6542796 C23.0256027,28.3102762 23.7971582,29.0871611 24.8136519,28.9920505 C25.2807842,28.9476063 25.7636624,28.5013864 26.0086007,27.1689488 C26.5885795,24.0205205 27.7275423,17.1992223 27.9917257,14.3885701 C28.01447,14.1414602 27.9856023,13.8267952 27.9619832,13.6881292 C27.9383642,13.5494633 27.8902513,13.3521309 27.7126711,13.2063539 C27.5035988,13.0339104 27.1799304,12.9974661 27.034717,13 Z"
+								id="Combined-Shape"
+								fill="#FFFFFF"
+								mask="url(#mask-2)"
+							></path>
+						</g>
+					</g>
+				</g>
+			</svg>
+
+			<!-- telegram active -->
+			<svg
+				v-if="contactBy == 'telegram'"
+				viewBox="0 0 40 40"
+				version="1.1"
+				xmlns="http://www.w3.org/2000/svg"
+				xmlns:xlink="http://www.w3.org/1999/xlink"
+			>
+				<title>tlg</title>
+				<defs>
+					<path
+						d="M1.2819426,-5.17920154e-17 L38.7180574,5.17920154e-17 C39.1638168,-3.00926524e-17 39.3254599,0.0464128056 39.4884229,0.133566352 C39.6513858,0.220719898 39.7792801,0.348614185 39.8664336,0.511577148 C39.9535872,0.674540111 40,0.83618323 40,1.2819426 L40,38.7180574 C40,39.1638168 39.9535872,39.3254599 39.8664336,39.4884229 C39.7792801,39.6513858 39.6513858,39.7792801 39.4884229,39.8664336 C39.3254599,39.9535872 39.1638168,40 38.7180574,40 L1.2819426,40 C0.83618323,40 0.674540111,39.9535872 0.511577148,39.8664336 C0.348614185,39.7792801 0.220719898,39.6513858 0.133566352,39.4884229 C0.0464128056,39.3254599 2.00617683e-17,39.1638168 -3.45280103e-17,38.7180574 L3.45280103e-17,1.2819426 C-2.00617683e-17,0.83618323 0.0464128056,0.674540111 0.133566352,0.511577148 C0.220719898,0.348614185 0.348614185,0.220719898 0.511577148,0.133566352 C0.674540111,0.0464128056 0.83618323,3.00926524e-17 1.2819426,-5.17920154e-17 Z"
+						id="path-1"
+					></path>
+				</defs>
+				<g
+					id="Symbols"
+					stroke="none"
+					stroke-width="1"
+					fill="none"
+					fill-rule="evenodd"
+				>
+					<g
+						id="UC_Sell-Quiz_GUI"
+						transform="translate(-976.000000, -219.000000)"
+					>
+						<g id="tlg" transform="translate(976.000000, 219.000000)">
+							<mask id="mask-2" fill="white">
+								<use xlink:href="#path-1"></use>
+							</mask>
+							<use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+							<polygon
+								id="Fill-1"
+								fill="#2BA1DA"
+								style="mix-blend-mode: color"
+								mask="url(#mask-2)"
+								points="0 40 40 40 40 0 0 0"
+							></polygon>
+							<path
+								d="M20,3 C29.3891,3 37,10.6109 37,20 C37,29.3891 29.3891,37 20,37 C10.6109,37 3,29.3891 3,20 C3,10.6109 10.6109,3 20,3 Z M27.034717,13 C26.3768828,13.0125771 25.3673873,13.3690197 20.5088622,15.4223425 C18.8074162,16.1414499 15.4062736,17.6303312 10.3054346,19.8880973 C9.4778932,20.2223178 9.04400259,20.5503161 9.00463751,20.8694256 C8.9285317,21.4845336 9.79893726,21.6765326 10.8950359,22.0383085 C11.787311,22.3334181 12.989258,22.6783052 13.6138505,22.6916385 C14.1815824,22.7040828 14.8131731,22.4667507 15.5112471,21.980531 C20.2770457,18.7112145 22.7369255,17.0587785 22.8917615,17.0232232 C23.0002341,16.9983344 23.151571,16.9672235 23.2539202,17.0587785 C23.3562694,17.1512225 23.345772,17.3263327 23.3352747,17.3734436 C23.2486715,17.7485528 18.772425,21.8863093 18.514365,22.1583079 C17.5302381,23.1974136 16.4105204,23.832077 18.1373351,24.9894044 C19.6323332,25.9902882 20.501864,26.6285071 22.0414758,27.6542796 C23.0256027,28.3102762 23.7971582,29.0871611 24.8136519,28.9920505 C25.2807842,28.9476063 25.7636624,28.5013864 26.0086007,27.1689488 C26.5885795,24.0205205 27.7275423,17.1992223 27.9917257,14.3885701 C28.01447,14.1414602 27.9856023,13.8267952 27.9619832,13.6881292 C27.9383642,13.5494633 27.8902513,13.3521309 27.7126711,13.2063539 C27.5035988,13.0339104 27.1799304,12.9974661 27.034717,13 Z"
+								id="Combined-Shape"
+								fill="#1F95D4"
+								mask="url(#mask-2)"
+							></path>
+						</g>
+					</g>
+				</g>
+			</svg>
+		</button>
+		<button
+			class="contactby-phone"
+			@click="setContactBy('phone')"
+			:class="{ active: contactBy == 'phone' }"
+		>
+			<svg
+				v-if="contactBy != 'phone'"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 40 40"
+			>
+				<defs>
+					<linearGradient
+						id="h02qb"
+						x1="20"
+						x2="20"
+						y1="0"
+						y2="40"
+						gradientUnits="userSpaceOnUse"
+					>
+						<stop offset="0" stop-color="#90fb89" />
+						<stop offset="1" stop-color="#00dd34" />
+					</linearGradient>
+					<clipPath id="h02qa">
+						<path
+							d="M0 1a1 1 0 0 1 1-1h38a1 1 0 0 1 1 1v38a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1z"
+						/>
+					</clipPath>
+				</defs>
+				<g>
+					<g>
+						<g>
+							<path
+								fill="#d8d8d8"
+								d="M0 1a1 1 0 0 1 1-1h38a1 1 0 0 1 1 1v38a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1z"
+							/>
+						</g>
+						<g clip-path="url(#h02qa)">
+							<g><path fill="url(#h02qb)" d="M0 40h40V0H0z" /></g>
+							<g><path fill="#848484" d="M0 40h40V0H0z" /></g>
+							<g>
+								<path
+									fill="#fff"
+									d="M31.789 26.833L27.31 23.77c-.943-.472-1.768.118-2.24.59-2.121 1.65-3.278 1.2-4.713-.236L18 21.766l-2.357-2.357c-1.436-1.436-1.886-2.593-.236-4.715.47-.47 1.06-1.296.589-2.239l-3.064-4.478c-1.061-1.296-1.64-1.402-2.475-1.06-5.181 2.12-4.36 8.838 4.478 17.913 9.076 8.838 15.794 9.66 17.915 4.478.34-.835.235-1.414-1.062-2.475"
+								/>
+							</g>
+						</g>
+					</g>
+				</g>
+			</svg>
+
+			<svg
+				v-if="contactBy == 'phone'"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 40 40"
+			>
+				<defs>
+					<linearGradient
+						id="o4hnb"
+						x1="20"
+						x2="20"
+						y1="0"
+						y2="40"
+						gradientUnits="userSpaceOnUse"
+					>
+						<stop offset="0" stop-color="#90fb89" />
+						<stop offset="1" stop-color="#00dd34" />
+					</linearGradient>
+					<clipPath id="o4hna">
+						<path
+							d="M0 1a1 1 0 0 1 1-1h38a1 1 0 0 1 1 1v38a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1z"
+						/>
+					</clipPath>
+				</defs>
+				<g>
+					<g>
+						<g>
+							<path
+								fill="#d8d8d8"
+								d="M0 1a1 1 0 0 1 1-1h38a1 1 0 0 1 1 1v38a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1z"
+							/>
+						</g>
+						<g clip-path="url(#o4hna)">
+							<g><path fill="url(#o4hnb)" d="M0 40h40V0H0z" /></g>
+							<g>
+								<path
+									fill="#fff"
+									d="M31.789 26.833L27.31 23.77c-.943-.472-1.768.118-2.24.59-2.121 1.65-3.278 1.2-4.713-.236L18 21.766l-2.357-2.357c-1.436-1.436-1.886-2.593-.236-4.715.47-.47 1.06-1.296.589-2.239l-3.064-4.478c-1.061-1.296-1.64-1.402-2.475-1.06-5.181 2.12-4.36 8.838 4.478 17.913 9.076 8.838 15.794 9.66 17.915 4.478.34-.835.235-1.414-1.062-2.475"
+								/>
+							</g>
+						</g>
+					</g>
+				</g>
+			</svg>
+		</button>
+	</div>
+</template>
+<script>
+	import { mapGetters, mapActions } from "vuex";
+	export default {
+		name: "contactby",
+
+		computed: {
+			...mapGetters(["contactBy"]),
+		},
+
+		methods: {
+			...mapActions(["setContactBy"]),
+		},
+	};
+</script>

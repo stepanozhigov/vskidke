@@ -13,6 +13,7 @@
     }
 
     @include laptop {
+        background-position: top left;
         background-image: url("../images/romatti_bkg-1440@2x.jpg");
     }
 

@@ -4,43 +4,33 @@
 			<div class="menu-view-content_list">
 				<ul>
 					<li>
-						<a
-							href="https://redzoloto.ru/%D0%A5%D0%98%D0%A2-%D0%A6%D0%95%D0%9D%D0%AB-c49446184"
-							>ХИТ-ЦЕНЫ
-						</a>
+						<a href="https://romatti.ru/catalog/">Каталог</a>
 					</li>
 					<li>
-						<a
-							href="https://redzoloto.ru/%D0%A1%D0%95%D0%A0%D0%AC%D0%93%D0%98-c47783210"
-							>Серьги</a
-						>
+						<a href="https://romatti.ru/new/">Новинки</a>
 					</li>
 					<li>
-						<a
-							href="https://redzoloto.ru/%D0%9A%D0%9E%D0%9B%D0%AC%D0%A6%D0%90-c47783208"
-							>Кольца</a
-						>
+						<a href="https://romatti.ru/offers/">Акции</a>
 					</li>
 					<li>
-						<a
-							href="https://redzoloto.ru/%D0%9F%D0%9E%D0%94%D0%92%D0%95%D0%A1%D0%9A%D0%98-c47783207"
-							>Подвески</a
-						>
+						<a href="https://romatti.ru/sale/">Распродажа</a>
 					</li>
 				</ul>
 			</div>
 
 			<div class="menu-view-content_footer">
 				<div class="footer-address">
-					<h3>Адрес</h3>
-					<p>Москва, ТЦ Галерея Аэропорт,<br />Ленинградский проспект, 62</p>
-					<p>9:00 — 22:00, без выходных</p>
+					<h3>Шоу-рум</h3>
+					<p>
+						Москва, ул. Ярославское шоссе, дом 19,<br />строение 1 ТЦ Соле молл
+					</p>
+					<p>10:00 — 19:00, будние дни</p>
 				</div>
 				<div class="footer-socials">
 					<h3>Социальные сети</h3>
 					<div class="footer-socials_icons">
 						<div class="icons-item">
-							<a href="https://www.instagram.com/redzoloto/">
+							<a href="https://www.instagram.com/romatti/">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="34"
@@ -87,7 +77,7 @@
 							</a>
 						</div>
 						<div class="icons-item">
-							<a href="https://api.whatsapp.com/send/?phone=79000163950">
+							<a href="https://api.whatsapp.com/send?phone=79266031836">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="34"
@@ -108,7 +98,28 @@
 							</a>
 						</div>
 						<div class="icons-item">
-							<a href="https://vk.com/redzoloto">
+							<a href="https://www.facebook.com/romatti.ru">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="34"
+									height="34"
+									viewBox="0 0 34 34"
+								>
+									<g>
+										<g>
+											<path
+												fill="none"
+												stroke="#a7a5a0"
+												stroke-miterlimit="20"
+												d="M1 17C1 8.163 8.163 1 17 1s16 7.163 16 16-7.163 16-16 16S1 25.837 1 17zm17.579 9.251v-8.559h2.87l.461-3.494h-3.331V11.77c0-.678.55-1.228 1.227-1.228h2.158V7.4H18.95a3.864 3.864 0 0 0-3.864 3.864v2.934H12.2v3.494h2.885v8.56z"
+											/>
+										</g>
+									</g>
+								</svg>
+							</a>
+						</div>
+						<div class="icons-item">
+							<a href="https://vk.com/romatti_official">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="34"
