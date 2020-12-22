@@ -1983,10 +1983,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     this.setEnv(this.environment);
     this.setReferer(this.referer);
-    this.setUtm(this.utm); //this.setHome();
-    // this.setMenu();
-
-    this.setSuccess(); //this.setCallback();
+    this.setUtm(this.utm);
+    this.setHome(); // this.setMenu();
+    //this.setSuccess();
+    //this.setCallback();
     //
 
     this.setViewHeight();
@@ -1997,7 +1997,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return _this.setViewHeight();
     });
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(["isMenu", "isSuccess", "env", "isCallback", "isHome"])),
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(["isMenu", "isSuccess", "env", "isCallback", "isHome"])), {}, {
+    roistatVisit: function roistatVisit() {
+      return VueCookies.get("roistat_visit") || "nocookie";
+    }
+  }),
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(["setEnv", "setSuccess", "unsetSuccess", "setCallback", "unsetCallback", "setSuccess", "setHome", "unsetHome", "setMenu", "unsetMenu", "setReferer", "setUtm"])), {}, {
     setViewHeight: function setViewHeight() {
       var vh = window.innerHeight * 0.01;
@@ -2437,7 +2441,7 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["helpe
     },
     leadTitle: {
       type: String,
-      "default": "Получить прайс-лист"
+      "default": "Получить каталог и консультацию"
     },
     redirectTo: {
       type: String,
@@ -2468,13 +2472,14 @@ var phoneValidate = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["helpe
       var _this = this;
 
       if (this.formValid) {
-        axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/bx24", {
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/roistat", {
           title: this.leadTitle,
           phone: this.phone,
           utm: this.utm,
           referer: this.referer
         }).then(function (response) {
           fbq("track", "Lead");
+          ym(70730425, "reachGoal", "send_form");
 
           _this.setSuccess();
 
@@ -3086,7 +3091,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return "Заказать звонок";
       }
 
-      return "";
+      return "Получить каталог и консультацию";
     }
   })
 });
@@ -4552,7 +4557,7 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("button", { staticClass: "button-pulse" }, [
+      _c("button", { staticClass: "button-pulse submit" }, [
         _vm._v("\n\t\t" + _vm._s(_vm.btnText) + "\n\t")
       ])
     ],

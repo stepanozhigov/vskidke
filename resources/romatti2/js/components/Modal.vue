@@ -70,7 +70,7 @@
 				if (this.isCallback) {
 					return "Заказать звонок";
 				}
-				return "";
+				return "Получить каталог и консультацию";
 			},
 		},
 	};

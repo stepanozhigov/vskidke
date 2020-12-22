@@ -9,6 +9,7 @@ Route::domain('{romatti2}' . env('APP_URL'))
         //     return 'Test';
         // });
         Route::get('/', 'Romatti2Controller@index')->name('home');
-        Route::post('/bx24', 'Romatti2Controller@bitrix24')->name('bitrix24');
+        //Route::post('/bx24', 'Romatti2Controller@bitrix24')->name('bitrix24');
+        Route::post('/roistat', 'Romatti2Controller@roistat')->name('roistat');
     });
 

@@ -24,6 +24,7 @@
     {{-- VUE-CLI JS --}}
     <script src="{{ mix('romatti2/js/app.js') }}" defer></script>
 
+    @yield('roistat')
     @yield('pixel')
     @yield('yandex.metrika')
 

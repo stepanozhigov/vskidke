@@ -62,4 +62,16 @@ class Romatti2Controller extends Controller
         return response()->json($response->json());
         //return response()->json($data['fields']);
     }
+
+    public function roistat(Request $request) {
+        $title = ['title'=>'СВЕТИЛЬНИКИ'];
+        $data = $request->only(['phone','roistat']);
+        $key = ['key'=>"M2YwNTQ5MzRmNmZiZDlmMjhiZDE4ZjNhMDUyODY2YWI6MTcxNzI5"];
+        $response = Http::get('https://cloud.roistat.com/api/proxy/1.0/leads/add',array_merge($data,$key,$title));
+        if ($response->successful()) {
+            return response()->json($response->json(),200);
+        } elseif ($response->failed() || $response->clientError() || $response->serverError()) {
+            return response()->json($response->throw()->json(),422);
+        }
+    }
 }

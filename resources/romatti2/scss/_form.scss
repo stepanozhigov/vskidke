@@ -50,7 +50,7 @@ form {
         }
     }
 
-    button {
+    button.submit {
 
         color: $submitbtncolor;
         font-size: rem(12);
@@ -78,10 +78,15 @@ form {
         &:active {
             outline: none;
             background: none;
-       }
-       &:focus {
-           outline: none;
-       }
+        }
+        &:focus {
+            outline: none;
+        }
+
+        &:hover {
+            color: lighten($textmain,25%);
+            border-color: lighten($textmain,50%);
+        }
 
        @include mobile {
         font-size: rem(14);

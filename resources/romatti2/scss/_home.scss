@@ -13,7 +13,7 @@
     }
 
     @include laptop {
-        background-position: top left;
+        background-position: top center;
         background-image: url("../images/romatti_bkg-1440@2x.jpg");
     }
 
@@ -48,6 +48,8 @@
             width: auto;
             margin: 0 auto;
             padding: 0;
+
+            min-height: rem(544);
         }
 
         h5 {
@@ -121,6 +123,8 @@
 
                 @include laptop {
 
+                    width: rem(722);
+
                     font-size: rem(32);
                     line-height: rem(40);
                     letter-spacing: rem(-0.3);
@@ -169,13 +173,18 @@
             .redirect {
                 color: $textmain;
 
-                font-weight: 600;
+                font-weight: 700;
                 font-size: rem(14);
                 line-height: rem(24);
                 text-transform: uppercase;
                 border-bottom: 1px solid $textmain;
                 
                 margin: rem(24) auto 0 0;
+
+                &:hover {
+                    color: lighten($textmain,25%);
+                    border-color: lighten($textmain,25%);
+                }
 
                 a {
                     display: block;

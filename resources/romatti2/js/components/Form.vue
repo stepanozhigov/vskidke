@@ -23,7 +23,7 @@
 		/>
 
 		<!-- {{--SUBMIT PHONE--}} -->
-		<button class="button-pulse">
+		<button class="button-pulse submit">
 			{{ btnText }}
 		</button>
 	</form>
@@ -61,7 +61,7 @@
 			},
 			leadTitle: {
 				type: String,
-				default: "Получить прайс-лист",
+				default: "Получить каталог и консультацию",
 			},
 			redirectTo: {
 				type: String,
@@ -108,7 +108,7 @@
 			submitForm() {
 				if (this.formValid) {
 					axios
-						.post("/bx24", {
+						.post("/roistat", {
 							title: this.leadTitle,
 							phone: this.phone,
 							utm: this.utm,
@@ -116,6 +116,7 @@
 						})
 						.then((response) => {
 							fbq("track", "Lead");
+							ym(70730425, "reachGoal", "send_form");
 							this.setSuccess();
 							if (this.env == "production") {
 								setTimeout(() => {

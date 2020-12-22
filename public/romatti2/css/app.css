@@ -1160,7 +1160,7 @@ video {
 }
 @media screen and (min-width: 1280px) {
   .home-view {
-    background-position: top left;
+    background-position: top center;
     background-image: url("../images/romatti_bkg-1440@2x.jpg");
   }
 }
@@ -1186,6 +1186,7 @@ video {
     width: auto;
     margin: 0 auto;
     padding: 0;
+    min-height: 34rem;
   }
 }
 .home-view .home-view-content h5 {
@@ -1250,6 +1251,7 @@ video {
 }
 @media screen and (min-width: 1280px) {
   .home-view .home-view-content-center h1 {
+    width: 45.125rem;
     font-size: 2rem;
     line-height: 2.5rem;
     letter-spacing: -0.01875rem;
@@ -1292,12 +1294,16 @@ video {
 }
 .home-view .home-view-content-center .redirect {
   color: #ffdd2d;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.875rem;
   line-height: 1.5rem;
   text-transform: uppercase;
   border-bottom: 1px solid #ffdd2d;
   margin: 1.5rem auto 0 0;
+}
+.home-view .home-view-content-center .redirect:hover {
+  color: #fff2ad;
+  border-color: #fff2ad;
 }
 .home-view .home-view-content-center .redirect a {
   display: block;
@@ -1409,7 +1415,7 @@ form input::placeholder {
 form input:focus {
   outline: none;
 }
-form button {
+form button.submit {
   color: #2a2928;
   font-size: 0.75rem;
   letter-spacing: -0.0125rem;
@@ -1427,15 +1433,19 @@ form button {
   border: none;
   background-color: #ffdd2d;
 }
-form button:active {
+form button.submit:active {
   outline: none;
   background: none;
 }
-form button:focus {
+form button.submit:focus {
   outline: none;
 }
+form button.submit:hover {
+  color: #fff2ad;
+  border-color: white;
+}
 @media screen and (min-width: 375px) {
-  form button {
+  form button.submit {
     font-size: 0.875rem;
   }
 }
@@ -1478,6 +1488,16 @@ form.form-invalid button {
 .contactby button svg {
   width: 100%;
   height: 100%;
+}
+.contactby button:active {
+  outline: none;
+  background: none;
+}
+.contactby button:focus {
+  outline: none;
+}
+.contactby button:hover {
+  cursor: pointer;
 }
 
 .success-view {
