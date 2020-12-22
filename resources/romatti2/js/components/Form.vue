@@ -83,6 +83,7 @@
 				"isHome",
 				"utm",
 				"referer",
+				"contactBy",
 			]),
 			formClass() {
 				if (this.isCallback || this.isSignup) {
@@ -111,6 +112,7 @@
 						.post("/roistat", {
 							title: this.leadTitle,
 							phone: this.phone,
+							contactBy: this.contactBy,
 							utm: this.utm,
 							referer: this.referer,
 						})
