@@ -22,7 +22,7 @@
     </div>
 
     {{-- VUE-CLI JS --}}
-    <script src="{{ asset('romatti2/js/app.js') }}" defer></script>
+    <script src="{{ mix('romatti2/js/app.js') }}" defer></script>
 
     @yield('roistat')
     @yield('pixel')
