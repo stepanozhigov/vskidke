@@ -142,7 +142,7 @@ mix
 
 .sourceMaps()
 .webpackConfig({devtool: 'source-map'})
-.js("resources/romatti2/js/app.js", "public/romatti2/js")
+//.js("resources/romatti2/js/app.js", "public/romatti2/js")
 .sass("resources/romatti2/scss/app.scss", "public/romatti2/css")
 
 

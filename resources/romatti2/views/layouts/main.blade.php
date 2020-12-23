@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <link rel="shortcut icon" href="{{ asset('romatti2/images/favicon.ico')}}">
-    <link href="{{ asset('/romatti2/css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('/romatti2/css/app.css') }}" rel="stylesheet">
 
 </head>
 
