@@ -49,15 +49,15 @@
 			},
 			btnText: {
 				type: String,
-				default: "Получить прайс-лист",
+				default: "Получить сертификат и подарок",
 			},
 			placeholderText: {
 				type: String,
-				default: "Ваш телефон",
+				default: "Введите WhatsApp номер",
 			},
 			leadTitle: {
 				type: String,
-				default: "Получить прайс-лист",
+				default: "Получить сертификат и подарок",
 			},
 			redirectTo: {
 				type: String,

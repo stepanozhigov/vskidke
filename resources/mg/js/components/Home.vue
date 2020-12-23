@@ -1,29 +1,25 @@
 <template>
 	<div class="home-view">
 		<div class="home-view-content">
-			<service></service>
+			<!-- <service></service> -->
 
 			<div class="home-view-content-center">
-				<h1>Полный комплекс услуг<br />салона красоты в&nbsp;Москве</h1>
-				<h3>
-					Оставьте номер телефона и мы вышлем<br />на WhatsApp новогодний
-					прайс-лист<br />
-					со скидкой до 50% в течение 5 минут
-				</h3>
+				<h1>Скидка до 50%</h1>
+				<h3>на подарочный сертификат<br />от салона красоты «MG»</h3>
+				<h5>Купите и получите массаж в подарок!</h5>
 				<Form />
 
 				<!--  -->
-				<div class="signup">
+				<!-- <div class="signup">
 					<a href="#" @click.prevent="openModalSignup">Записаться к мастеру</a>
-				</div>
+				</div> -->
 			</div>
-
-			<!-- AGREEMENT -->
-			<p>
-				Оставляя контактную информацию, вы <span>соглашаетесь</span> на
-				обработку персональных&nbsp;данных
-			</p>
 		</div>
+		<!-- AGREEMENT -->
+		<p>
+			Оставляя контактную информацию, вы
+			<span>соглашаетесь</span> на&nbsp;обработку персональных&nbsp;данных
+		</p>
 	</div>
 </template>
 <script>

@@ -43,7 +43,7 @@ form {
         align-items: center;
 
         color: $bg;
-        font-size: rem(18);
+        font-size: rem(16);
         letter-spacing: rem(-0.4);
         text-align: center;
 
@@ -61,6 +61,13 @@ form {
        }
        &:focus {
            outline: none;
+       }
+       &::placeholder {
+        font-size: rem(16);
+       }
+
+       @include mobile {
+        font-size: rem(18);
        }
 
     }

@@ -43,16 +43,17 @@
 			},
 		},
 		mounted: function () {
-			this.setEnv(this.environment);
-			this.setHome();
-			// this.setSuccess();
-			//this.setModal();
-			//
 			this.setViewHeight();
 			window.addEventListener("resize", () => {
 				this.setViewHeight();
 			});
 			window.addEventListener("orientationchange", () => this.setViewHeight());
+
+			this.setEnv(this.environment);
+			this.setHome();
+			// this.setSuccess();
+			//this.setModal();
+			//
 		},
 		computed: {
 			...mapGetters(["isSuccess", "env", "isCallback", "isSignup", "isHome"]),
