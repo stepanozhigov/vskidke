@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <link rel="shortcut icon" href="{{ asset('mg/images/favicon.ico')}}">
-    <link href="{{ asset('/mg/css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('/mg/css/app.css') }}" rel="stylesheet">
 
 </head>
 
@@ -17,7 +17,7 @@
     </div>
 
     {{-- VUE-CLI JS --}}
-    <script src="{{ asset('mg/js/app.js') }}" defer></script>
+    <script src="{{ mix('mg/js/app.js') }}" defer></script>
 
     @yield('pixel')
     @yield('yandex.metrika')
