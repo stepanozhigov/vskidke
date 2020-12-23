@@ -22,7 +22,7 @@
     </div>
 
     {{-- VUE-CLI JS --}}
-    <script src="{{ asset('redzoloto/js/app.js') }}" defer></script>
+    <script src="{{ mix('redzoloto/js/app.js') }}" defer></script>
 
     @yield('pixel')
     @yield('yandex.metrika')
