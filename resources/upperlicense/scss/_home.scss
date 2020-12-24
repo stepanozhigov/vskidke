@@ -250,7 +250,12 @@
             }
         }
 
-        a {
+        a.redirect {
+            margin-top: 1rem;
+            text-decoration: underline;
+        }
+
+        a.agreement {
             @apply block;
             @apply font-normal;
             @apply text-left;

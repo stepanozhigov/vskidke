@@ -13,8 +13,13 @@
 			</h5>
 			<Form />
 
+			<!-- REDIRECT -->
+			<a class="redirect" href="https://www.license.kz/serviceGroup/63">
+				Перейти на сайт
+			</a>
+
 			<!-- AGREEMENT -->
-			<a href="#" @click.prevent="toggleAgreement">
+			<a class="agreement" href="#" @click.prevent="toggleAgreement">
 				Оставляя контактную информацию, вы соглашаетесь на обработку
 				персональных&nbsp;данных
 			</a>
