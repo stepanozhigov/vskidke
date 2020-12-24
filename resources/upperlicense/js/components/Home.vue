@@ -14,21 +14,24 @@
 			<Form />
 
 			<!-- AGREEMENT -->
-			<p>
-				Оставляя контактную информацию, вы <span>соглашаетесь</span> на
-				обработку персональных&nbsp;данных
-			</p>
+			<a href="#" @click.prevent="toggleAgreement">
+				Оставляя контактную информацию, вы соглашаетесь на обработку
+				персональных&nbsp;данных
+			</a>
 		</div>
 	</div>
 </template>
 <script>
-	import { mapGetters } from "vuex";
+	import { mapActions, mapGetters } from "vuex";
 	import Form from "./Form";
 	export default {
 		name: "Home",
 		data: () => ({}),
 		computed: {
 			...mapGetters(["redirectTo"]),
+		},
+		methods: {
+			...mapActions(["toggleAgreement"]),
 		},
 		components: {
 			Form,

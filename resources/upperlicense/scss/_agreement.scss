@@ -1,0 +1,81 @@
+.agreement-view {
+    @apply px-4;
+    @apply w-full;
+    border-top: 1px solid rgba(186, 190, 194, 0.35);
+
+    .agreement-view-content {
+        width:100%;
+        padding-bottom: 1rem;
+
+        @screen phone {
+            margin: 0;
+        }
+
+        h1 {
+            @apply text-left;
+            font-weight: bold;
+            width: 100%;
+            font-size: 1rem;
+            color: theme("colors.darktext");
+            line-height: normal;
+            letter-spacing: rem(-0.3);
+
+            margin-top: 3rem;
+            margin-right: auto;
+
+            @screen tablet {
+                font-size: 2rem;
+                margin-top: rem(200);
+                text-align: center;
+            }
+        }
+
+        .main-ul {
+            line-height: normal;
+
+            .main-ul-li {
+                margin-top: 2rem;
+
+               h3 {
+                    font-weight: 600;
+                    margin-top: 1rem;
+
+                    @screen tablet {
+                        font-size: 1.5rem;
+                    }
+                }
+
+                ul.sub-ul {
+                    font-size: rem(12);
+                    margin-top: .5rem;
+
+                    @screen tablet {
+                        font-size: 1rem;
+                    }
+
+                    li.sub-ul-li {
+                        margin-top: .5rem;
+                    }
+                }
+            }
+        }
+        
+
+        .agreement-view-close {
+            top: 1rem;
+            right: 0rem;
+        }
+    }
+    a {
+        @apply block;
+
+        @apply font-normal;
+        @apply text-left;
+        color: theme("colors.graytext1");
+        font-size: rem(16);
+        @apply underline;
+
+        margin-top: rem(24);
+        margin-right: auto;
+    }
+}

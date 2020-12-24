@@ -9,7 +9,7 @@
     <link rel="icon" href="{{ asset('upperlicense/images/favicon-32x32.png')}}" sizes='32x32'>
     <link rel="icon" href="{{ asset('upperlicense/images/favicon-128x128.png')}}" sizes='128x128'>
     <link rel="icon" href="{{ asset('upperlicense/images/favicon-180x180.png')}}" sizes='180x180'>
-    <link href="{{ asset('/upperlicense/css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('/upperlicense/css/app.css') }}" rel="stylesheet">
 
 </head>
 
@@ -24,7 +24,7 @@
     <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
 
     {{-- VUE-CLI JS --}}
-    <script src="{{ asset('upperlicense/js/app.js') }}" defer></script>
+    <script src="{{ mix('upperlicense/js/app.js') }}" defer></script>
 
     <!-- Facebook Pixel Code -->
     <script>

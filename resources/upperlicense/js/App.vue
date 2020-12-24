@@ -5,7 +5,7 @@
 		<!-- /HEADER -->
 
 		<!-- HOME VIEW -->
-		<home v-if="!isSuccess && !isModal"></home>
+		<home v-if="!isSuccess && !isModal && !isAgreement"></home>
 		<!-- /HOME VIEW -->
 
 		<!-- SUCCESS VIEW -->
@@ -15,6 +15,10 @@
 		<!-- MODAL VIEW -->
 		<modal v-if="!isSuccess && isModal"></modal>
 		<!-- /MODAL VIEW -->
+
+		<!-- AGREEMENT VIEW -->
+		<agreement v-if="isAgreement"></agreement>
+		<!-- /AGREEMENT VIEW -->
 	</div>
 </template>
 
@@ -26,6 +30,7 @@
 	import Home from "./components/Home";
 	import Success from "./components/Success";
 	import Modal from "./components/Modal";
+	import Agreement from "./components/Agreement";
 	export default {
 		name: "App",
 		data: () => ({
@@ -42,6 +47,7 @@
 			Success,
 			Modal,
 			Form,
+			Agreement
 		},
 		created: function () {
 			this.setEnv(this.environment);
@@ -59,7 +65,7 @@
 			window.addEventListener("orientationchange", () => this.setViewHeight());
 		},
 		computed: {
-			...mapGetters(["isModal", "isSuccess", "env"]),
+			...mapGetters(["isModal", "isSuccess", "env", "isAgreement"]),
 			addressUrl() {
 				return `https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=${this.apiKey}&at=${this.latitude},${this.longitude}&lang=en-US`;
 			},

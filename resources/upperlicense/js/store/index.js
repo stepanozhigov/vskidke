@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         env: 'local',
+        agreement: false,
         modal: false,
         success: false,
         ipLocation: null,
@@ -14,6 +15,7 @@ export default new Vuex.Store({
     },
     getters: {
         isModal: state => state.modal,
+        isAgreement: state => state.agreement,
         isSuccess: state => state.success,
         ipLocation: state => state.ipLocation,
         geoLocation: state => state.geoLocation,
@@ -22,6 +24,7 @@ export default new Vuex.Store({
     },
     mutations: {
         SET_ENV: (state,payload) => (state.env = payload),
+        SET_AGREEMENT: (state,payload) => (state.agreement = payload),
         SET_MODAL: state => (state.modal = true),
         UNSET_MODAL: state => (state.modal = false),
         SET_SUCCESS: state => (state.success = true),
@@ -36,6 +39,13 @@ export default new Vuex.Store({
         unsetModal: context => context.commit("UNSET_MODAL"),
         setSuccess: context => context.commit("SET_SUCCESS"),
         unsetSuccess: context => context.commit("UNSET_SUCCESS"),
+        toggleAgreement: context => {
+            if(!context.getters.isAgreement) {
+                context.commit("SET_AGREEMENT",true)
+            } else {
+                context.commit("SET_AGREEMENT",false)
+            }
+        },
         setIpLocation: (context, payload) =>
             context.commit("SET_IP_LOCATION", payload),
         setGeoLocation: (context, payload) =>

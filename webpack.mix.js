@@ -22,7 +22,7 @@ require("laravel-mix-purgecss");
 
 //ROMATTI
 
-mix
+//mix
     //.copy("resources/romatti/images/", "public/romatti/images/")
     //.copy("resources/romatti/fonts/", "public/romatti/fonts/")
     // .js("resources/romatti/js/app.js", "public/romatti/js");
@@ -40,12 +40,12 @@ mix
 
 //UPPERLICENSE
 
-// mix
-//.copy("resources/zamania/images/", "public/zamania/images/")
-//.copy("resources/zamania/fonts/", "public/zamania/fonts/")
-// .js("resources/upperlicense/js/app.js", "public/upperlicense/js")
-// .sass("resources/upperlicense/scss/app.scss", "public/upperlicense/css",
-// {},[tailwindcss("./tailwind.upperlicense.config.js")])
+mix
+.sourceMaps()
+.webpackConfig({devtool: 'source-map'})
+.js("resources/upperlicense/js/app.js", "public/upperlicense/js")
+.sass("resources/upperlicense/scss/app.scss", "public/upperlicense/css",
+{},[tailwindcss("./tailwind.upperlicense.config.js")])
 
 //KORONATEH
 
@@ -117,16 +117,16 @@ mix
 // .sass("resources/mg/scss/app.scss", "public/mg/css")
 
 //redzoloto.vskidke.ru (local: redzoloto.vskidke.local)
-mix
-.options({
-    processCssUrls: false,
-    autoprefixer: {
-        browsers: ["last 20 versions"]
-    }
-})
+// mix
+// .options({
+//     processCssUrls: false,
+//     autoprefixer: {
+//         browsers: ["last 20 versions"]
+//     }
+// })
 
-.sourceMaps()
-.webpackConfig({devtool: 'source-map'})
+// .sourceMaps()
+// .webpackConfig({devtool: 'source-map'})
 // .js("resources/redzoloto/js/app.js", "public/redzoloto/js")
 // .sass("resources/redzoloto/scss/app.scss", "public/redzoloto/css")
 
@@ -147,7 +147,7 @@ mix
 
 
 mix.browserSync({
-    proxy: "redzoloto.vskidke.local",
+    proxy: "upperlicense.vskidke.local",
     open: false
 });
 
