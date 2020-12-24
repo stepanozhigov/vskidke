@@ -103,20 +103,6 @@ mix
 
 
 //mg (local: mg.vskidke.local)
-mix
-.options({
-    processCssUrls: false,
-    autoprefixer: {
-        browsers: ["last 20 versions"]
-    }
-})
-
-.sourceMaps()
-.webpackConfig({devtool: 'source-map'})
-.js("resources/mg/js/app.js", "public/mg/js")
-.sass("resources/mg/scss/app.scss", "public/mg/css")
-
-//redzoloto.vskidke.ru (local: redzoloto.vskidke.local)
 // mix
 // .options({
 //     processCssUrls: false,
@@ -127,8 +113,22 @@ mix
 
 // .sourceMaps()
 // .webpackConfig({devtool: 'source-map'})
+// .js("resources/mg/js/app.js", "public/mg/js")
+// .sass("resources/mg/scss/app.scss", "public/mg/css")
+
+//redzoloto.vskidke.ru (local: redzoloto.vskidke.local)
+mix
+.options({
+    processCssUrls: false,
+    autoprefixer: {
+        browsers: ["last 20 versions"]
+    }
+})
+
+.sourceMaps()
+.webpackConfig({devtool: 'source-map'})
 // .js("resources/redzoloto/js/app.js", "public/redzoloto/js")
-//.sass("resources/redzoloto/scss/app.scss", "public/redzoloto/css")
+// .sass("resources/redzoloto/scss/app.scss", "public/redzoloto/css")
 
 
 //romatti2.vskidke.ru (local: romatti2.vskidke.local)
@@ -142,12 +142,12 @@ mix
 
 // .sourceMaps()
 // .webpackConfig({devtool: 'source-map'})
-// .js("resources/romatti2/js/app.js", "public/romatti2/js")
-// .sass("resources/romatti2/scss/app.scss", "public/romatti2/css")
+//.js("resources/romatti2/js/app.js", "public/romatti2/js")
+//.sass("resources/romatti2/scss/app.scss", "public/romatti2/css")
 
 
 mix.browserSync({
-    proxy: "mg.vskidke.local",
+    proxy: "redzoloto.vskidke.local",
     open: false
 });
 

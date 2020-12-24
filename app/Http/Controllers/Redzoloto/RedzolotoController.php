@@ -65,28 +65,44 @@ class RedzolotoController extends Controller
         //create with contact 482664
 
         //get contact 482664
+        $new_contact = false;
+
         $contact_response = Http::post($webhook.'crm.contact.list.json',[
             'filter' => ['PHONE'=>$request->input('phone')] 
         ]);
 
         if($contact_response->successful()) {
+
             //create lead with existing contact
             if(count($contact_response->json()['result'])>0) {
+
+                $new_contact = false;
+
                 $contact = $contact_response->json()['result'][0];
                 $contact_id = intval($contact['ID']);
-                $data['CONTACT_ID'] = $contact_id;
+                $data['fields']['CONTACT_ID'] = $contact_id;
+                //return response()->json($data, 400);
                 $create_response = Http::post($webhook.'crm.lead.add.json',$data);
             }
             else {
                  //create lead with new client
                 $create_response = Http::post($webhook.'crm.lead.add.json',$data);
              }
+             $new_lead_id = $create_response['result'];
 
-             //response
-            if($create_response->successful()) {
-                return response()->json($create_response->json(),201);
-            } else {
-                return response()->json(['error'=>'Повторите заявку'], 400);
+            //get new lead
+            $new_lead_response = Http::post($webhook.'crm.lead.list.json',[
+                'filter' => ['ID'=>$new_lead_id]
+            ]);
+
+            if(count($new_lead_response->json()['result'])>0) {
+                $new_lead = $new_lead_response->json()['result'][0];
+                return response()->json([
+                    'error'=>false,
+                    'lead_id' => $new_lead['ID'],
+                    'contact_id' => $new_lead['CONTACT_ID'],
+                    'new_contact' => $new_contact
+                ],201);
             }
 
         } else {
