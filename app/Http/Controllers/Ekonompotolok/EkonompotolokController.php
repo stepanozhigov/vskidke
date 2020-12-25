@@ -27,7 +27,7 @@ class EkonompotolokController extends Controller
         if($request->input('location')) {
             $comments .= "IP: ".$request->ip."; ";
             $comments .= "IP-Город: ".$request->ipLocation."; ";
-            $comments .= $request->geoLocation ? "Гео-Город: ".$request->geoLocation : 'нет';
+            $comments .= $request->geoLocation ? "Гео-Город: ".$request->geoLocation : 'геолокация отсутствует';
         }
 
         $data = [
@@ -35,7 +35,7 @@ class EkonompotolokController extends Controller
                 //Лид (стр1)
                 'TITLE'=> $request->input('title'),
                 //СТАТУС
-                'STATUS_ID'=>env('APP_ENV') == 'local' ? 'Хлам' : '',
+                'STATUS_ID'=>env('APP_ENV') == 'local' ? 'JUNK' : '',
                 //Лид (стр2)
                 'SOURCE_ID'	=>$request->input('utm_source') ?? env('APP_ENV') == 'local' ? 'Тест' : 'Веб-сайт',
                 //Ответственный (ID)

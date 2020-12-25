@@ -38,6 +38,10 @@
 			phone: "",
 		}),
 		props: {
+			leadTitle: {
+				type: String,
+				default: "ЭП Замер",
+			},
 			btnText: {
 				type: String,
 				default: "Записаться",
@@ -87,10 +91,10 @@
 					this.isValid = false;
 				} else {
 					this.isValid = true;
-					console.log("SEND FORM");
+					//console.log("SEND FORM");
 					axios
 						.post("bx24", {
-							title: "Замер",
+							title: this.leadTitle,
 							phone: this.phone,
 							city: this.currentCity.bx_code,
 							ip: this.ip,

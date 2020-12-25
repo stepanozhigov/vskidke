@@ -90,7 +90,7 @@
 					this.isValid = true;
 					axios
 						.post("/bx24", {
-							title: "Расчет",
+							title: "ЭП Расчет",
 							phone: this.phone,
 							city: this.currentCity.bx_code,
 							area: this.area,
