@@ -14,8 +14,8 @@
 			...mapGetters(["env", "redirectTo"]),
 		},
 		mounted() {
-			if (this.env == "local") {
-				window.location.href = this.redirectTo;
+			if (this.env != "local") {
+				setTimeout(() => (window.location.href = this.redirectTo), 1500);
 			}
 		},
 	};
