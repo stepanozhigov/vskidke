@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import App from './views/App'
-// import Home from './views/Home'
+import Thanks from './views/Thanks'
 
 const routes =[
     {
@@ -15,6 +15,11 @@ const routes =[
             utm_medium: route.query.utm_medium,
             utm_term: route.query.utm_term
         })
+    },
+    {
+        path: '/:citycode/thanks',
+        name: 'Thanks',
+        component: Thanks,
     }
 ]
 

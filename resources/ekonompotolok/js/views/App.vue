@@ -30,7 +30,7 @@
 		created: async function () {
 			this.setEnv(this.env);
 			//set utms
-			console.log(this.utm);
+			// console.log(this.utm);
 			this.setUtm({
 				utm_source: this.utm_source,
 				utm_campaign: this.utm_campaign,

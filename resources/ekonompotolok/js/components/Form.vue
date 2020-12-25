@@ -109,11 +109,16 @@
 						})
 						.then((response) => {
 							fbq("track", "Lead");
+							console.log(this.currentCity);
 							// ga.getAll()[0].send("event", "lead", this.actionType);
 							// ym(68586496, "reachGoal", "send form");
-							if (this.env != "local") {
-								window.location.replace(this.redirectTo);
-							}
+							// if (this.env != "local") {
+							// 	window.location.replace(this.redirectTo);
+							// }
+							this.$router.push({
+								name: "Thanks",
+								params: { citycode: this.currentCity.code },
+							});
 						});
 				}
 			},
