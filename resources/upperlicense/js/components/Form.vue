@@ -80,9 +80,18 @@
 				"env",
 				"geoLocation",
 				"ipLocation",
+				"utm",
 			]),
 			formValid: function () {
 				return this.phoneIsValid;
+			},
+			leadComment() {
+				return (
+					"Геолокация: " +
+					(this.geoAddress ? this.geoAddress + "; " : "не определено; ") +
+					"IPлокация: " +
+					(this.ipLocation ? this.ipLocation : "не определено")
+				);
 			},
 			geoAddress() {
 				if (this.geoLocation) {
@@ -112,6 +121,8 @@
 						.post("/ammoconnect", {
 							phone: this.phone,
 							url: "med.license.kz",
+							lead_comment: this.leadComment,
+							utm: this.utm,
 							geoLocation: this.geoAddress,
 							ipLocation: this.ipAddress,
 						})

@@ -19,7 +19,8 @@ class UpperlicenseController extends Controller
         $response = Http::asForm()->post('http://amoconnect.ru/amo-ipravo/api/slug/upperlicense-vskidke-ru', [
             'url' => $request->url,
             'phone' => $request->phone,
-            //'email' => $request->email,
+            'lead_comment'=>$request->input('lead_comment',''),
+            'utm' => $request->utm,
             'contact_fields' => [
                 'geo_location' => $request->geoLocation,
                 'ip_location' => $request->ipLocation
@@ -27,7 +28,7 @@ class UpperlicenseController extends Controller
         ]);
         if ($response->successful()) {
             return response()->json($response->json());
-        } elseif ($response->failed() || $response->clientError() || $response->serverError()) {
+        } elseif ($response->failed()) {
             return response()->json($response->throw()->json());
         }
     }

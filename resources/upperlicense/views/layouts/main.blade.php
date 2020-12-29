@@ -16,7 +16,7 @@
 <body class="antialiased">
 
     <div id="app">
-        <App environment="{{env('APP_ENV')}}"/>
+        <App environment="{{env('APP_ENV')}}" :utm="{{json_encode($utm)}}" />
     </div>
 
     {{-- HERE Maps API --}}

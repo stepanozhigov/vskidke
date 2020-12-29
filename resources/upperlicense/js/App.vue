@@ -47,9 +47,10 @@
 			Success,
 			Modal,
 			Form,
-			Agreement
+			Agreement,
 		},
 		created: function () {
+			this.setUtm(this.utm);
 			this.setEnv(this.environment);
 			this.getAddress();
 		},
@@ -85,6 +86,7 @@
 				"setEnv",
 				"ipLocation",
 				"geoLocation",
+				"setUtm",
 			]),
 			setViewHeight: function () {
 				let vh = window.innerHeight * 0.01;
@@ -129,6 +131,9 @@
 			environment: {
 				type: String,
 				default: "",
+			},
+			utm: {
+				type: Object,
 			},
 		},
 	};

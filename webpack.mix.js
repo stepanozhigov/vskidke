@@ -40,10 +40,10 @@ require("laravel-mix-purgecss");
 
 //UPPERLICENSE
 
-// mix
-// .sourceMaps()
-// .webpackConfig({devtool: 'source-map'})
-// .js("resources/upperlicense/js/app.js", "public/upperlicense/js")
+mix
+.sourceMaps()
+.webpackConfig({devtool: 'source-map'})
+.js("resources/upperlicense/js/app.js", "public/upperlicense/js")
 // .sass("resources/upperlicense/scss/app.scss", "public/upperlicense/css",
 // {},[tailwindcss("./tailwind.upperlicense.config.js")])
 
@@ -65,17 +65,17 @@ require("laravel-mix-purgecss");
 // {},[tailwindcss("./tailwind.vsyanedvizhimost.config.js")])
 
 //ekonompotolok (local: econom.vskidke.local)
-mix
-.options({
-    processCssUrls: false,
-    autoprefixer: {
-        browsers: ["last 20 versions"]
-    }
-})
-.sourceMaps()
-.webpackConfig({devtool: 'source-map'})
-.js("resources/ekonompotolok/js/app.js", "public/ekonompotolok/js")
-.sass("resources/ekonompotolok/scss/app.scss", "public/ekonompotolok/css")
+// mix
+// .options({
+//     processCssUrls: false,
+//     autoprefixer: {
+//         browsers: ["last 20 versions"]
+//     }
+// })
+// .sourceMaps()
+// .webpackConfig({devtool: 'source-map'})
+// .js("resources/ekonompotolok/js/app.js", "public/ekonompotolok/js")
+// .sass("resources/ekonompotolok/scss/app.scss", "public/ekonompotolok/css")
 
 // mix.browserSync({
 //     proxy: "localhost",
@@ -146,7 +146,7 @@ mix
 
 
 mix.browserSync({
-    proxy: "econom.vskidke.local",
+    proxy: "upperlicense.vskidke.local",
     open: false
 });
 
